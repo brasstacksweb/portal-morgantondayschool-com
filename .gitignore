@@ -1,4 +1,6 @@
 /.env
 /.idea
+/.php-cs-fixer.cache
 /vendor
 .DS_Store
+*.swp
