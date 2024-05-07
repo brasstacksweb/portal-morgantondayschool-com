@@ -20,8 +20,17 @@ return GeneralConfig::create()
     ->preloadSingles()
     // Prevent user enumeration attacks
     ->preventUserEnumeration()
+    // Enable Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
+    ->devMode(App::env('CRAFT_DEV_MODE') ?? false)
+    // Allow administrative changes
+    ->allowAdminChanges(App::env('CRAFT_ALLOW_ADMIN_CHANGES') ?? false)
+    // Disallow robots
+    ->disallowRobots(App::env('CRAFT_DISALLOW_ROBOTS') ?? false)
     // Set the @webroot alias so the clear-caches command knows where to find CP resources
     ->aliases([
-        '@webroot' => dirname(__DIR__) . '/web',
+        '@assetBasePath' => App::env('HOME_PATH').'/'.App::env('WEB_DIR').'/'.App::env('ASSETS_DIR'),
+        '@assetBaseUrl' => '/'.App::env('ASSETS_DIR'),
+        '@webroot' => dirname(__DIR__) . '/public',
     ])
+    ->pageTrigger('?page')
 ;

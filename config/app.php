@@ -22,6 +22,52 @@
 
 use craft\helpers\App;
 
+$passwords = ['mds' => 'portal'];
+$users = array_keys($passwords);
+$user = $_SERVER['PHP_AUTH_USER'] ?? '';
+$pass = $_SERVER['PHP_AUTH_PW'] ?? '';
+$path = $_SERVER['REDIRECT_URL'] ?? $_SERVER['REQUEST_URI'];
+$protected = [];
+$exceptions = [];
+$bypass = $_GET['bypass'] ?? false;
+
+if (
+    php_sapi_name() !== 'cli'
+    && (App::env('CRAFT_ENVIRONMENT') === 'staging' || in_array($path, $protected, true))
+    && (!in_array($path, $exceptions, true)) // Allow requests in white-listed paths
+    && (!in_array($user, $users, true) || $pass !== $passwords[$user]) // Check credentials
+    && !((bool) $bypass)
+) {
+    header('WWW-Authenticate: Basic realm="MDS Portal"');
+    header('HTTP/1.0 401 Unauthorized');
+    exit('Not authorized');
+}
+
+$modules = [
+    'components-module' => \modules\components\ComponentsModule::class,
+    'forms-module' => \modules\forms\FormsModule::class,
+    'site-module' => \modules\site\SiteModule::class,
+];
+
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+    'modules' => $modules,
+    'bootstrap' => array_keys($modules),
+    'components' => [
+        'log' => [
+            'targets' => [
+                [
+                    'enabled' => !App::env('CRAFT_DEV_MODE'),
+                    'class' => \yii\log\EmailTarget::class,
+                    'levels' => [\Psr\Log\LogLevel::ERROR],
+                    'logVars' => ['_SERVER.REQUEST_URI'],
+                    'except' => [\yii\web\HttpException::class.':404'],
+                    'message' => [
+                        'to' => ['trevor@brasstacksweb.com'],
+                        'subject' => 'portal.morgantondayschool.comError',
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
