@@ -54,6 +54,27 @@ abstract class Form extends BaseForm
         return true;
     }
 
+    public function validateFile($attribute, $params, $validator, $current)
+    {
+        $f = UploadedFile::getInstanceByName($attribute);
+
+        if ($f === null) {
+            $this->addErrors([$attribute => 'File is required.']);
+
+            return false;
+        }
+
+        if ($f->getHasError()) {
+            $this->addErrors([$attribute => $f->error]);
+
+            return false;
+        }
+
+        $this->{$attribute} = $f;
+
+        return true;
+    }
+
     public function validateRecaptcha($attribute, $params, $validator, $current)
     {
         $endpoint = 'https://www.google.com/recaptcha/api/siteverify';
@@ -94,7 +115,7 @@ abstract class Form extends BaseForm
         $table .= '<tbody>';
 
         foreach ($this->getAttributes() as $name => $value) {
-            if ($this->getAttributeType($name) === 'hidden') {
+            if (!$this->isAttributeActive($name) || $this->getAttributeType($name) === 'hidden') {
                 continue;
             }
 
