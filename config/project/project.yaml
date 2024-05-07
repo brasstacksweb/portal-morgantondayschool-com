@@ -1,12 +1,22 @@
-dateModified: 1715101178
+dateModified: 1715108738
 email:
   fromEmail: trevor@brasstacksweb.com
   fromName: 'Morganton Day School'
-  transportType: craft\mail\transportadapters\Sendmail
+  replyToEmail: null
+  template: null
+  transportSettings:
+    messageStream: ''
+    token: 28b70b4d-0caf-4fa3-afa7-a3dfef9d1d75
+  transportType: craftcms\postmark\Adapter
 meta:
   __names__:
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School
     812fd012-9cc4-4c3c-bf03-845a6340a1f5: 'Morganton Day School' # Morganton Day School
+plugins:
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
 system:
   edition: solo
   live: true

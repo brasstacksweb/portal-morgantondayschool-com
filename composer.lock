@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa183275a53b0a10171e5f9a2b4c4035",
+    "content-hash": "edd33102eec20bc32406521d3372e7dc",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -371,6 +371,57 @@
                 "plugin"
             ],
             "time": "2023-02-22T13:17:00+00:00"
+        },
+        {
+            "name": "craftcms/postmark",
+            "version": "3.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/postmark/zipball/05d7098b2a64c30e92e64ff8119b30c0f3f54c7d",
+                "reference": "05d7098b2a64c30e92e64ff8119b30c0f3f54c7d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-alpha.1|^5.0.0-beta.1",
+                "php": "^8.0.2",
+                "symfony/postmark-mailer": "^v6.0.3|^7.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Postmark",
+                "handle": "postmark",
+                "documentationUrl": "https://github.com/craftcms/postmark/blob/master/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craftcms\\postmark\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Postmark adapter for Craft CMS",
+            "keywords": [
+                "cms",
+                "craftcms",
+                "mailer",
+                "postmark",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/postmark/issues?state=open",
+                "source": "https://github.com/craftcms/postmark",
+                "docs": "https://github.com/craftcms/postmark/blob/master/README.md",
+                "rss": "https://github.com/craftcms/postmark/commits/master.atom"
+            },
+            "time": "2024-03-19T21:01:58+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -3421,6 +3472,49 @@
                 "uuid"
             ],
             "time": "2024-01-29T20:11:03+00:00"
+        },
+        {
+            "name": "symfony/postmark-mailer",
+            "version": "v7.0.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/postmark-mailer/zipball/c99bb20bf7434ff506f2b22bc7d3c6e7b5ffa5f8",
+                "reference": "c99bb20bf7434ff506f2b22bc7d3c6e7b5ffa5f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "psr/event-dispatcher": "^1",
+                "symfony/mailer": "^6.4|^7.0"
+            },
+            "conflict": {
+                "symfony/http-foundation": "<6.4"
+            },
+            "type": "symfony-mailer-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Mailer\\Bridge\\Postmark\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Postmark Mailer Bridge",
+            "homepage": "https://symfony.com",
+            "time": "2024-04-18T09:29:19+00:00"
         },
         {
             "name": "symfony/process",

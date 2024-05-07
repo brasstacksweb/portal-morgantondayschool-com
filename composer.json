@@ -3,6 +3,7 @@
   "prefer-stable": true,
   "require": {
     "craftcms/cms": "5.1.2",
+    "craftcms/postmark": "^3.1.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
