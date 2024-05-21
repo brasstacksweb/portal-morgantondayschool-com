@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 7459fa4e-33c3-4be0-8868-4011ce1be81e # Reminder
+handle: reminders
+maxAuthors: 1
+name: Reminders
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

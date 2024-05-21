@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 507c2c35-81fa-4361-90d7-f7514bbb4434 # Activity
+handle: activities
+maxAuthors: 1
+name: Activities
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School
+    enabledByDefault: true
+    hasUrls: true
+    template: activities/_entry
+    uriFormat: 'activities/{slug}'
+type: channel

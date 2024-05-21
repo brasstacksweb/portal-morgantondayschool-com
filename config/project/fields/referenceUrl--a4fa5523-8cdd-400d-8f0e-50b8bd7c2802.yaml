@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: referenceUrl
+instructions: null
+name: 'Reference URL'
+searchable: false
+settings:
+  maxLength: 500
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

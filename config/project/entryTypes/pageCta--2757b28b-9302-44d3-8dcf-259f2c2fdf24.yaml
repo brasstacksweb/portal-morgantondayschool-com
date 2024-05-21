@@ -1,0 +1,65 @@
+color: null
+fieldLayouts:
+  5c777e33-8cdb-45db-9ea8-c0f4bc93f9e1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 40fd7021-a9be-4f43-87da-0915dc3567a3
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: c105124b-b3d5-43c9-9079-0cd2196e25d3 # Page
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2e6f1b40-2bad-4f74-b52e-c0f41054f08a
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 40100521-64d7-4c1a-8bb8-269e754c6283
+        userCondition: null
+handle: pageCta
+hasTitleField: true
+icon: arrow-right
+name: 'Page CTA'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

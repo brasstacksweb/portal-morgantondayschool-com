@@ -1,0 +1,24 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Default
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - underline
+  - strikethrough
+  - subscript
+  - superscript
+  - link
+  - '|'
+  - bulletedList
+  - numberedList
+  - blockQuote
+  - insertImage
+  - mediaEmbed

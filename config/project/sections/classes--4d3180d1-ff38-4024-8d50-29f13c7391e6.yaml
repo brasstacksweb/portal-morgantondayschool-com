@@ -1,0 +1,30 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 1e8dde7a-23fd-40a2-805e-3e82c37fef0a # Class
+handle: classes
+maxAuthors: 1
+name: Classes
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School
+    enabledByDefault: true
+    hasUrls: true
+    template: classes/_entry
+    uriFormat: 'classes/{slug}'
+structure:
+  maxLevels: 1
+  uid: a4464df4-4469-4336-99c9-9e3ad50f9950
+type: structure

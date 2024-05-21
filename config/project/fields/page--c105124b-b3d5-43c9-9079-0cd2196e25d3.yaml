@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: page
+instructions: null
+name: Page
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add a page'
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources:
+    - 'section:2d6cc29e-95ec-4121-a242-f74b9a1053a6' # Activities
+    - 'section:478d6f7d-a53b-42eb-a9ce-671857c743a3' # Blog
+    - 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries
