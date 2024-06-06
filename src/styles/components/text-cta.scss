@@ -1,0 +1,167 @@
+$handle: "text-cta";
+
+.#{$handle} {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid;
+    white-space: nowrap;
+    transition:
+        background-color var(--a-sm),
+        color var(--a-sm),
+        border-color var(--a-sm);
+
+    > span {
+        margin-right: var(--s-sm);
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    > small {
+        @include font("body", -2);
+        @include absolute(auto, auto, calc(var(--s-md) - 1.2em), var(--s-md));
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity var(--a-sm), transform var(--a-sm);
+    }
+
+    a:hover & > small,
+    &:hover > small {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    > em {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        flex-shrink: 0;
+        width: var(--s-icon-sm);
+        height: var(--s-icon-sm);
+
+        > svg {
+            @include fullOverlay;
+            fill: var(--c-white);
+            transition: fill var(--a-sm), transform var(--a-sm);
+
+            &:first-child {
+                transform: translateX(calc(-100% - var(--s-sm)));
+            }
+        }
+    }
+
+    a:hover & > em > svg,
+    &:hover > em > svg {
+        &:first-child {
+            transform: translateX(0);
+        }
+
+        &:last-child {
+            transform: translateX(calc(100% + var(--s-sm)));
+        }
+    }
+
+    &--type-primary {
+        background-color: var(--c-green-xd);
+        color: var(--c-white);
+        border-color: var(--c-white);
+
+        a:hover &,
+        &:hover {
+            background-color: var(--c-green-2xd);
+        }
+
+        > em > svg {
+            fill: var(--c-white);
+        }
+    }
+
+    &--type-secondary {
+        background-color: transparent;
+        color: var(--c-black);
+        border-color: var(--c-black);
+
+        a:hover &,
+        &:hover {
+            background-color: var(--c-green-xd);
+            color: var(--c-white);
+            border-color: var(--c-white);
+        }
+
+        > span {
+            transform: translateX(calc(-1 * var(--s-md)));
+            transition: transform var(--a-sm);
+        }
+
+        a:hover & > span,
+        &:hover > span {
+            transform: translateX(0);
+        }
+
+        > em > svg {
+            fill: var(--c-black);
+        }
+
+        a:hover & > em > svg,
+        &:hover > em > svg {
+            fill: var(--c-white);
+        }
+
+        &.#{$handle}--invert {
+            color: var(--c-white);
+            border-color: var(--c-white);
+
+            > em > svg {
+                fill: var(--c-white);
+            }
+        }
+    }
+
+    &--size-sm,
+    &--size-md {
+        @include font("link", -1);
+        padding: var(--s-sm) var(--s-md);
+
+        &.#{$handle}--type-primary {
+            @include bold();
+        }
+
+        &.#{$handle}--type-secondary {
+            a:hover &,
+            &:hover {
+                @include bold();
+            }
+        }
+
+        > small {
+            display: none;
+        }
+    }
+
+    &--size-lg {
+        @include font("link");
+        padding: var(--s-md);
+
+        &.#{$handle}--type-primary {
+            @include bold();
+        }
+
+        &.#{$handle}--type-secondary {
+            a:hover &,
+            &:hover {
+                @include bold();
+            }
+        }
+    }
+
+    &--is-external > em {
+        transform: rotate(-45deg);
+    }
+
+    &--flip > em {
+        transform: rotate(180deg);
+    }
+}

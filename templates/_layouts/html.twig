@@ -1,0 +1,110 @@
+{##
+ # HTML layout
+ # @global {GlobalSet} header
+ # @global {GlobalSet} footer
+ # @param {bool} loadForm
+ # @param {bool} loadMap
+ #}
+
+{# Params #}
+{% set loadForm = loadForm ?? false %}
+{% set loadMap = loadMap ?? false %}
+
+{% set metaGlobal = craft.globalSets().handle('meta').with([
+	'meta.image',
+]).one() %}
+{% set meta = metaGlobal.meta[0] ?? null %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{{ metaTitle ?? meta.pageTitle ?? 'Service Logic' }}</title>
+		<meta name="description" content="{{ metaDescription ?? meta.description ?? '' }}">
+		<link rel="home" href="{{ siteUrl }}" />
+		<link rel="canonical" href="{{ metaCanonical ?? siteUrl(craft.app.request.pathInfo) }}" />
+
+		{# Robots noindex (development and staging only) #}
+		{% if getenv('DISALLOW_ROBOTS') or metaNoIndex ?? false %}
+			<meta name="robots" content="noindex" />
+		{% endif %}
+
+		<meta property="og:site_name" content="{{ siteName }}" />
+		<meta property="og:url" content="{{ siteUrl(craft.app.request.pathInfo) }}" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="{{ metaTitle ?? meta.pageTitle ?? '' }}" />
+		<meta property="og:description" content="{{ metaDescription ?? meta.description ?? '' }}" />
+		<meta property="og:image" content="{{ metaFeaturedImageUrl ?? meta.image[0].url ?? '' }}" />
+		<meta property="og:image:width" content="600" />
+		<meta property="og:image:height" content="314" />
+		<meta name="twitter:card" content="website" />
+		<meta name="twitter:url" content="{{ siteUrl(craft.app.request.pathInfo) }}" />
+		<meta name="twitter:title" content="{{ metaTitle ?? meta.pageTitle ?? '' }}" />
+		<meta name="twitter:description" content="{{ metaDescription ?? meta.description ?? '' }}" />
+		<meta name="twitter:image" content="{{ metaFeaturedImageUrl ?? meta.image[0].url ?? '' }}" />
+
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<meta name="author" content="Wray Ward - Trevor Plassman" />
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5BBAD5">
+		<meta name="msapplication-TileColor" content="#2d89ef">
+		<meta name="theme-color" content="#FFFFFF">
+
+		<link rel="stylesheet" href="/styles/index.{{ getenv('STYLES_CACHE_HASH') ?: 'empty' }}.css" />
+
+		{% if getenv('CRAFT_ENVIRONMENT') != 'development' %}
+			{# TODO: GTM Head #}
+		{% endif %}
+	</head>
+
+	<body>
+		{% if getenv('CRAFT_ENVIRONMENT') != 'development' %}
+			{# TODO: GTM Body #}
+		{% endif %}
+
+		{% set header = craft.globalSets().handle('header').with([
+			'logo',
+			'cta.pageCta:ctaPage',
+			'menuLinks.primaryLink.pageLink:linkPage',
+			'menuLinks.menuLinks.pageLink:linkPage',
+		]).one() %}
+		{% if header %}
+			<header>
+			</header>
+		{% endif %}
+
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+
+		{% set footer = craft.globalSets().handle('footer').with([
+			'logo',
+			'primaryLinks.pageLink:linkPage',
+			'secondaryLinks.pageLink:linkPage',
+			'cta.pageCta:ctaPage',
+		]).one() %}
+		{% if footer %}
+			<footer>
+			</footer>
+		{% endif %}
+
+		{% include '_components/modal' only %}
+
+		{% if loadForm %}
+			<script src="https://www.google.com/recaptcha/api.js?render={{ getenv('RECAPTCHA_SITE_KEY') }}"></script>
+		{% endif %}
+		{% if loadMap %}
+			<script>
+				(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+					key: {{ getenv('MAPS_API_KEY')|json_encode|raw }},
+					v: "weekly",
+				});
+			</script>
+		{% endif %}
+		<script src="/scripts/index.{{ getenv('SCRIPTS_CACHE_HASH') ?: 'empty' }}.js" defer></script>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+$handle: "youtube-video";
+
+.#{$handle} {
+    @include fullOverlay;
+
+    > iframe {
+        @include fullOverlay;
+    }
+}

@@ -1,0 +1,35 @@
+{##
+ # Featured Form component
+ # @param {HTML} callout
+ # @param {HTML} address
+ # @param {modules\forms\models\Form} Form
+ # @param {HTML} successMessage
+ #}
+
+{# Params #}
+{% set callout = callout ?? '' %}
+{% set address = address ?? '' %}
+{% set form = form ?? null %}
+{% set successMessage = successMessage ?? '' %}
+
+{# Variables #}
+{% set handle = 'contact-form' %}
+
+{# Markup #}
+<div class="{{ handle }}" data-comp-name="{{ handle }}">
+	<aside>
+		<div>
+			{{ callout }}
+		</div>
+		<div>
+			<h3>Location</h3>
+			{{ address }}
+		</div>
+	</aside>
+	<div>
+		{% include '_components/form' with {
+			form: form,
+			successMessage: successMessage
+		} %}
+	</div>
+</div>

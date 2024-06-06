@@ -1,0 +1,99 @@
+{##
+ # Media Split component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {modules\components\models\Cta} cta
+ # @param {object} media
+ # |_@param {string} type <backgroundVideo, image, marqueeStats, testimonials>
+ # @param {string} backgroundColor <light*, dark, gray>
+ # @param {string} mediaPosition <left*, right>
+ # @param {string} textAlignment <top, center*, bottom>
+ # @param {bool} fullWidth
+ # @param {bool} showBorder
+ # @param {bool} showWaves
+ # @param {bool} roundMedia
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set cta = cta ?? null %}
+{% set media = media ?? null %}
+{% set backgroundColor = backgroundColor ?? 'light' %}
+{% set mediaPosition = mediaPosition ?? 'left' %}
+{% set textAlignment = textAlignment ?? 'center' %}
+{% set fullWidth = fullWidth ?? false %}
+{% set showBorder = showBorder ?? false %}
+{% set showWaves = showWaves ?? false %}
+{% set roundMedia = roundMedia ?? false %}
+
+{# Variables #}
+{% set handle = 'media-split' %}
+
+{# Markup #}
+<div class="
+	{{ handle }}
+	{{ handle }}--bg-color-{{ backgroundColor }}
+	{{ handle }}--media-pos-{{ mediaPosition }}
+	{{ handle }}--media-type-{{ media.type|kebab }}
+	{{ handle }}--text-alignment-{{ textAlignment }}
+	{{ fullWidth ? handle ~ '--full' }}
+	{{ showBorder ? handle ~ '--border' }}
+	{{ roundMedia ? handle ~ '--round' }}
+">
+	{% if showWaves %}
+		<i>{% include '_components/waves' with { background: 'light' } only %}</i>
+	{% endif %}
+	<div>
+		{% switch media.type ?? '' %}
+			{% case 'backgroundVideo' %}
+				<figure>
+					{% if media.video %}
+						<video src="{{ media.video.url }}" autoplay playsinline muted loop></video>
+					{% endif %}
+					{% if media.caption %}
+						<figcaption>{{ media.caption }}</figcaption>
+					{% endif %}
+				</figure>
+			{% case 'bubbles' %}
+				<figure style="--c: {{ media.images|length }}; --shift: {{ media.images|length % 2 != 0 }}">
+					{% for i in media.images %}
+						<div style="--i: {{ loop.index }}">
+							<img
+								src="{{ i.url }}"
+								alt="{{ i.alt }}"
+								loading="lazy" />
+							{% if i.backgroundVideo %}
+								<video src="{{ i.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+							{% endif %}
+							<h3>{{ i.previewText }}</h3>
+						</div>
+					{% endfor %}
+				</figure>
+			{% case 'image' %}
+				<figure>
+					{% if media.image %}
+						<img
+							src="{{ media.image.url }}"
+							alt="{{ media.image.alt }}"
+							loading="lazy"
+							style="object-fit: cover; object-position: {{ media.image.position }};" />
+						{% if media.image.backgroundVideo %}
+							<video src="{{ media.image.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+						{% endif %}
+					{% endif %}
+				</figure>
+			{% case 'marqueeStats' %}
+				{% include '_components/marquee-stats' with { stats: media.stats } only %}
+			{% case 'testimonials' %}
+				{% include '_components/testimonial-cards' with { testimonials: media.testimonials } only %}
+		{% endswitch %}
+	</div>
+	<header>
+		{% include '_components/text-block' with {
+			heading: heading,
+			body: body,
+			cta: cta,
+		} only %}
+	</header>
+</div>

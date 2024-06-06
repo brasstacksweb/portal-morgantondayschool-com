@@ -1,0 +1,47 @@
+/**
+ * Media Query mixins
+ */
+
+// Breakpoints
+$screen-sm-min: 768px;
+$screen-xs-max: $screen-sm-min - 1;
+$screen-md-min: 992px;
+$screen-sm-max: $screen-md-min - 1;
+$screen-lg-min: 1280px;
+$screen-md-max: $screen-lg-min - 1;
+$screen-xl-min: 1600px;
+$screen-lg-max: $screen-xl-min - 1;
+
+$medias: (
+    min: (
+        sm: unquote("min-width: #{$screen-sm-min}"),
+        md: unquote("min-width: #{$screen-md-min}"),
+        lg: unquote("min-width: #{$screen-lg-min}"),
+        xl: unquote("min-width: #{$screen-xl-min}"),
+    ),
+    max: (
+        xs: unquote("max-width: #{$screen-xs-max}"),
+        sm: unquote("max-width: #{$screen-sm-max}"),
+        md: unquote("max-width: #{$screen-md-max}"),
+        lg: unquote("max-width: #{$screen-lg-max}"),
+    ),
+);
+
+@mixin media($min: "", $max: "") {
+    $minMedia: map-get(map-get($medias, min), $min);
+    $maxMedia: map-get(map-get($medias, max), $max);
+
+    @if ($minMedia != null and $maxMedia != null) {
+        @media (#{$minMedia}) and (#{$maxMedia}) {
+            @content;
+        }
+    } @else if ($minMedia != null) {
+        @media (#{$minMedia}) {
+            @content;
+        }
+    } @else if ($maxMedia != null) {
+        @media (#{$maxMedia}) {
+            @content;
+        }
+    }
+}

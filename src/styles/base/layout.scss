@@ -1,0 +1,69 @@
+/**
+ * Layout mixins
+ */
+
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+    position: absolute;
+    top: if($vertical, 50%, auto);
+    left: if($horizontal, 50%, auto);
+    transform: translate(#{if($horizontal, -50%, 0)},
+    #{if($vertical, -50%, 0)});
+}
+
+@mixin fullOverlay() {
+    @include absolute(0, auto, auto, 0);
+    width: 100%;
+    height: 100%;
+}
+
+@mixin listMargin($s, $horizontal: false, $type: first-child) {
+    @if ($horizontal) {
+        margin-left: $s;
+
+        &:#{$type} {
+            margin-left: 0;
+        }
+    }
+
+    @else {
+        margin-top: $s;
+
+        &:#{$type} {
+            margin-top: 0;
+        }
+    }
+}
+
+@mixin lineOverflow($height, $lines) {
+    display: -webkit-box; // Allow for overflow ellipsis on max height
+    -webkit-line-clamp: $lines; // number of lines to show
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: $height * $lines; // max height of n lines
+}
+
+@mixin shadow($s: var(--s-xs)) {
+    box-shadow: calc($s * 0.5) $s $s hsl(0deg 0% 0% / 0.1);
+}
+
+@mixin gridLines($cols, $color: var(--c-br-lt)) {
+    border: 1px solid var(--c-br-lt);
+    border-left: 0;
+
+    &:nth-child(n + #{$cols + 1}) {
+        border-top: 0;
+    }
+
+    &:nth-child(#{$cols}n + 1) {
+        border-left: 1px solid var(--c-br-lt);
+    }
+}

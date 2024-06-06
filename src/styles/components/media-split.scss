@@ -1,0 +1,254 @@
+$handle: "media-split";
+
+.#{$handle} {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--s-3xl) var(--s-lg);
+
+    @include media("sm") {
+        padding: var(--s-3xl);
+    }
+
+    &--bg-color-light {
+        background-color: var(--c-white);
+        color: var(--c-fg-dk);
+
+        &.#{$handle}--media-type-background-video {
+            background: linear-gradient(var(--c-white), #FFF 10%, #FFF 90%, var(--c-white));
+        }
+    }
+
+    &--bg-color-dark {
+        background-color: var(--c-bg-dk);
+        color: var(--c-white);
+    }
+
+    &--bg-color-gray {
+        background-color: var(--c-bg-lt);
+        color: var(--c-fg-dk);
+    }
+
+    &--text-alignment-top {
+        align-items: flex-start;
+    }
+
+    &--text-alignment-center {
+        align-items: center;
+    }
+
+    &--text-alignment-bottom {
+        align-items: flex-end;
+    }
+
+    &--border {
+        @include media("md") {
+            padding-left: calc(var(--s-3xl) + var(--s-xl));
+            padding-right: calc(var(--s-3xl) + var(--s-xl));
+        }
+
+        &:before {
+            @include media("md") {
+                @include absolute(0, auto, 0, var(--s-3xl));
+                content: "";
+                border-left: 1px solid var(--c-br-lt);
+            }
+        }
+
+        &:after {
+            @include media("md") {
+                @include absolute(0, var(--s-3xl), 0, auto);
+                content: "";
+                border-right: 1px solid var(--c-br-lt);
+            }
+        }
+    }
+
+    > i {
+        @include fullOverlay;
+        z-index: 1;
+        top: 35%;
+    }
+
+    > div {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+        @include media("sm") {
+            width: calc(50% - var(--s-3xl) / 2);
+        }
+
+        > figure {
+            > img {
+                @include fullOverlay;
+
+                + video {
+                    @include fullOverlay;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    &--media-pos-right > div {
+        @include media("sm") {
+            order: 2;
+        }
+    }
+
+    &--media-type-background-video > div > figure {
+        > video {
+            width: calc(100% + (2 * var(--s-lg)));
+            margin-left: calc(-1 * var(--s-lg));
+            padding-bottom: var(--s-3xl);
+
+            @include media("sm") {
+                width: calc(100% + (2 * var(--s-3xl)));
+                margin-left: calc(-1 * var(--s-3xl));
+            }
+        }
+
+        > figcaption {
+            @include absolute(auto, 0, 0, auto);
+            @include font("heading", 1);
+            max-width: var(--w-sm);
+            color: var(--c-fg-md);
+        }
+    }
+
+    &--media-type-bubbles > div {
+        @include media($max: "xs") {
+            order: 2;
+            margin-top: var(--s-lg);
+        }
+
+        > figure {
+            // --c number of bubbles from template
+            // --shift <0, 1> for when number of bubbles is odd to better center
+            --d: calc(-0.6% * pow(1.3, var(--c)) + 47%); // bubble diameter
+            --r: calc(7.5 * var(--d) / var(--c) / tan(pi / var(--c)) ); // circle radius
+            --y: calc(-1 * var(--shift) * (var(--d) * 0.75 / var(--c))); // y offset
+
+            position: relative;
+
+            @include media("sm") {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(var(--y));
+                aspect-ratio: 1 / 1;
+            }
+
+            > div {
+                --z: calc((var(--i) * 360deg / var(--c)) + 90deg);
+
+                overflow: hidden;
+                border-radius: 50%;
+                aspect-ratio: 1 / 1;
+
+                @include media($max: "xs") {
+                    @include listMargin(var(--s-md));
+                    width: 100%;
+                    max-width: var(--w-sm);
+                    position: relative;
+                }
+
+                @include media("sm") {
+                    @include absolute(50%, auto, auto, 50%);
+                    width: var(--d);
+                    margin: calc(-0.5 * var(--d));
+                    transform:
+                        rotate(var(--z))
+                        translate(var(--r))
+                        rotate(calc(-1 * var(--z)));
+                }
+
+                > img {
+                    @include fullOverlay;
+                    object-fit: cover;
+                    // filter: brightness(0.65) grayscale(100%);
+
+                    + video {
+                        @include fullOverlay;
+                        object-fit: cover;
+                    }
+                }
+
+                > h3 {
+                    @include absolute(50%, auto, auto, 10%);
+                    @include font("heading", 3);
+                    color: var(--c-white);
+
+                    @include media("sm", "md") {
+                        @include font("heading", 1);
+                    }
+                }
+            }
+        }
+    }
+
+    &--media-type-image > div > figure {
+        aspect-ratio: 4 / 3;
+    }
+
+    &--media-type-marquee-stats > div {
+        display: flex;
+        justify-content: center;
+
+        @include media($max: "xs") {
+            width: calc(100% + (2 * var(--s-lg)));
+            margin-left: calc(var(--s-lg) * -1);
+        }
+
+        @include media("sm") {
+            aspect-ratio: 4 / 3;
+        }
+    }
+
+    &--full > div {
+        width: 100%;
+
+        > figure {
+            aspect-ratio: 3.5 / 1;
+        }
+    }
+
+    &--round > div > figure {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+    }
+
+    > header {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding: var(--s-md) 0;
+
+        @include media($max: "xs") {
+            margin-top: var(--s-lg);
+        }
+
+        @include media("sm") {
+            width: calc(50% - var(--s-3xl) / 2);
+        }
+    }
+
+    &--media-type-bubbles > header {
+        @include media($max: "xs") {
+            margin-top: 0;
+        }
+    }
+
+    &--full > header {
+        order: 2;
+        width: 100%;
+        max-width: var(--w-xl);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

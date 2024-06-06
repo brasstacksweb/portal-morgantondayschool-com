@@ -1,0 +1,102 @@
+{##
+ # Form Field component
+ # @param {modules\forms\models\Form} form
+ # @param {string} name
+ # @param {bool} invert
+ #}
+
+{# Param #}
+{% set form = form ?? null %}
+{% set name = name ?? '' %}
+{% set invert = invert ?? false %}
+
+{# Variables #}
+{% set handle = 'form-field' %}
+{% set id = name %}
+{% set errorClass = 'has-error' %}
+
+{% set type = form.getAttributeType(name) %}
+{% set required = form.isAttributeRequired(name) %}
+{% set label = form.getAttributeLabel(name) %}
+{% set conditional = form.getAttributeInputConditional(name) %}
+{% set conditionalName = conditional['name'] ?? '' %}
+{% set conditionalValue = conditional['value'] ?? '' %}
+
+{% if conditionalName is not empty %}
+	{% set required = true %}
+{% endif %}
+
+{% set params = {
+	name: name,
+	errorClass: errorClass,
+	conditionalName: conditionalName,
+	conditionalValue: conditionalValue,
+} %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div class="
+		{{ handle }}
+		{{ handle }}--type-{{ type }}
+		{{ required ? handle ~ '--required' }}
+		{{ invert ? handle ~ '--invert' }}
+	"
+	data-comp-name="{{ handle }}"
+	data-comp-params="{{ params|json_encode }}"
+	>
+	<label for="{{ id }}">{{ label }}</label>
+
+	{% switch type %}
+		{% case 'select' %}
+			<div>
+				<select id="{{ id }}" name="{{ name }}" {% if required %}required{% endif %}>
+					{% for o in form.getAttributeOptions(name) %}
+						<option
+							value="{{ o.value }}"
+							{% if o.disabled ?? false %}
+								disabled
+							{% endif %}
+							{% if o.value == form[name] %}
+								selected
+							{% endif %}
+							>{{ o.label }}</label>
+					{% endfor %}
+				</select>
+				{{ icons.chevron('down') }}
+			</div>
+		{% case 'radio' or 'checkbox' %}
+			<fieldset>
+				{% for o in form.getAttributeOptions(name) %}
+					<input
+						type="{{ type }}"
+						id="{{ id }}-{{ o.value }}"
+						name="{{ name  ~ (type == 'checkbox' ? '[]' )}}"
+						value="{{ o.value }}" />
+					<label for="{{ id }}-{{ o.value }}">
+						{{ o.label }}
+					</label>
+				{% endfor %}
+			</fieldset>
+		{% case 'textarea' %}
+		<textarea id="{{ id }}" name="{{ name }}">{{ form[name] }}</textarea>
+		{% default %}
+			<input
+				type="{{ type }}"
+				id="{{ id }}"
+				name="{{ name }}"
+				value="{{ form[name] }}"
+				{% if form.getAttributePattern(name) is not empty %}
+					pattern="{{ form.getAttributePattern(name) }}"
+				{% endif %}
+				{% if form.getAttributePlaceholder(name) is not empty %}
+					placeholder="{{ form.getAttributePlaceholder(name) }}"
+				{% endif %}
+				{% if required %}
+					required
+				{% endif %}
+			/>
+	{% endswitch %}
+
+	<p>{{ form.getErrors(name)|join(', ') }}</p>
+</div>

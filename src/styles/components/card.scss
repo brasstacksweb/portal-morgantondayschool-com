@@ -1,0 +1,164 @@
+$handle: "card";
+
+.#{$handle} {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &--split {
+        @include media("md") {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    > figure {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+
+        > img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            transition: transform var(--a-xs);
+
+            + video {
+                @include fullOverlay;
+                object-fit: cover;
+            }
+        }
+
+        + div {
+            margin-top: var(--s-md);
+        }
+    }
+
+    &--image-pos-bottom > figure {
+        margin-top: var(--s-lg);
+
+        @include media("sm") {
+            order: 2;
+        }
+    }
+
+    &--image-height-sm > figure > img {
+        aspect-ratio: 3 / 1
+    }
+
+    &--image-height-lg > figure > img {
+        aspect-ratio: 1 / 1
+    }
+
+    &--split > figure {
+        @include media("md") {
+            width: 50%;
+        }
+
+        @include media("lg") {
+            width: 65%;
+        }
+
+        > img {
+            @include media("md") {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    }
+
+    &:hover > figure > img {
+        @include media("md") {
+            transform: scale(1.1);
+            transition: transform var(--a-lg);
+        }
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+        max-width: var(--w-lg);
+
+        > h3 {
+            @include font("heading", 2);
+            order: 3;
+        }
+
+        > h4 {
+            @include font("eyebrow", -1);
+            order: 2;
+            margin-bottom: var(--s-sm);
+            color: var(--c-fg-lt);;
+        }
+
+        > div {
+            @include richText($size: "sm");
+            order: 4;
+            margin-top: var(--s-sm);
+            color: var(--c-fg-md);
+
+            &:not(:has(p)) {
+                @include font("body", -1); // If text is direct child of div
+            }
+        }
+
+        > em,
+        > a {
+            order: 5;
+            margin: auto 0 0;
+
+            > * {
+                margin-top: var(--s-lg);
+            }
+        }
+    }
+
+    &--image-pos-bottom > div {
+        @include media("md") {
+            margin-top: 0 !important;
+        }
+    }
+
+    &--split > div {
+        @include media("md") {
+            flex-grow: 0;
+            width: calc(50% - var(--s-lg));
+            margin-top: 0 !important;
+        }
+
+        @include media("lg") {
+            width: calc(35% - var(--s-lg));
+        }
+    }
+
+    &--size-md > div {
+        > h3 {
+            @include font("heading", 3);
+        }
+    }
+
+    &--size-lg > figure + div {
+        margin-top: var(--s-lg);
+    }
+
+    &--size-lg > div {
+        > h3 {
+            @include font("heading", 4);
+        }
+
+        > div {
+            @include font;
+        }
+    }
+
+    &--style-leader > div {
+        > h4 {
+            min-height: 2.2em;
+            text-transform: none;
+        }
+    }
+}

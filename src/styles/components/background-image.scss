@@ -1,0 +1,28 @@
+$handle: "background-image";
+
+.#{$handle} {
+    > div {
+        @include fullOverlay;
+        display: none;
+        background-repeat: no-repeat;
+
+        &:first-child {
+            @include media("sm") {
+                display: block;
+            }
+        }
+
+        &:last-child {
+            @include media($max: "xs") {
+                display: block;
+            }
+        }
+
+        > video {
+            @include absolute(-1px, -1px, -1px, -1px);
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            object-fit: cover;
+        }
+    }
+}

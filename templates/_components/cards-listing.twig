@@ -1,0 +1,97 @@
+{##
+ # Cards Listing component
+ # @param {string} heading
+ # @param {object[]} filters
+ # @param {object} featuredCard
+ # @param {object[]} cards
+ # @param {object} info
+ # @param {[string, string]} labels
+ # @param {string} section
+ # @param {string[]} notIds
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set filters = filters ?? [] %}
+{% set featuredCard = featuredCard ?? null %}
+{% set cards = cards ?? [] %}
+{% set info = info ?? null %}
+{% set labels = labels ?? ['article', 'articles'] %}
+{% set section = section ?? '' %}
+{% set notIds = notIds ?? [] %}
+
+{# Variables #}
+{% set handle = 'cards-listing' %}
+{% set cardsContHandle = handle ~ '__cards-cont' %}
+{% set paginationLinksContHandle = handle ~ '__pagination-links' %}
+
+{% set showFeaturedArticle = featuredCard and info.currentPage == 1 and filters|first.active ?? true %}
+
+{% set params = {
+	cardsContHandle: '.' ~ cardsContHandle,
+	paginationLinksContHandle: '.' ~ paginationLinksContHandle,
+	labels: labels,
+	section: section,
+	notIds: notIds|join(','),
+} %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div
+	class="{{ handle }}"
+	{% if info or filters is not empty %}
+		data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}"
+	{% endif %}
+	>
+	{% if heading is not empty %}
+		<header>
+			{% include '_components/text-block' with { heading: heading } only %}
+		</header>
+	{% endif %}
+	{% if filters is not empty %}
+		<nav id="listings">
+			{% if info %}
+				{% set total = showFeaturedArticle ? info.total + 1 : info.total %}
+				{% set last = showFeaturedArticle and info.last == info.total ? total : info.last %}
+
+				<em>{{ info.first }} to {{ last }} of {{ total }} {{ total == 1 ? labels|first : labels|last }}</em>
+			{% endif %}
+			<input id="filters-menu" type="checkbox" style="display: none" />
+			<label for="filters-menu">
+				<span>{{ filters|filter(f => f.active)|values|first.label ?? 'All' }}</span>
+				{{ icons.chevron('down') }}
+			</label>
+			<ul>
+				{% for f in filters %}
+					<li>
+						<a
+							href="{{ siteUrl(craft.app.request.pathInfo ~ '#listings', { category: f.value }) }}"
+							class="{{ f.active ? 'is-active' }}">
+							{{ f.label }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	{% endif %}
+	<article aria-hidden="{{ not showFeaturedArticle ? 'true' : 'false' }}">
+		{% if featuredCard %}
+			{% include '_components/card' with featuredCard|merge({
+				size: 'lg',
+				split: true,
+			}) only %}
+		{% endif %}
+	</article>
+	<div class="{{ cardsContHandle }}">
+		{% include '_components/featured-cards' with {
+			cards: cards,
+			showBorder: true,
+		} only %}
+	</div>
+	{% if info %}
+		<footer class="{{ paginationLinksContHandle }}">
+			{% include '_components/pagination-links' with { info: info } only %}
+		</footer>
+	{% endif %}
+</div>

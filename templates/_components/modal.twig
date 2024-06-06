@@ -1,0 +1,16 @@
+{##
+ # Modal component
+ #}
+
+{# Variables #}
+{% set handle = 'modal' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div class="{{ handle }}" data-comp-name="{{ handle }}">
+	<button type="button" title="Close">
+		{{ icons.x() }}
+	</button>
+	<div></div>
+</div>

@@ -1,0 +1,73 @@
+$handle: "sidekick";
+
+.#{$handle} {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--s-3xl) var(--s-lg);
+    background-color: var(--c-black);
+
+    @include media($max: "xs") {
+        padding-top: 75%;
+    }
+
+    @include media("sm") {
+        align-items: center;
+        padding: var(--s-3xl);
+    }
+
+    @include media("md") {
+        aspect-ratio: 1920 / 1080;
+    }
+
+    @include media("lg") {
+        aspect-ratio: 1920 / 880;
+    }
+
+    // Background image
+    > div:first-of-type {
+        @include fullOverlay;
+
+        > div {
+            background-position: top !important;
+
+            @include media("sm") {
+                background-position: right !important;
+            }
+        }
+    }
+
+    // Overlay
+    > div:last-of-type {
+        @include fullOverlay;
+        background: linear-gradient(to top, rgba(0,0,0,0.95), transparent 65%);
+
+        @include media("sm") {
+            background: linear-gradient(to right, rgba(0,0,0,0.95), transparent 55%);
+        }
+    }
+
+    &--text-pos-right > div:last-of-type {
+        @include media("sm") {
+            background: linear-gradient(to left, rgba(0,0,0,0.95), transparent 55%);
+        }
+    }
+
+    &--invert-text-color > div:last-of-type {
+        display: none;
+    }
+
+    > header {
+        position: relative;
+        max-width: var(--w-md);
+
+        @include media("lg") {
+            max-width: var(--w-lg);
+        }
+    }
+
+    &--text-pos-right > header {
+        margin: 0 0 0 auto;
+    }
+}

@@ -1,0 +1,74 @@
+$handle: "text-block";
+
+.#{$handle} {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &--align-center {
+        align-items: center;
+    }
+
+    &--align-right {
+        @include media("sm") {
+            align-items: flex-end;
+        }
+    }
+
+    &--split {
+        @include media("sm") {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+    }
+
+    > h2 {
+        @include font("heading", 6);
+        max-width: var(--w-xl);
+        text-wrap: balance;
+    }
+
+    &--size-md > h2 {
+        @include font("heading", 3);
+    }
+
+    &--split > h2 {
+        @include media("sm") {
+            width: calc(65% - var(--s-lg));
+        }
+
+        @include media("md") {
+            width: calc(65% - var(--s-3xl));
+        }
+    }
+
+    &--invert > h2 {
+        color: var(--c-white);
+    }
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: var(--s-md);
+
+        > div {
+            @include richText($size: "sm");
+            margin-bottom: var(--s-lg);
+        }
+    }
+
+    &--size-md > div > div {
+        @include font("body", -1);
+    }
+
+    &--split > div {
+        @include media("sm") {
+            width: 35%;
+        }
+    }
+
+    &--invert > div > div {
+        color: var(--c-white);
+    }
+}

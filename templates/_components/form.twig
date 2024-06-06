@@ -1,0 +1,54 @@
+{##
+ # Form component
+ # @param {modules\forms\models\Form} Form
+ # @param {HTML} successMessage
+ # @param {bool} invert
+ #}
+
+{# Params #}
+{% set form = form ?? null %}
+{% set successMessage = successMessage ?? '' %}
+{% set invert = invert ?? false %}
+
+{# Variables #}
+{% set handle = 'form' %}
+
+{% set params = {
+	siteKey: getenv('RECAPTCHA_SITE_KEY'),
+} %}
+
+{# Markup #}
+<div
+	class="{{ handle }} {{ invert ? handle ~ '--invert' }}"
+	data-comp-name="{{ handle }}"
+	data-comp-params="{{ params|json_encode }}">
+	<form method="post" {% if devMode %}novalidate{% endif %}>
+		{{ csrfInput() }}
+		{{ actionInput(form.getActionPath()) }}
+
+		{% for name in form.activeAttributes() %}
+			{% if form.getAttributeType(name) == 'hidden' %}
+				{{ hiddenInput(name, form[name]|hash) }}
+			{% else %}
+				<div class="{{ form.getAttributeSize(name) }}">
+					{%include '_components/form-field' with {
+						form: form,
+						name: name,
+						invert: invert,
+					} %}
+				</div>
+			{% endif %}
+		{% endfor %}
+
+		<button type="submit">
+			{% include '_components/text-cta' with {
+				title: form.actionText,
+				type: 'secondary',
+				invert: invert,
+			} %}
+		</button>
+	</form>
+	<div style="display: none">
+		{{ successMessage }}
+	</div>
+</div>

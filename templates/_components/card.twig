@@ -1,0 +1,92 @@
+{##
+ # Card component
+ # @param {object} image
+ # @param {string} heading
+ # @param {string} subheading
+ # @param {string} body
+ # @param {modules\components\models\Cta} cta
+ # @param {string} imagePosition <top*, bottom>
+ # @param {string} imageHeight <sm, md*, lg>
+ # @param {string} size <sm*, md, lg>
+ # @param {string} style <default*, leader>
+ # @param {bool} allClickable
+ # @param {bool} split
+ #}
+
+
+{# Params #}
+{% set image = image ?? null %}
+{% set heading = heading ?? '' %}
+{% set subheading = subheading ?? '' %}
+{% set body = body ?? '' %}
+{% set cta = cta ?? null %}
+{% set style = style ?? 'default' %}
+{% set imagePosition = imagePosition ?? 'top' %}
+{% set imageHeight = imageHeight ?? 'md' %}
+{% set size = size ?? 'sm' %}
+{% set allClickable = allClickable ?? false %}
+{% set split = split ?? false %}
+
+{# Variables #}
+{% set handle = 'card' %}
+
+{# Markup #}
+{% set content %}
+	<div class="
+		{{ handle }}
+		{{ handle }}--image-pos-{{ imagePosition }}
+		{{ handle }}--image-height-{{ imageHeight }}
+		{{ handle }}--size-{{ size }}
+		{{ handle }}--style-{{ style }}
+		{{ split ? handle ~ '--split' }}
+	">
+		{% if image %}
+			{% set backgroundVideo = image.backgroundVideo ?? null %}
+			{% if split and image.featuredImage %}
+				{% set image = image.featuredImage %}
+			{% endif %}
+
+			<figure>
+				<img
+					src="{{ image.url }}"
+					alt="{{ image.alt ?? image.title ?? '' }}"
+					style="object-fit: {{ image.fit }}; object-position: {{ image.position }};"
+					loading="lazy" />
+				{% if backgroundVideo %}
+					<video src="{{ backgroundVideo.url }}" autoplay playsinline muted loop></video>
+				{% endif %}
+			</figure>
+		{% endif %}
+		<div>
+			<h3>{{ heading }}</h3>
+			{% if subheading %}
+				<h4>{{ subheading }}</h4>
+			{% endif %}
+			{% if body %}
+				<div>{{ body }}</div>
+			{% endif %}
+			{% if cta %}
+				{% set ctaContent %}
+					{% include '_components/text-cta' with {
+						title: cta.title,
+						url: siteUrl not in cta.url ? cta.url : '',
+						type: 'secondary',
+						size: size,
+					} only %}
+				{% endset %}
+
+				{% if allClickable %}
+					<em>{{ ctaContent }}</em>
+				{% else %}
+					{{ cta.render(ctaContent) }}
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+{% endset %}
+
+{% if allClickable and cta %}
+	{{ cta.render(content) }}
+{% else %}
+	{{ content }}
+{% endif %}

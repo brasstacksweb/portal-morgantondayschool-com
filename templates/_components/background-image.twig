@@ -1,0 +1,36 @@
+{##
+ # Background Image component
+ # @param {object} image
+ #}
+
+{# Params #}
+{% set image = image ?? null %}
+
+{# Variables #}
+{% set handle = 'background-image' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<div style="
+                background-image: url({{ image.url }});
+                background-size: {{ image.fit ?? "cover" }};
+                background-position: {{ image.position ?? "center" }}">
+		{% if image.backgroundVideo %}
+			<video src="{{ image.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+		{% endif %}
+	</div>
+	{% if image.mobileImage %}
+		{% set url = image.mobileImage.url %}
+		{% set fit = image.mobileImage.fit %}
+		{% set pos = image.mobileImage.position %}
+
+		<div style="
+                    background-image: url({{ url }});
+                    background-size: {{ fit ?? "cover" }};
+                    background-position: {{ pos ?? "center" }}">
+			{% if image.mobileImage.backgroundVideo %}
+				<video src="{{ image.mobileImage.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+			{% endif %}
+		</div>
+	{% endif %}
+</div>

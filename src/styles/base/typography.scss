@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "PP Neue Montreal Book";
+    src: url("/fonts/ppneuemontreal-book.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Regular";
+    src: url("/fonts/ppneuemontreal-regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Bold";
+    src: url("/fonts/ppneuemontreal-bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "PP Neue Montreal italic";
+    src: url("/fonts/ppneuemontreal-italic.woff") format("woff");
+}
+
+@mixin font($type: "body", $size: 0) {
+    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+
+    @if ($type == "heading") {
+        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+
+        @if ($size == 7) {
+            font-size: range(53.748, 114.441);
+            line-height: 1.1em;
+            letter-spacing: range(0, -2.289);
+        } @else if ($size == 6) {
+            font-size: range(44.79, 91.553);
+            line-height: 1.1em;
+            letter-spacing: range(0, -1.831);
+        } @else if ($size == 5) {
+            font-size: range(37.325, 73.242);
+            line-height: 1.1em;
+            letter-spacing: range(-0.746, -1.465);
+        } @else if ($size == 4) {
+            font-size: range(31.104, 58.594);
+            line-height: 1.1em;
+            letter-spacing: range(-0.622, -1.172);
+        } @else if ($size == 3) {
+            font-size: range(25.92, 46.875);
+            line-height: 1.1em;
+            letter-spacing: range(-0.518, -0.937);
+        } @else if ($size == 2) {
+            font-size: range(21.6, 37.5);
+            line-height: 1.1em;
+            letter-spacing: range(-0.432, -0.75);
+        } @else if ($size == 1) {
+            font-size: range(18, 30);
+            line-height: 1.1em;
+            letter-spacing: range(-0.36, -0.6);
+        } @else if ($size == 0) {
+            font-size: range(15, 24);
+            line-height: 1.1em;
+            letter-spacing: range(-0.3, 0);
+        } @else if ($size == -1) {
+            font-size: range(14, 19.2);
+            line-height: 1.1em;
+            letter-spacing: range(-0.25, -0.384);
+        } @else if ($size == -2) {
+            font-size: range(13, 15.36);
+            line-height: 1.1em;
+            letter-spacing: range(0, -0.307);
+        }
+    } @else if ($type == "link") {
+        @if ($size == 0) {
+            font-size: range(15, 24);
+            line-height: 1.1em;
+            letter-spacing: range(-0.3, 0);
+        } @else if ($size == -1) {
+            font-size: range(14, 15.36);
+            line-height: 1.1em;
+            letter-spacing: range(0, -0.307);
+        }
+    } @else if ($type == "jumbo") {
+        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-size: range(155.369, 372.727);
+        line-height: range(1.1, 1.1, 1em);
+        letter-spacing: range(-3.107, -7.455);
+    } @else if ($type == "eyebrow") {
+        @if ($size == -1) {
+            font-size: range(13, 19.2);
+            line-height: range(1.1, 1.4, 1em);
+            // text-transform: uppercase;
+        }
+    } @else {
+        @if ($size == 0) {
+            font-size: range(15, 24);
+            line-height: 1.4em;
+        } @else if ($size == -1) {
+            font-size: range(14, 19.2);
+            line-height: 1.4em;
+        } @else if ($size == -2) {
+            font-size: range(13, 15.36);
+            line-height: 1.4em;
+        }
+    }
+}
+
+@mixin bold() {
+    font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: range(0.3, 0.5);
+}
+
+@mixin italic() {
+    font-family: "PP Neue Montreal Italic", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    letter-spacing: range(0.3, 0.5);
+}
+
+@mixin underline($t: 1px, $c: var(--c-blue), $b: 0, $trigger: ".is-active") {
+    position: relative;
+
+    &:after {
+        @include absolute(auto, 0, $b, 0);
+        content: "";
+        transform-origin: left;
+        transform: scaleX(0);
+        height: $t;
+        background-color: $c;
+        transition: transform var(--a-sm);
+    }
+
+    &#{$trigger}:after,
+    &:hover:after {
+        transform: scaleX(1);
+    }
+}
+
+@mixin oList($size: "md") {
+    @include font("body", if($size == "sm", -1, 0));
+    list-style-type: decimal;
+    color: var(--c-fg-md);
+
+    > li {
+        @include listMargin(var(--s-sm));
+        margin-left: 1.5em;
+
+        > ol,
+        > ul {
+            margin-top: var(--s-sm);
+        }
+
+        > ul {
+            list-style-type: circle;
+        }
+    }
+}
+
+@mixin uList($size: "md") {
+    @include font("body", if($size == "sm", -1, 0));
+    list-style-type: disc;
+    color: var(--c-fg-md);
+
+    > li {
+        @include listMargin(var(--s-sm));
+        margin-left: 1.5em;
+
+        > ol,
+        > ul {
+            margin-top: var(--s-sm);
+        }
+
+        > ul {
+            list-style-type: circle;
+        }
+    }
+}
+
+@mixin richText($invert: false, $size: "md") {
+    overflow-x: auto;
+    color: if($invert, var(--c-white), var(--c-fg-dk));
+
+    > * {
+        @include listMargin(if($size == "sm", var(--s-sm), var(--s-md)));
+        max-width: var(--w-2xl);
+    }
+
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+        @include listMargin(if($size == "sm", var(--s-sm), var(--s-md)));
+    }
+
+    > h1 {
+        @include font("heading", 6);
+    }
+
+    > h2 {
+        @include font("heading", 5);
+    }
+
+    > h3 {
+        @include font("heading", 4);
+    }
+
+    > h4 {
+        @include font("heading", 3);
+    }
+
+    > h5 {
+        @include font("heading", 2);
+    }
+
+    > h6 {
+        @include font("eyebrow", -1);
+    }
+
+    > p {
+        @include font("body", if($size == "sm", -1, 0));
+        color: if($invert, var(--c-white), var(--c-fg-md));
+    }
+
+    ol {
+        @include oList($size);
+    }
+
+    ul {
+        @include uList($size);
+    }
+
+    table {
+        @include font("body", -1);
+        min-width: var(--w-md);
+
+        th,
+        td {
+            padding: var(--s-md);
+            border: 1px solid vaR(--c-br-lt);
+
+            > * {
+                @include listMargin(var(--s-sm));
+            }
+
+            > ul,
+            > li {
+                @include font("body", -1);
+            }
+        }
+
+        td {
+            color: var(--c-fg-md);
+        }
+
+        > thead {
+            background: var(--c-bg-lt);
+        }
+    }
+
+    iframe {
+        max-width: 100%;
+    }
+
+    figure {
+        margin: var(--s-lg) 0;
+
+        > figcaption {
+            @include font("body", -2);
+            margin-top: var(--s-xs);
+            color: if($invert, var(--c-white), var(--c-fg-md));
+        }
+    }
+
+    em {
+        @include italic;
+    }
+
+    strong {
+        @include bold;
+    }
+
+    a {
+        color: if($invert, var(--c-white), var(--c-blue));
+        text-decoration: underline;
+    }
+}

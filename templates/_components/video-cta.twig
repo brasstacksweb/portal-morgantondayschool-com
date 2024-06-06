@@ -1,0 +1,26 @@
+{##
+ # Video CTA component
+ # @param {string} title
+ # @param {string} titlePosition <left*, right>
+ #}
+
+{# Params #}
+{% set title = title ?? '' %}
+{% set titlePosition = titlePosition ?? 'left' %}
+
+{# Variables #}
+{% set handle = 'video-cta' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div class="
+	{{ handle }}
+	{{ handle }}--title-position-{{ titlePosition }}
+">
+	<span>{{ title }}</span>
+	<em aria-hidden="true">
+		{{ icons.play() }}
+		{{ icons.play() }}
+	</em>
+</div>
