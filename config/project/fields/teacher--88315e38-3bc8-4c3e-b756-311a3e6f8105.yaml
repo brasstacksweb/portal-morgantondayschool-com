@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: teacher
+instructions: null
+name: Teacher
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add a teacher'
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources:
+    - 'group:dc10bcf2-6231-404f-8016-5f0e146e65a4' # Teachers
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Users

@@ -22,8 +22,10 @@ $handle: "class-details";
 			width: 100%;
 			background-color: var(--c-white);
 			border: 1px solid var(--c-br-lt);
+			border-top: 0;
 
 			&:first-of-type {
+				border-top: 1px solid var(--c-br-lt);
 				border-top-left-radius: var(--s-br-md);
 				border-top-right-radius: var(--s-br-md);
 			}

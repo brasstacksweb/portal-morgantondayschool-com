@@ -762,8 +762,10 @@ details summary {
     .class-details > div:first-child > details {
       width: 100%;
       background-color: var(--c-white);
-      border: 1px solid var(--c-br-lt); }
+      border: 1px solid var(--c-br-lt);
+      border-top: 0; }
       .class-details > div:first-child > details:first-of-type {
+        border-top: 1px solid var(--c-br-lt);
         border-top-left-radius: var(--s-br-md);
         border-top-right-radius: var(--s-br-md); }
       .class-details > div:first-child > details:last-of-type {
@@ -1135,6 +1137,7 @@ details summary {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  max-height: 70vh;
   margin: var(--s-lg) auto;
   padding: 0 var(--s-lg); }
   .class-hero > div:first-child {
@@ -1143,6 +1146,8 @@ details summary {
     color: var(--c-fg-dk);
     border: 1px solid var(--c-br-lt);
     border-radius: var(--s-br-md);
+    display: flex;
+    flex-direction: column;
     max-width: calc(35% - var(--s-md));
     margin-bottom: var(--s-sm);
     box-shadow: var(--s-md) var(--s-sm) var(--c-teal); }
@@ -1151,14 +1156,29 @@ details summary {
       font-weight: medium;
       font-size: clamp(calc(37.325 * 1px), calc((73.242 - 37.325) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 37.325 * 1px), calc(73.242 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px)); }
+      letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px));
+      margin-bottom: var(--s-md); }
+    .class-hero > div:first-child > address {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--s-md); }
+      .class-hero > div:first-child > address > img {
+        width: var(--s-icon-lg);
+        height: var(--s-icon-lg);
+        margin-right: var(--s-xs);
+        border-radius: 50%; }
+      .class-hero > div:first-child > address > h2 {
+        font-family: system-ui;
+        font-weight: book;
+        font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+        line-height: 1.4em;
+        color: var(--c-fg-md); }
     .class-hero > div:first-child > aside {
       font-family: system-ui;
       font-weight: book;
       font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
       line-height: 1.4em;
       max-width: var(--w-md);
-      margin-top: var(--s-md);
       color: var(--c-fg-md); }
   .class-hero > div:last-child {
     max-width: calc(65% - var(--s-md));

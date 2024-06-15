@@ -5,6 +5,7 @@
 
 {# Params #}
 {% set entry = craft.entries.id(entry.id).with([
+	'teacher.photo',
 	'heroImage',
 	'announcements',
 	'posts',
@@ -20,6 +21,7 @@
 	<article>
 		<header>
 			{% include '_components/class-hero' with {
+				teacher: entry.teacher[0] ?? null,
 				image: craft.components.buildImage(entry.heroImage[0] ?? null),
 				heading: entry.heading,
 				overview: entry.overview,

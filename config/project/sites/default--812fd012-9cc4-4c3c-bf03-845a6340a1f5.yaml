@@ -1,4 +1,4 @@
-baseUrl: 'http://mds24sta.brasstacksweb.com/'
+baseUrl: $PRIMARY_SITE_URL
 enabled: true
 handle: default
 hasUrls: true

@@ -5,23 +5,44 @@ $handle: "class-hero";
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+	max-height: 70vh;
 	margin: var(--s-lg) auto;
 	padding: 0 var(--s-lg);
 
 	> div:first-child {
 		@include card;
+		display: flex;
+		flex-direction: column;
 		max-width: calc(35% - var(--s-md));
 		margin-bottom: var(--s-sm);
 		box-shadow: var(--s-md) var(--s-sm) var(--c-teal);
 
 		> h1 {
 			@include font("heading", 5);
+			margin-bottom: var(--s-md);
+		}
+
+		> address {
+			display: flex;
+			align-items: center;
+			margin-bottom: var(--s-md);
+
+			> img {
+				width: var(--s-icon-lg);
+				height: var(--s-icon-lg);
+				margin-right: var(--s-xs);
+				border-radius: 50%;
+			}
+
+			> h2 {
+				@include font("intro");
+				color: var(--c-fg-md);
+			}
 		}
 
 		> aside {
 			@include font;
 			max-width: var(--w-md);
-			margin-top: var(--s-md);
 			color: var(--c-fg-md);
 		}
 	}

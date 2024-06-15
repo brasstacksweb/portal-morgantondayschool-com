@@ -1,5 +1,6 @@
 {##
  # Class Hero component
+ # @param {object} teacher
  # @param {object} image
  # @param {object} teacher
  # @param {string} heading
@@ -7,6 +8,7 @@
  #}
 
 {# Params #}
+{% set teacher = teacher ?? null %}
 {% set image = image ?? null %}
 {% set tacher = teacher ?? null %}
 {% set heading = heading ?? '' %}
@@ -20,6 +22,14 @@
 	<div>
 		{% if heading is not empty %}
 			<h1>{{ heading }}</h1>
+		{% endif %}
+		{% if teacher is not empty %}
+			<address>
+				{% if teacher.photo %}
+					<img src="{{ teacher.photo.url }}" alt="{{ teacher.fullName }} headshot" />
+				{% endif %}
+				<h2>{{ teacher.fullName }}</h2>
+			</address>
 		{% endif %}
 		{% if overview is not empty %}
 			<aside>{{ overview }}</aside>

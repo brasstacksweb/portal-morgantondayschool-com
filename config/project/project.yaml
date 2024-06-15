@@ -1,4 +1,4 @@
-dateModified: 1718417925
+dateModified: 1718466235
 elementSources:
   craft\elements\Entry:
     -
@@ -109,16 +109,19 @@ meta:
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
+    88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
     a4fa5523-8cdd-400d-8f0e-50b8bd7c2802: 'Reference URL' # Reference URL
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
+    dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: 'Hero Image' # Hero Image
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog
+    fd20c5e5-4c47-4c8c-af5b-ee45e71242b4: 'User Photos' # User Photos
 plugins:
   ckeditor:
     edition: standard
@@ -129,15 +132,8 @@ plugins:
     enabled: true
     schemaVersion: 2.0.1
 system:
-  edition: solo
+  edition: pro
   live: true
   name: 'Morganton Day School'
   schemaVersion: 5.0.0.20
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
-  require2fa: false
-  requireEmailVerification: true
