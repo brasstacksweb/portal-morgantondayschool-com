@@ -1,0 +1,20 @@
+$handle: "figure";
+
+.#{$handle} {
+	> figure {
+		position: relative;
+		overflow: hidden;
+		display: block;
+		background-color: var(--c-white);
+		border: 1px solid var(--c-br-lt);
+		border-radius: var(--s-md);
+
+		> img {
+			filter: saturate(150%);
+		}
+
+		> figcaption {
+			padding: var(--s-sm) var(--s-md);
+		}
+	}
+}

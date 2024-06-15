@@ -63,7 +63,7 @@ $page-max: 1920;
 	--c-fg-lt: #AAA;
 	--c-fg-md: #696969;
 	--c-fg-dk: #424242;
-	--c-br-lt: mistyrose;
+	--c-br-lt: thistle;
 	--c-br-dk: darkslategray;
 	// Animation
 	--a-s-xs: 0.2s;
@@ -212,6 +212,10 @@ button {
 	}
 }
 
-details summary::-webkit-details-marker {
-	display: none;
+details summary{
+	list-style-type: none;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
 }

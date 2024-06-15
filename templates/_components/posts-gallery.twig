@@ -1,11 +1,13 @@
 {##
  # Posts Gallery component
+ # @param {string} heading
  # @param {object[]} posts
  # |_@param {string} url
  # |_@param {string} caption
  #}
 
 {# Params #}
+{% set heading = heading ?? 'In the Classroom' %}
 {% set posts = posts ?? [] %}
 
 {# Variables #}
@@ -13,15 +15,16 @@
 
 {# Markup #}
 <div class="{{ handle }}">
-	{% for p in posts %}
-		<figure>
-			<img
-				src="{{ p.url }}"
-				alt="{{ p.caption ?? p.title }}"
-				loading="lazy" />
-			{% if p.caption is not empty %}
-				<figcaption>{{ p.caption }}</figcaption>
-			{% endif %}
-		</figure>
-	{% endfor %}
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% if posts is not empty %}
+		<ul>
+			{% for p in posts %}
+				<li>
+					{% include '_components/figure' with { image: p } %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 </div>

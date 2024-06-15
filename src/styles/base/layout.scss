@@ -67,3 +67,11 @@
         border-left: 1px solid var(--c-br-lt);
     }
 }
+
+@mixin card($size: "md") {
+	padding: var(--s-#{$size});
+	background-color: var(--c-white);
+	color: var(--c-fg-dk);
+	border: 1px solid var(--c-br-lt);
+	border-radius: var(--s-br-#{$size});
+}

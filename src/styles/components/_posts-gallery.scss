@@ -1,0 +1,30 @@
+$handle: "posts-gallery";
+
+.#{$handle} {
+	margin: var(--s-3xl) auto;
+	padding: 0 var(--s-3xl);
+
+	> header {
+		display: flex;
+		justify-content: center;
+		margin-bottom: var(--s-md);
+
+		> h2 {
+			@include font("heading", 4);
+			max-width: var(--w-md);
+			text-wrap: balance;
+		}
+	}
+
+	> ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		> li {
+			max-width: var(--w-sm);
+			margin-right: var(--s-md);
+			margin-bottom: var(--s-md);
+		}
+	}
+}

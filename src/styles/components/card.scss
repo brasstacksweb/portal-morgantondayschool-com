@@ -96,7 +96,7 @@ $handle: "card";
         }
 
         > div {
-            @include richText($size: "sm");
+            @include richText("sm");
             order: 4;
             margin-top: var(--s-sm);
             color: var(--c-fg-md);

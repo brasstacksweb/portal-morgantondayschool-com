@@ -53,7 +53,7 @@ $handle: "text-block";
         margin-top: var(--s-md);
 
         > div {
-            @include richText($size: "sm");
+            @include richText("sm");
             margin-bottom: var(--s-lg);
         }
     }

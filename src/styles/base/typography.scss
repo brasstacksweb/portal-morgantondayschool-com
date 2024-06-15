@@ -143,7 +143,7 @@
 	}
 }
 
-@mixin richText($invert: false, $size: "md") {
+@mixin richText($size: "md", $invert: false) {
 	overflow-x: auto;
 	color: if($invert, var(--c-white), var(--c-fg-dk));
 
@@ -246,5 +246,25 @@
 	a {
 		color: if($invert, var(--c-gold), var(--c-green));
 		text-decoration: underline;
+	}
+}
+
+@mixin cross($size: "sm", $color: var(--c-green)) {
+	position: relative;
+	width: var(--s-icon-#{$size});
+	height: var(--s-icon-#{$size});
+	transition: transform var(--a-sm);
+
+	&:before,
+	&:after {
+		@include centerer;
+		content: "";
+		height: var(--s-icon-#{$size});
+		border-left: 2px solid $color;
+	}
+
+	&:before {
+		transform-origin: center;
+		transform: rotate(90deg) translate(calc(-0.5 * var(--s-icon-#{$size})), 0);
 	}
 }

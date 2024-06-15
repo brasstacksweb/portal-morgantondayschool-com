@@ -1,0 +1,43 @@
+{##
+ # Class Details component
+ # @param {object[]} announcements
+ # |_@param {string} title
+ # |_@param {HTML} details
+ # @param {HTML} resources
+ #}
+
+{# Params #}
+{% set announcements = announcements ?? [] %}
+{% set resources = resources ?? '' %}
+
+{# Variables #}
+{% set handle = 'class-details' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<div>
+		<header>
+			<h2>Announcements</h2>
+		</header>
+		{% for a in announcements %}
+			<details {% if loop.first %}open{% endif %}>
+				<summary>
+					<h3>{{ a.title }}</h3>
+					<i></i>
+				</summary>
+				<div>{{ a.details }}</div>
+			</details>
+		{% endfor %}
+	</div>
+	<div>
+		<header>
+			<h2>Resources</h2>
+		</header>
+		<input id="expand-resources" type="checkbox" style="display:none" />
+		<div>{{ resources }}</div>
+		<label for="expand-resources">
+			<span>Read More</span>
+			<span>Collapse</span>
+		</label>
+	</div>
+</div>

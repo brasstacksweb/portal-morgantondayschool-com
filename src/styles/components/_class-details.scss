@@ -1,0 +1,138 @@
+$handle: "class-details";
+
+.#{$handle} {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: var(--s-3xl) auto;
+	padding: 0 var(--s-3xl);
+
+	> div:first-child {
+		width: calc(65% - var(--s-md);
+
+		> header {
+			margin-bottom: var(--s-md);
+
+			> h2 {
+				@include font("heading", 4);
+			}
+		}
+
+		> details {
+			width: 100%;
+			background-color: var(--c-white);
+			border: 1px solid var(--c-br-lt);
+
+			&:first-of-type {
+				border-top-left-radius: var(--s-br-md);
+				border-top-right-radius: var(--s-br-md);
+			}
+
+			&:last-of-type {
+				border-bottom-left-radius: var(--s-br-md);
+				border-bottom-right-radius: var(--s-br-md);
+			}
+
+			> summary {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: var(--s-sm) var(--s-md);
+				cursor: pointer;
+
+				> h3 {
+					@include font("heading", 2);
+				}
+
+				> i {
+					@include cross;
+					flex-shrink: 0;
+				}
+			}
+
+			&[open] > summary > i {
+				transform: rotate(45deg);
+			}
+
+			> div {
+				@include richText("sm");
+				padding: var(--s-md);
+			}
+		}
+	}
+
+	> div:last-child {
+		@include card;
+		position: sticky;
+		top: var(--s-lg);
+		display: flex;
+		flex-direction: column;
+		width: calc(35% - var(--s-md);
+
+		> header {
+			margin-bottom: var(--s-sm);
+
+			> h2 {
+				@include font("heading", 3);
+			}
+		}
+
+		> div {
+			@include richText("sm");
+			@include lineOverflow(3, 1.4em);
+			position: relative;
+			padding-bottom: var(--s-md);
+
+			&:after {
+				@include absolute(auto, 0, 0, 0);
+				content: "";
+				height: var(--s-md);
+				background: linear-gradient(to top, var(--c-white), transparent);
+			}
+		}
+
+		> #expand-resources:checked + div {
+			max-height: inherit;
+			text-overflow: inherit;
+		}
+
+		> label {
+			align-self: flex-end;
+			margin-top: var(--s-sm);
+			color: var(--c-green);
+
+			> span {
+				display: flex;
+				align-items: center;
+
+				&:after {
+					margin-left: calc(0.5 * var(--s-xs));
+				}
+			}
+
+			> span:first-child {
+				&:after {
+					content: "+";
+				}
+			}
+
+			> span:last-child {
+				display: none;
+
+				&:after {
+					content: "-";
+				}
+			}
+		}
+
+		> #expand-resources:checked ~ label {
+			> span:first-child {
+				display: none;
+			}
+
+			> span:last-child {
+				display: block;
+			}
+		}
+	}
+}

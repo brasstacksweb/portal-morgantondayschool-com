@@ -19,7 +19,7 @@ $handle: "form";
     }
 
     &--invert > div {
-        @include richText(true);
+        @include richText($invert: true);
         text-align: center;
     }
 

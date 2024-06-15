@@ -1,0 +1,35 @@
+$handle: "class-hero";
+
+.#{$handle} {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin: var(--s-lg) auto;
+	padding: 0 var(--s-lg);
+
+	> div:first-child {
+		@include card;
+		max-width: calc(35% - var(--s-md));
+		margin-bottom: var(--s-sm);
+		box-shadow: var(--s-md) var(--s-sm) var(--c-teal);
+
+		> h1 {
+			@include font("heading", 5);
+		}
+
+		> aside {
+			@include font;
+			max-width: var(--w-md);
+			margin-top: var(--s-md);
+			color: var(--c-fg-md);
+		}
+	}
+
+	> div:last-child {
+		max-width: calc(65% - var(--s-md));
+		position: relative;
+		overflow: hidden;
+		border-radius: var(--s-br-md);
+	}
+}

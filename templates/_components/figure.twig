@@ -1,0 +1,27 @@
+{##
+ # Figure component
+ # @param {object} image
+ # |_@param {string} title
+ # |_@param {string} url
+ # |_@param {string} alt
+ # |_@param {string} caption
+ #}
+
+{# Params #}
+{% set image = image ?? null %}
+
+{# Variables #}
+{% set handle = 'figure' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<figure>
+		<img
+			src="{{ image.url }}"
+			alt="{{ image.caption ?? image.alt ?? image.title }}"
+			loading="lazy" />
+		{% if image.caption is not empty %}
+			<figcaption>{{ image.caption }}</figcaption>
+		{% endif %}
+	</figure>
+</div>

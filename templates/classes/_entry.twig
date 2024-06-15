@@ -19,24 +19,21 @@
 {% block content %}
 	<article>
 		<header>
-			{% include '_components/primary-hero' with {
-				backgroundImage: craft.components.buildImage(entry.heroImage[0] ?? null),
+			{% include '_components/class-hero' with {
+				image: craft.components.buildImage(entry.heroImage[0] ?? null),
 				heading: entry.heading,
 				overview: entry.overview,
 			} only %}
 		</header>
 
 		<section>
-			{% include '_components/resources-details' with {
+			{% include '_components/class-details' with {
+				announcements: entry.announcements,
 				resources: entry.resources,
 			} only %}
 		</section>
 
-		<section>
-			{% include '_components/announcements-listing' with {
-				announcements: entry.announcements,
-			} only %}
-		</section>
+		{# TODO: Promo #}
 
 		<section>
 			{% include '_components/posts-gallery' with {

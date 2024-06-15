@@ -1,0 +1,31 @@
+{##
+ # Class Hero component
+ # @param {object} image
+ # @param {object} teacher
+ # @param {string} heading
+ # @param {HTML} overview
+ #}
+
+{# Params #}
+{% set image = image ?? null %}
+{% set tacher = teacher ?? null %}
+{% set heading = heading ?? '' %}
+{% set overview = overview ?? '' %}
+
+{# Variables #}
+{% set handle = 'class-hero' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<div>
+		{% if heading is not empty %}
+			<h1>{{ heading }}</h1>
+		{% endif %}
+		{% if overview is not empty %}
+			<aside>{{ overview }}</aside>
+		{% endif %}
+	</div>
+	{% if image %}
+		{% include '_components/figure' with { image: image } %}
+	{% endif %}
+</div>
