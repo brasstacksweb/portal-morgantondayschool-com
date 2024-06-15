@@ -47,34 +47,25 @@
 			line-height: 1.1em;
 			letter-spacing: range(0, -0.307);
 		}
-	} @else if ($type == "link") {
-		@if ($size == 0) {
-			font-size: range(15, 24);
-			line-height: 1.1em;
-			letter-spacing: range(-0.3, 0);
-		} @else if ($size == -1) {
-			font-size: range(14, 15.36);
-			line-height: 1.1em;
-			letter-spacing: range(0, -0.307);
-		}
 	} @else if ($type == "jumbo") {
 		font-size: range(155.369, 372.727);
+		font-weight: bold;
 		line-height: range(1.1, 1.1, 1em);
 		letter-spacing: range(-3.107, -7.455);
 	} @else if ($type == "eyebrow") {
 		@if ($size == -1) {
 			font-size: range(13, 19.2);
+			font-weight: lighter;
 			line-height: range(1.1, 1.4, 1em);
-			// text-transform: uppercase;
 		}
 	} @else {
 		font-weight: book;
 
 		@if ($size == 0) {
-			font-size: range(15, 24);
+			font-size: range(15, 20);
 			line-height: 1.4em;
 		} @else if ($size == -1) {
-			font-size: range(14, 19.2);
+			font-size: range(14, 17.2);
 			line-height: 1.4em;
 		} @else if ($size == -2) {
 			font-size: range(13, 15.36);

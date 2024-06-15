@@ -55,13 +55,14 @@ $page-max: 1920;
 	--c-black: #151515;
 	--c-green: forestgreen;
 	--c-gold: gold;
+	--c-teal: teal;
 	--c-red-lt: tomato;
 	--c-red-dk: maroon;
 	--c-bg-lt: ivory;
 	--c-bg-dk: midnightblue;
 	--c-fg-lt: #AAA;
-	--c-fg-md: #777;
-	--c-fg-dk: #333;
+	--c-fg-md: #696969;
+	--c-fg-dk: #424242;
 	--c-br-lt: mistyrose;
 	--c-br-dk: darkslategray;
 	// Animation
@@ -94,7 +95,7 @@ body {
 	margin: 0 auto;
 	font-family: system-ui;
 	-webkit-font-smoothing: antialiased;
-	background-color: var(--c-white);
+	background-color: var(--c-bg-lt);
 }
 
 [id] {

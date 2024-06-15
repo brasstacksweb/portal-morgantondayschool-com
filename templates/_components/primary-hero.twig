@@ -18,6 +18,9 @@
 	{% if heading is not empty %}
 		<h1>{{ heading }}</h1>
 	{% endif %}
+	{% if overview is not empty %}
+		<aside>{{ overview }}</aside>
+	{% endif %}
 	{% if backgroundImage %}
 		{% include '_components/background-image' with {
 			image: backgroundImage|merge({
