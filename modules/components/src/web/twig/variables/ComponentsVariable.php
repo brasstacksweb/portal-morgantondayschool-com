@@ -32,12 +32,10 @@ class ComponentsVariable
         }
 
         return array_merge($asset->getAttributes(), [
-            'previewText' => $asset->previewText,
-            'position' => $asset->position->value,
-            'fit' => $asset->fit->value,
+            'caption' => $asset->caption,
+            'fit' => $asset->fit->value ?? 'contain',
+            'position' => $asset->position->value ?? 'center',
             'mobileImage' => self::buildImage($asset->mobileImage[0] ?? null),
-            'featuredImage' => self::buildImage($asset->featuredImage[0] ?? null),
-            'invertedImage' => self::buildImage($asset->invertedImage[0] ?? null),
             'backgroundVideo' => $asset->backgroundVideo[0] ?? null,
         ]);
     }

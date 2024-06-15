@@ -1,0 +1,15 @@
+{##
+ # Resources Details component
+ # @param {HTML} resources
+ #}
+
+{# Params #}
+{% set resources = resources ?? '' %}
+
+{# Variables #}
+{% set handle = 'resources-details' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<div>{{ resources }}</div>
+</div>

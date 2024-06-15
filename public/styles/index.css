@@ -159,6 +159,8 @@ a:focus {
   --s-3xl: clamp(calc(58 * 1px), calc((102 - 58) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 58 * 1px), calc(102 * 1px));
   --s-4xl: clamp(calc(130 * 1px), calc((170 - 130) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 130 * 1px), calc(170 * 1px));
   --s-5xl: clamp(calc(170 * 1px), calc((210 - 170) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 170 * 1px), calc(210 * 1px));
+  --s-br-sm: 8px;
+  --s-br-md: 16px;
   --s-icon-xs: 12px;
   --s-icon-sm: 24px;
   --s-icon-md: 36px;
@@ -173,24 +175,17 @@ a:focus {
   --h-header: 80px;
   --c-white: #FBFBFB;
   --c-black: #151515;
-  --c-navy: #0B3C67;
-  --c-blue: #004B8D;
-  --c-blue-rgb: 0, 75, 141;
-  --c-green-lt: #81C07C;
-  --c-green-md: #66B360;
-  --c-green-dk: #4F9749;
-  --c-green-xd: #417C3C;
-  --c-green-2xd: #346430;
-  --c-red-lt: #D37777;
-  --c-red-dk: #950404;
-  --c-bg-lt: #EFEFEF;
-  --c-bg-dk: #0B3C67;
-  --c-fg-lt: #686868;
-  --c-fg-md: #3C3C3C;
-  --c-fg-dk: #0A0A0A;
-  --c-br-lt: #B0B0B0;
-  --c-br-md: #E0F1FF4D;
-  --c-br-dk: #ADD9FF;
+  --c-green: forestgreen;
+  --c-gold: gold;
+  --c-red-lt: tomato;
+  --c-red-dk: maroon;
+  --c-bg-lt: ivory;
+  --c-bg-dk: midnightblue;
+  --c-fg-lt: #AAA;
+  --c-fg-md: #777;
+  --c-fg-dk: #333;
+  --c-br-lt: mistyrose;
+  --c-br-dk: darkslategray;
   --a-s-xs: 0.2s;
   --a-s-sm: 0.3s;
   --a-s-md: 0.5s;
@@ -214,7 +209,7 @@ body {
   overflow-x: hidden;
   min-width: calc(var(--p-min) * 1px);
   margin: 0 auto;
-  font-family: "aktiv-grotesk", Helvetica, Arial, sans-serif;
+  font-family: system-ui;
   -webkit-font-smoothing: antialiased;
   background-color: var(--c-white); }
 
@@ -327,22 +322,6 @@ details summary::-webkit-details-marker {
 /**
  * Media Query mixins
  */
-@font-face {
-  font-family: "PP Neue Montreal Book";
-  src: url("/fonts/ppneuemontreal-book.woff") format("woff"); }
-
-@font-face {
-  font-family: "PP Neue Montreal Regular";
-  src: url("/fonts/ppneuemontreal-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: "PP Neue Montreal Bold";
-  src: url("/fonts/ppneuemontreal-bold.woff") format("woff"); }
-
-@font-face {
-  font-family: "PP Neue Montreal italic";
-  src: url("/fonts/ppneuemontreal-italic.woff") format("woff"); }
-
 /**
  * Layout mixins
  */
@@ -435,14 +414,14 @@ details summary::-webkit-details-marker {
     flex-grow: 1;
     max-width: var(--w-lg); }
     .card > div > h3 {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-      font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: medium;
       font-size: clamp(calc(21.6 * 1px), calc((37.5 - 21.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 21.6 * 1px), calc(37.5 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.432) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.432 * 1px), calc(-0.432 * 1px));
       order: 3; }
     .card > div > h4 {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
       font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
       order: 2;
@@ -464,46 +443,48 @@ details summary::-webkit-details-marker {
         .card > div > div > h1:first-child, .card > div > div > h2:first-child, .card > div > div > h3:first-child, .card > div > div > h4:first-child, .card > div > div > h5:first-child, .card > div > div > h6:first-child {
           margin-top: 0; }
       .card > div > div > h1 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
       .card > div > div > h2 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(37.325 * 1px), calc((73.242 - 37.325) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 37.325 * 1px), calc(73.242 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px)); }
       .card > div > div > h3 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(31.104 * 1px), calc((58.594 - 31.104) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 31.104 * 1px), calc(58.594 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.172 * 1px), calc((-1.172 - -0.622) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.622 * 1px), calc(-0.622 * 1px)); }
       .card > div > div > h4 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
       .card > div > div > h5 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(21.6 * 1px), calc((37.5 - 21.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 21.6 * 1px), calc(37.5 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.432) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.432 * 1px), calc(-0.432 * 1px)); }
       .card > div > div > h6 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
         font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
       .card > div > div > p {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
       .card > div > div ol {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         list-style-type: decimal;
@@ -519,7 +500,8 @@ details summary::-webkit-details-marker {
           .card > div > div ol > li > ul {
             list-style-type: circle; }
       .card > div > div ul {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         list-style-type: disc;
@@ -535,7 +517,8 @@ details summary::-webkit-details-marker {
           .card > div > div ul > li > ul {
             list-style-type: circle; }
       .card > div > div table {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         min-width: var(--w-md); }
@@ -553,7 +536,8 @@ details summary::-webkit-details-marker {
           .card > div > div table th > li,
           .card > div > div table td > ul,
           .card > div > div table td > li {
-            font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+            font-family: system-ui;
+            font-weight: book;
             font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
             line-height: 1.4em; }
         .card > div > div table td {
@@ -565,24 +549,24 @@ details summary::-webkit-details-marker {
       .card > div > div figure {
         margin: var(--s-lg) 0; }
         .card > div > div figure > figcaption {
-          font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+          font-family: system-ui;
+          font-weight: book;
           font-size: clamp(calc(13 * 1px), calc((15.36 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15.36 * 1px));
           line-height: 1.4em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .card > div > div em {
-        font-family: "PP Neue Montreal Italic", Helvetica, Arial, sans-serif;
         font-style: italic;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .card > div > div strong {
-        font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .card > div > div a {
-        color: var(--c-blue);
+        color: var(--c-green);
         text-decoration: underline; }
       .card > div > div:not(:has(p)) {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em; }
     .card > div > em,
@@ -604,21 +588,22 @@ details summary::-webkit-details-marker {
     .card--split > div {
       width: calc(35% - var(--s-lg)); } }
   .card--size-md > div > h3 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
   .card--size-lg > figure + div {
     margin-top: var(--s-lg); }
   .card--size-lg > div > h3 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(31.104 * 1px), calc((58.594 - 31.104) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 31.104 * 1px), calc(58.594 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.172 * 1px), calc((-1.172 - -0.622) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.622 * 1px), calc(-0.622 * 1px)); }
   .card--size-lg > div > div {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em; }
   .card--style-leader > div > h4 {
@@ -653,7 +638,8 @@ details summary::-webkit-details-marker {
       .cards-listing > nav {
         flex-wrap: nowrap; } }
     .cards-listing > nav > em {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: book;
       font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
       line-height: 1.4em;
       margin: 0 0 var(--s-md) 0;
@@ -667,7 +653,8 @@ details summary::-webkit-details-marker {
           margin: 0 0 0 auto;
           text-align: right; } }
     .cards-listing > nav > label {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: book;
       font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
       line-height: 1.4em;
       display: flex;
@@ -699,8 +686,8 @@ details summary::-webkit-details-marker {
           margin-left: 0; } }
     .cards-listing > nav > ul > li > a {
       position: relative;
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-      font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: medium;
       font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.3 * 1px), calc((0 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(0 * 1px));
@@ -720,7 +707,7 @@ details summary::-webkit-details-marker {
         transform-origin: left;
         transform: scaleX(0);
         height: 3px;
-        background-color: var(--c-blue);
+        background-color: var(--c-green);
         transition: transform var(--a-sm); }
       .cards-listing > nav > ul > li > a.is-active:after, .cards-listing > nav > ul > li > a:hover:after {
         transform: scaleX(1); }
@@ -766,8 +753,8 @@ details summary::-webkit-details-marker {
       .contact-form > aside {
         width: 40%; } }
     .contact-form > aside > div:first-child {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-      font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: medium;
       font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.36 * 1px), calc(-0.36 * 1px));
@@ -781,13 +768,14 @@ details summary::-webkit-details-marker {
       .contact-form > aside > div:first-child a {
         color: var(--c-green-lt); }
     .contact-form > aside > div:last-child {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: book;
       font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
       line-height: 1.4em;
       margin-top: var(--s-xl); }
       .contact-form > aside > div:last-child > h3 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.36 * 1px), calc(-0.36 * 1px));
@@ -841,46 +829,48 @@ details summary::-webkit-details-marker {
     .form--invert > div > h1:first-child, .form--invert > div > h2:first-child, .form--invert > div > h3:first-child, .form--invert > div > h4:first-child, .form--invert > div > h5:first-child, .form--invert > div > h6:first-child {
       margin-top: 0; }
   .form--invert > div > h1 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
   .form--invert > div > h2 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(37.325 * 1px), calc((73.242 - 37.325) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 37.325 * 1px), calc(73.242 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px)); }
   .form--invert > div > h3 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(31.104 * 1px), calc((58.594 - 31.104) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 31.104 * 1px), calc(58.594 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.172 * 1px), calc((-1.172 - -0.622) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.622 * 1px), calc(-0.622 * 1px)); }
   .form--invert > div > h4 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
   .form--invert > div > h5 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(21.6 * 1px), calc((37.5 - 21.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 21.6 * 1px), calc(37.5 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.432) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.432 * 1px), calc(-0.432 * 1px)); }
   .form--invert > div > h6 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
   .form--invert > div > p {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     color: var(--c-white); }
   .form--invert > div ol {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     list-style-type: decimal;
@@ -896,7 +886,8 @@ details summary::-webkit-details-marker {
       .form--invert > div ol > li > ul {
         list-style-type: circle; }
   .form--invert > div ul {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     list-style-type: disc;
@@ -912,7 +903,8 @@ details summary::-webkit-details-marker {
       .form--invert > div ul > li > ul {
         list-style-type: circle; }
   .form--invert > div table {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
     line-height: 1.4em;
     min-width: var(--w-md); }
@@ -930,7 +922,8 @@ details summary::-webkit-details-marker {
       .form--invert > div table th > li,
       .form--invert > div table td > ul,
       .form--invert > div table td > li {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em; }
     .form--invert > div table td {
@@ -942,21 +935,20 @@ details summary::-webkit-details-marker {
   .form--invert > div figure {
     margin: var(--s-lg) 0; }
     .form--invert > div figure > figcaption {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: book;
       font-size: clamp(calc(13 * 1px), calc((15.36 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15.36 * 1px));
       line-height: 1.4em;
       margin-top: var(--s-xs);
       color: var(--c-white); }
   .form--invert > div em {
-    font-family: "PP Neue Montreal Italic", Helvetica, Arial, sans-serif;
     font-style: italic;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form--invert > div strong {
-    font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form--invert > div a {
-    color: var(--c-white);
+    color: var(--c-gold);
     text-decoration: underline; }
 
 .form:not(.form--invert) > div {
@@ -973,46 +965,48 @@ details summary::-webkit-details-marker {
     .form:not(.form--invert) > div > h1:first-child, .form:not(.form--invert) > div > h2:first-child, .form:not(.form--invert) > div > h3:first-child, .form:not(.form--invert) > div > h4:first-child, .form:not(.form--invert) > div > h5:first-child, .form:not(.form--invert) > div > h6:first-child {
       margin-top: 0; }
   .form:not(.form--invert) > div > h1 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
   .form:not(.form--invert) > div > h2 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(37.325 * 1px), calc((73.242 - 37.325) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 37.325 * 1px), calc(73.242 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px)); }
   .form:not(.form--invert) > div > h3 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(31.104 * 1px), calc((58.594 - 31.104) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 31.104 * 1px), calc(58.594 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.172 * 1px), calc((-1.172 - -0.622) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.622 * 1px), calc(-0.622 * 1px)); }
   .form:not(.form--invert) > div > h4 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
   .form:not(.form--invert) > div > h5 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(21.6 * 1px), calc((37.5 - 21.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 21.6 * 1px), calc(37.5 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.432) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.432 * 1px), calc(-0.432 * 1px)); }
   .form:not(.form--invert) > div > h6 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
   .form:not(.form--invert) > div > p {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     color: var(--c-fg-md); }
   .form:not(.form--invert) > div ol {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     list-style-type: decimal;
@@ -1028,7 +1022,8 @@ details summary::-webkit-details-marker {
       .form:not(.form--invert) > div ol > li > ul {
         list-style-type: circle; }
   .form:not(.form--invert) > div ul {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     list-style-type: disc;
@@ -1044,7 +1039,8 @@ details summary::-webkit-details-marker {
       .form:not(.form--invert) > div ul > li > ul {
         list-style-type: circle; }
   .form:not(.form--invert) > div table {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
     line-height: 1.4em;
     min-width: var(--w-md); }
@@ -1062,7 +1058,8 @@ details summary::-webkit-details-marker {
       .form:not(.form--invert) > div table th > li,
       .form:not(.form--invert) > div table td > ul,
       .form:not(.form--invert) > div table td > li {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em; }
     .form:not(.form--invert) > div table td {
@@ -1074,27 +1071,26 @@ details summary::-webkit-details-marker {
   .form:not(.form--invert) > div figure {
     margin: var(--s-lg) 0; }
     .form:not(.form--invert) > div figure > figcaption {
-      font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+      font-family: system-ui;
+      font-weight: book;
       font-size: clamp(calc(13 * 1px), calc((15.36 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15.36 * 1px));
       line-height: 1.4em;
       margin-top: var(--s-xs);
       color: var(--c-fg-md); }
   .form:not(.form--invert) > div em {
-    font-family: "PP Neue Montreal Italic", Helvetica, Arial, sans-serif;
     font-style: italic;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form:not(.form--invert) > div strong {
-    font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form:not(.form--invert) > div a {
-    color: var(--c-blue);
+    color: var(--c-green);
     text-decoration: underline; }
 
 .form-field {
   position: relative; }
   .form-field > label {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
     display: block;
@@ -1111,7 +1107,8 @@ details summary::-webkit-details-marker {
   .form-field > div > select,
   .form-field > textarea,
   .form-field > input {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     display: block;
@@ -1157,7 +1154,8 @@ details summary::-webkit-details-marker {
       fill: var(--c-black);
       pointer-events: none; }
   .form-field > p {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
     line-height: 1.4em;
     position: relative;
@@ -1273,8 +1271,8 @@ details summary::-webkit-details-marker {
     right: 0;
     bottom: 0;
     left: auto;
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.36 * 1px), calc(-0.36 * 1px));
@@ -1343,16 +1341,16 @@ details summary::-webkit-details-marker {
         right: auto;
         bottom: auto;
         left: 10%;
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px));
         color: var(--c-white); }
         @media (min-width: 768px) and (max-width: 1279px) {
           .media-split--media-type-bubbles > div > figure > div > h3 {
-            font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-            font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+            font-family: system-ui;
+            font-weight: medium;
             font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
             line-height: 1.1em;
             letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.36 * 1px), calc(-0.36 * 1px)); } }
@@ -1453,6 +1451,28 @@ details summary::-webkit-details-marker {
     width: 100%;
     height: 100%; }
 
+.primary-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 65vh;
+  padding: var(--s-3xl) var(--s-lg); }
+  .primary-hero > h1 {
+    font-family: system-ui;
+    font-weight: medium;
+    font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
+    position: relative;
+    order: 2;
+    padding: var(--s-sm);
+    background-color: var(--c-white);
+    color: var(--c-fg-dk);
+    border-top-right-radius: var(--s-br-md);
+    border-bottom-left-radius: var(--s-br-md); }
+  .primary-hero div[style*="background-image"] {
+    filter: saturate(85%); }
+
 .sidekick {
   position: relative;
   overflow: hidden;
@@ -1526,16 +1546,16 @@ details summary::-webkit-details-marker {
       flex-direction: row;
       align-items: flex-end; } }
   .text-block > h2 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
     max-width: var(--w-xl);
     text-wrap: balance; }
   .text-block--size-md > h2 {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-    font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: medium;
     font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
@@ -1566,46 +1586,48 @@ details summary::-webkit-details-marker {
         .text-block > div > div > h1:first-child, .text-block > div > div > h2:first-child, .text-block > div > div > h3:first-child, .text-block > div > div > h4:first-child, .text-block > div > div > h5:first-child, .text-block > div > div > h6:first-child {
           margin-top: 0; }
       .text-block > div > div > h1 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(44.79 * 1px), calc((91.553 - 44.79) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44.79 * 1px), calc(91.553 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.831 * 1px), calc((-1.831 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
       .text-block > div > div > h2 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(37.325 * 1px), calc((73.242 - 37.325) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 37.325 * 1px), calc(73.242 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.465 * 1px), calc((-1.465 - -0.746) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.746 * 1px), calc(-0.746 * 1px)); }
       .text-block > div > div > h3 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(31.104 * 1px), calc((58.594 - 31.104) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 31.104 * 1px), calc(58.594 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.172 * 1px), calc((-1.172 - -0.622) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.622 * 1px), calc(-0.622 * 1px)); }
       .text-block > div > div > h4 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(25.92 * 1px), calc((46.875 - 25.92) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 25.92 * 1px), calc(46.875 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.937 * 1px), calc((-0.937 - -0.518) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.518 * 1px), calc(-0.518 * 1px)); }
       .text-block > div > div > h5 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
-        font-family: "PP Neue Montreal Book", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: medium;
         font-size: clamp(calc(21.6 * 1px), calc((37.5 - 21.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 21.6 * 1px), calc(37.5 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.432) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.432 * 1px), calc(-0.432 * 1px)); }
       .text-block > div > div > h6 {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
         font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
       .text-block > div > div > p {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
       .text-block > div > div ol {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         list-style-type: decimal;
@@ -1621,7 +1643,8 @@ details summary::-webkit-details-marker {
           .text-block > div > div ol > li > ul {
             list-style-type: circle; }
       .text-block > div > div ul {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         list-style-type: disc;
@@ -1637,7 +1660,8 @@ details summary::-webkit-details-marker {
           .text-block > div > div ul > li > ul {
             list-style-type: circle; }
       .text-block > div > div table {
-        font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+        font-family: system-ui;
+        font-weight: book;
         font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
         line-height: 1.4em;
         min-width: var(--w-md); }
@@ -1655,7 +1679,8 @@ details summary::-webkit-details-marker {
           .text-block > div > div table th > li,
           .text-block > div > div table td > ul,
           .text-block > div > div table td > li {
-            font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+            font-family: system-ui;
+            font-weight: book;
             font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
             line-height: 1.4em; }
         .text-block > div > div table td {
@@ -1667,24 +1692,24 @@ details summary::-webkit-details-marker {
       .text-block > div > div figure {
         margin: var(--s-lg) 0; }
         .text-block > div > div figure > figcaption {
-          font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+          font-family: system-ui;
+          font-weight: book;
           font-size: clamp(calc(13 * 1px), calc((15.36 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15.36 * 1px));
           line-height: 1.4em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .text-block > div > div em {
-        font-family: "PP Neue Montreal Italic", Helvetica, Arial, sans-serif;
         font-style: italic;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .text-block > div > div strong {
-        font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .text-block > div > div a {
-        color: var(--c-blue);
+        color: var(--c-green);
         text-decoration: underline; }
   .text-block--size-md > div > div {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(14 * 1px), calc((19.2 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(19.2 * 1px));
     line-height: 1.4em; }
   @media (min-width: 768px) {
@@ -1706,7 +1731,8 @@ details summary::-webkit-details-marker {
     .text-cta > span:empty {
       display: none; }
   .text-cta > small {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
+    font-weight: book;
     font-size: clamp(calc(13 * 1px), calc((15.36 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15.36 * 1px));
     line-height: 1.4em;
     position: absolute;
@@ -1779,33 +1805,29 @@ details summary::-webkit-details-marker {
       .text-cta--type-secondary.text-cta--invert > em > svg {
         fill: var(--c-white); }
   .text-cta--size-sm, .text-cta--size-md {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(14 * 1px), calc((15.36 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(15.36 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.307 * 1px), calc((-0.307 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
     padding: var(--s-sm) var(--s-md); }
     .text-cta--size-sm.text-cta--type-primary, .text-cta--size-md.text-cta--type-primary {
-      font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     a:hover .text-cta--size-sm.text-cta--type-secondary, .text-cta--size-sm.text-cta--type-secondary:hover, a:hover .text-cta--size-md.text-cta--type-secondary, .text-cta--size-md.text-cta--type-secondary:hover {
-      font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     .text-cta--size-sm > small, .text-cta--size-md > small {
       display: none; }
   .text-cta--size-lg {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.3 * 1px), calc((0 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(0 * 1px));
     padding: var(--s-md); }
     .text-cta--size-lg.text-cta--type-primary {
-      font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     a:hover .text-cta--size-lg.text-cta--type-secondary, .text-cta--size-lg.text-cta--type-secondary:hover {
-      font-family: "PP Neue Montreal Bold", Helvetica, Arial, sans-serif;
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .text-cta--is-external > em {
@@ -1830,7 +1852,7 @@ details summary::-webkit-details-marker {
   .video-cta:hover {
     background-color: var(--c-green-dk); }
   .video-cta > span {
-    font-family: "PP Neue Montreal Regular", Helvetica, Arial, sans-serif;
+    font-family: system-ui;
     font-size: clamp(calc(13 * 1px), calc((19.2 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(19.2 * 1px));
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
     position: absolute;

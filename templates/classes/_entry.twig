@@ -1,0 +1,47 @@
+{##
+ # Class entry
+ # @param {Entry} entry
+ #}
+
+{# Params #}
+{% set entry = craft.entries.id(entry.id).with([
+	'heroImage',
+	'announcements',
+	'posts',
+]).one() %}
+
+{# Markup #}
+{% set metaTitle = entry.heading ?? entry.title ?? '' %}
+{% set metaDescription = entry.overview|striptags[:160] %}
+
+{% extends '_layouts/html' %}
+
+{% block content %}
+	<article>
+		<header>
+			{% include '_components/primary-hero' with {
+				backgroundImage: craft.components.buildImage(entry.heroImage[0] ?? null),
+				heading: entry.heading,
+				overview: entry.overview,
+			} only %}
+		</header>
+
+		<section>
+			{% include '_components/resources-details' with {
+				resources: entry.resources,
+			} only %}
+		</section>
+
+		<section>
+			{% include '_components/announcements-listing' with {
+				announcements: entry.announcements,
+			} only %}
+		</section>
+
+		<section>
+			{% include '_components/posts-gallery' with {
+				posts: entry.posts,
+			} only %}
+		</section>
+	</article>
+{% endblock %}

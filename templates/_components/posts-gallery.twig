@@ -1,0 +1,27 @@
+{##
+ # Posts Gallery component
+ # @param {object[]} posts
+ # |_@param {string} url
+ # |_@param {string} caption
+ #}
+
+{# Params #}
+{% set posts = posts ?? [] %}
+
+{# Variables #}
+{% set handle = 'posts-gallery' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	{% for p in posts %}
+		<figure>
+			<img
+				src="{{ p.url }}"
+				alt="{{ p.caption ?? p.title }}"
+				loading="lazy" />
+			{% if p.caption is not empty %}
+				<figcaption>{{ p.caption }}</figcaption>
+			{% endif %}
+		</figure>
+	{% endfor %}
+</div>

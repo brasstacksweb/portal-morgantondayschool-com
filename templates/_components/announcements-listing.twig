@@ -1,0 +1,27 @@
+{##
+ # Announcements Listing component
+ # @param {string} heading
+ # @param {object[]} announcements
+ # |_@param {string} title
+ # |_@param {HTML} details
+ #}
+
+{# Params #}
+{% set heading = heading ?? 'Announcements' %}
+{% set announcements = announcements ?? [] %}
+
+{# Variables #}
+{% set handle = 'announcements-listing' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% for a in announcements %}
+		<details>
+			<summary>{{ a.title }}</summary>
+			<div>{{ a.details }}</div>
+		</details>
+	{% endfor %}
+</div>
