@@ -1,13 +1,13 @@
 columnSuffix: null
-handle: previewText
+handle: text
 instructions: null
-name: 'Preview Text'
+name: Text
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
   code: false
-  initialRows: 2
+  initialRows: 1
   multiline: true
   placeholder: null
   uiMode: normal

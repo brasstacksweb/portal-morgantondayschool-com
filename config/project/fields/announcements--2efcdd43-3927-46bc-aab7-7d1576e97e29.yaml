@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: announcements
+instructions: null
+name: Announcements
+searchable: false
+settings:
+  createButtonLabel: 'New Announcement'
+  entryTypes:
+    - 88e145c4-1350-4e7c-bb88-a9a9233ebaf2 # Announcement
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

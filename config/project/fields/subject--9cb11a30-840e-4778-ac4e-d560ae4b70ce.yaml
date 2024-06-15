@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: subject
+instructions: null
+name: Subject
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add a subject'
+  showCardsInGrid: false
+  showSiteMenu: true
+  source: 'group:666a2d7b-63a0-4256-acdd-fd5c0af0714f' # Subjects
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

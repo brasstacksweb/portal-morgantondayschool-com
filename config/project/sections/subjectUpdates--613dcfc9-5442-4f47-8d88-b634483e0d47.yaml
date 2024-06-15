@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 7459fa4e-33c3-4be0-8868-4011ce1be81e # Reminder
-handle: reminders
+  - cbf5afdd-99f1-4d21-a978-952e00f4212b # Subject Update
+handle: subjectUpdates
 maxAuthors: 1
-name: Reminders
+name: 'Subject Updates'
 propagationMethod: all
 siteSettings:
   812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School

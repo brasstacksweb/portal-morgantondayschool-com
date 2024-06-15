@@ -24,7 +24,7 @@ settings:
   restrictedLocationSubpath: null
   selectionLabel: 'Add an image'
   showCardsInGrid: false
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources:

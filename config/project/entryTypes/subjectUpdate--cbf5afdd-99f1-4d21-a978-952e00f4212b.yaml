@@ -1,6 +1,6 @@
 color: null
 fieldLayouts:
-  d0127bed-fbd9-4d87-aa29-376f05656695:
+  a586ab72-cb3a-4a91-894f-81b981eb6ac9:
     tabs:
       -
         elementCondition: null
@@ -30,13 +30,28 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 27aeb37d-0bcf-492a-8bc3-c28b10fafc36
+            uid: 6ce38a39-c46b-4dd1-8c99-d67ace1efa1f
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 9d9dfbb2-88b3-4274-9762-69c856f6b518 # Preview Image
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: details
+            includeInCards: false
+            instructions: null
+            label: Details
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8aebe5fc-bac3-41ec-87dd-1a1b573e532f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9cb11a30-840e-4778-ac4e-d560ae4b70ce # Subject
             handle: null
             includeInCards: false
             instructions: null
@@ -45,32 +60,32 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 11911dc9-31f6-4022-b74f-b326cc830ba3
+            uid: a4981c9b-e8bb-4a29-9a15-eb4be44de54d
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
-            handle: previewText
+            fieldUid: 938bdfab-80e2-4116-9e3d-66d94c36376f # Classes
+            handle: null
             includeInCards: false
             instructions: null
-            label: 'Preview Text'
+            label: null
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3eec01eb-7506-4c32-bbba-a2ee61deb6fa
+            uid: 56169235-ed44-4fb3-97bb-c72746a5fdbc
             userCondition: null
             warning: null
-            width: 100
+            width: 50
         name: Content
-        uid: 3a2d0940-71c4-4c49-8ccf-01022eba3b31
+        uid: aefc2ea7-d4f5-41af-be16-dabf090f634d
         userCondition: null
-handle: page
+handle: subjectUpdate
 hasTitleField: true
-icon: memo
-name: Page
+icon: bullhorn
+name: 'Subject Update'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

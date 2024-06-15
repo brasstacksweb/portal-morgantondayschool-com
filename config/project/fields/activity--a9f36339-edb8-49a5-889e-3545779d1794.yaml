@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: activity
+instructions: null
+name: Activity
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add an activity'
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources:
+    - 'section:2d6cc29e-95ec-4121-a242-f74b9a1053a6' # Activities
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,49 @@
+defaultPlacement: end
+fieldLayouts:
+  c8dea82a-2e34-4ab1-87b0-eb4a911c14c0:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 500effa3-14d9-47e1-b260-cbd3837940cd
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 913b9d75-1624-408c-b172-dcfaf3357dbc
+        userCondition: null
+handle: subjects
+name: Subjects
+siteSettings:
+  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: bd05697f-7a6e-4490-a8ff-2390d2009214

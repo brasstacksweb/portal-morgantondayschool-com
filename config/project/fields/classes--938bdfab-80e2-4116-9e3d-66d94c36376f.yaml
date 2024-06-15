@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: classes
+instructions: null
+name: Classes
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a class'
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources:
+    - 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries
