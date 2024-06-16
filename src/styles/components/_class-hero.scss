@@ -3,9 +3,9 @@ $handle: "class-hero";
 .#{$handle} {
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-end;
-	max-height: 70vh;
 	margin: var(--s-lg) auto;
 	padding: 0 var(--s-lg);
 
@@ -13,13 +13,26 @@ $handle: "class-hero";
 		@include card;
 		display: flex;
 		flex-direction: column;
-		max-width: calc(35% - var(--s-md));
-		margin-bottom: var(--s-sm);
 		box-shadow: var(--s-md) var(--s-sm) var(--c-teal);
+
+		@include media($max: "xs") {
+			width: 100%;
+			margin: calc(-1 * var(--s-3xl)) var(--s-sm) auto var(--s-xl);
+		}
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+			margin-bottom: var(--s-sm);
+		}
+
+		@include media("md") {
+			width: calc(35% - var(--s-md));
+		}
 
 		> h1 {
 			@include font("heading", 5);
 			margin-bottom: var(--s-md);
+			text-wrap: balance;
 		}
 
 		> address {
@@ -27,30 +40,61 @@ $handle: "class-hero";
 			align-items: center;
 			margin-bottom: var(--s-md);
 
-			> img {
+			> a {
+				display: flex;
+				align-items: center;
+			}
+
+			img {
 				width: var(--s-icon-lg);
 				height: var(--s-icon-lg);
 				margin-right: var(--s-xs);
 				border-radius: 50%;
+				object-fit: cover;
 			}
 
-			> h2 {
+			h2 {
 				@include font("intro");
 				color: var(--c-fg-md);
 			}
 		}
 
-		> aside {
+		> div {
 			@include font;
 			max-width: var(--w-md);
 			color: var(--c-fg-md);
 		}
+
+		> a {
+			@include font;
+			color: var(--c-green);
+			margin-top: var(--s-md);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	> div:last-child {
-		max-width: calc(65% - var(--s-md));
 		position: relative;
 		overflow: hidden;
 		border-radius: var(--s-br-md);
+
+		@include media($max: "xs") {
+			z-index: -1;
+			width: calc(100% - var(--s-3xl));
+			order: -1;
+			aspect-ratio: 4 / 3;
+		}
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+			max-height: 70vh;
+		}
+
+		@include media("md") {
+			width: calc(65% - var(--s-md));
+		}
 	}
 }

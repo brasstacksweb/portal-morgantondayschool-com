@@ -1,0 +1,33 @@
+{##
+ # Expandable Text component
+ # @param {HTML} text
+ # @param {tuple} labels
+ # @param {int} lines
+ # @param {int} threshold
+ # @param {string} size <sm*, md>
+ #}
+
+{# Params #}
+{% set text = text ?? '' %}
+{% set labels = labels ?? [] %}
+{% set lines = lines ?? 3 %}
+{% set threshold = threshold ?? (lines * 70) %}
+{% set size = size ?? 'sm' %}
+
+{# Variables #}
+{% set handle = 'expandable-text' %}
+
+{% set rawText = text|striptags|trim %}
+{% set textId = rawText|hash|replace(rawText, '') %}
+
+{# Markup #}
+<div class="{{ handle }} {{ handle }}--size-{{ size }}">
+	{% if rawText|length > threshold %}
+		<input id="expand-text-{{ textId }}" type="checkbox" style="display:none" />
+		<label for="expand-text-{{ textId }}" aria-hidden="true">
+			<span>{{ labels|first ?: 'Expand' }}</span>
+			<span>{{ labels|last ?: 'Collapse' }}</span>
+		</label>
+	{% endif %}
+	<div style="--n-lines: {{ lines }}">{{ text }}</div>
+</div>

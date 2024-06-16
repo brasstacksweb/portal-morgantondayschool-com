@@ -1,0 +1,41 @@
+{##
+ # Class Footer component
+ # @param {object} teacher
+ # @param {HTML} resources
+ #}
+
+{# Params #}
+{% set teacher = teacher ?? null %}
+{% set resources = resources ?? '' %}
+
+{# Variables #}
+{% set handle = 'class-footer' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<div>
+		<header>
+			<h2>Resources</h2>
+		</header>
+		<div>{{ resources }}</div>
+	</div>
+	{% if teacher %}
+		<article>
+			{% if teacher.photo %}
+				<figure>
+					<img src="{{ teacher.photo.url }}" alt="{{ teacher.fullName }} headshot" />
+				</figure>
+			{% endif %}
+			<div>
+				<h3>{{ teacher.fullName }}</h3>
+				{% if teacher.bio is not empty %}
+					{% include '_components/expandable-text' with {
+						text: teacher.bio,
+						labels: ['Read More', 'Collapse'],
+						lines: 8,
+					} only %}
+				{% endif %}
+			</div>
+		</article>
+	{% endif %}
+</div>

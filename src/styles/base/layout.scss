@@ -48,7 +48,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: $height * $lines; // max height of n lines
+    max-height: calc(#{$height} * #{$lines}); // max height of n lines
 }
 
 @mixin shadow($s: var(--s-xs)) {

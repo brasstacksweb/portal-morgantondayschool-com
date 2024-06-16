@@ -1,0 +1,78 @@
+$handle: "class-footer";
+
+.#{$handle} {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	margin: var(--s-3xl) auto;
+	padding: 0 var(--s-lg);
+
+	@include media("md") {
+		padding: 0 var(--s-3xl);
+	}
+
+	> div {
+		@include card;
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+		}
+
+		@include media("md") {
+			width: calc(65% - var(--s-md));
+		}
+
+		> header {
+			> h2 {
+				@include font("heading", 4);
+			}
+		}
+
+		> div {
+			@include richText;
+			margin-top: var(--s-md);
+		}
+	}
+
+	> article {
+		width: 100%;
+
+		@include media($max: "xs") {
+			margin-top: var(--s-lg);
+		}
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+			margin-left: var(--s-lg);
+		}
+
+		@include media("md") {
+			width: calc(35% - var(--s-md));
+		}
+
+		> figure {
+			position: relative;
+			overflow: hidden;
+			border-top-left-radius: var(--s-br-md);
+			border-top-right-radius: var(--s-br-md);
+			aspect-ratio: 1 / 1;
+
+			> img {
+				object-fit: cover;
+			}
+		}
+
+		> div {
+			@include card;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+
+			> h3 {
+				@include font("heading", 3);
+				margin-bottom: var(--s-md);
+			}
+		}
+	}
+}

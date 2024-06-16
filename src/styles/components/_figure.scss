@@ -10,11 +10,14 @@ $handle: "figure";
 		border-radius: var(--s-md);
 
 		> img {
+			width: 100%;
 			filter: saturate(150%);
 		}
 
 		> figcaption {
+			@include font("body", -1);
 			padding: var(--s-sm) var(--s-md);
+			color: var(--c-black);
 		}
 	}
 }

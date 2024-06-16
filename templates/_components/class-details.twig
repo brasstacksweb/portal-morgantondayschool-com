@@ -3,12 +3,14 @@
  # @param {object[]} announcements
  # |_@param {string} title
  # |_@param {HTML} details
- # @param {HTML} resources
+ # @param {object<subject->update>} updatesBySubject
+ # |_@param {string} title
+ # |_@param {HTML} details
  #}
 
 {# Params #}
 {% set announcements = announcements ?? [] %}
-{% set resources = resources ?? '' %}
+{% set updatesBySubject = updatesBySubject ?? '' %}
 
 {# Variables #}
 {% set handle = 'class-details' %}
@@ -17,27 +19,43 @@
 <div class="{{ handle }}">
 	<div>
 		<header>
-			<h2>Announcements</h2>
+			<h2>Class Announcements</h2>
 		</header>
 		{% for a in announcements %}
-			<details {% if loop.first %}open{% endif %}>
-				<summary>
-					<h3>{{ a.title }}</h3>
-					<i></i>
-				</summary>
-				<div>{{ a.details }}</div>
-			</details>
+			<article>
+				<h3>{{ a.title }}</h3>
+				{% include '_components/expandable-text' with {
+					text: a.details,
+					labels: ['Read More', 'Collapse'],
+				} only %}
+			</article>
 		{% endfor %}
 	</div>
 	<div>
 		<header>
-			<h2>Resources</h2>
+			<h2>Subject Updates</h2>
 		</header>
-		<input id="expand-resources" type="checkbox" style="display:none" />
-		<div>{{ resources }}</div>
-		<label for="expand-resources">
-			<span>Read More</span>
-			<span>Collapse</span>
-		</label>
+		{% for subjectColor, updates in updatesBySubject %}
+			{% set subject = subjectColor|split('-')|first %}
+			{% set color  = subjectColor|split('-')|last %}
+
+			<details>
+				<summary>
+					<h3>
+						{% if color is not empty %}
+							<i style="--c-subject:{{ color }}"></i>
+						{% endif %}
+						<span>{{ subject }}</span>
+					</h3>
+					<i></i>
+				</summary>
+				<div>
+					{% for u in updates %}
+						<h4>{{ u.title }}</h4>
+						<div>{{ u.details }}</div>
+					{% endfor %}
+				</div>
+			</details>
+		{% endfor %}
 	</div>
 </div>

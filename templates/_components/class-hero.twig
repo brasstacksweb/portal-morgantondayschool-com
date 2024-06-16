@@ -5,6 +5,7 @@
  # @param {object} teacher
  # @param {string} heading
  # @param {HTML} overview
+ # @param {string} anchor
  #}
 
 {# Params #}
@@ -13,6 +14,7 @@
 {% set tacher = teacher ?? null %}
 {% set heading = heading ?? '' %}
 {% set overview = overview ?? '' %}
+{% set anchor = anchor ?? '' %}
 
 {# Variables #}
 {% set handle = 'class-hero' %}
@@ -24,15 +26,28 @@
 			<h1>{{ heading }}</h1>
 		{% endif %}
 		{% if teacher is not empty %}
-			<address>
+			{% set content %}
 				{% if teacher.photo %}
 					<img src="{{ teacher.photo.url }}" alt="{{ teacher.fullName }} headshot" />
 				{% endif %}
 				<h2>{{ teacher.fullName }}</h2>
+			{% endset %}
+
+			<address>
+				{% if anchor is not empty %}
+					<a href="#{{ anchor }}" title="Meet {{ teacher.fullName|split(' ')|first }}">
+						{{ content }}
+					</a>
+				{% else %}
+					{{ content }}
+				{% endif %}
 			</address>
 		{% endif %}
 		{% if overview is not empty %}
-			<aside>{{ overview }}</aside>
+			<div>{{ overview }}</div>
+		{% endif %}
+		{% if anchor is not empty %}
+			<a href="#{{ anchor }}" title="View Resource">View Resources</a>
 		{% endif %}
 	</div>
 	{% if image %}

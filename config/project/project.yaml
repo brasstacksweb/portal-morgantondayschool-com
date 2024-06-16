@@ -1,4 +1,4 @@
-dateModified: 1718466235
+dateModified: 1718499754
 elementSources:
   craft\elements\Entry:
     -
@@ -53,15 +53,13 @@ elementSources:
         - postDate
         - desc
       disabled: false
-      key: 'section:8a0e8ea1-ad28-4b07-9786-dddd368687ab'
+      key: 'section:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
       tableAttributes:
         - status
-        - 'field:3b8a6904-ae52-4971-b1ff-e099fa19bfb4'
-        - 'field:e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5' # Text
+        - 'field:9cb11a30-840e-4778-ac4e-d560ae4b70ce' # Subject
+        - 'field:938bdfab-80e2-4116-9e3d-66d94c36376f' # Classes
         - postDate
-      type: native
-    -
-      key: 'section:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
+        - authors
       type: native
     -
       key: 'section:478d6f7d-a53b-42eb-a9ce-671857c743a3' # Blog
@@ -118,6 +116,7 @@ meta:
     dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
+    e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: 'Hero Image' # Hero Image
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog

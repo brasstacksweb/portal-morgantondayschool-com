@@ -11,6 +11,15 @@
 	'posts',
 ]).one() %}
 
+{# Variables #}
+{% set subjectUpdates = craft.entries.section('subjectUpdates')
+	.relatedTo([entry])
+	.postDate('>= ' ~ now|date_modify("-6 days")|atom)
+	.with(['subject'])
+	.all() %}
+{% set updatesBySubject = subjectUpdates
+	|group(u => u.subject[0].title ~ '-' ~ (u.subject[0].color ?? '')) %}
+
 {# Markup #}
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
 {% set metaDescription = entry.overview|striptags[:160] %}
@@ -25,13 +34,14 @@
 				image: craft.components.buildImage(entry.heroImage[0] ?? null),
 				heading: entry.heading,
 				overview: entry.overview,
+				anchor: 'resources',
 			} only %}
 		</header>
 
 		<section>
 			{% include '_components/class-details' with {
 				announcements: entry.announcements,
-				resources: entry.resources,
+				updatesBySubject: updatesBySubject,
 			} only %}
 		</section>
 
@@ -42,5 +52,12 @@
 				posts: entry.posts,
 			} only %}
 		</section>
+
+		<footer id="resources">
+			{% include '_components/class-footer' with {
+				teacher: entry.teacher[0] ?? null,
+				resources: entry.resources,
+			} only %}
+		</footer>
 	</article>
 {% endblock %}

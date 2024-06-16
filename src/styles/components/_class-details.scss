@@ -2,16 +2,53 @@ $handle: "class-details";
 
 .#{$handle} {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
 	margin: var(--s-3xl) auto;
-	padding: 0 var(--s-3xl);
+	padding: 0 var(--s-lg);
+
+	@include media("md") {
+		padding: 0 var(--s-3xl);
+	}
 
 	> div:first-child {
-		width: calc(65% - var(--s-md);
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md);
+		}
 
 		> header {
-			margin-bottom: var(--s-md);
+			margin-bottom: var(--s-lg);
+
+			> h2 {
+				@include font("heading", 4);
+			}
+		}
+
+		> article {
+			@include card;
+			margin-top: var(--s-md);
+
+			> h3 {
+				@include font("heading", 2);
+				margin-bottom: var(--s-md);
+			}
+		}
+	}
+
+	> div:last-child {
+		width: 100%;
+		margin-top: var(--s-lg);
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md);
+			margin: 0;
+		}
+
+		> header {
+			margin-bottom: var(--s-lg);
 
 			> h2 {
 				@include font("heading", 4);
@@ -39,11 +76,21 @@ $handle: "class-details";
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				padding: var(--s-sm) var(--s-md);
+				padding: var(--s-md);
 				cursor: pointer;
 
 				> h3 {
 					@include font("heading", 2);
+					display: flex;
+					align-items: center;
+
+					> i {
+						width: var(--s-icon-xs);
+						height: var(--s-icon-xs);
+						margin-right: var(--s-sm);
+						background-color: var(--c-subject);
+						border-radius: 50%;
+					}
 				}
 
 				> i {
@@ -57,83 +104,22 @@ $handle: "class-details";
 			}
 
 			> div {
-				@include richText("sm");
-				padding: var(--s-md);
-			}
-		}
-	}
+				padding: 0 var(--s-md) var(--s-md);
 
-	> div:last-child {
-		@include card;
-		position: sticky;
-		top: var(--s-lg);
-		display: flex;
-		flex-direction: column;
-		width: calc(35% - var(--s-md);
-
-		> header {
-			margin-bottom: var(--s-sm);
-
-			> h2 {
-				@include font("heading", 3);
-			}
-		}
-
-		> div {
-			@include richText("sm");
-			@include lineOverflow(3, 1.4em);
-			position: relative;
-			padding-bottom: var(--s-md);
-
-			&:after {
-				@include absolute(auto, 0, 0, 0);
-				content: "";
-				height: var(--s-md);
-				background: linear-gradient(to top, var(--c-white), transparent);
-			}
-		}
-
-		> #expand-resources:checked + div {
-			max-height: inherit;
-			text-overflow: inherit;
-		}
-
-		> label {
-			align-self: flex-end;
-			margin-top: var(--s-sm);
-			color: var(--c-green);
-
-			> span {
-				display: flex;
-				align-items: center;
-
-				&:after {
-					margin-left: calc(0.5 * var(--s-xs));
+				> h4 {
+					@include font("heading", 0);
 				}
-			}
 
-			> span:first-child {
-				&:after {
-					content: "+";
+				> div {
+					@include richText("sm");
+					margin-top: var(--s-sm);
+
+					+ h4 {
+						margin-top: var(--s-md);
+						padding-top: var(--s-md);
+						border-top: 1px solid var(--c-br-lt);
+					}
 				}
-			}
-
-			> span:last-child {
-				display: none;
-
-				&:after {
-					content: "-";
-				}
-			}
-		}
-
-		> #expand-resources:checked ~ label {
-			> span:first-child {
-				display: none;
-			}
-
-			> span:last-child {
-				display: block;
 			}
 		}
 	}

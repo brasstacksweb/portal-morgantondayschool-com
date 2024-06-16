@@ -4,57 +4,53 @@
 	font-family: system-ui;
 
 	@if ($type == "heading") {
-		font-weight: medium;
+		font-weight: normal;
 
-		@if ($size == 7) {
-			font-size: range(53.748, 114.441);
+		@if ($size == 6) {
+			font-size: range(44, 92);
 			line-height: 1.1em;
-			letter-spacing: range(0, -2.289);
-		} @else if ($size == 6) {
-			font-size: range(44.79, 91.553);
-			line-height: 1.1em;
-			letter-spacing: range(0, -1.831);
+			letter-spacing: range(0, -1.8);
 		} @else if ($size == 5) {
-			font-size: range(37.325, 73.242);
+			font-size: range(36, 74);
 			line-height: 1.1em;
-			letter-spacing: range(-0.746, -1.465);
+			letter-spacing: range(-0.7, -1.5);
 		} @else if ($size == 4) {
-			font-size: range(31.104, 58.594);
+			font-size: range(32, 60);
 			line-height: 1.1em;
-			letter-spacing: range(-0.622, -1.172);
+			letter-spacing: range(-0.6, -1.2);
 		} @else if ($size == 3) {
-			font-size: range(25.92, 46.875);
+			font-size: range(26, 48);
 			line-height: 1.1em;
-			letter-spacing: range(-0.518, -0.937);
+			letter-spacing: range(-0.5, -0.9);
 		} @else if ($size == 2) {
-			font-size: range(21.6, 37.5);
+			font-size: range(20, 36);
 			line-height: 1.1em;
-			letter-spacing: range(-0.432, -0.75);
+			letter-spacing: range(-0.4, -0.75);
 		} @else if ($size == 1) {
 			font-size: range(18, 30);
 			line-height: 1.1em;
-			letter-spacing: range(-0.36, -0.6);
+			letter-spacing: range(-0.3, -0.6);
 		} @else if ($size == 0) {
 			font-size: range(15, 24);
 			line-height: 1.1em;
 			letter-spacing: range(-0.3, 0);
 		} @else if ($size == -1) {
-			font-size: range(14, 19.2);
+			font-size: range(14, 18);
 			line-height: 1.1em;
-			letter-spacing: range(-0.25, -0.384);
+			letter-spacing: range(-0.25, -0.3);
 		} @else if ($size == -2) {
-			font-size: range(13, 15.36);
+			font-size: range(13, 15);
 			line-height: 1.1em;
-			letter-spacing: range(0, -0.307);
+			letter-spacing: range(0, -0.3);
 		}
 	} @else if ($type == "jumbo") {
-		font-size: range(155.369, 372.727);
+		font-size: range(156, 372);
 		font-weight: bold;
 		line-height: range(1.1, 1.1, 1em);
 		letter-spacing: range(-3.107, -7.455);
 	} @else if ($type == "eyebrow") {
 		@if ($size == -1) {
-			font-size: range(13, 19.2);
+			font-size: range(13, 17);
 			font-weight: lighter;
 			line-height: range(1.1, 1.4, 1em);
 		}
@@ -65,10 +61,10 @@
 			font-size: range(15, 20);
 			line-height: 1.4em;
 		} @else if ($size == -1) {
-			font-size: range(14, 17.2);
+			font-size: range(14, 18);
 			line-height: 1.4em;
 		} @else if ($size == -2) {
-			font-size: range(13, 15.36);
+			font-size: range(13, 15);
 			line-height: 1.4em;
 		}
 	}
@@ -100,6 +96,14 @@
 	&#{$trigger}:after,
 	&:hover:after {
 		transform: scaleX(1);
+	}
+}
+
+@mixin link($invert: false) {
+	color: if($invert, var(--c-gold), var(--c-green));
+
+	&:hover {
+		text-decoration: underline;
 	}
 }
 
@@ -144,8 +148,11 @@
 }
 
 @mixin richText($size: "md", $invert: false) {
-	overflow-x: auto;
 	color: if($invert, var(--c-white), var(--c-fg-dk));
+
+	&:has(table) {
+		overflow-x: auto;
+	}
 
 	> * {
 		@include listMargin(if($size == "sm", var(--s-sm), var(--s-md)));
@@ -244,8 +251,7 @@
 	}
 
 	a {
-		color: if($invert, var(--c-gold), var(--c-green));
-		text-decoration: underline;
+		@include link($invert);
 	}
 }
 
