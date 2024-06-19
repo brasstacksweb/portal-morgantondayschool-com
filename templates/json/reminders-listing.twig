@@ -11,7 +11,7 @@
 {% set prevWeek = week|date_modify('-1 week')|atom %}
 {% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
-	.with(['activity'])
+	.with(['activity', 'cta'])
 	.anyStatus()
 	.postDate([
 		'and',
@@ -29,7 +29,7 @@
 						startDate: r.startDate ?? r.activity[0].startDate ?? null,
 						cta: r.activity is not empty
 							? craft.components.newLinkFromElement(r.activity[0])
-							: r.cta
+							: r.cta is not empty
 								? craft.components.newCta(r.cta[0])
 								: null
 					}),
@@ -44,6 +44,7 @@
 
 {{ {
 	markup: markup|spaceless,
+	week: week,
 	prevWeek: prevWeek,
 	nextWeek: nextWeek,
 }|json_encode|raw }}

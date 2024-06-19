@@ -1,22 +1,27 @@
 $handle: "reminder-card";
 
 .#{$handle} {
-	background-color: var(--c-white);
+	overflow: hidden;
+	border-radius: var(--s-br-md);
 
 	> h4 {
-		@include font("heading", 3);
-		padding: var(--s-xs) var(--s-sm);
+		@include font("heading", 2);
+		padding: var(--s-sm) var(--s-md);
+		background-color: var(--c-blue-dk);
+		color: var(--c-white);
 	}
 
 	> div {
-		padding: var(--s-xs) var(--s-sm);
+		padding: var(--s-sm) var(--s-md) var(--s-md);
+		background-color: var(--c-blue-lt);
 
 		> time {
-			@include font("body", -2);
+			@include font("eyebrow");
 		}
 
 		> p {
 			@include font("body", -1);
+			margin-top: var(--s-sm);
 		}
 
 		> nav {

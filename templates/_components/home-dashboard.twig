@@ -19,15 +19,16 @@
 	.relatedTo([month])
 	.all() %}
 
-{% set prevWeek = now|date_modify('-1 week')|atom %}
-{% set nextWeek = now|date_modify('+1 week')|atom %}
+{% set week = now|date_modify('sunday last week') %}
+{% set prevWeek = week|date_modify('-1 week')|atom %}
+{% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
-	.with(['activity'])
+	.with(['activity', 'cta'])
 	.anyStatus()
 	.postDate([
 		'and',
-		'>= ' ~ now|date_modify('sunday last week')|atom,
-		'< ' ~ now|date_modify('saturday this week')|atom,
+		'>= ' ~ week|atom,
+		'< ' ~ nextWeek|atom,
 	])
 	.all() %}
 
@@ -70,7 +71,7 @@
 			<button type="button" aria-label="Previous">
 				<i></i>
 			</button>
-			<span>Week of {{ now|date('m/d/Y') }}</span>
+			<span>Week of {{ week|date('m/d/Y') }}</span>
 			<button type="button" aria-label="Next">
 				<i></i>
 			</button>
@@ -83,7 +84,7 @@
 							startDate: r.startDate ?? r.activity[0].startDate ?? null,
 							cta: r.activity is not empty
 								? craft.components.newLinkFromElement(r.activity[0])
-								: r.cta
+								: r.cta is not empty
 									? craft.components.newCta(r.cta[0])
 									: null
 						}),

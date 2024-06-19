@@ -14,6 +14,8 @@ $handle: "home-dashboard";
 
 	> div {
 		> nav {
+			margin-top: var(--s-md);
+
 			> button:first-of-type > i {
 				@include chevron("left");
 			}
@@ -34,7 +36,7 @@ $handle: "home-dashboard";
 		> p {
 			@include font("body", 1);
 			display: none;
-			margin-top: var(--s-md);
+			margin-top: var(--s-lg);
 		}
 	}
 
@@ -46,10 +48,12 @@ $handle: "home-dashboard";
 		}
 
 		> nav {
-			margin-top: var(--s-md);
+			> span {
+				text-transform: capitalize;
+			}
 		}
 
-		> ul {
+		> ul:not(:empty) {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--s-md);
@@ -64,11 +68,7 @@ $handle: "home-dashboard";
 			@include font("heading", 6);
 		}
 
-		> nav {
-			margin-top: var(--s-md);
-		}
-
-		> ul {
+		> ul:not(:empty) {
 			margin-top: var(--s-md);
 
 			> li {

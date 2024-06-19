@@ -215,6 +215,11 @@
   }
 
   // src/scripts/components/home-dashboard.js
+  var getFirstOfWeek = (date) => {
+    const day = date.getDay();
+    const diff = date.getDate() - day;
+    return new Date(date.setDate(diff));
+  };
   function HomeDashboard(el, {
     prevMonth,
     nextMonth,
@@ -253,7 +258,7 @@
           return;
         prevMonth = p;
         nextMonth = n;
-        currentMonth.textContent = month.toUpperCase;
+        currentMonth.textContent = month;
         activities.querySelector("ul").outerHTML = markup.trim();
       });
     }
@@ -273,9 +278,10 @@
       }) => {
         if (status !== 200)
           return;
+        console.log(getFirstOfWeek(new Date(week)));
         prevWeek = p;
         nextWeek = n;
-        currentWeek.textContent = week;
+        currentWeek.textContent = `Week of ${getFirstOfWeek(new Date(week)).toLocaleDateString()}`;
         reminders.querySelector("ul").outerHTML = markup.trim();
       });
     }
