@@ -1,3 +1,7 @@
+{##
+ # Home page
+ #}
+
 {% extends '_layouts/html' %}
 
 {% set metaTitle = 'MDS Titan Link' %}
@@ -5,8 +9,9 @@
 
 {% block content %}
 	<article>
-		<header>
-			<h1>Hello, World</h1>
-		</header>
+		{% include '_components/home-dashboard' with {
+			activitiesHeading: 'Happenings',
+			remindersHeading: 'Top of Mind',
+		} only %}
 	</article>
 {% endblock %}

@@ -57,7 +57,10 @@
 	} @else {
 		font-weight: book;
 
-		@if ($size == 0) {
+		@if ($size == 1) {
+			font-size: range(18, 28);
+			line-height: 1.4em;
+		} @else if ($size == 0) {
 			font-size: range(15, 20);
 			line-height: 1.4em;
 		} @else if ($size == -1) {
@@ -252,6 +255,25 @@
 
 	a {
 		@include link($invert);
+	}
+}
+
+@mixin chevron($dir: "down") {
+	display: block;
+	width: var(--s-icon-xs);
+	height: var(--s-icon-xs);
+	background: transparent;
+	transform-origin: center;
+	border-left: 3px solid var(--c-black);
+	border-bottom: 3px solid var(--c-black);
+
+	@if ($dir == "up") {
+		transform: rotate(135deg);
+	} @else if ($dir == "down") {
+	} @else if ($dir == "left") {
+		transform: rotate(45deg);
+	} @else if ($dir == "right") {
+		transform: rotate(225deg);
 	}
 }
 

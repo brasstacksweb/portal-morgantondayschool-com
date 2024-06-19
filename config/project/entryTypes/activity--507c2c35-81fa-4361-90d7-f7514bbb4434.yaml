@@ -64,6 +64,36 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c # Datetime
+            handle: startDate
+            includeInCards: false
+            instructions: null
+            label: 'Start Date'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5e2be956-cb2c-4e6d-b867-36347fa69054
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+            handle: featuredMonths
+            includeInCards: false
+            instructions: 'Which months should this activity be displayed on the homepage'
+            label: 'Featured Months'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fd14b753-25a8-4377-b5c8-33efeddac53e
+            userCondition: null
+            warning: null
+            width: 100
         name: Preview
         uid: 905db5e8-6896-47db-82f5-79e6b1564029
         userCondition: null

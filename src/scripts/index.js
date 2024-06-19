@@ -5,6 +5,7 @@ import pop from './components';
 import CardsListing from './components/cards-listing';
 import Form from './components/form';
 import FormField from './components/form-field';
+import HomeDashboard from './components/home-dashboard';
 import Modal from './components/modal';
 import YoutubeVideo from './components/youtube-video';
 
@@ -13,6 +14,7 @@ const classMap = {
     'cards-listing': CardsListing,
     form: Form,
     'form-field': FormField,
+    'home-dashboard': HomeDashboard,
     modal: Modal,
     'youtube-video': YoutubeVideo,
 };

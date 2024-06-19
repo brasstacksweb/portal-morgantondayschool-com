@@ -1,0 +1,33 @@
+{##
+ # Reminder Card component
+ # @param {object} reminder
+ |_# @param {string} title
+ |_# @param {DateTime} startDate
+ |_# @param {string} text
+ |_# @param {modules\components\models\Cta} cta
+ #}
+
+{# Params #}
+{% set reminder = reminder ?? null %}
+
+{# Variables #}
+{% set handle = 'reminder-card' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<h4>{{ reminder.title }}</h4>
+	<div>
+		{% if reminder.date ?? null %}
+			<time datetime="{{ reminder.startDate|atom }}">
+				{{ reminder.startDate|date('F j g:ia') }}
+			</time>
+		{% endif %}
+		<p>{{ reminder.text }}</p>
+		<nav>
+			{% if reminder.cta ?? null %}
+				{{ reminder.cta.render() }}
+			{% endif %}
+			{# TODO: Set Reminder #}
+		</nav>
+	</div>
+</div>

@@ -1,2 +1,475 @@
-(()=>{function B(t,r,o=window){let e=new CustomEvent(t,{detail:r});o.dispatchEvent(e)}function G(t,r,o=window){o.addEventListener(t,r)}function $({container:t=document.body,classMap:r={},actions:o={},cb:e=null}){let n={emit:B,on:G};function a(i=null){i!==null&&$({container:i,classMap:r,actions:o,cb:e})}Object.entries(r).forEach(([i,s])=>{t.querySelectorAll(`[data-comp-name="${i}"]`).forEach(c=>{s(c,{...JSON.parse(c.getAttribute("data-comp-params")),actions:o,events:n,refresh:a})})}),e&&e({events:n,refresh:a})}var j=$;function k(t,{cardsContHandle:r,paginationLinksContHandle:o,labels:e,section:n,notIds:a,activeClass:i="is-active"}){let s=t.querySelector("nav"),c=s.querySelector('[type="checkbox"]'),p=s.querySelector("label > span"),f=s.querySelectorAll("ul > li > a"),m=s.querySelector("em"),d=t.querySelector("article"),y=t.querySelector(r),u=t.querySelector(o),h=[...f].findIndex(l=>l.classList.contains(i));function S(l,w=!0){t.setAttribute("aria-busy","true"),fetch(`/json/cards-listing?${new URLSearchParams({section:n,notIds:a})}&${l.split("?")[1]||""}`,{headers:{Accept:"application/json"}}).then(b=>b.json().then(g=>({status:b.status,...g}))).then(({status:b,info:g=null,cardsMarkup:R="",paginationLinksMarkup:Y=""})=>{if(b!==200)return;let F=f[h],{first:U,last:C,total:v,currentPage:_}=g,[J,K]=e,L=_===1&&h===0,E=L?v+1:v,z=L&&v===C?E:C;t.removeAttribute("aria-busy"),c.checked=!1,p.textContent=F.textContent,f.forEach(P=>{P.classList.toggle(i,P===F)}),m.innerHTML=`${U} to ${z} of ${E} ${E===1?J:K}`,d.setAttribute("aria-hidden",!L),y.innerHTML=R,u.innerHTML=Y,s.scrollIntoView({behavior:"smooth"}),w&&window.history.pushState({activeFilterIndex:h},"",l)})}window.addEventListener("popstate",({state:l})=>{h=l.activeFilterIndex,S(window.location.href,!1)}),document.body.addEventListener("click",l=>{if(u.contains(l.target)){l.preventDefault();let w=l.target.closest("a");S(w.href)}}),f.forEach((l,w)=>{l.onclick=b=>{b.preventDefault(),h=w,S(l.href)}}),window.history.replaceState({activeFilterIndex:h},"",window.location.href)}function A(t,{siteKey:r,actions:o,events:e}){let n=t.querySelector("form"),a=n.querySelector('[type="submit"]'),i=t.querySelector("form + div"),s=grecaptcha;a.removeAttribute("disabled"),n.onsubmit=c=>{c.preventDefault(),a.setAttribute("disabled","true");let p=new FormData(n);s.ready(()=>{s.execute(r,{action:"submit"}).then(f=>{p.append("token",f),fetch("/",{method:"POST",headers:{Accept:"application/json"},body:p}).then(m=>m.json().then(d=>({status:m.status,...d}))).then(({status:m,message:d="",errors:y={}})=>{switch(Array.from(p.keys()).map(u=>u.replace("[]","")).forEach(u=>{e.emit(o.showFieldError,{name:u,errors:[]})}),a.removeAttribute("disabled"),m){case 500:window.alert(d);break;case 400:Object.entries(y).forEach(([u,h])=>{e.emit(o.showFieldError,{name:u,errors:h})});break;case 200:default:typeof dataLayer=="object"&&dataLayer.push({event:"form_submit"}),n.remove(),i.style.display="block",t.parentElement.style.scrollMarginTop="var(--h-header)",t.parentElement.scrollIntoView({behavior:"smooth"})}})})})}}var I=(t,r,o)=>{o?(t.querySelectorAll(`[name="${r}"]`).forEach(e=>e.setAttribute("required","true")),t.style.display="block",t.parentElement.style.display="block"):(t.querySelectorAll(`[name="${r}"]`).forEach(e=>e.removeAttribute("required")),t.style.display="none",t.parentElement.style.display="none")};function q(t,{name:r,errorClass:o,conditionalName:e,conditionalValue:n,actions:a,events:i}){let s=t.querySelector("p");if(i.on(a.showFieldError,({detail:c})=>{c.name===r&&(t.classList.toggle(o,c.errors.length>0),s.textContent=c.errors.join(", "))}),e&&n){let c=t.closest("form"),p=c.querySelectorAll(`[name="${e}"]`),f=new FormData(c);p.forEach(m=>{m.addEventListener("change",d=>{I(t,r,d.currentTarget.value===n)})}),I(t,r,f.get(e)===n)}}var T=t=>{let r=0;for(let o=0;o<t.length;o++){let e=t.charCodeAt(o);r=(r<<5)-r+e,r&=r}return new Uint32Array([r])[0].toString(36)};var V=(t,r)=>{let o=document.createElement("script"),e=document.querySelector("head");o.src=t,o.onload=r,e.appendChild(o)};function M(t,{activeClass:r="is-active",actions:o,events:e,refresh:n}){let a=t.querySelector("button"),i=t.querySelector("div"),s="";function c({key:d}){d==="Escape"&&e.emit(o.closeModal)}function p(){e.emit(o.lockScroll),t.classList.add(r),document.addEventListener("keyup",c)}function f(){e.emit(o.unlockScroll),t.classList.remove(r),document.removeEventListener("keyup",c)}function m(d){let{markup:y}=d.detail,u=T(y);u!==s&&(s=u,i.innerHTML=y,n(i)),e.emit(o.openModal)}e.on(o.openModal,p),e.on(o.closeModal,f),e.on(o.loadModal,m),a.onclick=()=>{e.emit(o.closeModal)}}var D="https://www.youtube.com/iframe_api";function x(t,{videoId:r,actions:o,events:e}){function n(){let a=new YT.Player(t,{videoId:r,playerVars:{autoplay:1,rel:0}});e.on(o.openModal,()=>{a.playVideo&&a.playVideo()}),e.on(o.closeModal,()=>{a.pauseVideo&&a.pauseVideo()}),a.addEventListener("onReady",()=>{a.playVideo()})}document.querySelector(`[src="${D}"]`)?n():(window.onYouTubeIframeAPIReady=n,V(D))}var Q={"cards-listing":k,form:A,"form-field":q,modal:M,"youtube-video":x},O={lockScroll:"lock-scroll",unlockScroll:"unlock-scroll",openModal:"open-modal",closeModal:"close-modal",loadModal:"load-modal",showFieldError:"show-field-error"};function H(){function t({events:r}){if(document.body.addEventListener("click",e=>{let n=e.target.closest("a");if(!!n){if(n.matches('[href="#"]')){e.preventDefault();let a=document.querySelector(n.href);a&&a.scrollIntoView({behavior:"smooth"})}if(n.matches('[href*="youtube.com"]')){e.preventDefault();let a=n.href.split("v=")[1];fetch(`/json/youtube-video?${new URLSearchParams({videoId:a})}`,{headers:{Accept:"application/json"}}).then(i=>i.json().then(s=>({status:i.status,...s}))).then(({status:i,markup:s=""})=>{switch(i){case 500:break;case 400:break;case 200:default:r.emit(O.loadModal,{markup:s})}})}}}),window.location.hash){let e=document.querySelector(window.location.hash);e&&e.scrollIntoView({behavior:"smooth"})}let o=new IntersectionObserver(e=>{e.forEach(({target:n,isIntersecting:a})=>{a?n.play():n.pause()})},{threshold:.1});Array.from(document.querySelectorAll("video")).filter(e=>e.hasAttribute("playsinline")).forEach(e=>{o.observe(e)})}j({classMap:Q,actions:O,cb:t})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",H):H();})();
+(() => {
+  // src/scripts/components.js
+  function emit(handle, payload, target = window) {
+    const event = new CustomEvent(handle, { detail: payload });
+    target.dispatchEvent(event);
+  }
+  function on(handle, cb, target = window) {
+    target.addEventListener(handle, cb);
+  }
+  function pop({
+    container = document.body,
+    classMap: classMap2 = {},
+    actions: actions2 = {},
+    cb = null
+  }) {
+    const events = { emit, on };
+    function refresh(c = null) {
+      if (c === null) {
+        return;
+      }
+      pop({ container: c, classMap: classMap2, actions: actions2, cb });
+    }
+    Object.entries(classMap2).forEach(([name, component]) => {
+      container.querySelectorAll(`[data-comp-name="${name}"]`).forEach((node) => {
+        component(node, {
+          ...JSON.parse(node.getAttribute("data-comp-params")),
+          actions: actions2,
+          events,
+          refresh
+        });
+      });
+    });
+    if (cb) {
+      cb({ events, refresh });
+    }
+  }
+  var components_default = pop;
+
+  // src/scripts/components/cards-listing.js
+  function CardsListing(el, {
+    cardsContHandle,
+    paginationLinksContHandle,
+    labels,
+    section,
+    notIds,
+    activeClass = "is-active"
+  }) {
+    const nav = el.querySelector("nav");
+    const filtersToggle = nav.querySelector('[type="checkbox"]');
+    const filtersLabel = nav.querySelector("label > span");
+    const filters = nav.querySelectorAll("ul > li > a");
+    const count = nav.querySelector("em");
+    const featuredArticle = el.querySelector("article");
+    const cardsCont = el.querySelector(cardsContHandle);
+    const paginationLinksCont = el.querySelector(paginationLinksContHandle);
+    let activeFilterIndex = [...filters].findIndex((f) => f.classList.contains(activeClass));
+    function updateCards(url, push = true) {
+      el.setAttribute("aria-busy", "true");
+      fetch(`/json/cards-listing?${new URLSearchParams({
+        section,
+        notIds
+      })}&${url.split("?")[1] || ""}`, {
+        headers: { Accept: "application/json" }
+      }).then((res) => res.json().then((json) => ({
+        status: res.status,
+        ...json
+      }))).then(({
+        status,
+        info = null,
+        cardsMarkup = "",
+        paginationLinksMarkup = ""
+      }) => {
+        if (status !== 200)
+          return;
+        const activeFilter = filters[activeFilterIndex];
+        const { first, last, total, currentPage } = info;
+        const [s, p] = labels;
+        const showFeaturedArticle = currentPage === 1 && activeFilterIndex === 0;
+        const realTotal = showFeaturedArticle ? total + 1 : total;
+        const realLast = showFeaturedArticle && total === last ? realTotal : last;
+        el.removeAttribute("aria-busy");
+        filtersToggle.checked = false;
+        filtersLabel.textContent = activeFilter.textContent;
+        filters.forEach((f) => {
+          f.classList.toggle(activeClass, f === activeFilter);
+        });
+        count.innerHTML = `${first} to ${realLast} of ${realTotal} ${realTotal === 1 ? s : p}`;
+        featuredArticle.setAttribute("aria-hidden", !showFeaturedArticle);
+        cardsCont.innerHTML = cardsMarkup;
+        paginationLinksCont.innerHTML = paginationLinksMarkup;
+        nav.scrollIntoView({ behavior: "smooth" });
+        if (push) {
+          window.history.pushState({ activeFilterIndex }, "", url);
+        }
+      });
+    }
+    window.addEventListener("popstate", ({ state }) => {
+      activeFilterIndex = state.activeFilterIndex;
+      updateCards(window.location.href, false);
+    });
+    document.body.addEventListener("click", (e) => {
+      if (paginationLinksCont.contains(e.target)) {
+        e.preventDefault();
+        const link = e.target.closest("a");
+        updateCards(link.href);
+      }
+    });
+    filters.forEach((f, i) => {
+      f.onclick = (e) => {
+        e.preventDefault();
+        activeFilterIndex = i;
+        updateCards(f.href);
+      };
+    });
+    window.history.replaceState({ activeFilterIndex }, "", window.location.href);
+  }
+
+  // src/scripts/components/form.js
+  function Form(el, {
+    siteKey,
+    actions: actions2,
+    events
+  }) {
+    const form = el.querySelector("form");
+    const submit = form.querySelector('[type="submit"]');
+    const successMessage = el.querySelector("form + div");
+    const grc = grecaptcha;
+    submit.removeAttribute("disabled");
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      submit.setAttribute("disabled", "true");
+      const body = new FormData(form);
+      grc.ready(() => {
+        grc.execute(siteKey, { action: "submit" }).then((token) => {
+          body.append("token", token);
+          fetch("/", {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body
+          }).then((res) => res.json().then((json) => ({
+            status: res.status,
+            ...json
+          }))).then(({
+            status,
+            message = "",
+            errors = {}
+          }) => {
+            Array.from(body.keys()).map((name) => name.replace("[]", "")).forEach((name) => {
+              events.emit(actions2.showFieldError, { name, errors: [] });
+            });
+            submit.removeAttribute("disabled");
+            switch (status) {
+              case 500:
+                window.alert(message);
+                break;
+              case 400:
+                Object.entries(errors).forEach(([name, errs]) => {
+                  events.emit(actions2.showFieldError, { name, errors: errs });
+                });
+                break;
+              case 200:
+              default:
+                if (typeof dataLayer === "object") {
+                  dataLayer.push({ event: "form_submit" });
+                }
+                form.remove();
+                successMessage.style.display = "block";
+                el.parentElement.style.scrollMarginTop = "var(--h-header)";
+                el.parentElement.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+      });
+    };
+  }
+
+  // src/scripts/components/form-field.js
+  var toggleVisibility = (el, name, visible) => {
+    if (visible) {
+      el.querySelectorAll(`[name="${name}"]`).forEach((f) => f.setAttribute("required", "true"));
+      el.style.display = "block";
+      el.parentElement.style.display = "block";
+    } else {
+      el.querySelectorAll(`[name="${name}"]`).forEach((f) => f.removeAttribute("required"));
+      el.style.display = "none";
+      el.parentElement.style.display = "none";
+    }
+  };
+  function FormField(el, {
+    name,
+    errorClass,
+    conditionalName,
+    conditionalValue,
+    actions: actions2,
+    events
+  }) {
+    const error = el.querySelector("p");
+    events.on(actions2.showFieldError, ({ detail }) => {
+      if (detail.name !== name)
+        return;
+      el.classList.toggle(errorClass, detail.errors.length > 0);
+      error.textContent = detail.errors.join(", ");
+    });
+    if (conditionalName && conditionalValue) {
+      const form = el.closest("form");
+      const targets = form.querySelectorAll(`[name="${conditionalName}"]`);
+      const formData = new FormData(form);
+      targets.forEach((target) => {
+        target.addEventListener("change", (e) => {
+          toggleVisibility(el, name, e.currentTarget.value === conditionalValue);
+        });
+      });
+      toggleVisibility(el, name, formData.get(conditionalName) === conditionalValue);
+    }
+  }
+
+  // src/scripts/components/home-dashboard.js
+  function HomeDashboard(el, {
+    prevMonth,
+    nextMonth,
+    prevWeek,
+    nextWeek
+  }) {
+    const [
+      currentMonth,
+      currentWeek
+    ] = el.querySelectorAll("div > nav > span");
+    const [
+      prevActivities,
+      nextActivities,
+      prevReminders,
+      nextReminders
+    ] = el.querySelectorAll("div > nav > button");
+    const [
+      activities,
+      reminders
+    ] = [el.firstElementChild, el.lastElementChild];
+    function getActivitiesByMonth(month) {
+      fetch(`/json/activities-listing?${new URLSearchParams({
+        month
+      })}`, {
+        headers: { Accept: "application/json" }
+      }).then((res) => res.json().then((json) => ({
+        status: res.status,
+        ...json
+      }))).then(({
+        status,
+        markup = "",
+        prevMonth: p = "",
+        nextMonth: n = ""
+      }) => {
+        if (status !== 200)
+          return;
+        prevMonth = p;
+        nextMonth = n;
+        currentMonth.textContent = month.toUpperCase;
+        activities.querySelector("ul").outerHTML = markup.trim();
+      });
+    }
+    function getRemindersByWeek(week) {
+      fetch(`/json/reminders-listing?${new URLSearchParams({
+        week
+      })}`, {
+        headers: { Accept: "application/json" }
+      }).then((res) => res.json().then((json) => ({
+        status: res.status,
+        ...json
+      }))).then(({
+        status,
+        markup = "",
+        prevWeek: p = "",
+        nextWeek: n = ""
+      }) => {
+        if (status !== 200)
+          return;
+        prevWeek = p;
+        nextWeek = n;
+        currentWeek.textContent = week;
+        reminders.querySelector("ul").outerHTML = markup.trim();
+      });
+    }
+    prevActivities.onclick = () => {
+      getActivitiesByMonth(prevMonth);
+    };
+    nextActivities.onclick = () => {
+      getActivitiesByMonth(nextMonth);
+    };
+    prevReminders.onclick = () => {
+      getRemindersByWeek(prevWeek);
+    };
+    nextReminders.onclick = () => {
+      getRemindersByWeek(nextWeek);
+    };
+  }
+
+  // src/scripts/utilities.js
+  var quickHash = (str) => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = (hash << 5) - hash + char;
+      hash &= hash;
+    }
+    return new Uint32Array([hash])[0].toString(36);
+  };
+  var loadScript = (src, cb) => {
+    const script = document.createElement("script");
+    const head = document.querySelector("head");
+    script.src = src;
+    script.onload = cb;
+    head.appendChild(script);
+  };
+
+  // src/scripts/components/modal.js
+  function Modal(el, {
+    activeClass = "is-active",
+    actions: actions2,
+    events,
+    refresh
+  }) {
+    const close = el.querySelector("button");
+    const content = el.querySelector("div");
+    let currentContent = "";
+    function handleKeyup({ key }) {
+      if (key === "Escape") {
+        events.emit(actions2.closeModal);
+      }
+    }
+    function handleOpenModal() {
+      events.emit(actions2.lockScroll);
+      el.classList.add(activeClass);
+      document.addEventListener("keyup", handleKeyup);
+    }
+    function handleCloseModal() {
+      events.emit(actions2.unlockScroll);
+      el.classList.remove(activeClass);
+      document.removeEventListener("keyup", handleKeyup);
+    }
+    function handleLoadModal(e) {
+      const {
+        markup
+      } = e.detail;
+      const newContent = quickHash(markup);
+      if (newContent !== currentContent) {
+        currentContent = newContent;
+        content.innerHTML = markup;
+        refresh(content);
+      }
+      events.emit(actions2.openModal);
+    }
+    events.on(actions2.openModal, handleOpenModal);
+    events.on(actions2.closeModal, handleCloseModal);
+    events.on(actions2.loadModal, handleLoadModal);
+    close.onclick = () => {
+      events.emit(actions2.closeModal);
+    };
+  }
+
+  // src/scripts/components/youtube-video.js
+  var SRC = "https://www.youtube.com/iframe_api";
+  function YoutubeVideo(el, {
+    videoId,
+    actions: actions2,
+    events
+  }) {
+    function initPlayer() {
+      const player = new YT.Player(el, {
+        videoId,
+        playerVars: {
+          autoplay: 1,
+          rel: 0
+        }
+      });
+      events.on(actions2.openModal, () => {
+        if (player.playVideo)
+          player.playVideo();
+      });
+      events.on(actions2.closeModal, () => {
+        if (player.pauseVideo)
+          player.pauseVideo();
+      });
+      player.addEventListener("onReady", () => {
+        player.playVideo();
+      });
+    }
+    if (!document.querySelector(`[src="${SRC}"]`)) {
+      window.onYouTubeIframeAPIReady = initPlayer;
+      loadScript(SRC);
+    } else {
+      initPlayer();
+    }
+  }
+
+  // src/scripts/index.js
+  var classMap = {
+    "cards-listing": CardsListing,
+    form: Form,
+    "form-field": FormField,
+    "home-dashboard": HomeDashboard,
+    modal: Modal,
+    "youtube-video": YoutubeVideo
+  };
+  var actions = {
+    lockScroll: "lock-scroll",
+    unlockScroll: "unlock-scroll",
+    openModal: "open-modal",
+    closeModal: "close-modal",
+    loadModal: "load-modal",
+    showFieldError: "show-field-error"
+  };
+  function handleDOMConentLoaded() {
+    function cb({ events }) {
+      document.body.addEventListener("click", (e) => {
+        const link = e.target.closest("a");
+        if (!link)
+          return;
+        if (link.matches('[href="#"]')) {
+          e.preventDefault();
+          const target = document.querySelector(link.href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+        if (link.matches('[href*="youtube.com"]')) {
+          e.preventDefault();
+          const videoId = link.href.split("v=")[1];
+          fetch(`/json/youtube-video?${new URLSearchParams({ videoId })}`, {
+            headers: { Accept: "application/json" }
+          }).then((res) => res.json().then((json) => ({
+            status: res.status,
+            ...json
+          }))).then(({
+            status,
+            markup = ""
+          }) => {
+            switch (status) {
+              case 500:
+                break;
+              case 400:
+                break;
+              case 200:
+              default:
+                events.emit(actions.loadModal, { markup });
+            }
+          });
+        }
+      });
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (isIntersecting) {
+            target.play();
+          } else {
+            target.pause();
+          }
+        });
+      }, { threshold: 0.1 });
+      Array.from(document.querySelectorAll("video")).filter((v) => v.hasAttribute("playsinline")).forEach((v) => {
+        videoObserver.observe(v);
+      });
+    }
+    components_default({ classMap, actions, cb });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", handleDOMConentLoaded);
+  } else {
+    handleDOMConentLoaded();
+  }
+})();
 //# sourceMappingURL=index.js.map

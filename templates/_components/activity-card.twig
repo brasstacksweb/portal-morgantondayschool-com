@@ -1,0 +1,25 @@
+{##
+ # Activity Card component
+ # @param {object} activity
+ # |_@param {object} image
+ #}
+
+{# Params #}
+{% set activity = activity ?? null %}
+
+{# Variables #}
+{% set handle = 'activity-card' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<article>
+		<a href="{{ activity.url }}" title="{{ activity.title }}">
+			{% if activity.image %}
+				<img
+					src="{{ activity.image.url }}"
+					alt="{{ activity.image.alt ?? activity.image.title }}" />
+			{% endif %}
+			<h3>{{ activity.title }}</h3>
+		</a>
+	</article>
+</div>

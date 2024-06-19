@@ -1,0 +1,96 @@
+{##
+ # Home Dashboard component
+ # @param {string} activitiesHeading
+ # @param {string} remindersHeading
+ #}
+
+{# Params #}
+{% set activitiesHeading = activitiesHeading ?? '' %}
+{% set remindersHeading = remindersHeading ?? '' %}
+
+{# Variables #}
+{% set handle = 'home-dashboard' %}
+
+{% set month = craft.categories.group('months').slug(now|date('F')|lower).one() %}
+{% set prevMonth = date(month.title|lower)|date_modify('last month')|date('F')|lower %}
+{% set nextMonth = date(month.title|lower)|date_modify('next month')|date('F')|lower %}
+{% set activities = craft.entries.section('activities')
+	.with(['previewImage'])
+	.relatedTo([month])
+	.all() %}
+
+{% set prevWeek = now|date_modify('-1 week')|atom %}
+{% set nextWeek = now|date_modify('+1 week')|atom %}
+{% set reminders = craft.entries.section('reminders')
+	.with(['activity'])
+	.anyStatus()
+	.postDate([
+		'and',
+		'>= ' ~ now|date_modify('sunday last week')|atom,
+		'< ' ~ now|date_modify('saturday this week')|atom,
+	])
+	.all() %}
+
+{% set params = {
+	prevMonth: prevMonth,
+	nextMonth: nextMonth,
+	prevWeek: prevWeek,
+	nextWeek: nextWeek,
+} %}
+
+{# Markup #}
+<div class="{{ handle }}" data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}">
+	<div>
+		<h1>{{ activitiesHeading }}</h1>
+		<nav>
+			<button type="button" aria-label="Previous">
+				<i></i>
+			</button>
+			<span>{{ now|date('F') }}</span>
+			<button type="button" aria-label="Next">
+				<i></i>
+			</button>
+		</nav>
+		<ul>
+			{% for a in activities %}
+				<li>
+					{% include '_components/activity-card' with {
+						activity: a|merge({
+							image: a.previewImage[0] ?? null,
+						}),
+					} only %}
+				</li>
+			{% endfor %}
+		</ul>
+		<p>No activities this month.</p>
+	</div>
+	<div>
+		<h2>{{ remindersHeading }}</h2>
+		<nav>
+			<button type="button" aria-label="Previous">
+				<i></i>
+			</button>
+			<span>Week of {{ now|date('m/d/Y') }}</span>
+			<button type="button" aria-label="Next">
+				<i></i>
+			</button>
+		</nav>
+		<ul>
+			{% for r in reminders %}
+				<li>
+					{% include '_components/reminder-card' with {
+						reminder: r|merge({
+							startDate: r.startDate ?? r.activity[0].startDate ?? null,
+							cta: r.activity is not empty
+								? craft.components.newLinkFromElement(r.activity[0])
+								: r.cta
+									? craft.components.newCta(r.cta[0])
+									: null
+						}),
+					} only %}
+				</li>
+			{% endfor %}
+		</ul>
+		<p>No reminders this week.</p>
+	</div>
+</div>

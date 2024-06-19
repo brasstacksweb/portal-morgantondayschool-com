@@ -1,0 +1,39 @@
+{##
+ # Activities Listing json
+ # @query {string} month
+ #}
+
+{# Query  #}
+{% set monthParam = craft.app.request.getParam('month') %}
+
+{# Variables #}
+{% set month = craft.categories.group('months').slug(monthParam).one() %}
+{% set prevMonth = date(monthParam)|date_modify('last month')|date('F')|lower %}
+{% set nextMonth = date(monthParam)|date_modify('next month')|date('F')|lower %}
+{% set activities = craft.entries.section('activities')
+	.with(['previewImage'])
+	.relatedTo([month])
+	.all() %}
+
+{% set markup %}
+	<ul>
+		{% for a in activities %}
+			<li>
+				{% include '_components/activity-card' with {
+					activity: a|merge({
+						image: a.previewImage[0] ?? null,
+					}),
+				} only %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endset %}
+
+{# Res #}
+{% header 'Content-Type: application/json' %}
+
+{{ {
+	markup: markup|spaceless,
+	prevMonth: prevMonth,
+	nextMonth: nextMonth,
+}|json_encode|raw }}

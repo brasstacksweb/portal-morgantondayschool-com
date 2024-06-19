@@ -4,13 +4,13 @@ namespace modules\components\web\twig\variables;
 
 use craft\base\Element;
 use craft\elements\Asset;
-use craft\elements\MatrixBlock;
+use craft\elements\Entry;
 use modules\components\models\Cta;
 use modules\components\services\Components;
 
 class ComponentsVariable
 {
-    public function newCta(?MatrixBlock $cta, array $options = []): ?Cta
+    public function newCta(?Entry $cta, array $options = []): ?Cta
     {
         return Components::newCta($cta, $options);
     }

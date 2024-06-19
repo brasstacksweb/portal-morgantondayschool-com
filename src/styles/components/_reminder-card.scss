@@ -1,0 +1,31 @@
+$handle: "reminder-card";
+
+.#{$handle} {
+	background-color: var(--c-white);
+
+	> h4 {
+		@include font("heading", 3);
+		padding: var(--s-xs) var(--s-sm);
+	}
+
+	> div {
+		padding: var(--s-xs) var(--s-sm);
+
+		> time {
+			@include font("body", -2);
+		}
+
+		> p {
+			@include font("body", -1);
+		}
+
+		> nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			> a {
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-dateModified: 1718499754
+dateModified: 1718817848
 elementSources:
   craft\elements\Entry:
     -
@@ -20,9 +20,9 @@ elementSources:
       disabled: false
       key: 'section:2d6cc29e-95ec-4121-a242-f74b9a1053a6' # Activities
       tableAttributes:
-        - status
+        - 'field:9d9dfbb2-88b3-4274-9762-69c856f6b518' # Preview Image
+        - 'fieldInstance:fd14b753-25a8-4377-b5c8-33efeddac53e'
         - postDate
-        - expiryDate
         - link
       type: native
     -
@@ -33,7 +33,6 @@ elementSources:
       key: 'section:e14121b9-4e8c-49a4-afb6-d3a822d3b8ad' # Reminders
       tableAttributes:
         - postDate
-        - expiryDate
         - link
       type: native
     -
@@ -83,6 +82,7 @@ fs:
     url: '@assetBaseUrl/images'
 meta:
   __names__:
+    1aafc3c1-b10e-4134-b462-61acf0f69dcf: Months # Months
     1e8dde7a-23fd-40a2-805e-3e82c37fef0a: Class # Class
     2d6cc29e-95ec-4121-a242-f74b9a1053a6: Activities # Activities
     2efcdd43-3927-46bc-aab7-7d1576e97e29: Announcements # Announcements
@@ -103,6 +103,7 @@ meta:
     666a2d7b-63a0-4256-acdd-fd5c0af0714f: Subjects # Subjects
     812fd012-9cc4-4c3c-bf03-845a6340a1f5: 'Morganton Day School' # Morganton Day School
     938bdfab-80e2-4116-9e3d-66d94c36376f: Classes # Classes
+    1908e08e-4715-4582-981a-ae20b88e9b7c: Months # Months
     2757b28b-9302-44d3-8dcf-259f2c2fdf24: 'Page CTA' # Page CTA
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA

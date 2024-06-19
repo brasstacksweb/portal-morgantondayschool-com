@@ -3,7 +3,7 @@
 namespace modules\components\services;
 
 use craft\base\Element;
-use craft\elements\MatrixBlock;
+use craft\elements\Entry;
 use modules\components\models\Cta;
 use modules\components\models\Link;
 
@@ -14,7 +14,7 @@ class Components
     public const TYPE_CTA_EXTERNAL = 'externalCta';
     public const TYPE_LINK_EXTERNAL = 'externalLink';
 
-    public static function newCta(?MatrixBlock $cta = null, array $options = []): ?Cta
+    public static function newCta(?Entry $cta = null, array $options = []): ?Cta
     {
         if ($cta === null) {
             return null;

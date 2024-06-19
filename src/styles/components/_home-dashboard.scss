@@ -1,0 +1,79 @@
+$handle: "home-dashboard";
+
+.#{$handle} {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: var(--s-lg) auto;
+	padding: 0 var(--s-lg);
+
+	@include media("lg") {
+		padding: 0 var(--s-xl);
+	}
+
+	> div {
+		> nav {
+			> button:first-of-type > i {
+				@include chevron("left");
+			}
+
+			> button:last-of-type > i {
+				@include chevron("right");
+			}
+		}
+
+		> ul:empty {
+			display: none;
+
+			+ p {
+				display: block;
+			}
+		}
+
+		> p {
+			@include font("body", 1);
+			display: none;
+			margin-top: var(--s-md);
+		}
+	}
+
+	> div:first-child {
+		width: calc(60% - var(--s-md));
+
+		> h1 {
+			@include font("heading", 6);
+		}
+
+		> nav {
+			margin-top: var(--s-md);
+		}
+
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--s-md);
+			margin-top: var(--s-md);
+		}
+	}
+
+	> div:last-child {
+		width: calc(40% - var(--s-md));
+
+		> h2 {
+			@include font("heading", 6);
+		}
+
+		> nav {
+			margin-top: var(--s-md);
+		}
+
+		> ul {
+			margin-top: var(--s-md);
+
+			> li {
+				@include listMargin(var(--s-md));
+			}
+		}
+	}
+}

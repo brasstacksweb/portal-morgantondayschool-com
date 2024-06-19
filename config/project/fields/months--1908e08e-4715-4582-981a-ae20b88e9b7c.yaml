@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: months
+instructions: null
+name: Months
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a month'
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'group:1aafc3c1-b10e-4134-b462-61acf0f69dcf' # Months
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories
