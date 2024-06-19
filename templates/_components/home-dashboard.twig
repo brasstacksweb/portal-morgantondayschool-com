@@ -11,15 +11,15 @@
 {# Variables #}
 {% set handle = 'home-dashboard' %}
 
-{% set month = craft.categories.group('months').slug(now|date('F')|lower).one() %}
-{% set prevMonth = date(month.title|lower)|date_modify('last month')|date('F')|lower %}
-{% set nextMonth = date(month.title|lower)|date_modify('next month')|date('F')|lower %}
+{% set month = date('first day of this month') %}
+{% set prevMonth = month|date_modify('-1 month')|atom %}
+{% set nextMonth = month|date_modify('+1 month')|atom %}
 {% set activities = craft.entries.section('activities')
 	.with(['previewImage'])
-	.relatedTo([month])
+	.relatedTo(craft.categories.group('months').slug(month|date('F')|lower).ids())
 	.all() %}
 
-{% set week = now|date_modify('sunday last week') %}
+{% set week = date('sunday last week') %}
 {% set prevWeek = week|date_modify('-1 week')|atom %}
 {% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
@@ -47,7 +47,7 @@
 			<button type="button" aria-label="Previous">
 				<i></i>
 			</button>
-			<span>{{ now|date('F') }}</span>
+			<span>{{ now|date('F Y') }}</span>
 			<button type="button" aria-label="Next">
 				<i></i>
 			</button>
@@ -83,7 +83,7 @@
 						reminder: r|merge({
 							startDate: r.startDate ?? r.activity[0].startDate ?? null,
 							cta: r.activity is not empty
-								? craft.components.newLinkFromElement(r.activity[0])
+								? craft.components.newLinkFromElement(r.activity[0], 'Learn More')
 								: r.cta is not empty
 									? craft.components.newCta(r.cta[0])
 									: null

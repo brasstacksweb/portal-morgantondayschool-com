@@ -14,7 +14,20 @@ $handle: "home-dashboard";
 
 	> div {
 		> nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: var(--w-xs);
+			height: var(--s-lg);
 			margin-top: var(--s-md);
+			padding: 0 var(--s-sm);
+			border: 2px solid var(--c-br-lt);
+			border-radius: calc(0.5 * var(--s-lg));
+
+			> button:disabled {
+				opacity: 0.5;
+				pointer-events: none;
+			}
 
 			> button:first-of-type > i {
 				@include chevron("left");
@@ -23,14 +36,27 @@ $handle: "home-dashboard";
 			> button:last-of-type > i {
 				@include chevron("right");
 			}
+
+			> span {
+				@include font("heading", -1);
+			}
 		}
 
-		> ul:empty {
-			display: none;
+		> ul{
+			transition: opacity var(--a-sm);
 
-			+ p {
-				display: block;
+			&:empty {
+				display: none;
+
+				+ p {
+					display: block;
+				}
 			}
+		}
+
+		&.is-loading > ul {
+			opacity: 0.5;
+			pointer-events: none;
 		}
 
 		> p {
@@ -41,7 +67,15 @@ $handle: "home-dashboard";
 	}
 
 	> div:first-child {
-		width: calc(60% - var(--s-md));
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+		}
+
+		@include media("md") {
+			width: calc(60% - var(--s-md));
+		}
 
 		> h1 {
 			@include font("heading", 6);
@@ -58,11 +92,29 @@ $handle: "home-dashboard";
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--s-md);
 			margin-top: var(--s-md);
+
+			@include media("sm") {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			@include media("md") {
+				grid-template-columns: repeat(2, 1fr);
+			}
 		}
 	}
 
 	> div:last-child {
-		width: calc(40% - var(--s-md));
+		width: 100%;
+		margin-top: var(--s-lg);
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+			margin: 0;
+		}
+
+		@include media("md") {
+			width: calc(40% - var(--s-md));
+		}
 
 		> h2 {
 			@include font("heading", 6);

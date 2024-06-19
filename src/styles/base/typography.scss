@@ -4,7 +4,7 @@
 	font-family: system-ui;
 
 	@if ($type == "heading") {
-		font-weight: normal;
+		font-weight: 500;
 
 		@if ($size == 6) {
 			font-size: range(44, 92);
@@ -49,13 +49,15 @@
 		line-height: range(1.1, 1.1, 1em);
 		letter-spacing: range(-3.107, -7.455);
 	} @else if ($type == "eyebrow") {
+		font-weight: 600;
+
 		@if ($size == -1) {
 			font-size: range(13, 17);
 			font-weight: lighter;
 			line-height: range(1.1, 1.4, 1em);
 		}
 	} @else {
-		font-weight: book;
+		font-weight: 400;
 
 		@if ($size == 1) {
 			font-size: range(18, 28);
@@ -258,10 +260,10 @@
 	}
 }
 
-@mixin chevron($dir: "down") {
+@mixin chevron($dir: "down", $size: "xs") {
 	display: block;
-	width: var(--s-icon-xs);
-	height: var(--s-icon-xs);
+	width: var(--s-icon-#{$size});
+	height: var(--s-icon-#{$size});
 	background: transparent;
 	transform-origin: center;
 	border-left: 3px solid var(--c-black);

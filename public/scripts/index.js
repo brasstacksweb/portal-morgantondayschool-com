@@ -220,11 +220,13 @@
     const diff = date.getDate() - day;
     return new Date(date.setDate(diff));
   };
+  var getFirstOfMonth = (date) => new Date(date.getFullYear(), date.getMonth(), 1);
   function HomeDashboard(el, {
     prevMonth,
     nextMonth,
     prevWeek,
-    nextWeek
+    nextWeek,
+    loadingClass = "is-loading"
   }) {
     const [
       currentMonth,
@@ -241,6 +243,9 @@
       reminders
     ] = [el.firstElementChild, el.lastElementChild];
     function getActivitiesByMonth(month) {
+      activities.classList.add(loadingClass);
+      prevActivities.disabled = true;
+      nextActivities.disabled = true;
       fetch(`/json/activities-listing?${new URLSearchParams({
         month
       })}`, {
@@ -256,13 +261,20 @@
       }) => {
         if (status !== 200)
           return;
+        const firstOfMonth = getFirstOfMonth(new Date(month));
+        activities.classList.remove(loadingClass);
+        prevActivities.disabled = false;
+        nextActivities.disabled = false;
         prevMonth = p;
         nextMonth = n;
-        currentMonth.textContent = month;
+        currentMonth.textContent = `${firstOfMonth.toLocaleString("default", { month: "long" })} ${firstOfMonth.getFullYear()}`;
         activities.querySelector("ul").outerHTML = markup.trim();
       });
     }
     function getRemindersByWeek(week) {
+      reminders.classList.add(loadingClass);
+      prevReminders.disabled = true;
+      nextReminders.disabled = true;
       fetch(`/json/reminders-listing?${new URLSearchParams({
         week
       })}`, {
@@ -278,10 +290,13 @@
       }) => {
         if (status !== 200)
           return;
-        console.log(getFirstOfWeek(new Date(week)));
+        const firstOfWeek = getFirstOfWeek(new Date(week));
+        reminders.classList.remove(loadingClass);
+        prevReminders.disabled = false;
+        nextReminders.disabled = false;
         prevWeek = p;
         nextWeek = n;
-        currentWeek.textContent = `Week of ${getFirstOfWeek(new Date(week)).toLocaleDateString()}`;
+        currentWeek.textContent = `Week of ${firstOfWeek.toLocaleDateString()}`;
         reminders.querySelector("ul").outerHTML = markup.trim();
       });
     }

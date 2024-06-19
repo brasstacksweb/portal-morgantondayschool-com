@@ -5,7 +5,7 @@ $handle: "reminder-card";
 	border-radius: var(--s-br-md);
 
 	> h4 {
-		@include font("heading", 2);
+		@include font("heading", 1);
 		padding: var(--s-sm) var(--s-md);
 		background-color: var(--c-blue-dk);
 		color: var(--c-white);
@@ -17,19 +17,22 @@ $handle: "reminder-card";
 
 		> time {
 			@include font("eyebrow");
+			display: block;
+			margin-bottom: var(--s-sm);
 		}
 
 		> p {
 			@include font("body", -1);
-			margin-top: var(--s-sm);
 		}
 
 		> nav {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			margin-top: var(--s-sm);
 
 			> a {
+				text-decoration: underline;
 			}
 		}
 	}

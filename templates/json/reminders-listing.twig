@@ -28,7 +28,7 @@
 					reminder: r|merge({
 						startDate: r.startDate ?? r.activity[0].startDate ?? null,
 						cta: r.activity is not empty
-							? craft.components.newLinkFromElement(r.activity[0])
+							? craft.components.newLinkFromElement(r.activity[0], 'Learn More')
 							: r.cta is not empty
 								? craft.components.newCta(r.cta[0])
 								: null

@@ -7,12 +7,12 @@
 {% set monthParam = craft.app.request.getParam('month') %}
 
 {# Variables #}
-{% set month = craft.categories.group('months').slug(monthParam).one() %}
-{% set prevMonth = date(monthParam)|date_modify('last month')|date('F')|lower %}
-{% set nextMonth = date(monthParam)|date_modify('next month')|date('F')|lower %}
+{% set month = date(monthParam) %}
+{% set prevMonth = month|date_modify('-1 month')|atom %}
+{% set nextMonth = month|date_modify('+1 month')|atom %}
 {% set activities = craft.entries.section('activities')
 	.with(['previewImage'])
-	.relatedTo([month])
+	.relatedTo(craft.categories.group('months').slug(month|date('F')|lower).ids())
 	.all() %}
 
 {% set markup %}
