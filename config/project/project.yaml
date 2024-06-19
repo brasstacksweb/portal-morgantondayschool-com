@@ -1,4 +1,4 @@
-dateModified: 1718825383
+dateModified: 1718825727
 elementSources:
   craft\elements\Entry:
     -
@@ -45,9 +45,8 @@ elementSources:
       disabled: false
       key: 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
       tableAttributes:
-        - status
+        - 'field:88315e38-3bc8-4c3e-b756-311a3e6f8105' # Teacher
         - postDate
-        - expiryDate
         - link
       type: native
     -
@@ -57,7 +56,6 @@ elementSources:
       disabled: false
       key: 'section:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
       tableAttributes:
-        - status
         - 'field:9cb11a30-840e-4778-ac4e-d560ae4b70ce' # Subject
         - 'field:938bdfab-80e2-4116-9e3d-66d94c36376f' # Classes
         - postDate
