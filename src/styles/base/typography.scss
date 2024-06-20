@@ -6,7 +6,11 @@
 	@if ($type == "heading") {
 		font-weight: 500;
 
-		@if ($size == 6) {
+		@if ($size == 7) {
+			font-size: range(66, 108);
+			line-height: 1.1em;
+			letter-spacing: range(0, -1.8);
+		} @else if ($size == 6) {
 			font-size: range(44, 92);
 			line-height: 1.1em;
 			letter-spacing: range(0, -1.8);
@@ -105,7 +109,7 @@
 }
 
 @mixin link($invert: false) {
-	color: if($invert, var(--c-gold), var(--c-green));
+	color: if($invert, var(--c-gold-lt), var(--c-green));
 
 	&:hover {
 		text-decoration: underline;

@@ -1,0 +1,97 @@
+$handle: "classes-listing";
+
+.#{$handle} {
+	margin: var(--s-3xl) auto;
+	padding: 0 var(--s-lg);
+
+	@include media("md") {
+		padding: 0 var(--s-3xl);
+	}
+
+	> header {
+		display: flex;
+		justify-content: center;
+		margin-bottom: var(--s-lg);
+
+		> h2 {
+			@include font("heading", 5);
+		}
+	}
+
+	> ul {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: var(--s-md);
+
+		> li {
+			grid-column: span 6;
+
+			@include media("sm") {
+				grid-column: span 4;
+			}
+
+			@include media("md") {
+				grid-column: span 3;
+			}
+
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3){
+				@include media("sm") {
+					grid-column: span 4;
+				}
+			}
+
+			> article {
+				> a {
+					position: relative;
+					display: flex;
+					justify-content: flex-end;
+					align-items: flex-end;
+					padding: var(--s-md);
+					background-color: var(--c-gold-lt);
+					aspect-ratio: 4 / 3;
+
+					&:after {
+						@include absolute(0, 0);
+						content: "";
+						border-width: 0 var(--s-lg) var(--s-lg) 0;
+						border-style: solid;
+						border-color: var(--c-gold-dk) var(--c-bg-lt);
+					}
+
+					> h3 {
+						@include font("heading", 7);
+						transform-origin: bottom right;
+						color: gold;
+						text-shadow: 0 0  4px var(--c-black);
+						transition:
+							transform var(--a-sm),
+							color var(--a-sm),
+							text-shadow var(--a-sm);
+					}
+
+					&:hover > h3 {
+						transform: scale(1.1);
+						color: var(--c-red-lt);
+						text-shadow: 1px 1px 4px var(--c-red-dk);
+					}
+
+					> img {
+						@include absolute(var(--s-sm), auto, auto, var(--s-sm));
+						width: var(--s-icon-lg);
+						height: var(--s-icon-lg);
+						margin-right: var(--s-xs);
+						border-radius: 50%;
+						object-fit: cover;
+
+						@include media("lg") {
+							top: var(--s-md);
+							left: var(--s-md);
+						}
+					}
+				}
+			}
+		}
+	}
+}

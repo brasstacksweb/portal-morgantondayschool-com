@@ -33,7 +33,22 @@ fieldLayouts:
             uid: f3f3b1c8-ae51-4d8b-8e09-e3402ee07273
             userCondition: null
             warning: null
-            width: 75
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: previewText
+            includeInCards: false
+            instructions: null
+            label: 'Preview Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50bf35d0-1143-423b-9ce2-5f2f52e28bc8
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: 88315e38-3bc8-4c3e-b756-311a3e6f8105 # Teacher

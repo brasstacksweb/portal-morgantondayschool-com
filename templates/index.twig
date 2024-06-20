@@ -2,6 +2,10 @@
  # Home page
  #}
 
+{% set classes = craft.entries.section('classes')
+	.with(['teacher'])
+	.all() %}
+
 {% extends '_layouts/html' %}
 
 {% set metaTitle = 'MDS Titan Link' %}
@@ -12,6 +16,14 @@
 		{% include '_components/home-dashboard' with {
 			activitiesHeading: 'Happenings',
 			remindersHeading: 'Top of Mind',
+		} only %}
+	</article>
+
+	<article>
+		{% include '_components/classes-listing' with {
+			classes: classes|map(c => c|merge({
+				teacher: c.teacher[0] ?? null,
+			})),
 		} only %}
 	</article>
 {% endblock %}
