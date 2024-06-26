@@ -1,17 +1,13 @@
 $handle: "classes-listing";
 
 .#{$handle} {
-	margin: var(--s-3xl) auto;
-	padding: 0 var(--s-lg);
-
-	@include media("md") {
-		padding: 0 var(--s-3xl);
-	}
+	@include container($width: var(--w-xl));
+	margin: var(--s-lg) auto;
 
 	> header {
 		display: flex;
 		justify-content: center;
-		margin-bottom: var(--s-lg);
+		margin-bottom: var(--s-md);
 
 		> h2 {
 			@include font("heading", 5);
@@ -21,7 +17,7 @@ $handle: "classes-listing";
 	> ul {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
-		gap: var(--s-md);
+		gap: var(--s-sm);
 
 		> li {
 			grid-column: span 6;
@@ -48,7 +44,7 @@ $handle: "classes-listing";
 					display: flex;
 					justify-content: flex-end;
 					align-items: flex-end;
-					padding: var(--s-md);
+					padding: var(--s-sm);
 					background-color: var(--c-gold-lt);
 					aspect-ratio: 4 / 3;
 
@@ -56,7 +52,7 @@ $handle: "classes-listing";
 						@include absolute(auto, auto, 0, 0);
 						content: "";
 						transform-origin: bottom left;
-						border-width: 0 var(--s-lg) var(--s-lg) 0;
+						border-width: 0 var(--s-md) var(--s-md) 0;
 						border-style: solid;
 						border-color: var(--c-bg-lt) var(--c-gold-dk) ;
 						transition: transform var(--a-xs);
@@ -67,18 +63,18 @@ $handle: "classes-listing";
 					}
 
 					> h3 {
-						@include font("heading", 7);
+						@include font("heading", 5);
 						transform-origin: bottom right;
 						color: var(--c-black);
-						transition: color var(--a-xs),
 					}
 
 					&:hover > h3 {
-						color: var(--c-red-lt);
+						color: var(--c-teal);
+						text-decoration: underline;
 					}
 
 					> img {
-						@include absolute(var(--s-sm), auto, auto, var(--s-sm));
+						@include absolute(var(--s-xs), auto, auto, var(--s-xs));
 						width: var(--s-icon-lg);
 						height: var(--s-icon-lg);
 						margin-right: var(--s-xs);
@@ -86,8 +82,8 @@ $handle: "classes-listing";
 						object-fit: cover;
 
 						@include media("lg") {
-							top: var(--s-md);
-							left: var(--s-md);
+							top: var(--s-sm);
+							left: var(--s-sm);
 						}
 					}
 				}

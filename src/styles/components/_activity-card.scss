@@ -19,6 +19,12 @@ $handle: "activity-card";
 				padding: var(--s-sm);
 				background-color: var(--c-white);
 				color: var(--c-fg-dk);
+				border-radius: var(--s-br-sm);
+			}
+
+			&:hover > h3 {
+				color: var(--c-teal);
+				text-decoration: underline;
 			}
 		}
 	}

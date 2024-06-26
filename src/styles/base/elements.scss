@@ -1,5 +1,5 @@
 /* This value is a SASS variable because it is used in media queries */
-$page-max: 1920;
+$page-max: 1600;
 
 @function lerp($y1, $y2, $x1: var(--p-min), $x2: var(--p-max), $mul: 1px) {
 	// y = mx + b
@@ -25,15 +25,12 @@ $page-max: 1920;
 	--p-min: 360;
 	--p-max: #{$page-max};
 	// Spacing
-	--s-xs: #{range(4, 10)};
-	--s-sm: #{range(6, 17)};
-	--s-md: #{range(17, 33)};
-	--s-lg: #{range(26, 44)};
-	--s-xl: #{range(44, 66)};
-	--s-2xl: #{range(52, 88)};
-	--s-3xl: #{range(58, 102)};
-	--s-4xl: #{range(130, 170)};
-	--s-5xl: #{range(170, 210)};
+	--s: 6px;
+	--s-xs: calc(var(--s) * 2);
+	--s-sm: calc(var(--s) * 4);
+	--s-md: calc(var(--s) * 8);
+	--s-lg: calc(var(--s) * 16);
+	--s-xl: calc(var(--s) * 32);
 	--s-br-sm: 8px;
 	--s-br-md: 16px;
 	--s-br-lg: 32px;

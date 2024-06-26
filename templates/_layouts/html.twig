@@ -72,10 +72,9 @@
 			'menuLinks.primaryLink.pageLink:linkPage',
 			'menuLinks.menuLinks.pageLink:linkPage',
 		]).one() %}
-		{% if header %}
 			<header>
+				{% include '_components/header' only %}
 			</header>
-		{% endif %}
 
 		<main>
 			{% block content %}{% endblock %}

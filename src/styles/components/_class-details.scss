@@ -1,26 +1,22 @@
 $handle: "class-details";
 
 .#{$handle} {
+	@include container;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin: var(--s-3xl) auto;
-	padding: 0 var(--s-lg);
-
-	@include media("md") {
-		padding: 0 var(--s-3xl);
-	}
+	margin: var(--s-lg) auto;
 
 	> div:first-child {
 		width: 100%;
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md);
+			width: calc(50% - var(--s-sm);
 		}
 
 		> header {
-			margin-bottom: var(--s-lg);
+			margin-bottom: var(--s-md);
 
 			> h2 {
 				@include font("heading", 4);
@@ -29,26 +25,26 @@ $handle: "class-details";
 
 		> article {
 			@include card;
-			margin-top: var(--s-md);
+			margin-top: var(--s-sm);
 
 			> h3 {
 				@include font("heading", 2);
-				margin-bottom: var(--s-md);
+				margin-bottom: var(--s-sm);
 			}
 		}
 	}
 
 	> div:last-child {
 		width: 100%;
-		margin-top: var(--s-lg);
+		margin-top: var(--s-md);
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md);
+			width: calc(50% - var(--s-sm);
 			margin: 0;
 		}
 
 		> header {
-			margin-bottom: var(--s-lg);
+			margin-bottom: var(--s-md);
 
 			> h2 {
 				@include font("heading", 4);
@@ -76,7 +72,7 @@ $handle: "class-details";
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				padding: var(--s-md);
+				padding: var(--s-sm);
 				cursor: pointer;
 
 				> h3 {
@@ -87,7 +83,7 @@ $handle: "class-details";
 					> i {
 						width: var(--s-icon-xs);
 						height: var(--s-icon-xs);
-						margin-right: var(--s-sm);
+						margin-right: var(--s-xs);
 						background-color: var(--c-subject);
 						border-radius: 50%;
 					}
@@ -104,7 +100,7 @@ $handle: "class-details";
 			}
 
 			> div {
-				padding: 0 var(--s-md) var(--s-md);
+				padding: 0 var(--s-sm) var(--s-sm);
 
 				> h4 {
 					@include font("heading", 0);
@@ -112,11 +108,11 @@ $handle: "class-details";
 
 				> div {
 					@include richText("sm");
-					margin-top: var(--s-sm);
+					margin-top: var(--s-xs);
 
 					+ h4 {
-						margin-top: var(--s-md);
-						padding-top: var(--s-md);
+						margin-top: var(--s-sm);
+						padding-top: var(--s-sm);
 						border-top: 1px solid var(--c-br-lt);
 					}
 				}

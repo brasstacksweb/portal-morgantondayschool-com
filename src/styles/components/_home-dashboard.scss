@@ -1,24 +1,19 @@
 $handle: "home-dashboard";
 
 .#{$handle} {
+	@include container;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
 	margin: var(--s-lg) auto;
-	padding: 0 var(--s-lg);
-
-	@include media("lg") {
-		padding: 0 var(--s-xl);
-	}
 
 	> div {
 		> nav {
-			display: flex;
+			display: inline-flex;
 			justify-content: space-between;
 			align-items: center;
-			width: var(--w-xs);
-			height: var(--s-lg);
+			height: var(--s-md);
 			margin-top: var(--s-md);
 			padding: 0 var(--s-sm);
 			border: 2px solid var(--c-br-lt);
@@ -52,6 +47,7 @@ $handle: "home-dashboard";
 
 			> span {
 				@include font("heading", -1);
+				margin: 0 var(--s-sm);
 			}
 		}
 
@@ -75,7 +71,7 @@ $handle: "home-dashboard";
 		> p {
 			@include font("body", 1);
 			display: none;
-			margin-top: var(--s-lg);
+			margin-top: var(--s-md);
 		}
 	}
 
@@ -83,11 +79,11 @@ $handle: "home-dashboard";
 		width: 100%;
 
 		@include media("sm") {
-			width: calc(60% - var(--s-md));
+			width: calc(60% - var(--s-sm));
 		}
 
 		@include media("md") {
-			width: calc(70% - var(--s-md));
+			width: calc(70% - var(--s-sm));
 		}
 
 		> h2 {
@@ -95,38 +91,38 @@ $handle: "home-dashboard";
 		}
 
 		> ul:not(:empty) {
-			margin-top: var(--s-md);
+			margin-top: var(--s-sm);
 
 			> li {
 				@include shadow;
-				@include listMargin(var(--s-md));
+				@include listMargin(var(--s-sm));
 			}
 		}
 	}
 
 	> div:last-child {
 		width: 100%;
-		margin-top: var(--s-lg);
+		margin-top: var(--s-md);
 
 		@include media("sm") {
-			width: calc(40% - var(--s-md));
+			width: calc(40% - var(--s-sm));
 			margin: 0;
 		}
 
 		@include media("md") {
-			width: calc(30% - var(--s-md));
+			width: calc(30% - var(--s-sm));
 		}
 
 		> h2 {
 			@include font("heading", 5);
-			margin-top: var(--s-sm);
+			margin-top: var(--s-xs);
 		}
 
 		> ul:not(:empty) {
 			margin-top: var(--s-md);
 
 			> li {
-				@include listMargin(var(--s-md));
+				@include listMargin(var(--s-sm));
 			}
 		}
 	}

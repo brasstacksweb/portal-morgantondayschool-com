@@ -68,6 +68,13 @@
 	}
 }
 
+// Weird syntax for native css `max` function instead of sass `max` function
+// https://github.com/webpack-contrib/sass-loader/issues/930#issuecomment-785006897
+@mixin container($padding: "md", $width: calc(var(--p-max) * 1px)) {
+	padding-left: m#{a}x(var(--s-#{$padding}), calc(0.5 * (100vw - #{$width})));
+	padding-right: m#{a}x(var(--s-#{$padding}), calc(0.5 * (100vw - #{$width})));
+}
+
 @mixin card($size: "md") {
 	padding: var(--s-#{$size});
 	background-color: var(--c-white);

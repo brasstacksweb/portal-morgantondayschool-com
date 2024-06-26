@@ -1,15 +1,11 @@
 $handle: "posts-gallery";
 
 .#{$handle} {
-	margin: var(--s-3xl) auto;
-	padding: 0 var(--s-lg);
-
-	@include media("sm") {
-		padding: 0 var(--s-3xl);
-	}
+	@include container;
+	margin: var(--s-lg) auto;
 
 	> header {
-		margin-bottom: var(--s-lg);
+		margin-bottom: var(--s-md);
 
 		@include media("sm") {
 			display: flex;
@@ -33,16 +29,16 @@ $handle: "posts-gallery";
 		}
 
 		> li {
-			width: calc((100% / 2) - var(--s-md));
-			margin-right: var(--s-md);
-			margin-bottom: var(--s-md);
+			width: calc((100% / 2) - var(--s-sm));
+			margin-right: var(--s-sm);
+			margin-bottom: var(--s-sm);
 
 			@include media("sm") {
-				width: calc((100% / 3) - var(--s-md));
+				width: calc((100% / 3) - var(--s-sm));
 			}
 
 			@include media("lg") {
-				width: calc((100% / 4) - var(--s-md));
+				width: calc((100% / 4) - var(--s-sm));
 			}
 		}
 	}

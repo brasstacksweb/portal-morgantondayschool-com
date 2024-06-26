@@ -1,44 +1,44 @@
 $handle: "class-hero";
 
 .#{$handle} {
+	@include container;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-end;
 	margin: var(--s-lg) auto;
-	padding: 0 var(--s-lg);
 
 	> div:first-child {
 		@include card;
 		display: flex;
 		flex-direction: column;
-		box-shadow: var(--s-md) var(--s-sm) var(--c-teal);
+		box-shadow: var(--s-sm) var(--s-sm) var(--c-teal);
 
 		@include media($max: "xs") {
 			width: 100%;
-			margin: calc(-1 * var(--s-3xl)) var(--s-sm) auto var(--s-xl);
+			margin: calc(-1 * var(--s-lg)) var(--s-xs) auto var(--s-lg);
 		}
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
+			width: calc(50% - var(--s-sm));
 			margin-bottom: var(--s-sm);
 		}
 
 		@include media("md") {
-			width: calc(35% - var(--s-md));
+			width: calc(35% - var(--s-sm));
 		}
 
 		> h1 {
 			@include font("heading", 5);
-			margin-bottom: var(--s-md);
+			margin-bottom: var(--s-sm);
 			text-wrap: balance;
 		}
 
 		> address {
 			display: flex;
 			align-items: center;
-			margin-bottom: var(--s-md);
+			margin-bottom: var(--s-sm);
 
 			> a {
 				display: flex;
@@ -48,7 +48,7 @@ $handle: "class-hero";
 			img {
 				width: var(--s-icon-lg);
 				height: var(--s-icon-lg);
-				margin-right: var(--s-xs);
+				margin-right: var(--s);
 				border-radius: 50%;
 				object-fit: cover;
 			}
@@ -68,7 +68,7 @@ $handle: "class-hero";
 		> a {
 			@include font;
 			color: var(--c-green);
-			margin-top: var(--s-md);
+			margin-top: var(--s-sm);
 
 			&:hover {
 				text-decoration: underline;
@@ -83,18 +83,18 @@ $handle: "class-hero";
 
 		@include media($max: "xs") {
 			z-index: -1;
-			width: calc(100% - var(--s-3xl));
+			width: calc(100% - var(--s-lg));
 			order: -1;
 			aspect-ratio: 4 / 3;
 		}
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
+			width: calc(50% - var(--s-sm));
 			max-height: 70vh;
 		}
 
 		@include media("md") {
-			width: calc(65% - var(--s-md));
+			width: calc(65% - var(--s-sm));
 		}
 	}
 }

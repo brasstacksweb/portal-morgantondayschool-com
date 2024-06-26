@@ -1,27 +1,23 @@
 $handle: "class-footer";
 
 .#{$handle} {
+	@include container;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
-	margin: var(--s-3xl) auto;
-	padding: 0 var(--s-lg);
-
-	@include media("md") {
-		padding: 0 var(--s-3xl);
-	}
+	margin: var(--s-lg) auto;
 
 	> div {
 		@include card;
 		width: 100%;
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
+			width: calc(50% - var(--s-sm));
 		}
 
 		@include media("md") {
-			width: calc(65% - var(--s-md));
+			width: calc(65% - var(--s-sm));
 		}
 
 		> header {
@@ -32,7 +28,7 @@ $handle: "class-footer";
 
 		> div {
 			@include richText;
-			margin-top: var(--s-md);
+			margin-top: var(--s-sm);
 		}
 	}
 
@@ -40,16 +36,16 @@ $handle: "class-footer";
 		width: 100%;
 
 		@include media($max: "xs") {
-			margin-top: var(--s-lg);
+			margin-top: var(--s-md);
 		}
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
-			margin-left: var(--s-lg);
+			width: calc(50% - var(--s-sm));
+			margin-left: var(--s-md);
 		}
 
 		@include media("md") {
-			width: calc(35% - var(--s-md));
+			width: calc(35% - var(--s-sm));
 		}
 
 		> figure {
@@ -71,7 +67,7 @@ $handle: "class-footer";
 
 			> h3 {
 				@include font("heading", 3);
-				margin-bottom: var(--s-md);
+				margin-bottom: var(--s-sm);
 			}
 		}
 	}
