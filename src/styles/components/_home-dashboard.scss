@@ -23,10 +23,23 @@ $handle: "home-dashboard";
 			padding: 0 var(--s-sm);
 			border: 2px solid var(--c-br-lt);
 			border-radius: calc(0.5 * var(--s-lg));
+			transition: border-color var(--a-xs);
 
-			> button:disabled {
-				opacity: 0.5;
-				pointer-events: none;
+			&:hover {
+				border-color: var(--c-teal);
+			}
+
+			> button{
+				transition: transform var(--a-xs);
+
+				&:hover {
+					transform: scale(1.2);
+				}
+
+				&:disabled {
+					opacity: 0.5;
+					pointer-events: none;
+				}
 			}
 
 			> button:first-of-type > i {
@@ -70,35 +83,23 @@ $handle: "home-dashboard";
 		width: 100%;
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
-		}
-
-		@include media("md") {
 			width: calc(60% - var(--s-md));
 		}
 
-		> h1 {
+		@include media("md") {
+			width: calc(70% - var(--s-md));
+		}
+
+		> h2 {
 			@include font("heading", 6);
 		}
 
-		> nav {
-			> span {
-				text-transform: capitalize;
-			}
-		}
-
 		> ul:not(:empty) {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: var(--s-md);
 			margin-top: var(--s-md);
 
-			@include media("sm") {
-				grid-template-columns: repeat(1, 1fr);
-			}
-
-			@include media("md") {
-				grid-template-columns: repeat(2, 1fr);
+			> li {
+				@include shadow;
+				@include listMargin(var(--s-md));
 			}
 		}
 	}
@@ -108,16 +109,17 @@ $handle: "home-dashboard";
 		margin-top: var(--s-lg);
 
 		@include media("sm") {
-			width: calc(50% - var(--s-md));
+			width: calc(40% - var(--s-md));
 			margin: 0;
 		}
 
 		@include media("md") {
-			width: calc(40% - var(--s-md));
+			width: calc(30% - var(--s-md));
 		}
 
 		> h2 {
-			@include font("heading", 6);
+			@include font("heading", 5);
+			margin-top: var(--s-sm);
 		}
 
 		> ul:not(:empty) {

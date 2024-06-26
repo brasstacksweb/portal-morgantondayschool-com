@@ -5,63 +5,18 @@ const getFirstOfWeek = date => {
     return new Date(date.setDate(diff));
 };
 
-const getFirstOfMonth = date => new Date(date.getFullYear(), date.getMonth(), 1);
-
 export default function HomeDashboard(el, {
-    prevMonth,
-    nextMonth,
     prevWeek,
     nextWeek,
     loadingClass = 'is-loading',
 }) {
+    const currentWeek = el.querySelector('div > nav > span');
     const [
-        currentMonth,
-        currentWeek,
-    ] = el.querySelectorAll('div > nav > span');
-    const [
-        prevActivities,
-        nextActivities,
         prevReminders,
         nextReminders,
     ] = el.querySelectorAll('div > nav > button');
-    const [
-        activities,
-        reminders,
-    ] = [el.firstElementChild, el.lastElementChild];
+    const reminders = el.firstElementChild;
 
-    function getActivitiesByMonth(month) {
-        activities.classList.add(loadingClass);
-        prevActivities.disabled = true;
-        nextActivities.disabled = true;
-
-        fetch(`/json/activities-listing?${new URLSearchParams({
-            month,
-        })}`, {
-            headers: { Accept: 'application/json' },
-        })
-            .then(res => res.json().then(json => ({
-                status: res.status,
-                ...json,
-            })))
-            .then(({
-                status,
-                markup = '',
-                prevMonth: p = '',
-                nextMonth: n = '',
-            }) => {
-                if (status !== 200) return;
-
-                const firstOfMonth = getFirstOfMonth(new Date(month));
-
-                activities.classList.remove(loadingClass);
-                prevActivities.disabled = false;
-                nextActivities.disabled = false;
-                prevMonth = p;
-                nextMonth = n;
-                currentMonth.textContent = `${firstOfMonth.toLocaleString('default', { month: 'long' })} ${firstOfMonth.getFullYear()}`;
-                activities.querySelector('ul').outerHTML = markup.trim();
-            });
-    }
     function getRemindersByWeek(week) {
         reminders.classList.add(loadingClass);
         prevReminders.disabled = true;
@@ -96,12 +51,6 @@ export default function HomeDashboard(el, {
             });
     }
 
-    prevActivities.onclick = () => {
-        getActivitiesByMonth(prevMonth);
-    };
-    nextActivities.onclick = () => {
-        getActivitiesByMonth(nextMonth);
-    };
     prevReminders.onclick = () => {
         getRemindersByWeek(prevWeek);
     };

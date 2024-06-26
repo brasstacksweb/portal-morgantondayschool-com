@@ -53,28 +53,28 @@ $handle: "classes-listing";
 					aspect-ratio: 4 / 3;
 
 					&:after {
-						@include absolute(0, 0);
+						@include absolute(auto, auto, 0, 0);
 						content: "";
+						transform-origin: bottom left;
 						border-width: 0 var(--s-lg) var(--s-lg) 0;
 						border-style: solid;
-						border-color: var(--c-gold-dk) var(--c-bg-lt);
+						border-color: var(--c-bg-lt) var(--c-gold-dk) ;
+						transition: transform var(--a-xs);
+					}
+
+					&:hover:after {
+						transform: scale(1.2);
 					}
 
 					> h3 {
 						@include font("heading", 7);
 						transform-origin: bottom right;
-						color: gold;
-						text-shadow: 0 0  4px var(--c-black);
-						transition:
-							transform var(--a-sm),
-							color var(--a-sm),
-							text-shadow var(--a-sm);
+						color: var(--c-black);
+						transition: color var(--a-xs),
 					}
 
 					&:hover > h3 {
-						transform: scale(1.1);
 						color: var(--c-red-lt);
-						text-shadow: 1px 1px 4px var(--c-red-dk);
 					}
 
 					> img {
