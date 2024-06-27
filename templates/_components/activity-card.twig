@@ -11,6 +11,8 @@
 {% set handle = 'activity-card' %}
 
 {# Markup #}
+{% import '_buttons' as buttons %}
+
 <div class="{{ handle }}">
 	<article>
 		<a href="{{ activity.url }}" title="{{ activity.title }}">
@@ -19,7 +21,7 @@
 					src="{{ activity.image.url }}"
 					alt="{{ activity.image.alt ?? activity.image.title }}" />
 			{% endif %}
-			<h3>{{ activity.title }}</h3>
+			<h3>{{ buttons.button(activity.title) }}</h3>
 		</a>
 	</article>
 </div>

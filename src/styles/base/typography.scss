@@ -4,7 +4,7 @@
 	font-family: system-ui;
 
 	@if ($type == "heading") {
-		font-weight: 500;
+		font-weight: 400;
 
 		@if ($size == 7) {
 			font-size: range(66, 108);
@@ -53,15 +53,28 @@
 		line-height: range(1.1, 1.1, 1em);
 		letter-spacing: range(-3.107, -7.455);
 	} @else if ($type == "eyebrow") {
-		font-weight: 600;
+		font-weight: 500;
 
 		@if ($size == -1) {
 			font-size: range(13, 17);
 			font-weight: lighter;
 			line-height: range(1.1, 1.4, 1em);
 		}
+	} @else if ($type == "link") {
+		font-weight: 444;
+
+		@if ($size == 1) {
+			font-size: range(24, 32);
+			line-height: range(70, 80);
+		} @else if ($size == 0) {
+			font-size: range(18, 22);
+			line-height: range(50, 60);
+		} @else if ($size == -1) {
+			font-size: range(16, 18);
+			line-height: range(30, 40);
+		}
 	} @else {
-		font-weight: 400;
+		font-weight: 333;
 
 		@if ($size == 1) {
 			font-size: range(18, 28);
@@ -109,9 +122,10 @@
 }
 
 @mixin link($invert: false) {
-	color: if($invert, var(--c-gold-lt), var(--c-green));
+	color: if($invert, var(--c-white), var(--c-black));
 
 	&:hover {
+		color: if($invert, var(--c-gold-lt), var(--c-green));
 		text-decoration: underline;
 	}
 }
@@ -287,7 +301,6 @@
 	position: relative;
 	width: var(--s-icon-#{$size});
 	height: var(--s-icon-#{$size});
-	transition: transform var(--a-sm);
 
 	&:before,
 	&:after {
@@ -300,5 +313,61 @@
 	&:before {
 		transform-origin: center;
 		transform: rotate(90deg) translate(calc(-0.5 * var(--s-icon-#{$size})), 0);
+	}
+}
+
+@mixin button($type: "primary", $size: "md", $invert: false) {
+	padding: 0 var(--s-sm);
+	border-radius: var(--s-br-sm);
+	transition: border-radius var(--a-xs);;
+
+	@if ($size == "sm") {
+		@include font("link", -1);
+	} @else if ($size: "md") {
+		@include font("link", 0);
+	} @else if ($size: "lg") {
+		@include font("link", 1);
+	}
+
+	@if ($type == "primary") {
+		background-color: if($invert, var(--c-white), var(--c-black));
+		color: if($invert, var(--c-black), var(--c-white));
+	} @else if ($type: "secondary") {
+		background-color: if($invert, var(--c-white), var(--c-black));
+		color: if($invert, var(--c-black), var(--c-white));
+		border: 1px solid if($invert, var(--c-white), var(--c-black));
+	}
+
+	&:hover {
+		border-radius: 0;
+	}
+
+	> span {
+		display: flex;
+		align-items: center;
+		transition: transform var(--a-xs);
+
+		> svg {
+			@include centerer(false, true);
+			left: calc(-1 * var(--s-icon-#{$size}));
+			opacity: 0;
+			width: var(--s-icon-#{$size});
+			height: var(--s-icon-#{$size});
+			transition: opacity var(--a-sm);
+
+			@if ($type == "primary") {
+				fill: if($invert, var(--c-black), var(--c-white));
+			} @else if ($type: "secondary") {
+				fill: if($invert, var(--c-white), var(--c-black));
+			}
+		}
+	}
+
+	&:hover > span {
+		transform: translateX(calc(0.5 * var(--s-icon-#{$size})));
+
+		> svg {
+			opacity: 1;
+		}
 	}
 }

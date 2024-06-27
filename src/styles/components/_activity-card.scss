@@ -13,18 +13,9 @@ $handle: "activity-card";
 			}
 
 			> h3 {
-				@include font("heading", 2);
+				@include button($size: "lg", $invert: true);
 				@include absolute(auto, auto, var(--s-sm), var(--s-sm));
 				max-width: calc(100% - (2 * var(--s-sm)));
-				padding: var(--s-sm);
-				background-color: var(--c-white);
-				color: var(--c-fg-dk);
-				border-radius: var(--s-br-sm);
-			}
-
-			&:hover > h3 {
-				color: var(--c-teal);
-				text-decoration: underline;
 			}
 		}
 	}
