@@ -13,7 +13,7 @@ $handle: "posts-gallery";
 		}
 
 		> h2 {
-			@include font("heading", 4);
+			@include font("heading", "lg");
 			max-width: var(--w-md);
 			text-wrap: balance;
 		}

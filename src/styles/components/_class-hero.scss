@@ -30,7 +30,7 @@ $handle: "class-hero";
 		}
 
 		> h1 {
-			@include font("heading", 5);
+			@include font("heading", "xl");
 			margin-bottom: var(--s-sm);
 			text-wrap: balance;
 		}

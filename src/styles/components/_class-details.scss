@@ -19,7 +19,7 @@ $handle: "class-details";
 			margin-bottom: var(--s-md);
 
 			> h2 {
-				@include font("heading", 4);
+				@include font("heading", "lg");
 			}
 		}
 
@@ -28,7 +28,7 @@ $handle: "class-details";
 			margin-top: var(--s-sm);
 
 			> h3 {
-				@include font("heading", 2);
+				@include font("heading", "md");
 				margin-bottom: var(--s-sm);
 			}
 		}
@@ -47,7 +47,7 @@ $handle: "class-details";
 			margin-bottom: var(--s-md);
 
 			> h2 {
-				@include font("heading", 4);
+				@include font("heading", "lg");
 			}
 		}
 
@@ -76,7 +76,7 @@ $handle: "class-details";
 				cursor: pointer;
 
 				> h3 {
-					@include font("heading", 2);
+					@include font("heading", "md");
 					display: flex;
 					align-items: center;
 
@@ -103,7 +103,7 @@ $handle: "class-details";
 				padding: 0 var(--s-sm) var(--s-sm);
 
 				> h4 {
-					@include font("heading", 0);
+					@include font("heading", "sm");
 				}
 
 				> div {

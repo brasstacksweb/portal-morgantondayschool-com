@@ -38,15 +38,15 @@ $handle: "home-dashboard";
 			}
 
 			> button:first-of-type > i {
-				@include chevron("left");
+				// @include chevron("left");
 			}
 
 			> button:last-of-type > i {
-				@include chevron("right");
+				// @include chevron("right");
 			}
 
 			> span {
-				@include font("heading", -1);
+				@include font("eyebrow");
 				margin: 0 var(--s-sm);
 			}
 		}
@@ -69,7 +69,7 @@ $handle: "home-dashboard";
 		}
 
 		> p {
-			@include font("body", 1);
+			@include font("body", "lg");
 			display: none;
 			margin-top: var(--s-md);
 		}
@@ -87,7 +87,7 @@ $handle: "home-dashboard";
 		}
 
 		> h2 {
-			@include font("heading", 6);
+			@include font("heading", "lg");
 		}
 
 		> ul:not(:empty) {
@@ -114,7 +114,7 @@ $handle: "home-dashboard";
 		}
 
 		> h2 {
-			@include font("heading", 5);
+			@include font("heading", "md");
 			margin-top: var(--s-xs);
 		}
 

@@ -10,7 +10,7 @@ $handle: "classes-listing";
 		margin-bottom: var(--s-md);
 
 		> h2 {
-			@include font("heading", 5);
+			@include font("heading", "lg");
 		}
 	}
 
@@ -63,7 +63,7 @@ $handle: "classes-listing";
 					}
 
 					> h3 {
-						@include font("heading", 5);
+						@include font("heading", "xl");
 						transform-origin: bottom right;
 						color: var(--c-black);
 					}

@@ -1,57 +1,32 @@
 @charset "utf-8";
 
-@mixin font($type: "body", $size: 0) {
+@mixin font($type: "body", $size: "md") {
 	font-family: system-ui;
 
 	@if ($type == "heading") {
 		font-weight: 400;
 
-		@if ($size == 7) {
-			font-size: range(66, 108);
-			line-height: 1.1em;
-			letter-spacing: range(0, -1.8);
-		} @else if ($size == 6) {
+		@if ($size == "xl") {
 			font-size: range(44, 92);
 			line-height: 1.1em;
 			letter-spacing: range(0, -1.8);
-		} @else if ($size == 5) {
+		} @else if ($size == "lg") {
 			font-size: range(36, 74);
 			line-height: 1.1em;
 			letter-spacing: range(-0.7, -1.5);
-		} @else if ($size == 4) {
+		} @else if ($size == "md") {
 			font-size: range(32, 60);
 			line-height: 1.1em;
 			letter-spacing: range(-0.6, -1.2);
-		} @else if ($size == 3) {
+		} @else if ($size == "sm") {
 			font-size: range(26, 48);
 			line-height: 1.1em;
 			letter-spacing: range(-0.5, -0.9);
-		} @else if ($size == 2) {
+		} @else if ($size == "xs") {
 			font-size: range(20, 36);
 			line-height: 1.1em;
 			letter-spacing: range(-0.4, -0.75);
-		} @else if ($size == 1) {
-			font-size: range(18, 30);
-			line-height: 1.1em;
-			letter-spacing: range(-0.3, -0.6);
-		} @else if ($size == 0) {
-			font-size: range(15, 24);
-			line-height: 1.1em;
-			letter-spacing: range(-0.3, 0);
-		} @else if ($size == -1) {
-			font-size: range(14, 18);
-			line-height: 1.1em;
-			letter-spacing: range(-0.25, -0.3);
-		} @else if ($size == -2) {
-			font-size: range(13, 15);
-			line-height: 1.1em;
-			letter-spacing: range(0, -0.3);
 		}
-	} @else if ($type == "jumbo") {
-		font-size: range(156, 372);
-		font-weight: bold;
-		line-height: range(1.1, 1.1, 1em);
-		letter-spacing: range(-3.107, -7.455);
 	} @else if ($type == "eyebrow") {
 		font-weight: 500;
 
@@ -63,30 +38,30 @@
 	} @else if ($type == "link") {
 		font-weight: 444;
 
-		@if ($size == 1) {
+		@if ($size == "lg") {
 			font-size: range(24, 32);
 			line-height: range(70, 80);
-		} @else if ($size == 0) {
+		} @else if ($size == "md") {
 			font-size: range(18, 22);
 			line-height: range(50, 60);
-		} @else if ($size == -1) {
+		} @else if ($size == "sm") {
 			font-size: range(16, 18);
 			line-height: range(30, 40);
 		}
 	} @else {
 		font-weight: 333;
 
-		@if ($size == 1) {
-			font-size: range(18, 28);
+		@if ($size == "lg") {
+			font-size: range(18, 24);
 			line-height: 1.4em;
-		} @else if ($size == 0) {
-			font-size: range(15, 20);
+		} @else if ($size == "md") {
+			font-size: range(16, 18);
 			line-height: 1.4em;
-		} @else if ($size == -1) {
-			font-size: range(14, 18);
+		} @else if ($size == "sm") {
+			font-size: range(14, 16);
 			line-height: 1.4em;
-		} @else if ($size == -2) {
-			font-size: range(13, 15);
+		} @else if ($size == "xs") {
+			font-size: range(12, 14);
 			line-height: 1.4em;
 		}
 	}
@@ -131,7 +106,7 @@
 }
 
 @mixin oList($size: "md") {
-	@include font("body", if($size == "sm", -1, 0));
+	@include font("body", $size);
 	list-style-type: decimal;
 	color: var(--c-fg-md);
 
@@ -151,7 +126,7 @@
 }
 
 @mixin uList($size: "md") {
-	@include font("body", if($size == "sm", -1, 0));
+	@include font("body", $size);
 	list-style-type: disc;
 	color: var(--c-fg-md);
 
@@ -187,31 +162,31 @@
 	}
 
 	> h1 {
-		@include font("heading", 6);
+		@include font("heading", "lg");
 	}
 
 	> h2 {
-		@include font("heading", 5);
+		@include font("heading", "md");
 	}
 
 	> h3 {
-		@include font("heading", 4);
+		@include font("heading", "sm");
 	}
 
 	> h4 {
-		@include font("heading", 3);
+		@include font("heading", "xs");
 	}
 
 	> h5 {
-		@include font("heading", 2);
+		@include font("heading", "xs");
 	}
 
 	> h6 {
-		@include font("eyebrow", -1);
+		@include font("heading", "xs");
 	}
 
 	> p {
-		@include font("body", if($size == "sm", -1, 0));
+		@include font("body", $size);
 		color: if($invert, var(--c-white), var(--c-fg-md));
 	}
 
@@ -224,7 +199,7 @@
 	}
 
 	table {
-		@include font("body", -1);
+		@include font("body", "sm");
 		min-width: var(--w-md);
 
 		th,
@@ -238,7 +213,7 @@
 
 			> ul,
 			> li {
-				@include font("body", -1);
+				@include font("body", "sm");
 			}
 		}
 
@@ -259,41 +234,24 @@
 		margin: var(--s-lg) 0;
 
 		> figcaption {
-			@include font("body", -2);
+			@include font("body", "xs");
 			margin-top: var(--s-xs);
 			color: if($invert, var(--c-white), var(--c-fg-md));
 		}
 	}
 
+	i,
 	em {
 		@include italic;
 	}
 
+	b,
 	strong {
 		@include bold;
 	}
 
 	a {
 		@include link($invert);
-	}
-}
-
-@mixin chevron($dir: "down", $size: "xs") {
-	display: block;
-	width: var(--s-icon-#{$size});
-	height: var(--s-icon-#{$size});
-	background: transparent;
-	transform-origin: center;
-	border-left: 3px solid var(--c-black);
-	border-bottom: 3px solid var(--c-black);
-
-	@if ($dir == "up") {
-		transform: rotate(135deg);
-	} @else if ($dir == "down") {
-	} @else if ($dir == "left") {
-		transform: rotate(45deg);
-	} @else if ($dir == "right") {
-		transform: rotate(225deg);
 	}
 }
 
@@ -317,17 +275,11 @@
 }
 
 @mixin button($type: "primary", $size: "md", $invert: false) {
+	@include font("link", $size);
 	padding: 0 var(--s-sm);
 	border-radius: var(--s-br-sm);
+	white-space: nowrap;
 	transition: border-radius var(--a-xs);;
-
-	@if ($size == "sm") {
-		@include font("link", -1);
-	} @else if ($size: "md") {
-		@include font("link", 0);
-	} @else if ($size: "lg") {
-		@include font("link", 1);
-	}
 
 	@if ($type == "primary") {
 		background-color: if($invert, var(--c-white), var(--c-black));

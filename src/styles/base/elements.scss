@@ -44,7 +44,6 @@ $page-max: 1600;
 	--w-md: calc(var(--w) * 5);
 	--w-lg: calc(var(--w) * 7);
 	--w-xl: calc(var(--w) * 9);
-	--w-2xl: calc(var(--w) * 11);
 	// height
 	--h-header: 80px;
 	// Color
@@ -108,13 +107,17 @@ body {
 }
 
 a {
-	cursor: var(--cursor-pointer);
+	cursor: var(--cursor-pointer) !important;
 
 	&[name] {
 		display: inline-block;
 		height: 0;
 		line-height: 0;
 	}
+}
+
+h1, h2, h3, h4, h5, h6, p, span, figcaption {
+	cursor: text;
 }
 
 sub {

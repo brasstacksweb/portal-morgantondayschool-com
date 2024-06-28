@@ -168,7 +168,6 @@ a:focus {
   --w-md: calc(var(--w) * 5);
   --w-lg: calc(var(--w) * 7);
   --w-xl: calc(var(--w) * 9);
-  --w-2xl: calc(var(--w) * 11);
   --h-header: 80px;
   --c-white: #FFF;
   --c-black: #000;
@@ -224,11 +223,14 @@ body {
   scroll-margin-top: var(--h-header); }
 
 a {
-  cursor: var(--cursor-pointer); }
+  cursor: var(--cursor-pointer) !important; }
   a[name] {
     display: inline-block;
     height: 0;
     line-height: 0; }
+
+h1, h2, h3, h4, h5, h6, p, span, figcaption {
+  cursor: text; }
 
 sub {
   vertical-align: sub;
@@ -351,13 +353,14 @@ details summary {
     height: 100%;
     object-fit: cover; }
   .activity-card > article > a > h3 {
-    padding: 0 var(--s-sm);
-    border-radius: var(--s-br-sm);
-    transition: border-radius var(--a-xs);
     font-family: system-ui;
     font-weight: 444;
-    font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
-    line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px));
+    font-size: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
+    line-height: clamp(calc(70 * 1px), calc((80 - 70) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 70 * 1px), calc(80 * 1px));
+    padding: 0 var(--s-sm);
+    border-radius: var(--s-br-sm);
+    white-space: nowrap;
+    transition: border-radius var(--a-xs);
     background-color: var(--c-white);
     color: var(--c-black);
     position: absolute;
@@ -476,9 +479,6 @@ details summary {
     .card > div > h3 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px));
       order: 3; }
     .card > div > h4 {
       font-family: system-ui;
@@ -508,27 +508,27 @@ details summary {
       .card > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-      .card > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
         font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .card > div > div > h3 {
+      .card > div > div > h2 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .card > div > div > h4 {
+      .card > div > div > h3 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .card > div > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .card > div > div > h5 {
         font-family: system-ui;
         font-weight: 400;
@@ -537,20 +537,20 @@ details summary {
         letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .card > div > div > h6 {
         font-family: system-ui;
-        font-weight: 500;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-        font-weight: lighter;
-        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .card > div > div > p {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
       .card > div > div ol {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         list-style-type: decimal;
         color: var(--c-fg-md); }
@@ -567,7 +567,7 @@ details summary {
       .card > div > div ul {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         list-style-type: disc;
         color: var(--c-fg-md); }
@@ -584,7 +584,7 @@ details summary {
       .card > div > div table {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         min-width: var(--w-md); }
         .card > div > div table th,
@@ -603,7 +603,7 @@ details summary {
           .card > div > div table td > li {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em; }
         .card > div > div table td {
           color: var(--c-fg-md); }
@@ -616,13 +616,15 @@ details summary {
         .card > div > div figure > figcaption {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
           line-height: 1.4em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
+      .card > div > div i,
       .card > div > div em {
         font-style: italic;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .card > div > div b,
       .card > div > div strong {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -633,9 +635,7 @@ details summary {
           text-decoration: underline; }
       .card > div > div:not(:has(p)) {
         font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
+        font-weight: 333; }
     .card > div > em,
     .card > div > a {
       order: 5;
@@ -656,22 +656,16 @@ details summary {
       width: calc(35% - var(--s-lg)); } }
   .card--size-md > div > h3 {
     font-family: system-ui;
-    font-weight: 400;
-    font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    font-weight: 400; }
   .card--size-lg > figure + div {
     margin-top: var(--s-lg); }
   .card--size-lg > div > h3 {
     font-family: system-ui;
-    font-weight: 400;
-    font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+    font-weight: 400; }
   .card--size-lg > div > div {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em; }
   .card--style-leader > div > h4 {
     min-height: 2.2em;
@@ -707,7 +701,7 @@ details summary {
     .cards-listing > nav > em {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       margin: 0 0 var(--s-md) 0;
       color: var(--c-fg-md); }
@@ -722,7 +716,7 @@ details summary {
     .cards-listing > nav > label {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       display: flex;
       justify-content: space-between;
@@ -755,9 +749,9 @@ details summary {
       position: relative;
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
+      font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.3 * 1px), calc((0 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(0 * 1px));
+      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
       position: relative;
       display: flex;
       padding: var(--s-sm);
@@ -823,9 +817,9 @@ details summary {
       .class-details > div:first-child > header > h2 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
+        font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
         line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .class-details > div:first-child > article {
       padding: var(--s-md);
       background-color: var(--c-white);
@@ -836,9 +830,9 @@ details summary {
       .class-details > div:first-child > article > h3 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
         line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px));
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
         margin-bottom: var(--s-sm); }
   .class-details > div:last-child {
     width: 100%;
@@ -852,9 +846,9 @@ details summary {
       .class-details > div:last-child > header > h2 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
+        font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
         line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .class-details > div:last-child > details {
       width: 100%;
       background-color: var(--c-white);
@@ -876,9 +870,9 @@ details summary {
         .class-details > div:last-child > details > summary > h3 {
           font-family: system-ui;
           font-weight: 400;
-          font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+          font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
           line-height: 1.1em;
-          letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px));
+          letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
           display: flex;
           align-items: center; }
           .class-details > div:last-child > details > summary > h3 > i {
@@ -910,9 +904,9 @@ details summary {
         .class-details > div:last-child > details > div > h4 {
           font-family: system-ui;
           font-weight: 400;
-          font-size: clamp(calc(15 * 1px), calc((24 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(24 * 1px));
+          font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
           line-height: 1.1em;
-          letter-spacing: clamp(calc(-0.3 * 1px), calc((0 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(0 * 1px)); }
+          letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
         .class-details > div:last-child > details > div > div {
           color: var(--c-fg-dk);
           margin-top: var(--s-xs); }
@@ -930,27 +924,27 @@ details summary {
           .class-details > div:last-child > details > div > div > h1 {
             font-family: system-ui;
             font-weight: 400;
-            font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-          .class-details > div:last-child > details > div > div > h2 {
-            font-family: system-ui;
-            font-weight: 400;
             font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
             line-height: 1.1em;
             letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-          .class-details > div:last-child > details > div > div > h3 {
+          .class-details > div:last-child > details > div > div > h2 {
             font-family: system-ui;
             font-weight: 400;
             font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
             line-height: 1.1em;
             letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-          .class-details > div:last-child > details > div > div > h4 {
+          .class-details > div:last-child > details > div > div > h3 {
             font-family: system-ui;
             font-weight: 400;
             font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
             line-height: 1.1em;
             letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+          .class-details > div:last-child > details > div > div > h4 {
+            font-family: system-ui;
+            font-weight: 400;
+            font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+            line-height: 1.1em;
+            letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
           .class-details > div:last-child > details > div > div > h5 {
             font-family: system-ui;
             font-weight: 400;
@@ -959,20 +953,20 @@ details summary {
             letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
           .class-details > div:last-child > details > div > div > h6 {
             font-family: system-ui;
-            font-weight: 500;
-            font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-            font-weight: lighter;
-            line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+            font-weight: 400;
+            font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+            line-height: 1.1em;
+            letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
           .class-details > div:last-child > details > div > div > p {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em;
             color: var(--c-fg-md); }
           .class-details > div:last-child > details > div > div ol {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em;
             list-style-type: decimal;
             color: var(--c-fg-md); }
@@ -989,7 +983,7 @@ details summary {
           .class-details > div:last-child > details > div > div ul {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em;
             list-style-type: disc;
             color: var(--c-fg-md); }
@@ -1006,7 +1000,7 @@ details summary {
           .class-details > div:last-child > details > div > div table {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em;
             min-width: var(--w-md); }
             .class-details > div:last-child > details > div > div table th,
@@ -1025,7 +1019,7 @@ details summary {
               .class-details > div:last-child > details > div > div table td > li {
                 font-family: system-ui;
                 font-weight: 333;
-                font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+                font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
                 line-height: 1.4em; }
             .class-details > div:last-child > details > div > div table td {
               color: var(--c-fg-md); }
@@ -1038,13 +1032,15 @@ details summary {
             .class-details > div:last-child > details > div > div figure > figcaption {
               font-family: system-ui;
               font-weight: 333;
-              font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+              font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
               line-height: 1.4em;
               margin-top: var(--s-xs);
               color: var(--c-fg-md); }
+          .class-details > div:last-child > details > div > div i,
           .class-details > div:last-child > details > div > div em {
             font-style: italic;
             letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+          .class-details > div:last-child > details > div > div b,
           .class-details > div:last-child > details > div > div strong {
             font-weight: bold;
             letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -1082,9 +1078,9 @@ details summary {
     .class-footer > div > header > h2 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
+      font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .class-footer > div > div {
       color: var(--c-fg-dk);
       margin-top: var(--s-sm); }
@@ -1102,27 +1098,27 @@ details summary {
       .class-footer > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-      .class-footer > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
         font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .class-footer > div > div > h3 {
+      .class-footer > div > div > h2 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .class-footer > div > div > h4 {
+      .class-footer > div > div > h3 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .class-footer > div > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .class-footer > div > div > h5 {
         font-family: system-ui;
         font-weight: 400;
@@ -1131,20 +1127,20 @@ details summary {
         letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .class-footer > div > div > h6 {
         font-family: system-ui;
-        font-weight: 500;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-        font-weight: lighter;
-        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .class-footer > div > div > p {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
       .class-footer > div > div ol {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.4em;
         list-style-type: decimal;
         color: var(--c-fg-md); }
@@ -1161,7 +1157,7 @@ details summary {
       .class-footer > div > div ul {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.4em;
         list-style-type: disc;
         color: var(--c-fg-md); }
@@ -1178,7 +1174,7 @@ details summary {
       .class-footer > div > div table {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         min-width: var(--w-md); }
         .class-footer > div > div table th,
@@ -1197,7 +1193,7 @@ details summary {
           .class-footer > div > div table td > li {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em; }
         .class-footer > div > div table td {
           color: var(--c-fg-md); }
@@ -1210,13 +1206,15 @@ details summary {
         .class-footer > div > div figure > figcaption {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
           line-height: 1.4em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
+      .class-footer > div > div i,
       .class-footer > div > div em {
         font-style: italic;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .class-footer > div > div b,
       .class-footer > div > div strong {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -1256,9 +1254,9 @@ details summary {
       .class-footer > article > div > h3 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
+        font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
         line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px));
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
         margin-bottom: var(--s-sm); }
 
 .class-hero {
@@ -1293,9 +1291,9 @@ details summary {
     .class-hero > div:first-child > h1 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
+      font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px));
+      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
       margin-bottom: var(--s-sm);
       text-wrap: balance; }
     .class-hero > div:first-child > address {
@@ -1314,20 +1312,20 @@ details summary {
       .class-hero > div:first-child > address h2 {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
     .class-hero > div:first-child > div {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       max-width: var(--w-md);
       color: var(--c-fg-md); }
     .class-hero > div:first-child > a {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       color: var(--c-green);
       margin-top: var(--s-sm); }
@@ -1405,9 +1403,9 @@ details summary {
         .classes-listing > ul > li > article > a > h3 {
           font-family: system-ui;
           font-weight: 400;
-          font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
+          font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
           line-height: 1.1em;
-          letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px));
+          letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
           transform-origin: bottom right;
           color: var(--c-black); }
         .classes-listing > ul > li > article > a:hover > h3 {
@@ -1446,9 +1444,6 @@ details summary {
     .contact-form > aside > div:first-child {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(-0.3 * 1px));
       padding: var(--s-lg);
       background-color: var(--c-navy);
       color: var(--c-white); }
@@ -1461,15 +1456,10 @@ details summary {
     .contact-form > aside > div:last-child {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
       margin-top: var(--s-xl); }
       .contact-form > aside > div:last-child > h3 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(-0.3 * 1px));
         margin-bottom: var(--s-sm); }
       .contact-form > aside > div:last-child > p {
         margin-top: var(--s-xs);
@@ -1555,27 +1545,27 @@ details summary {
     .expandable-text--size-sm > div > h1 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-    .expandable-text--size-sm > div > h2 {
-      font-family: system-ui;
-      font-weight: 400;
       font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .expandable-text--size-sm > div > h3 {
+    .expandable-text--size-sm > div > h2 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-    .expandable-text--size-sm > div > h4 {
+    .expandable-text--size-sm > div > h3 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    .expandable-text--size-sm > div > h4 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-sm > div > h5 {
       font-family: system-ui;
       font-weight: 400;
@@ -1584,20 +1574,20 @@ details summary {
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-sm > div > h6 {
       font-family: system-ui;
-      font-weight: 500;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-      font-weight: lighter;
-      line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-sm > div > p {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       color: var(--c-fg-md); }
     .expandable-text--size-sm > div ol {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       list-style-type: decimal;
       color: var(--c-fg-md); }
@@ -1614,7 +1604,7 @@ details summary {
     .expandable-text--size-sm > div ul {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       list-style-type: disc;
       color: var(--c-fg-md); }
@@ -1631,7 +1621,7 @@ details summary {
     .expandable-text--size-sm > div table {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       min-width: var(--w-md); }
       .expandable-text--size-sm > div table th,
@@ -1650,7 +1640,7 @@ details summary {
         .expandable-text--size-sm > div table td > li {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
           line-height: 1.4em; }
       .expandable-text--size-sm > div table td {
         color: var(--c-fg-md); }
@@ -1663,13 +1653,15 @@ details summary {
       .expandable-text--size-sm > div figure > figcaption {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
         line-height: 1.4em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
+    .expandable-text--size-sm > div i,
     .expandable-text--size-sm > div em {
       font-style: italic;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .expandable-text--size-sm > div b,
     .expandable-text--size-sm > div strong {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -1694,27 +1686,27 @@ details summary {
     .expandable-text--size-md > div > h1 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-    .expandable-text--size-md > div > h2 {
-      font-family: system-ui;
-      font-weight: 400;
       font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .expandable-text--size-md > div > h3 {
+    .expandable-text--size-md > div > h2 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-    .expandable-text--size-md > div > h4 {
+    .expandable-text--size-md > div > h3 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    .expandable-text--size-md > div > h4 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-md > div > h5 {
       font-family: system-ui;
       font-weight: 400;
@@ -1723,20 +1715,20 @@ details summary {
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-md > div > h6 {
       font-family: system-ui;
-      font-weight: 500;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-      font-weight: lighter;
-      line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
     .expandable-text--size-md > div > p {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       color: var(--c-fg-md); }
     .expandable-text--size-md > div ol {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       list-style-type: decimal;
       color: var(--c-fg-md); }
@@ -1753,7 +1745,7 @@ details summary {
     .expandable-text--size-md > div ul {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       list-style-type: disc;
       color: var(--c-fg-md); }
@@ -1770,7 +1762,7 @@ details summary {
     .expandable-text--size-md > div table {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       min-width: var(--w-md); }
       .expandable-text--size-md > div table th,
@@ -1789,7 +1781,7 @@ details summary {
         .expandable-text--size-md > div table td > li {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
           line-height: 1.4em; }
       .expandable-text--size-md > div table td {
         color: var(--c-fg-md); }
@@ -1802,13 +1794,15 @@ details summary {
       .expandable-text--size-md > div figure > figcaption {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
         line-height: 1.4em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
+    .expandable-text--size-md > div i,
     .expandable-text--size-md > div em {
       font-style: italic;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .expandable-text--size-md > div b,
     .expandable-text--size-md > div strong {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -1824,15 +1818,13 @@ details summary {
   display: block;
   background-color: var(--c-white);
   border: 1px solid var(--c-br-lt);
-  border-radius: var(--s-md); }
+  border-radius: var(--s-br-md); }
   .figure > figure > img {
     width: 100%;
     filter: saturate(150%); }
   .figure > figure > figcaption {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
     padding: var(--s-sm) var(--s-md);
     color: var(--c-black); }
 
@@ -1864,27 +1856,27 @@ details summary {
   .form--invert > div > h1 {
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-  .form--invert > div > h2 {
-    font-family: system-ui;
-    font-weight: 400;
     font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-  .form--invert > div > h3 {
+  .form--invert > div > h2 {
     font-family: system-ui;
     font-weight: 400;
     font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-  .form--invert > div > h4 {
+  .form--invert > div > h3 {
     font-family: system-ui;
     font-weight: 400;
     font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+  .form--invert > div > h4 {
+    font-family: system-ui;
+    font-weight: 400;
+    font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form--invert > div > h5 {
     font-family: system-ui;
     font-weight: 400;
@@ -1893,20 +1885,20 @@ details summary {
     letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form--invert > div > h6 {
     font-family: system-ui;
-    font-weight: 500;
-    font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-    font-weight: lighter;
-    line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+    font-weight: 400;
+    font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form--invert > div > p {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     color: var(--c-white); }
   .form--invert > div ol {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     list-style-type: decimal;
     color: var(--c-fg-md); }
@@ -1923,7 +1915,7 @@ details summary {
   .form--invert > div ul {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     list-style-type: disc;
     color: var(--c-fg-md); }
@@ -1940,7 +1932,7 @@ details summary {
   .form--invert > div table {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+    font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
     line-height: 1.4em;
     min-width: var(--w-md); }
     .form--invert > div table th,
@@ -1959,7 +1951,7 @@ details summary {
       .form--invert > div table td > li {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em; }
     .form--invert > div table td {
       color: var(--c-fg-md); }
@@ -1972,13 +1964,15 @@ details summary {
     .form--invert > div figure > figcaption {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+      font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
       line-height: 1.4em;
       margin-top: var(--s-xs);
       color: var(--c-white); }
+  .form--invert > div i,
   .form--invert > div em {
     font-style: italic;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+  .form--invert > div b,
   .form--invert > div strong {
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -2005,27 +1999,27 @@ details summary {
   .form:not(.form--invert) > div > h1 {
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-  .form:not(.form--invert) > div > h2 {
-    font-family: system-ui;
-    font-weight: 400;
     font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-  .form:not(.form--invert) > div > h3 {
+  .form:not(.form--invert) > div > h2 {
     font-family: system-ui;
     font-weight: 400;
     font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-  .form:not(.form--invert) > div > h4 {
+  .form:not(.form--invert) > div > h3 {
     font-family: system-ui;
     font-weight: 400;
     font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
     line-height: 1.1em;
     letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+  .form:not(.form--invert) > div > h4 {
+    font-family: system-ui;
+    font-weight: 400;
+    font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form:not(.form--invert) > div > h5 {
     font-family: system-ui;
     font-weight: 400;
@@ -2034,20 +2028,20 @@ details summary {
     letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form:not(.form--invert) > div > h6 {
     font-family: system-ui;
-    font-weight: 500;
-    font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-    font-weight: lighter;
-    line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+    font-weight: 400;
+    font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
   .form:not(.form--invert) > div > p {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     color: var(--c-fg-md); }
   .form:not(.form--invert) > div ol {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     list-style-type: decimal;
     color: var(--c-fg-md); }
@@ -2064,7 +2058,7 @@ details summary {
   .form:not(.form--invert) > div ul {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     list-style-type: disc;
     color: var(--c-fg-md); }
@@ -2081,7 +2075,7 @@ details summary {
   .form:not(.form--invert) > div table {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+    font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
     line-height: 1.4em;
     min-width: var(--w-md); }
     .form:not(.form--invert) > div table th,
@@ -2100,7 +2094,7 @@ details summary {
       .form:not(.form--invert) > div table td > li {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em; }
     .form:not(.form--invert) > div table td {
       color: var(--c-fg-md); }
@@ -2113,13 +2107,15 @@ details summary {
     .form:not(.form--invert) > div figure > figcaption {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+      font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
       line-height: 1.4em;
       margin-top: var(--s-xs);
       color: var(--c-fg-md); }
+  .form:not(.form--invert) > div i,
   .form:not(.form--invert) > div em {
     font-style: italic;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+  .form:not(.form--invert) > div b,
   .form:not(.form--invert) > div strong {
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -2153,7 +2149,7 @@ details summary {
   .form-field > input {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(15 * 1px), calc((20 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(20 * 1px));
+    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
     line-height: 1.4em;
     display: block;
     width: 100%;
@@ -2200,8 +2196,6 @@ details summary {
   .form-field > p {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
     position: relative;
     margin-top: var(--s-xs);
     padding: 0 var(--s-xs);
@@ -2242,30 +2236,9 @@ details summary {
       .home-dashboard > div > nav > button:disabled {
         opacity: 0.5;
         pointer-events: none; }
-    .home-dashboard > div > nav > button:first-of-type > i {
-      display: block;
-      width: var(--s-icon-xs);
-      height: var(--s-icon-xs);
-      background: transparent;
-      transform-origin: center;
-      border-left: 3px solid var(--c-black);
-      border-bottom: 3px solid var(--c-black);
-      transform: rotate(45deg); }
-    .home-dashboard > div > nav > button:last-of-type > i {
-      display: block;
-      width: var(--s-icon-xs);
-      height: var(--s-icon-xs);
-      background: transparent;
-      transform-origin: center;
-      border-left: 3px solid var(--c-black);
-      border-bottom: 3px solid var(--c-black);
-      transform: rotate(225deg); }
     .home-dashboard > div > nav > span {
       font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.3 * 1px), calc((-0.3 - -0.25) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.25 * 1px), calc(-0.25 * 1px));
+      font-weight: 500;
       margin: 0 var(--s-sm); }
   .home-dashboard > div > ul {
     transition: opacity var(--a-sm); }
@@ -2279,7 +2252,7 @@ details summary {
   .home-dashboard > div > p {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(18 * 1px), calc((28 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(28 * 1px));
+    font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
     line-height: 1.4em;
     display: none;
     margin-top: var(--s-md); }
@@ -2294,9 +2267,9 @@ details summary {
     .home-dashboard > div:first-child > h2 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
+      font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .home-dashboard > div:first-child > ul:not(:empty) {
       margin-top: var(--s-sm); }
       .home-dashboard > div:first-child > ul:not(:empty) > li {
@@ -2317,9 +2290,9 @@ details summary {
     .home-dashboard > div:last-child > h2 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
+      font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px));
+      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
       margin-top: var(--s-xs); }
     .home-dashboard > div:last-child > ul:not(:empty) {
       margin-top: var(--s-md); }
@@ -2430,9 +2403,6 @@ details summary {
     left: auto;
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(-0.3 * 1px));
     max-width: var(--w-sm);
     color: var(--c-fg-md); }
   @media (max-width: 767px) {
@@ -2500,17 +2470,11 @@ details summary {
         left: 10%;
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px));
         color: var(--c-white); }
         @media (min-width: 768px) and (max-width: 1279px) {
           .media-split--media-type-bubbles > div > figure > div > h3 {
             font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(-0.3 * 1px)); } }
+            font-weight: 400; } }
   .media-split--media-type-image > div > figure {
     aspect-ratio: 4 / 3; }
   .media-split--media-type-marquee-stats > div {
@@ -2621,9 +2585,9 @@ details summary {
     .posts-gallery > header > h2 {
       font-family: system-ui;
       font-weight: 400;
-      font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
+      font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
       line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px));
       max-width: var(--w-md);
       text-wrap: balance; }
   .posts-gallery > ul {
@@ -2650,9 +2614,6 @@ details summary {
   .reminder-card > h4 {
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(18 * 1px), calc((30 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(30 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-0.6 * 1px), calc((-0.6 - -0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.3 * 1px), calc(-0.3 * 1px));
     padding: var(--s-sm) var(--s-md);
     background-color: var(--c-blue-dk);
     color: var(--c-white); }
@@ -2666,9 +2627,7 @@ details summary {
       margin-bottom: var(--s-sm); }
     .reminder-card > div > p {
       font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-      line-height: 1.4em; }
+      font-weight: 333; }
     .reminder-card > div > nav {
       display: flex;
       justify-content: space-between;
@@ -2752,17 +2711,11 @@ details summary {
   .text-block > h2 {
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
     max-width: var(--w-xl);
     text-wrap: balance; }
   .text-block--size-md > h2 {
     font-family: system-ui;
-    font-weight: 400;
-    font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    font-weight: 400; }
   @media (min-width: 768px) {
     .text-block--split > h2 {
       width: calc(65% - var(--s-lg)); } }
@@ -2793,27 +2746,27 @@ details summary {
       .text-block > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
-        font-size: clamp(calc(44 * 1px), calc((92 - 44) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 44 * 1px), calc(92 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-      .text-block > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
         font-size: clamp(calc(36 * 1px), calc((74 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(74 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .text-block > div > div > h3 {
+      .text-block > div > div > h2 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(32 * 1px), calc((60 - 32) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 32 * 1px), calc(60 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .text-block > div > div > h4 {
+      .text-block > div > div > h3 {
         font-family: system-ui;
         font-weight: 400;
         font-size: clamp(calc(26 * 1px), calc((48 - 26) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 26 * 1px), calc(48 * 1px));
         line-height: 1.1em;
         letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .text-block > div > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .text-block > div > div > h5 {
         font-family: system-ui;
         font-weight: 400;
@@ -2822,20 +2775,20 @@ details summary {
         letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .text-block > div > div > h6 {
         font-family: system-ui;
-        font-weight: 500;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-        font-weight: lighter;
-        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((36 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(36 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
       .text-block > div > div > p {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         color: var(--c-fg-md); }
       .text-block > div > div ol {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         list-style-type: decimal;
         color: var(--c-fg-md); }
@@ -2852,7 +2805,7 @@ details summary {
       .text-block > div > div ul {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         list-style-type: disc;
         color: var(--c-fg-md); }
@@ -2869,7 +2822,7 @@ details summary {
       .text-block > div > div table {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
         line-height: 1.4em;
         min-width: var(--w-md); }
         .text-block > div > div table th,
@@ -2888,7 +2841,7 @@ details summary {
           .text-block > div > div table td > li {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
             line-height: 1.4em; }
         .text-block > div > div table td {
           color: var(--c-fg-md); }
@@ -2901,13 +2854,15 @@ details summary {
         .text-block > div > div figure > figcaption {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
           line-height: 1.4em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
+      .text-block > div > div i,
       .text-block > div > div em {
         font-style: italic;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .text-block > div > div b,
       .text-block > div > div strong {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
@@ -2918,9 +2873,7 @@ details summary {
           text-decoration: underline; }
   .text-block--size-md > div > div {
     font-family: system-ui;
-    font-weight: 333;
-    font-size: clamp(calc(14 * 1px), calc((18 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(18 * 1px));
-    line-height: 1.4em; }
+    font-weight: 333; }
   @media (min-width: 768px) {
     .text-block--split > div {
       width: 35%; } }
@@ -2942,8 +2895,6 @@ details summary {
   .text-cta > small {
     font-family: system-ui;
     font-weight: 333;
-    font-size: clamp(calc(13 * 1px), calc((15 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(15 * 1px));
-    line-height: 1.4em;
     position: absolute;
     top: auto;
     right: auto;
@@ -3016,8 +2967,6 @@ details summary {
   .text-cta--size-sm, .text-cta--size-md {
     font-family: system-ui;
     font-weight: 444;
-    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px));
     padding: var(--s-sm) var(--s-md); }
     .text-cta--size-sm.text-cta--type-primary, .text-cta--size-md.text-cta--type-primary {
       font-weight: bold;
