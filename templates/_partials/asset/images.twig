@@ -1,3 +1,4 @@
+{% set type = type ?? '' %}
 {% set background = background ?? false %}
 
 {% switch type %}
@@ -6,8 +7,8 @@
 		url: asset.url,
 		fit: asset.fit.value ?? '',
 		position: asset.position.value ?? '',
-		video asset.video[0] ?? null,
-		mobileImage asset.mobileImage[0] ?? null,
+		video: asset.video[0] ?? null,
+		mobileImage: asset.mobileImage[0] ?? null,
 	} only %}
 {% case 'figure' %}
 	{% include '_components/figure' with {
@@ -23,4 +24,4 @@
 	<img
 		src="{{ asset.url }}"
 		alt="{{ asset.alt ?? asset.title }}" />
-{% endwitch %}
+{% endswitch %}

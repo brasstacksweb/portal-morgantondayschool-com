@@ -78,6 +78,7 @@
 				<li>
 					{% include '_components/activity-card' with {
 						activity: a|merge({
+							image: a.previewImage[0] ?? null,
 						}),
 					} only %}
 				</li>

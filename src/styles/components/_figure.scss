@@ -16,7 +16,7 @@ $handle: "figure";
 
 		> figcaption {
 			@include font("body", -1);
-			padding: var(--s-sm) var(--s-md);
+			padding: var(--s-xs) var(--s-sm);
 			color: var(--c-black);
 		}
 

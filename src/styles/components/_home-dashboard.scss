@@ -84,10 +84,6 @@ $handle: "home-dashboard";
 			width: calc(60% - var(--s-sm));
 		}
 
-		@include media("lg") {
-			width: calc(70% - var(--s-sm));
-		}
-
 		> h2 {
 			@include font("heading", "lg");
 		}
@@ -109,10 +105,6 @@ $handle: "home-dashboard";
 		@include media("sm") {
 			width: calc(40% - var(--s-sm));
 			margin: 0;
-		}
-
-		@include media("lg") {
-			width: calc(30% - var(--s-sm));
 		}
 
 		> h2 {

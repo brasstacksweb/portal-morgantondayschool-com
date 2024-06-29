@@ -16,6 +16,9 @@
 <div class="{{ handle }}">
 	<article>
 		<a href="{{ activity.url }}" title="{{ activity.title }}">
+			{% if activity.image %}
+				{{ activity.image.render() }}
+			{% endif %}
 			<h3>
 				{% include '_components/text-cta' with {
 					title: activity.title,

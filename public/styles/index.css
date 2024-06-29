@@ -1666,7 +1666,7 @@ details summary {
   .figure > figure > figcaption {
     font-family: system-ui;
     font-weight: 333;
-    padding: var(--s-sm) var(--s-md);
+    padding: var(--s-xs) var(--s-sm);
     color: var(--c-black); }
   .figure > figure > video {
     position: absolute;
@@ -2233,9 +2233,6 @@ details summary {
     @media (min-width: 768px) {
       .home-dashboard > div:first-child {
         width: calc(60% - var(--s-sm)); } }
-    @media (min-width: 1280px) {
-      .home-dashboard > div:first-child {
-        width: calc(70% - var(--s-sm)); } }
     .home-dashboard > div:first-child > h2 {
       font-family: system-ui;
       font-weight: 400;
@@ -2256,9 +2253,6 @@ details summary {
       .home-dashboard > div:last-child {
         width: calc(40% - var(--s-sm));
         margin: 0; } }
-    @media (min-width: 1280px) {
-      .home-dashboard > div:last-child {
-        width: calc(30% - var(--s-sm)); } }
     .home-dashboard > div:last-child > h2 {
       font-family: system-ui;
       font-weight: 400;
