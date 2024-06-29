@@ -1,0 +1,40 @@
+{##
+ # Class Card component
+ # @param {object} class
+ # |_@param {string} title
+ # |_@param {string} url
+ # |_@param {object} teacher
+ #   |_@param {string} fullName
+ #   |_@param {object} image
+ # |_@param {string} color
+ #}
+
+{# Params #}
+{% set class = class ?? null %}
+
+{# Variables #}
+{% set handle = 'class-card' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div
+	class="{{ handle }}"
+	style="--color-lt: var(--c-{{ class.color }}-lt); --color-dk: var(--c-{{ class.color }}-dk)">
+	<article>
+		<a href="{{ class.url }}" title="{{ class.title }}">
+			<h3>{{ class.previewText }}</h3>
+			{% if class.teacher %}
+				<h4>
+					{% if class.teacher.photo %}
+						<img
+							src="{{ class.teacher.photo.url }}"
+							alt="{{ class.teacher.fullName }} headshot" />
+					{% endif %}
+					{{ class.teacher.fullName }}
+					{{ icons.arrow("right") }}
+				</h4>
+			{% endif %}
+		</a>
+	</article>
+</div>

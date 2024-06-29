@@ -1,0 +1,86 @@
+$handle: "text-cta";
+
+.#{$handle} {
+	padding: 0 var(--s-sm);
+	border-radius: var(--s-br-sm);
+	white-space: nowrap;
+	transition: border-radius var(--a-xs);;
+
+	&--type-primary:not(#{$handle}--invert) {
+		background-color: var(--c-black);
+		color: var(--c-white);
+	}
+
+	&--type-primary.#{$handle}--invert {
+		background-color: var(--c-white);
+		color: var(--c-black);
+	}
+
+	&--type-secondary:not(#{$handle}--invert) {
+		background-color: transparent;
+		color: var(--c-black);
+		border: 1px solid var(--c-black);
+	}
+
+	&--type-secondary.#{$handle}--invert {
+		background-color: transparent;
+		color: var(--c-white);
+		border: 1px solid var(--c-white);
+	}
+
+	&--size-sm {
+		@include font("link", "sm");
+	}
+
+	&--size-md {
+		@include font("link", "md");
+	}
+
+	&--size-lg {
+		@include font("link", "lg");
+	}
+
+	&:hover {
+		border-radius: 0;
+	}
+
+	> span {
+		display: flex;
+		align-items: center;
+		transition: transform var(--a-xs);
+		cursor: var(--cursor-pointer);
+
+		> svg {
+			@include centerer(false, true);
+			left: calc(-1 * var(--size));
+			opacity: 0;
+			width: var(--size);
+			height: var(--size);
+			transition: opacity var(--a-sm);
+		}
+	}
+
+	&--type-primary:not(#{$handle}--invert) > span > svg {
+		fill: var(--c-white);
+	}
+
+	&--type-primary.#{$handle}--invert > span > svg {
+		fill: var(--c-black);
+	}
+
+	&--type-secondary:not(#{$handle}--invert) > span > svg {
+		fill: var(--c-black);
+	}
+
+	&--type-secondary.#{$handle}--invert > span > svg {
+		fill: var(--c-white);
+	}
+
+	&:hover > span {
+		transform: translateX(calc(0.5 * var(--size)));
+
+		> svg {
+			opacity: 1;
+		}
+	}
+}

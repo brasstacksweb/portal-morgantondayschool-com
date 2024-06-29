@@ -1,7 +1,7 @@
 $handle: "posts-gallery";
 
 .#{$handle} {
-	@include container;
+	@include pad("sm", var(--w-xl));
 	margin: var(--s-lg) auto;
 
 	> header {

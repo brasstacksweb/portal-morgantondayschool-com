@@ -1,16 +1,19 @@
 {##
  # Background Image component
- # @param {object} image
+ # @param {string} url
+ # @param {string} fit
+ # @param {string} position
+ # @param {object} video
  # |_@param {string} url
- # |_@param {string} fit
- # |_@param {string} position
- # |_@param {object} mobileImage
- # |_@param {object} backgroundVideo
- #   |_@param {string} url
+ # @param {object} mobileImage
  #}
 
 {# Params #}
-{% set image = image ?? null %}
+{% set url = url ?? '' %}
+{% set fit = fit ?? '' %}
+{% set position = position ?? '' %}
+{% set video = video ?? null %}
+{% set mobileImage = mobileImage ?? null %}
 
 {# Variables #}
 {% set handle = 'background-image' %}
@@ -18,24 +21,24 @@
 {# Markup #}
 <div class="{{ handle }}">
 	<div style="
-                background-image: url({{ image.url }});
-                background-size: {{ image.fit ?? "cover" }};
-                background-position: {{ image.position ?? "center" }}">
-		{% if image.backgroundVideo %}
-			<video src="{{ image.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+				background-image: url({{ url }});
+				background-size: {{ fit ?? "cover" }};
+				background-position: {{ position ?? "center" }}">
+		{% if video %}
+			<video src="{{ video.url }}" autoplay playsinline muted loop></video>
 		{% endif %}
 	</div>
-	{% if image.mobileImage %}
-		{% set url = image.mobileImage.url %}
-		{% set fit = image.mobileImage.fit %}
-		{% set pos = image.mobileImage.position %}
+	{% if mobileImage %}
+		{% set url = mobileImage.url %}
+		{% set fit = mobileImage.fit %}
+		{% set pos = mobileImage.position %}
 
 		<div style="
                     background-image: url({{ url }});
                     background-size: {{ fit ?? "cover" }};
                     background-position: {{ pos ?? "center" }}">
-			{% if image.mobileImage.backgroundVideo %}
-				<video src="{{ image.mobileImage.backgroundVideo.url }}" autoplay playsinline muted loop></video>
+			{% if mobileImage.backgroundVideo %}
+				<video src="{{ mobileImage.backgroundVideo.url }}" autoplay playsinline muted loop></video>
 			{% endif %}
 		</div>
 	{% endif %}

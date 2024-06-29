@@ -9,7 +9,6 @@
  # @param {string} imageHeight <sm, md*, lg>
  # @param {string} size <sm*, md, lg>
  # @param {string} style <default*, leader>
- # @param {bool} allClickable
  # @param {bool} split
  #}
 
@@ -24,7 +23,6 @@
 {% set imagePosition = imagePosition ?? 'top' %}
 {% set imageHeight = imageHeight ?? 'md' %}
 {% set size = size ?? 'sm' %}
-{% set allClickable = allClickable ?? false %}
 {% set split = split ?? false %}
 
 {# Variables #}
@@ -75,18 +73,12 @@
 					} only %}
 				{% endset %}
 
-				{% if allClickable %}
-					<em>{{ ctaContent }}</em>
-				{% else %}
-					{{ cta.render(ctaContent) }}
-				{% endif %}
+				<em>{{ ctaContent }}</em>
 			{% endif %}
 		</div>
 	</div>
 {% endset %}
 
-{% if allClickable and cta %}
+{% if cta %}
 	{{ cta.render(content) }}
-{% else %}
-	{{ content }}
 {% endif %}

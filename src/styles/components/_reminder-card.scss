@@ -2,17 +2,17 @@ $handle: "reminder-card";
 
 .#{$handle} {
 	overflow: hidden;
+	max-width: var(--w-md);
 	border-radius: var(--s-br-md);
 
 	> h4 {
-		@include font("heading", 1);
-		padding: var(--s-sm) var(--s-md);
+		@include font("heading", "xs");
+		padding: var(--s-xs) var(--s-sm);
 		background-color: var(--c-blue-dk);
-		color: var(--c-white);
 	}
 
 	> div {
-		padding: var(--s-sm) var(--s-md) var(--s-md);
+		padding: var(--s-xs) var(--s-sm) var(--s-sm);
 		background-color: var(--c-blue-lt);
 
 		> time {
@@ -22,7 +22,7 @@ $handle: "reminder-card";
 		}
 
 		> p {
-			@include font("body", -1);
+			@include font("body", "sm");
 		}
 
 		> nav {

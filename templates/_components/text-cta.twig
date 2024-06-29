@@ -1,19 +1,15 @@
 {##
  # Text CTA component
  # @param {string} title
- # @param {string} url
- # @param {string} type <primary*, secondary>
- # @param {string} size <sm, md, lg*>
- # @param {bool} flip
+ # @param {string} type <primary*, secondary, tertiary>
+ # @param {string} size <sm, md*, lg>
  # @param {bool} invert
  #}
 
 {# Params #}
 {% set title = title ?? '' %}
-{% set url = url ?? '' %}
 {% set type = type ?? 'primary' %}
-{% set size = size ?? 'lg' %}
-{% set flip = flip ?? false %}
+{% set size = size ?? '' %}
 {% set invert = invert ?? false %}
 
 {# Variables #}
@@ -22,20 +18,17 @@
 {# Markup #}
 {% import '_icons' as icons %}
 
-<div class="
-	{{ handle }}
-	{{ handle }}--type-{{ type }}
-	{{ handle }}--size-{{ size }}
-	{{ flip ? handle ~ '--flip' }}
-	{{ invert ? handle ~ '--invert' }}
-	{{ url is not empty ? handle ~ '--is-external' }}
-">
-	<span>{{ title }}</span>
-	{% if url is not empty %}
-		<small>{{ url|replace('https://', '')|parseUrl }}</small>
-	{% endif %}
-	<em aria-hidden="true">
-		{{ icons.arrow('right') }}
-		{{ icons.arrow('right') }}
-	</em>
+<div
+	class="
+		{{ handle }}
+		{{ handle }}--type-{{ type }}
+		{{ handle }}--size-{{ size }}
+		{{ invert ? handle ~ '--invert' }}
+	"
+	style="--size: var(--s-icon-{{ size }})"
+>
+	<span>
+		{{ icons.chevron('right') }}
+		{{ title }}
+	</span>
 </div>

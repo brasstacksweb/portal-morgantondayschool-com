@@ -22,7 +22,7 @@
 		<ul>
 			{% for p in posts %}
 				<li>
-					{% include '_components/figure' with { image: p } %}
+					{{ post.render() }}
 				</li>
 			{% endfor %}
 		</ul>

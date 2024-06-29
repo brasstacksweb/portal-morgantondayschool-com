@@ -1,0 +1,49 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
+fieldLayouts:
+  7f33fd46-ef60-4e03-8c08-b9306d603f87:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 4f2c3fdd-7e79-47c3-a471-9134518a0920
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bc9fb946-a5fb-4972-a86c-9d2d268e2d82
+        userCondition: null
+fs: videos
+handle: videos
+name: Videos
+sortOrder: 4
+subpath: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: videos
+transformSubpath: ''

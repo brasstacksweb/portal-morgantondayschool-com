@@ -1,0 +1,12 @@
+{% set type = type ?? 'primary' %}
+{% set size = size ?? 'md' %}
+{% set invert = invert ?? false %}
+
+<a href="entry.page[0].url ?? ''" title="{{ entry.title }}">
+	{% include '_components/text-cta' with {
+		title: entry.title,
+		type: type,
+		size: size,
+		invert: invert,
+	} only %}
+</a>

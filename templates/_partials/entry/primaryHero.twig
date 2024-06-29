@@ -1,0 +1,9 @@
+<header>
+	{% include '_components/primary-hero' with {
+		image: entry.image[0] ?? null,
+		heading: entry.heading,
+		subheading: entry.subheading,
+		body: entry.body,
+		ctas: entry.ctas,
+	} only %}
+</header>

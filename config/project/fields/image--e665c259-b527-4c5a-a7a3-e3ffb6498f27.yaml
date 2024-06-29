@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: heroImage
+handle: image
 instructions: null
-name: 'Hero Image'
+name: Image
 searchable: false
 settings:
   allowSelfRelations: false
@@ -24,7 +24,7 @@ settings:
   restrictedLocationSubpath: null
   selectionLabel: 'Add an image'
   showCardsInGrid: false
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources:

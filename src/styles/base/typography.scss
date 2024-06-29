@@ -7,34 +7,30 @@
 		font-weight: 400;
 
 		@if ($size == "xl") {
-			font-size: range(44, 92);
+			font-size: range(50, 84);
 			line-height: 1.1em;
 			letter-spacing: range(0, -1.8);
 		} @else if ($size == "lg") {
-			font-size: range(36, 74);
+			font-size: range(42, 70);
 			line-height: 1.1em;
 			letter-spacing: range(-0.7, -1.5);
 		} @else if ($size == "md") {
-			font-size: range(32, 60);
+			font-size: range(36, 54);
 			line-height: 1.1em;
 			letter-spacing: range(-0.6, -1.2);
 		} @else if ($size == "sm") {
-			font-size: range(26, 48);
+			font-size: range(20, 40);
 			line-height: 1.1em;
 			letter-spacing: range(-0.5, -0.9);
 		} @else if ($size == "xs") {
-			font-size: range(20, 36);
+			font-size: range(18, 24);
 			line-height: 1.1em;
 			letter-spacing: range(-0.4, -0.75);
 		}
 	} @else if ($type == "eyebrow") {
 		font-weight: 500;
-
-		@if ($size == -1) {
-			font-size: range(13, 17);
-			font-weight: lighter;
-			line-height: range(1.1, 1.4, 1em);
-		}
+		font-size: range(13, 17);
+		line-height: range(1.1, 1.4, 1em);
 	} @else if ($type == "link") {
 		font-weight: 444;
 
@@ -108,7 +104,6 @@
 @mixin oList($size: "md") {
 	@include font("body", $size);
 	list-style-type: decimal;
-	color: var(--c-fg-md);
 
 	> li {
 		@include listMargin(var(--s-sm));
@@ -128,7 +123,6 @@
 @mixin uList($size: "md") {
 	@include font("body", $size);
 	list-style-type: disc;
-	color: var(--c-fg-md);
 
 	> li {
 		@include listMargin(var(--s-sm));
@@ -187,7 +181,6 @@
 
 	> p {
 		@include font("body", $size);
-		color: if($invert, var(--c-white), var(--c-fg-md));
 	}
 
 	ol {
@@ -271,55 +264,5 @@
 	&:before {
 		transform-origin: center;
 		transform: rotate(90deg) translate(calc(-0.5 * var(--s-icon-#{$size})), 0);
-	}
-}
-
-@mixin button($type: "primary", $size: "md", $invert: false) {
-	@include font("link", $size);
-	padding: 0 var(--s-sm);
-	border-radius: var(--s-br-sm);
-	white-space: nowrap;
-	transition: border-radius var(--a-xs);;
-
-	@if ($type == "primary") {
-		background-color: if($invert, var(--c-white), var(--c-black));
-		color: if($invert, var(--c-black), var(--c-white));
-	} @else if ($type: "secondary") {
-		background-color: if($invert, var(--c-white), var(--c-black));
-		color: if($invert, var(--c-black), var(--c-white));
-		border: 1px solid if($invert, var(--c-white), var(--c-black));
-	}
-
-	&:hover {
-		border-radius: 0;
-	}
-
-	> span {
-		display: flex;
-		align-items: center;
-		transition: transform var(--a-xs);
-
-		> svg {
-			@include centerer(false, true);
-			left: calc(-1 * var(--s-icon-#{$size}));
-			opacity: 0;
-			width: var(--s-icon-#{$size});
-			height: var(--s-icon-#{$size});
-			transition: opacity var(--a-sm);
-
-			@if ($type == "primary") {
-				fill: if($invert, var(--c-black), var(--c-white));
-			} @else if ($type: "secondary") {
-				fill: if($invert, var(--c-white), var(--c-black));
-			}
-		}
-	}
-
-	&:hover > span {
-		transform: translateX(calc(0.5 * var(--s-icon-#{$size})));
-
-		> svg {
-			opacity: 1;
-		}
 	}
 }

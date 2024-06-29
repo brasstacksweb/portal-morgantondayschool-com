@@ -1,0 +1,36 @@
+{##
+ # Activity entry
+ # @param {Entry} entry
+ #}
+
+{# Params #}
+{% set entry = craft.entries.id(entry.id).with([
+	'heroImage',
+	'cta.pageCta:ctaPage',
+	'activityModules.primaryHero:heroImage',
+	'activityModules.primaryHero:ctas.pageCta:ctaPage',
+]).one() %}
+
+{# Markup #}
+{% set metaTitle = entry.heading ?? entry.title ?? '' %}
+{% set metaDescription = entry.overview|striptags[:160] %}
+
+{% extends '_layouts/html' %}
+
+{% block content %}
+	<article>
+		<header>
+			{% include '_components/primary-hero' with {
+				image: entry.heroImage[0] ?? null,
+				heading: entry.heading,
+				subheading: entry.subheading,
+				body: entry.overview,
+				ctas: entry.cta,
+			} only %}
+		</header>
+
+		{% for m in entry.activityModules %}
+			{{ m.render() }}
+		{% endfor %}
+	</article>
+{% endblock %}

@@ -1,0 +1,69 @@
+$handle: "class-card";
+
+.#{$handle} {
+	> article {
+		> a {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;;
+			align-items: flex-end;
+			padding: var(--s-sm);
+			background-color: var(--color-lt);
+			aspect-ratio: 4 / 3;
+
+			&:after {
+				@include absolute(auto, auto, 0, 0);
+				content: "";
+				transform-origin: bottom left;
+				border-width: 0 var(--s-md) var(--s-md) 0;
+				border-style: solid;
+				border-color: var(--c-bg-lt) var(--color-dk) ;
+				transition: transform var(--a-xs);
+			}
+
+			&:hover:after {
+				transform: scale(1.1);
+			}
+
+			> h3 {
+				@include font("heading", "xl");
+				transform-origin: bottom right;
+				margin: auto 0 0;
+				color: var(--c-black);
+			}
+
+			&:hover > h3 {
+				text-decoration: underline;
+			}
+
+			> h4 {
+				order: -1;
+				display: flex;
+				align-items: center;
+				margin: 0 auto auto 0;
+
+				> img {
+					width: var(--s-icon-lg);
+					height: var(--s-icon-lg);
+					margin-right: var(--s-xs);
+					border-radius: 50%;
+					object-fit: cover;
+				}
+
+				> svg {
+					opacity: 0;
+					width: var(--s-icon-md);
+					height: var(--s-icon-md);
+					fill: var(--c-black);
+					transition: opacity var(--a-xs), transform var(--a-xs);
+				}
+			}
+
+			&:hover > h4 > svg {
+				opacity: 1;
+				transform: translateX(var(--s-xs));
+			}
+		}
+	}
+}

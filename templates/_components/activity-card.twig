@@ -1,6 +1,8 @@
 {##
  # Activity Card component
  # @param {object} activity
+ # |_@param {string} title
+ # |_@param {string} url
  # |_@param {object} image
  #}
 
@@ -11,17 +13,16 @@
 {% set handle = 'activity-card' %}
 
 {# Markup #}
-{% import '_buttons' as buttons %}
-
 <div class="{{ handle }}">
 	<article>
 		<a href="{{ activity.url }}" title="{{ activity.title }}">
-			{% if activity.image %}
-				<img
-					src="{{ activity.image.url }}"
-					alt="{{ activity.image.alt ?? activity.image.title }}" />
-			{% endif %}
-			<h3>{{ buttons.button(activity.title) }}</h3>
+			<h3>
+				{% include '_components/text-cta' with {
+					title: activity.title,
+					size: 'lg',
+					invert: true,
+				} only %}
+			</h3>
 		</a>
 	</article>
 </div>

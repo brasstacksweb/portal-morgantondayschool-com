@@ -1,0 +1,47 @@
+{##
+ # Split component
+ # @param {string} heading
+ # @param {string} subheading
+ # @param {HTML} body
+ # @param {Entry[]} ctas
+ # @param {object} image
+ # @param {string} backgroundColor
+ # @param {string} mediaPosition <left*, right>
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set subheading = subheading ?? '' %}
+{% set body = body ?? '' %}
+{% set ctas = ctas ?? [] %}
+{% set image = image ?? null %}
+{% set backgroundColor = backgroundColor ?? '' %}
+{% set mediaPosition = mediaPosition ?? '' %}
+
+{# Variables #}
+{% set handle = 'split' %}
+
+{# Markup #}
+<div class="{{ handle }} {{ handle }}--media-position-{{ mediaPosition }}">
+	<header style="background-color: var(--c-{{ backgroundColor }}-lt)">
+		<h2>{{ heading }}</h2>
+		{% if subheading is not empty %}
+			<h3>{{ subheading }}</h3>
+		{% endif %}
+		{% if ctas is not empty %}
+			<nav>
+				{% for c in ctas %}
+					{{ c.render({
+						type: loop.first ? 'primary' : 'secondary',
+					}) }}
+				{% endfor %}
+			</nav>
+		{% endif %}
+		{% if image %}
+			{{ image.render({ type: 'figure' }) }}
+		{% endif %}
+	</header>
+	<div style="background-color: var(--c-{{ backgroundColor }}-dk)">
+		{{ body }}
+	</div>
+</div>

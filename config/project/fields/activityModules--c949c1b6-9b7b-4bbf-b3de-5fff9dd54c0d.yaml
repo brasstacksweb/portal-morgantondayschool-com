@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: activityModules
+instructions: null
+name: 'Activity Modules'
+searchable: false
+settings:
+  createButtonLabel: 'New Module'
+  entryTypes:
+    - 93400719-64ce-46ce-996c-008e37c78a42 # Split
+    - 1e6dc74f-eb75-4216-9fff-e9ca1d82313c # Intro
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

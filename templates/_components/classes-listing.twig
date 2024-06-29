@@ -2,11 +2,6 @@
  # Classes Listing component
  # @param {string} heading
  # @param {object[]} classes
- # |_@param {string} title
- # |_@param {string} url
- # |_@param {object} teacher
- #   |_@param {string} fullName
- #   |_@param {object} image
  #}
 
 {# Params #}
@@ -25,16 +20,7 @@
 		<ul>
 			{% for c in classes %}
 				<li>
-					<article>
-						<a href="{{ c.url }}" title="{{ c.title }}">
-							<h3>{{ c.previewText }}</h3>
-							{% if c.teacher and c.teacher.photo %}
-								<img
-									src="{{ c.teacher.photo.url }}"
-									alt="{{ c.teacher.fullName }} headshot" />
-							{% endif %}
-						</a>
-					</article>
+					{% include '_components/class-card' with { class: c } only %}
 				</li>
 			{% endfor %}
 		</ul>

@@ -50,7 +50,8 @@
 			<a href="#{{ anchor }}" title="View Resource">View Resources</a>
 		{% endif %}
 	</div>
+	{% set image = null %}
 	{% if image %}
-		{% include '_components/figure' with { image: image } %}
+		{{ image.render({ type: 'figure' }) }}
 	{% endif %}
 </div>

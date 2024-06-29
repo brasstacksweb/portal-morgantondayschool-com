@@ -22,13 +22,12 @@ class Components
 
         return match ($cta->type->handle) {
             self::TYPE_CTA_PAGE, self::TYPE_LINK_PAGE => new Link(array_merge($options, [
-                'title' => $cta->ctaTitle ?? $cta->linkTitle ?? $options['title'] ?? '',
-                'body' => $cta->ctaBody ?? $cta->linkBody ?? '',
-                'url' => ($cta->ctaPage ?? $cta->linkPage ?? [])[0]->url ?? '',
+                'title' => $cta->title ?? $options['title'] ?? '',
+                'url' => $cta->page[0]->url ?? '',
             ])),
             self::TYPE_CTA_EXTERNAL, self::TYPE_LINK_EXTERNAL => new Link(array_merge($options, [
-                'title' => $cta->ctaTitle ?? $cta->linkTitle ?? $options['title'] ?? '',
-                'url' => $cta->ctaUrl ?? $cta->linkUrl ?? '',
+                'title' => $cta->title ?? $options['title'] ?? '',
+                'url' => $cta->referenceUrl ?? '',
                 'target' => '_blank',
                 'rel' => 'noopener',
             ])),

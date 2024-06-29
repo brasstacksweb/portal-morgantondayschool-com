@@ -1,0 +1,26 @@
+{% set background = background ?? false %}
+
+{% switch type %}
+{% case 'background' %}
+	{% include '_components/background-image' with {
+		url: asset.url,
+		fit: asset.fit.value ?? '',
+		position: asset.position.value ?? '',
+		video asset.video[0] ?? null,
+		mobileImage asset.mobileImage[0] ?? null,
+	} only %}
+{% case 'figure' %}
+	{% include '_components/figure' with {
+		title: asset.title,
+		url: asset.url,
+		fit: asset.fit.value ?? '',
+		position: asset.position.value ?? '',
+		alt: asset.alt,
+		caption: asset.caption,
+		video: asset.video[0] ?? null,
+	} only %}
+{% default %}
+	<img
+		src="{{ asset.url }}"
+		alt="{{ asset.alt ?? asset.title }}" />
+{% endwitch %}

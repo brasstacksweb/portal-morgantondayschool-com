@@ -31,7 +31,7 @@
 		<header>
 			{% include '_components/class-hero' with {
 				teacher: entry.teacher[0] ?? null,
-				image: craft.components.buildImage(entry.heroImage[0] ?? null),
+				image: entry.heroImage[0] ?? null,
 				heading: entry.heading,
 				overview: entry.overview,
 				anchor: 'resources',

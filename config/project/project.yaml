@@ -1,4 +1,4 @@
-dateModified: 1718847847
+dateModified: 1719613779
 elementSources:
   craft\elements\Entry:
     -
@@ -45,8 +45,8 @@ elementSources:
       disabled: false
       key: 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
       tableAttributes:
+        - 'field:e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15' # Color
         - 'field:88315e38-3bc8-4c3e-b756-311a3e6f8105' # Teacher
-        - postDate
         - link
       type: native
     -
@@ -81,17 +81,27 @@ fs:
       path: '@assetBasePath/images'
     type: craft\fs\Local
     url: '@assetBaseUrl/images'
+  videos:
+    hasUrls: true
+    name: Videos
+    settings:
+      path: '@assetBasePath/videos'
+    type: craft\fs\Local
+    url: '@assetBaseUrl/videos'
 meta:
   __names__:
     1aafc3c1-b10e-4134-b462-61acf0f69dcf: Months # Months
+    1e6dc74f-eb75-4216-9fff-e9ca1d82313c: Intro # Intro
     1e8dde7a-23fd-40a2-805e-3e82c37fef0a: Class # Class
     2d6cc29e-95ec-4121-a242-f74b9a1053a6: Activities # Activities
     2efcdd43-3927-46bc-aab7-7d1576e97e29: Announcements # Announcements
     4d3180d1-ff38-4024-8d50-29f13c7391e6: Classes # Classes
+    5a81ee8e-7a65-4713-a91b-b4904e4f5e50: 'Left Right' # Left Right
     6f19cee3-1de8-4684-852b-f59cfdf23892: CTA # CTA
     7c331c3a-8fcf-4b9f-ad9e-c937ea0d6e1d: Page # Page
     9cb11a30-840e-4778-ac4e-d560ae4b70ce: Subject # Subject
     9d9dfbb2-88b3-4274-9762-69c856f6b518: 'Preview Image' # Preview Image
+    13cb83d3-ff25-4a72-a806-0c270db265e4: 'Primary Hero' # Primary Hero
     17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c: Datetime # Datetime
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School
     87c7eb6f-29f4-4836-8740-ee6965ccb886: Posts # Posts
@@ -106,20 +116,25 @@ meta:
     938bdfab-80e2-4116-9e3d-66d94c36376f: Classes # Classes
     1908e08e-4715-4582-981a-ae20b88e9b7c: Months # Months
     2757b28b-9302-44d3-8dcf-259f2c2fdf24: 'Page CTA' # Page CTA
+    5482c96e-84ee-4297-9e2b-8ac82e183ec2: Videos # Videos
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
+    6271783c-fcdd-4d3b-89b1-246b1c93cc0d: Video # Video
+    93400719-64ce-46ce-996c-008e37c78a42: Split # Split
     a4fa5523-8cdd-400d-8f0e-50b8bd7c2802: 'Reference URL' # Reference URL
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
+    bf142fa8-b2dd-4970-a630-d5ad5cb11849: CTAs # CTAs
+    c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d: 'Activity Modules' # Activity Modules
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
     dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
     e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
-    e665c259-b527-4c5a-a7a3-e3ffb6498f27: 'Hero Image' # Hero Image
+    e665c259-b527-4c5a-a7a3-e3ffb6498f27: Image # Image
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog
     fd20c5e5-4c47-4c8c-af5b-ee45e71242b4: 'User Photos' # User Photos
@@ -137,5 +152,5 @@ system:
   live: true
   name: 'Morganton Day School'
   retryDuration: null
-  schemaVersion: 5.0.0.20
+  schemaVersion: 5.0.0.21
   timeZone: America/New_York

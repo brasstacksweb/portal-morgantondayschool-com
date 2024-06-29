@@ -29,6 +29,9 @@
 		'< ' ~ nextWeek|atom,
 	])
 	.all() %}
+{% set reminders = craft.entries.section('reminders')
+	.with(['activity', 'cta'])
+	.all() %}
 
 {% set params = {
 	prevWeek: prevWeek,
@@ -36,16 +39,18 @@
 } %}
 
 {# Markup #}
+{% import '_icons' as icons %}
+
 <div class="{{ handle }}" data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}">
 	<div>
 		<h2>{{ remindersHeading }}</h2>
 		<nav>
 			<button type="button" aria-label="Previous">
-				<i></i>
+				{{ icons.chevron("left") }}
 			</button>
 			<span>Week of {{ week|date('m/d/Y') }}</span>
 			<button type="button" aria-label="Next">
-				<i></i>
+				{{ icons.chevron("right") }}
 			</button>
 		</nav>
 		<ul>
@@ -73,7 +78,6 @@
 				<li>
 					{% include '_components/activity-card' with {
 						activity: a|merge({
-							image: a.previewImage[0] ?? null,
 						}),
 					} only %}
 				</li>

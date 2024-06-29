@@ -1,7 +1,7 @@
 $handle: "classes-listing";
 
 .#{$handle} {
-	@include container($width: var(--w-xl));
+	@include pad("sm", var(--w-xl));
 	margin: var(--s-lg) auto;
 
 	> header {
@@ -35,57 +35,6 @@ $handle: "classes-listing";
 			&:nth-child(3){
 				@include media("sm") {
 					grid-column: span 4;
-				}
-			}
-
-			> article {
-				> a {
-					position: relative;
-					display: flex;
-					justify-content: flex-end;
-					align-items: flex-end;
-					padding: var(--s-sm);
-					background-color: var(--c-gold-lt);
-					aspect-ratio: 4 / 3;
-
-					&:after {
-						@include absolute(auto, auto, 0, 0);
-						content: "";
-						transform-origin: bottom left;
-						border-width: 0 var(--s-md) var(--s-md) 0;
-						border-style: solid;
-						border-color: var(--c-bg-lt) var(--c-gold-dk) ;
-						transition: transform var(--a-xs);
-					}
-
-					&:hover:after {
-						transform: scale(1.2);
-					}
-
-					> h3 {
-						@include font("heading", "xl");
-						transform-origin: bottom right;
-						color: var(--c-black);
-					}
-
-					&:hover > h3 {
-						color: var(--c-teal);
-						text-decoration: underline;
-					}
-
-					> img {
-						@include absolute(var(--s-xs), auto, auto, var(--s-xs));
-						width: var(--s-icon-lg);
-						height: var(--s-icon-lg);
-						margin-right: var(--s-xs);
-						border-radius: 50%;
-						object-fit: cover;
-
-						@include media("lg") {
-							top: var(--s-sm);
-							left: var(--s-sm);
-						}
-					}
 				}
 			}
 		}

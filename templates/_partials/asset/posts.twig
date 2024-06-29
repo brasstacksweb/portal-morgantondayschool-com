@@ -1,0 +1,9 @@
+{% include '_components/figure' with {
+	title: asset.title,
+	url: asset.url,
+	fit: asset.fit.value ?? '',
+	position: asset.position.value ?? '',
+	alt: asset.alt,
+	caption: asset.caption,
+	video: asset.video[0] ?? null,
+} %}

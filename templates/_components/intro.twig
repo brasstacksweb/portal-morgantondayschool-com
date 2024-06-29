@@ -1,0 +1,27 @@
+{##
+ # Intro component
+ # @param {string} heading
+ # @param {string} subheading
+ # @param {HTML} body
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set subheading = subheading ?? '' %}
+{% set body = body ?? '' %}
+
+{# Variables #}
+{% set handle = 'intro' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<header>
+		<h2>{{ heading }}</h2>
+		{% if subheading is not empty %}
+			<h3>{{ subheading }}</h3>
+		{% endif %}
+		{% if body is not empty %}
+			<div>{{ body }}</div>
+		{% endif %}
+	</header>
+</div>

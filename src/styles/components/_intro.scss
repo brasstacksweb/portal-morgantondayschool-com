@@ -1,0 +1,25 @@
+$handle: "intro";
+
+.#{$handle} {
+	@include pad("sm");
+
+	> header {
+		max-width: var(--w-lg);
+		margin: 0 auto;
+		text-align: center;
+
+		> h2 {
+			@include font("heading", "lg");
+		}
+
+		> h3 {
+			@include font("heading", "sm");
+			margin-top: var(--s-sm);
+		}
+
+		> div {
+			@include richText("lg");
+			margin-top: var(--s-md);
+		}
+	}
+}
