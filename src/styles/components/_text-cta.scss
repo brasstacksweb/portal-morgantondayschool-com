@@ -28,6 +28,16 @@ $handle: "text-cta";
 		border: 1px solid var(--c-white);
 	}
 
+	&--type-tertiary:not(#{$handle}--invert) {
+		background-color: transparent;
+		color: var(--c-black);
+	}
+
+	&--type-tertiary.#{$handle}--invert {
+		background-color: transparent;
+		color: var(--c-white);
+	}
+
 	&--size-sm {
 		@include font("link", "sm");
 	}
@@ -73,6 +83,14 @@ $handle: "text-cta";
 	}
 
 	&--type-secondary.#{$handle}--invert > span > svg {
+		fill: var(--c-white);
+	}
+
+	&--type-tertiary:not(#{$handle}--invert) > span > svg {
+		fill: var(--c-black);
+	}
+
+	&--type-tertiary.#{$handle}--invert > span > svg {
 		fill: var(--c-white);
 	}
 

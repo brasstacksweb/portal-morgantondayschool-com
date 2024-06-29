@@ -2,21 +2,19 @@
 import pop from './components';
 
 // Components
-import CardsListing from './components/cards-listing';
-import Form from './components/form';
-import FormField from './components/form-field';
+// import Form from './components/form';
+// import FormField from './components/form-field';
 import HomeDashboard from './components/home-dashboard';
-import Modal from './components/modal';
-import YoutubeVideo from './components/youtube-video';
+// import Modal from './components/modal';
+// import YoutubeVideo from './components/youtube-video';
 
 // Define map of component handles to component classes
 const classMap = {
-    'cards-listing': CardsListing,
-    form: Form,
-    'form-field': FormField,
+    // form: Form,
+    // 'form-field': FormField,
     'home-dashboard': HomeDashboard,
-    modal: Modal,
-    'youtube-video': YoutubeVideo,
+    // modal: Modal,
+    // 'youtube-video': YoutubeVideo,
 };
 
 // Define all actions/commands that components pub/sub

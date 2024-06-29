@@ -108,6 +108,10 @@ body {
 	cursor: var(--cursor-default);
 }
 
+article {
+	padding-top: var(--h-header);
+}
+
 section {
 	margin: var(--s-lg) auto;
 }
