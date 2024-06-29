@@ -1,13 +1,57 @@
 {##
  # Header component
+ # @param {Asset} logo
  #}
+
+{# Params #}
+{% set logo = logo ?? null %}
+{% set pageLinks = [
+	{ title: 'Activities', url: siteUrl('activities'), menuItems: [] },
+	{ title: 'Articles', url: siteUrl('articles'), menuItems: [] },
+] %}
 
 {# Variables #}
 {% set handle = 'header' %}
 
 {# Markup #}
+{% import '_icons' as icons %}
+
+<div class="{{ handle }}__offset"></div>
 <div class="{{ handle }}">
 	<nav>
-		<a href="{{ siteUrl }}" title="Home">Home</a>
+		<a href="https://www.morgantondayschool.com" title="Public">
+			TODO
+			{# logo.render() #}
+		</a>
+		<a href="#calendar" title="Calendar">
+			{{ icons.calendar() }}
+			<span>Calendar</span>
+		</a>
 	</nav>
+	<a href="{{ siteUrl }}" title="Home">TITAN<br />LINK</a>
+	<input type="checkbox" id="nav-toggle" style="display: none" />
+	<nav>
+		<ul>
+			{% for l in pageLinks %}
+				<li>
+					<a href="{{ l.url }}" title="{{ l.title }}">
+						{{ l.title }}
+						{{ icons.chevron('down') }}
+					</a>
+					{% if l.menuItems is not empty %}
+						<ul>
+							{% for mi in l.menuItems %}
+								<li>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+	<label for="nav-toggle">
+		<i aria-hidden="true"></i>
+		<i aria-hidden="true"></i>
+	</label>
 </div>

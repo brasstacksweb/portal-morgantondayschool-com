@@ -1,0 +1,164 @@
+$handle: "header";
+
+.#{$handle} {
+	@include pad;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: calc(100% - (2 * var(--s-xs)));
+	// height: var(--h-header);
+	margin: var(--s-xs);
+	background-color: rgba(255, 255, 255, 0.8);
+	color: var(--c-black);
+	border-radius: calc(0.5 * var(--h-header));
+	border: 1px solid var(--c-black);
+	box-shadow: var(--s) var(--s) var(--s-sm) rgba(0, 0, 0, 0.3);;
+	backdrop-filter: blur(var(--s-xs));
+
+	@include media("md") {
+		@include pad("lg");
+		width: calc(100% - (2 * var(--s-sm)));
+		margin: var(--s-sm);
+	}
+
+	&__offset {
+		padding-bottom: var(--s-xl);
+	}
+
+	// External Links
+	> nav:first-of-type {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-basis: 100%;
+
+		> a{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&:not(:first-child) {
+				margin-left: var(--s-sm);
+
+				@include media("sm") {
+					margin-left: var(--s-md);
+				}
+			}
+
+			// Calendar
+			&:last-child > svg {
+				width: var(--s-md);
+				height: var(--s-md);
+			}
+
+			// MDS Logo
+			> img {
+				width: var(--s-md);
+				height: auto;
+			}
+		}
+	}
+
+	// Titan Link Logo
+	> a {
+		@include font("logo");
+		flex-shrink: 0;
+		padding: var(--s);
+		border-left: 1px solid var(--c-black);
+		border-right: 1px solid var(--c-black);
+
+		@include media($max: "xs") {
+			order: -1;
+			margin-right: var(--s-sm);
+		}
+	}
+
+	// Links
+	> nav:last-of-type {
+		flex-basis: 100%;
+
+		@include media($max: "xs") {
+			@include absolute(auto, 0, -50%);
+			@include pad("md");
+			display: none;
+			max-width: var(--w-sm);
+			background-color: var(--c-white);
+			border-radius: 2em;
+			border: 1px solid var(--c-black);
+			box-shadow: var(--s) var(--s) var(--s-sm) rgba(0, 0, 0, 0.3);;
+		}
+
+		> ul {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			> li {
+				&:not(:first-child) {
+					margin-left: var(--s-md);
+				}
+
+				> a {
+					@include font("link");
+					display: flex;
+					align-items: center;
+
+					> svg {
+						width: var(--s-icon-md);
+						height: var(--s-icon-md);
+						margin-left: var(--s);
+						fill: var(--c-black);
+					}
+				}
+
+				> ul {
+					> li {
+						// Menu Card
+						> a {
+						}
+
+						> h5 {
+						}
+						// Menu Links
+						> ul {
+						}
+					}
+				}
+			}
+		}
+	}
+
+	> #nav-toggle:checked ~ nav {
+		display: block;
+	}
+
+	> label {
+		display: none;
+		position: relative;
+		flex-shrink: 0;
+		width: var(--s-md);
+		height: var(--s-sm);
+
+		@include media($max: "xs") {
+			display: block;
+		}
+
+		> i {
+			@include absolute;
+			left: 0;
+			right: 0;
+			border-bottom: 2px solid var(--c-black);
+
+			&:first-child {
+				top: 0;
+			}
+
+			&:last-child {
+				bottom: 0;
+			}
+		}
+	}
+}

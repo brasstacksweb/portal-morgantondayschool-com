@@ -45,7 +45,7 @@ $page-max: 1600;
 	--w-lg: calc(var(--w) * 6);
 	--w-xl: calc(var(--w) * 9);
 	// height
-	--h-header: 80px;
+	--h-header: var(--s-xl);
 	// Color
 	--c-white: #FFF;
 	--c-black: #000;

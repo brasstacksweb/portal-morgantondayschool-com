@@ -8,6 +8,10 @@ $handle: "home-dashboard";
 	align-items: flex-start;
 	margin: var(--s-lg) auto;
 
+	@include media("sm") {
+		@include pad("md", var(--w-xl));
+	}
+
 	> div {
 		> nav {
 			display: inline-flex;

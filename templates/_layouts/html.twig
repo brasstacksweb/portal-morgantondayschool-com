@@ -68,13 +68,14 @@
 
 		{% set header = craft.globalSets().handle('header').with([
 			'logo',
-			'cta.pageCta:ctaPage',
-			'menuLinks.primaryLink.pageLink:linkPage',
-			'menuLinks.menuLinks.pageLink:linkPage',
 		]).one() %}
+		{% if header %}
 			<header>
-				{% include '_components/header' only %}
+				{% include '_components/header' with {
+					logo: header.logo[0] ?? null,
+				} only %}
 			</header>
+		{% endif %}
 
 		<main>
 			{% block content %}{% endblock %}
