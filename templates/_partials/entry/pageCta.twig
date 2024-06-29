@@ -2,7 +2,13 @@
 {% set size = size ?? 'md' %}
 {% set invert = invert ?? false %}
 
-<a href="entry.page[0].url ?? ''" title="{{ entry.title }}">
+{% set url = entry.page[0].url ?? '' %}
+
+{% if entry.anchor is not empty %}
+	{% set url = url ~ '#' ~ entry.anchor %}
+{% endif %}
+
+<a href="{{ url }}" title="{{ entry.title }}">
 	{% include '_components/text-cta' with {
 		title: entry.title,
 		type: type,

@@ -68,11 +68,13 @@
 
 		{% set header = craft.globalSets().handle('header').with([
 			'logo',
+			'navLinks.pageCta:page',
 		]).one() %}
 		{% if header %}
 			<header>
 				{% include '_components/header' with {
 					logo: header.logo[0] ?? null,
+					navLinks: header.navLinks,
 				} only %}
 			</header>
 		{% endif %}
@@ -82,10 +84,6 @@
 		</main>
 
 		{% set footer = craft.globalSets().handle('footer').with([
-			'logo',
-			'primaryLinks.pageLink:linkPage',
-			'secondaryLinks.pageLink:linkPage',
-			'cta.pageCta:ctaPage',
 		]).one() %}
 		{% if footer %}
 			<footer>

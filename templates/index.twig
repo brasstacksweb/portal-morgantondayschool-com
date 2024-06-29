@@ -19,7 +19,7 @@
 		} only %}
 	</article>
 
-	<article>
+	<article id="classes">
 		{% include '_components/classes-listing' with {
 			classes: classes|map(c => c|merge({
 				teacher: c.teacher[0] ?? null,

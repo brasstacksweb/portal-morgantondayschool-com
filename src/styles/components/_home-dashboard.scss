@@ -7,6 +7,7 @@ $handle: "home-dashboard";
 	justify-content: space-between;
 	align-items: flex-start;
 	margin: var(--s-lg) auto;
+	padding-top: var(--s-md);
 
 	@include media("sm") {
 		@include pad("md", var(--w-xl));

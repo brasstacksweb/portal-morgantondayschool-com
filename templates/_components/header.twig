@@ -1,14 +1,12 @@
 {##
  # Header component
  # @param {Asset} logo
+ # @param {Entry[]} navLinks
  #}
 
 {# Params #}
 {% set logo = logo ?? null %}
-{% set pageLinks = [
-	{ title: 'Activities', url: siteUrl('activities'), menuItems: [] },
-	{ title: 'Articles', url: siteUrl('articles'), menuItems: [] },
-] %}
+{% set navLinks = navLinks ?? [] %}
 
 {# Variables #}
 {% set handle = 'header' %}
@@ -16,35 +14,14 @@
 {# Markup #}
 {% import '_icons' as icons %}
 
-<div class="{{ handle }}__offset"></div>
 <div class="{{ handle }}">
-	<nav>
-		<a href="https://www.morgantondayschool.com" title="Public">
-			{{ logo.render() }}
-		</a>
-		<a href="#calendar" title="Calendar">
-			{{ icons.calendar() }}
-			<span>Calendar</span>
-		</a>
-	</nav>
-	<a href="{{ siteUrl }}" title="Home">TITAN<br />LINK</a>
 	<input type="checkbox" id="nav-toggle" style="display: none" />
+	<a href="{{ siteUrl }}" title="Home">TITAN<br />LINK</a>
 	<nav>
 		<ul>
-			{% for l in pageLinks %}
+			{% for l in navLinks %}
 				<li>
-					<a href="{{ l.url }}" title="{{ l.title }}">
-						{{ l.title }}
-						{{ icons.chevron('down') }}
-					</a>
-					{% if l.menuItems is not empty %}
-						<ul>
-							{% for mi in l.menuItems %}
-								<li>
-								</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
+					{{ l.render({ type: 'tertiary' }) }}
 				</li>
 			{% endfor %}
 		</ul>
@@ -53,4 +30,5 @@
 		<i aria-hidden="true"></i>
 		<i aria-hidden="true"></i>
 	</label>
+	<div aria-hidden="true"></div>
 </div>

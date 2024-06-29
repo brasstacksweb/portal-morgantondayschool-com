@@ -1,4 +1,4 @@
-dateModified: 1719681726
+dateModified: 1719683972
 elementSources:
   craft\elements\Entry:
     -
@@ -131,6 +131,7 @@ meta:
     c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d: 'Activity Modules' # Activity Modules
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
+    cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links
     dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text

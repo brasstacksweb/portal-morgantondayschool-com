@@ -8,139 +8,78 @@ $handle: "header";
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: calc(100% - (2 * var(--s-xs)));
-	// height: var(--h-header);
-	margin: var(--s-xs);
-	background-color: rgba(255, 255, 255, 0.8);
+	width: 100%;
 	color: var(--c-black);
-	border-radius: calc(0.5 * var(--h-header));
-	border: 1px solid var(--c-black);
-	box-shadow: var(--s) var(--s) var(--s-sm) rgba(0, 0, 0, 0.3);;
-	backdrop-filter: blur(var(--s-xs));
 
-	@include media("md") {
-		@include pad("lg");
-		width: calc(100% - (2 * var(--s-sm)));
-		margin: var(--s-sm);
-	}
-
-	&__offset {
-		padding-bottom: var(--s-xl);
-	}
-
-	// External Links
-	> nav:first-of-type {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-basis: 100%;
-
-		> a{
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-
-			&:not(:first-child) {
-				margin-left: var(--s-sm);
-
-				@include media("sm") {
-					margin-left: var(--s-md);
-				}
-			}
-
-			// Calendar
-			&:last-child > svg {
-				width: var(--s-md);
-				height: var(--s-md);
-			}
-
-			// MDS Logo
-			> img {
-				width: var(--s-md);
-				height: auto;
-			}
-		}
+	&:before {
+		@include fullOverlay;
+		content: "";
+		z-index: 10;
+		background-color: rgba(255, 255, 255, 0.8);
+		border-bottom: 1px solid var(--c-black);
+		backdrop-filter: blur(var(--s-xs));
 	}
 
 	// Titan Link Logo
 	> a {
 		@include font("logo");
+		position: relative;
+		z-index: 10;
+		display: flex;
+		align-items: center;
 		flex-shrink: 0;
+		height: var(--h-header);
+		margin-right: var(--s-sm);
 		padding: var(--s);
 		border-left: 1px solid var(--c-black);
 		border-right: 1px solid var(--c-black);
-
-		@include media($max: "xs") {
-			order: -1;
-			margin-right: var(--s-sm);
-		}
 	}
 
 	// Links
-	> nav:last-of-type {
-		flex-basis: 100%;
+	> nav {
+		z-index: 10;
+		width: 100%;
 
 		@include media($max: "xs") {
-			@include absolute(auto, 0, -50%);
-			@include pad("md");
-			display: none;
-			max-width: var(--w-sm);
-			background-color: var(--c-white);
-			border-radius: 2em;
-			border: 1px solid var(--c-black);
-			box-shadow: var(--s) var(--s) var(--s-sm) rgba(0, 0, 0, 0.3);;
+			@include absolute(calc(var(--h-header) + 1px), 0, auto, 0);
+			@include pad("sm");
+			z-index: 9;
+			opacity: 0;
+			transform: translateY(-100%);
+			background-color: rgba(255, 255, 255, 0.8);
+			border-bottom: 1px solid var(--c-black);
+			backdrop-filter: blur(var(--s-xs));
+			transition: transform var(--a-sm);
+			pointer-event: none;
 		}
 
 		> ul {
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
+			@include media($max: "xs") {
+				@include space(var(--s-md));
+			}
 
-			> li {
-				&:not(:first-child) {
-					margin-left: var(--s-md);
-				}
-
-				> a {
-					@include font("link");
-					display: flex;
-					align-items: center;
-
-					> svg {
-						width: var(--s-icon-md);
-						height: var(--s-icon-md);
-						margin-left: var(--s);
-						fill: var(--c-black);
-					}
-				}
-
-				> ul {
-					> li {
-						// Menu Card
-						> a {
-						}
-
-						> h5 {
-						}
-						// Menu Links
-						> ul {
-						}
-					}
-				}
+			@include media("sm") {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
 			}
 		}
 	}
 
 	> #nav-toggle:checked ~ nav {
-		display: block;
+		opacity: 1;
+		transform: translateY(0);
+		pointer-event: auto;
 	}
 
 	> label {
 		display: none;
 		position: relative;
+		z-index: 10;
 		flex-shrink: 0;
 		width: var(--s-md);
 		height: var(--s-sm);
+		margin: auto 0 auto auto;
 
 		@include media($max: "xs") {
 			display: block;
@@ -160,5 +99,9 @@ $handle: "header";
 				bottom: 0;
 			}
 		}
+	}
+
+	& > div {
+		padding-bottom: var(--h-header);
 	}
 }

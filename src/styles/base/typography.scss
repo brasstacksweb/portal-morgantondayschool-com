@@ -33,7 +33,7 @@
 		line-height: range(1.1, 1.4, 1em);
 	} @else if ($type == "logo") {
 		font-weight: 500;
-		font-size: range(48, 54);
+		font-size: 40px;
 		line-height: 1em;
 		letter-spacing: -0.1em;
 	} @else if ($type == "link") {
