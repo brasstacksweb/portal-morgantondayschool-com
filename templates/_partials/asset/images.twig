@@ -23,5 +23,5 @@
 {% default %}
 	<img
 		src="{{ asset.url }}"
-		alt="{{ asset.alt ?? asset.title }}" />
+		alt="{{ asset.caption ?? asset.alt ?? asset.title }}" />
 {% endswitch %}

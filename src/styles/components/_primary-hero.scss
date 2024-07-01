@@ -1,18 +1,14 @@
 $handle: "primary-hero";
 
 .#{$handle} {
-	@include pad("sm", var(--w-xl));
+	@include pad(var(--s-sm), var(--w-xl));
 	@include space(50%, var(--s-lg));
 	position: relative;
 	display: flex;
 	align-items: flex-end;
 
 	@include media("sm") {
-		@include pad("md", var(--w-xl));
-		@include space(var(--s-lg));
-	}
-
-	@include media("md") {
+		@include pad(var(--s-md), var(--w-xl));
 		@include space(var(--s-lg));
 	}
 

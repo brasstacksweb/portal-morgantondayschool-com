@@ -1,7 +1,7 @@
 $handle: "class-details";
 
 .#{$handle} {
-	@include pad("sm");
+	@include pad(var(--s-sm));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -24,7 +24,6 @@ $handle: "class-details";
 		}
 
 		> article {
-			@include card;
 			margin-top: var(--s-sm);
 
 			> h3 {

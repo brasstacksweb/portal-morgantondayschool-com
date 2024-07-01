@@ -1,6 +1,6 @@
 {##
  # Primary Hero component
- # @param {object} image
+ # @param {Asset} image
  # @param {string} heading
  # @param {string} subheading
  # @param {HTML} body
@@ -20,9 +20,7 @@
 {# Markup #}
 <div class="{{ handle }}">
 	{% if image %}
-		<img
-			src="{{ image.url }}"
-			alt="{{ image.caption ?? image.alt ?? image.title }}" />
+		{{ image.render }}
 	{% endif %}
 	<div>
 		<h1>{{ heading }}</h1>

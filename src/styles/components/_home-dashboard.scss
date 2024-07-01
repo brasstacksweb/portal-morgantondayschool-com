@@ -1,16 +1,15 @@
 $handle: "home-dashboard";
 
 .#{$handle} {
-	@include pad("sm");
+	@include pad(var(--s-sm));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin: var(--s-lg) auto;
-	padding-top: var(--s-md);
+	margin-top: var(--s-md);
 
 	@include media("sm") {
-		@include pad("md", var(--w-xl));
+		@include pad(var(--s-md), var(--w-xl));
 	}
 
 	> div {
@@ -94,7 +93,10 @@ $handle: "home-dashboard";
 
 			> li {
 				@include shadow;
-				@include listMargin(var(--s-sm));
+
+				&:not(:first-child) {
+					margin-top: var(--s-sm);
+				}
 			}
 		}
 	}
@@ -116,8 +118,8 @@ $handle: "home-dashboard";
 		> ul:not(:empty) {
 			margin-top: var(--s-md);
 
-			> li {
-				@include listMargin(var(--s-sm));
+			> li:not(:first-child) {
+				margin-top: var(--s-sm);
 			}
 		}
 	}

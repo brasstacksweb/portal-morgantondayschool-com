@@ -2,6 +2,12 @@
  * Layout mixins
  */
 
+// Weird syntax for native css `max` function instead of sass `max` function
+// https://github.com/webpack-contrib/sass-loader/issues/930#issuecomment-785006897
+@function pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
+	@return m#{a}x($padding, calc(0.5 * (#{$cont-width} - #{$max-width})));
+}
+
 @mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
 	position: absolute;
 	top: $top;
@@ -22,24 +28,6 @@
 	@include absolute(0, auto, auto, 0);
 	width: 100%;
 	height: 100%;
-}
-
-@mixin listMargin($s, $horizontal: false, $type: first-child) {
-	@if ($horizontal) {
-		margin-left: $s;
-
-		&:#{$type} {
-			margin-left: 0;
-		}
-	}
-
-	@else {
-		margin-top: $s;
-
-		&:#{$type} {
-			margin-top: 0;
-		}
-	}
 }
 
 @mixin lineOverflow($height, $lines) {
@@ -68,23 +56,12 @@
 	}
 }
 
-// Weird syntax for native css `max` function instead of sass `max` function
-// https://github.com/webpack-contrib/sass-loader/issues/930#issuecomment-785006897
-// tODO: Update first argument to acept css var instead of enum string
-@mixin pad($padding: "md", $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
-	padding-left: m#{a}x(var(--s-#{$padding}), calc(0.5 * (#{$cont-width} - #{$max-width})));
-	padding-right: m#{a}x(var(--s-#{$padding}), calc(0.5 * (#{$cont-width} - #{$max-width})));
+@mixin pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
+	padding-left: pad($padding, $max-width, $cont-width);;
+	padding-right: pad($padding, $max-width, $cont-width);;
 }
 
 @mixin space($padding: var(--s-md), $bottom: false) {
 	padding-top: $padding;
 	padding-bottom: if($bottom, $bottom, $padding);
-}
-
-@mixin card($size: "md") {
-	padding: var(--s-#{$size});
-	background-color: var(--c-white);
-	color: var(--c-fg-dk);
-	border: 1px solid var(--c-br-lt);
-	border-radius: var(--s-br-#{$size});
 }

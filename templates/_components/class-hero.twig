@@ -1,5 +1,6 @@
 {##
  # Class Hero component
+ # @param {string} color
  # @param {object} teacher
  # @param {object} image
  # @param {object} teacher
@@ -9,6 +10,7 @@
  #}
 
 {# Params #}
+{% set color = color ?? '' %}
 {% set teacher = teacher ?? null %}
 {% set image = image ?? null %}
 {% set tacher = teacher ?? null %}

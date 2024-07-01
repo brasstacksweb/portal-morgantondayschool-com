@@ -13,18 +13,20 @@
 
 {% block content %}
 	<article>
-		{% include '_components/home-dashboard' with {
-			activitiesHeading: 'Upcoming',
-			remindersHeading: 'Top of Mind',
-		} only %}
-	</article>
+		<header>
+			{% include '_components/home-dashboard' with {
+				activitiesHeading: 'Upcoming',
+				remindersHeading: 'Top of Mind',
+			} only %}
+		</header>
 
-	<article id="classes">
-		{% include '_components/classes-listing' with {
-			classes: classes|map(c => c|merge({
-				teacher: c.teacher[0] ?? null,
-				color: c.color.value,
-			})),
-		} only %}
+		<section id="classes">
+			{% include '_components/classes-listing' with {
+				classes: classes|map(c => c|merge({
+					teacher: c.teacher[0] ?? null,
+					color: c.color.value,
+				})),
+			} only %}
+		</section>
 	</article>
 {% endblock %}

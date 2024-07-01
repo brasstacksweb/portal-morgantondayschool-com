@@ -111,8 +111,11 @@
 	list-style-type: decimal;
 
 	> li {
-		@include listMargin(var(--s-sm));
 		margin-left: 1.5em;
+
+		&:not(:first-child) {
+			margin-top: var(--s-sm);
+		}
 
 		> ol,
 		> ul {
@@ -130,8 +133,11 @@
 	list-style-type: disc;
 
 	> li {
-		@include listMargin(var(--s-sm));
 		margin-left: 1.5em;
+
+		&:not(:first-child) {
+			margin-top: var(--s-sm);
+		}
 
 		> ol,
 		> ul {
@@ -152,12 +158,17 @@
 	}
 
 	> * {
-		@include listMargin(if($size == "sm", var(--s-sm), var(--s-md)));
 		max-width: var(--w-2xl);
+
+		&:not(:first-child) {
+			margin-top: if($size == "sm", var(--s-sm), var(--s-md));
+		}
 	}
 
 	> h1, > h2, > h3, > h4, > h5, > h6 {
-		@include listMargin(if($size == "sm", var(--s-sm), var(--s-md)));
+		&:not(:first-child) {
+			margin-top: if($size == "sm", var(--s-sm), var(--s-md));
+		}
 	}
 
 	> h1 {
@@ -205,8 +216,8 @@
 			padding: var(--s-md);
 			border: 1px solid vaR(--c-br-lt);
 
-			> * {
-				@include listMargin(var(--s-sm));
+			> *:not(:first-child) {
+				margin-top: var(--s-sm);
 			}
 
 			> ul,

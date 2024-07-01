@@ -1,44 +1,47 @@
 $handle: "class-hero";
 
 .#{$handle} {
-	@include pad("sm");
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm), 0);
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: flex-end;
-	margin: var(--s-lg) auto;
+	align-items: flex-start;
+
+	@include media("sm") {
+		@include pad(var(--s-md));
+		@include space(var(--s-lg), 0);
+	}
 
 	> div:first-child {
-		@include card;
+		position: relative;
+		z-index: 3;
 		display: flex;
 		flex-direction: column;
-		box-shadow: var(--s-sm) var(--s-sm) var(--c-teal);
-
-		@include media($max: "xs") {
-			width: 100%;
-			margin: calc(-1 * var(--s-lg)) var(--s-xs) auto var(--s-lg);
-		}
+		align-items: flex-start;
+		width: 100%;
 
 		@include media("sm") {
-			width: calc(50% - var(--s-sm));
-			margin-bottom: var(--s-sm);
+			width: calc(60% - var(--s-md));
 		}
 
-		@include media("md") {
-			width: calc(35% - var(--s-sm));
+		> *:not(:first-child) {
+			margin-top: var(--s-sm);
+		}
+
+		> div {
+			@include richText("sm");
 		}
 
 		> h1 {
 			@include font("heading", "xl");
-			margin-bottom: var(--s-sm);
 			text-wrap: balance;
 		}
 
 		> address {
 			display: flex;
 			align-items: center;
-			margin-bottom: var(--s-sm);
 
 			> a {
 				display: flex;
@@ -54,21 +57,21 @@ $handle: "class-hero";
 			}
 
 			h2 {
-				@include font("intro");
-				color: var(--c-fg-md);
+				@include font("eyebrow");
 			}
 		}
 
 		> div {
-			@include font;
-			max-width: var(--w-md);
-			color: var(--c-fg-md);
+			@include richText;
+
+			> p {
+				@include font("body", "lg");
+			}
 		}
 
 		> a {
-			@include font;
+			@include font("link");
 			color: var(--c-green);
-			margin-top: var(--s-sm);
 
 			&:hover {
 				text-decoration: underline;
@@ -77,24 +80,19 @@ $handle: "class-hero";
 	}
 
 	> div:last-child {
-		position: relative;
-		overflow: hidden;
-		border-radius: var(--s-br-md);
+		order: -1;
+		width: 100%;
 
 		@include media($max: "xs") {
-			z-index: -1;
-			width: calc(100% - var(--s-lg));
-			order: -1;
-			aspect-ratio: 4 / 3;
+			margin-bottom: var(--s-md);
 		}
 
 		@include media("sm") {
-			width: calc(50% - var(--s-sm));
-			max-height: 70vh;
+			width: calc(40% - var(--s-md));
 		}
 
-		@include media("md") {
-			width: calc(65% - var(--s-sm));
+		> figure {
+			aspect-ratio: 4 / 3;
 		}
 	}
 }

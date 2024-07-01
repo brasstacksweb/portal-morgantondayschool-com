@@ -1,16 +1,16 @@
 $handle: "split";
 
 .#{$handle} {
-	@include pad("sm", var(--w-md));
+	@include pad(var(--s-sm), var(--w-md));
 	display: flex;
 	flex-wrap: wrap;
 
 	@include media("md") {
-		@include pad("md", var(--w-xl));
+		@include pad(var(--s-md), var(--w-xl));
 	}
 
 	> header {
-		@include pad("sm", var(--w-sm));
+		@include pad(var(--s-sm), var(--w-sm));
 		@include space(var(--s-md));
 		position: relative;
 		display: flex;
@@ -25,7 +25,7 @@ $handle: "split";
 		}
 
 		@include media("md") {
-			@include pad("md", var(--w-sm), 50%);
+			@include pad(var(--s-md), var(--w-sm), 50%);
 			width: 50%;
 		}
 
@@ -86,14 +86,14 @@ $handle: "split";
 
 	> div {
 		@include richText;
-		@include pad("sm", var(--w-sm));
+		@include pad(var(--s-sm), var(--w-sm));
 		@include space(var(--s-md));
 		position: relative;
 		z-index: 1;
 		width: 100%;
 
 		@include media("md") {
-			@include pad("md", var(--w-sm), 50%);
+			@include pad(var(--s-md), var(--w-sm), 50%);
 			width: 50%;
 		}
 	}

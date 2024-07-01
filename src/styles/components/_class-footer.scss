@@ -1,7 +1,7 @@
 $handle: "class-footer";
 
 .#{$handle} {
-	@include pad("sm");
+	@include pad(var(--s-sm));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -9,7 +9,6 @@ $handle: "class-footer";
 	margin: var(--s-lg) auto;
 
 	> div {
-		@include card;
 		width: 100%;
 
 		@include media("sm") {
@@ -61,7 +60,6 @@ $handle: "class-footer";
 		}
 
 		> div {
-			@include card;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 

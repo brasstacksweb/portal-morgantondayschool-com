@@ -1,7 +1,7 @@
 $handle: "intro";
 
 .#{$handle} {
-	@include pad("sm");
+	@include pad(var(--s-sm));
 
 	> header {
 		max-width: var(--w-lg);

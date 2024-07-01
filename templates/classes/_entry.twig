@@ -17,6 +17,10 @@
 	.postDate('>= ' ~ now|date_modify("-6 days")|atom)
 	.with(['subject'])
 	.all() %}
+{% set subjectUpdates = craft.entries.section('subjectUpdates')
+	.relatedTo([entry])
+	.with(['subject'])
+	.all() %}
 {% set updatesBySubject = subjectUpdates
 	|group(u => u.subject[0].title ~ '-' ~ (u.subject[0].color ?? '')) %}
 
@@ -30,6 +34,7 @@
 	<article>
 		<header>
 			{% include '_components/class-hero' with {
+				color: entry.color.value,
 				teacher: entry.teacher[0] ?? null,
 				image: entry.heroImage[0] ?? null,
 				heading: entry.heading,

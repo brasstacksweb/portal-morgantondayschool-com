@@ -225,11 +225,10 @@ body {
   color: var(--c-fg-dk);
   cursor: var(--cursor-default); }
 
-article {
+main > article {
   padding-top: var(--h-header); }
-
-section {
-  margin: var(--s-lg) auto; }
+  main > article > section {
+    margin: var(--s-lg) auto; }
 
 [id] {
   scroll-margin-top: var(--h-header); }
@@ -477,14 +476,11 @@ details summary {
       .card > div > div:has(table) {
         overflow-x: auto; }
       .card > div > div > * {
-        margin-top: var(--s-sm);
         max-width: var(--w-2xl); }
-        .card > div > div > *:first-child {
-          margin-top: 0; }
-      .card > div > div > h1, .card > div > div > h2, .card > div > div > h3, .card > div > div > h4, .card > div > div > h5, .card > div > div > h6 {
+        .card > div > div > *:not(:first-child) {
+          margin-top: var(--s-sm); }
+      .card > div > div > h1:not(:first-child), .card > div > div > h2:not(:first-child), .card > div > div > h3:not(:first-child), .card > div > div > h4:not(:first-child), .card > div > div > h5:not(:first-child), .card > div > div > h6:not(:first-child) {
         margin-top: var(--s-sm); }
-        .card > div > div > h1:first-child, .card > div > div > h2:first-child, .card > div > div > h3:first-child, .card > div > div > h4:first-child, .card > div > div > h5:first-child, .card > div > div > h6:first-child {
-          margin-top: 0; }
       .card > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -533,10 +529,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: decimal; }
         .card > div > div ol > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .card > div > div ol > li:first-child {
-            margin-top: 0; }
+          .card > div > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .card > div > div ol > li > ol,
           .card > div > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -549,10 +544,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: disc; }
         .card > div > div ul > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .card > div > div ul > li:first-child {
-            margin-top: 0; }
+          .card > div > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .card > div > div ul > li > ol,
           .card > div > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -568,12 +562,9 @@ details summary {
         .card > div > div table td {
           padding: var(--s-md);
           border: 1px solid vaR(--c-br-lt); }
-          .card > div > div table th > *,
-          .card > div > div table td > * {
+          .card > div > div table th > *:not(:first-child),
+          .card > div > div table td > *:not(:first-child) {
             margin-top: var(--s-sm); }
-            .card > div > div table th > *:first-child,
-            .card > div > div table td > *:first-child {
-              margin-top: 0; }
           .card > div > div table th > ul,
           .card > div > div table th > li,
           .card > div > div table td > ul,
@@ -725,11 +716,6 @@ details summary {
         line-height: 1.1em;
         letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .class-details > div:first-child > article {
-      padding: var(--s-md);
-      background-color: var(--c-white);
-      color: var(--c-fg-dk);
-      border: 1px solid var(--c-br-lt);
-      border-radius: var(--s-br-md);
       margin-top: var(--s-sm); }
       .class-details > div:first-child > article > h3 {
         font-family: system-ui;
@@ -817,14 +803,11 @@ details summary {
           .class-details > div:last-child > details > div > div:has(table) {
             overflow-x: auto; }
           .class-details > div:last-child > details > div > div > * {
-            margin-top: var(--s-sm);
             max-width: var(--w-2xl); }
-            .class-details > div:last-child > details > div > div > *:first-child {
-              margin-top: 0; }
-          .class-details > div:last-child > details > div > div > h1, .class-details > div:last-child > details > div > div > h2, .class-details > div:last-child > details > div > div > h3, .class-details > div:last-child > details > div > div > h4, .class-details > div:last-child > details > div > div > h5, .class-details > div:last-child > details > div > div > h6 {
+            .class-details > div:last-child > details > div > div > *:not(:first-child) {
+              margin-top: var(--s-sm); }
+          .class-details > div:last-child > details > div > div > h1:not(:first-child), .class-details > div:last-child > details > div > div > h2:not(:first-child), .class-details > div:last-child > details > div > div > h3:not(:first-child), .class-details > div:last-child > details > div > div > h4:not(:first-child), .class-details > div:last-child > details > div > div > h5:not(:first-child), .class-details > div:last-child > details > div > div > h6:not(:first-child) {
             margin-top: var(--s-sm); }
-            .class-details > div:last-child > details > div > div > h1:first-child, .class-details > div:last-child > details > div > div > h2:first-child, .class-details > div:last-child > details > div > div > h3:first-child, .class-details > div:last-child > details > div > div > h4:first-child, .class-details > div:last-child > details > div > div > h5:first-child, .class-details > div:last-child > details > div > div > h6:first-child {
-              margin-top: 0; }
           .class-details > div:last-child > details > div > div > h1 {
             font-family: system-ui;
             font-weight: 400;
@@ -873,10 +856,9 @@ details summary {
             line-height: 1.4em;
             list-style-type: decimal; }
             .class-details > div:last-child > details > div > div ol > li {
-              margin-top: var(--s-sm);
               margin-left: 1.5em; }
-              .class-details > div:last-child > details > div > div ol > li:first-child {
-                margin-top: 0; }
+              .class-details > div:last-child > details > div > div ol > li:not(:first-child) {
+                margin-top: var(--s-sm); }
               .class-details > div:last-child > details > div > div ol > li > ol,
               .class-details > div:last-child > details > div > div ol > li > ul {
                 margin-top: var(--s-sm); }
@@ -889,10 +871,9 @@ details summary {
             line-height: 1.4em;
             list-style-type: disc; }
             .class-details > div:last-child > details > div > div ul > li {
-              margin-top: var(--s-sm);
               margin-left: 1.5em; }
-              .class-details > div:last-child > details > div > div ul > li:first-child {
-                margin-top: 0; }
+              .class-details > div:last-child > details > div > div ul > li:not(:first-child) {
+                margin-top: var(--s-sm); }
               .class-details > div:last-child > details > div > div ul > li > ol,
               .class-details > div:last-child > details > div > div ul > li > ul {
                 margin-top: var(--s-sm); }
@@ -908,12 +889,9 @@ details summary {
             .class-details > div:last-child > details > div > div table td {
               padding: var(--s-md);
               border: 1px solid vaR(--c-br-lt); }
-              .class-details > div:last-child > details > div > div table th > *,
-              .class-details > div:last-child > details > div > div table td > * {
+              .class-details > div:last-child > details > div > div table th > *:not(:first-child),
+              .class-details > div:last-child > details > div > div table td > *:not(:first-child) {
                 margin-top: var(--s-sm); }
-                .class-details > div:last-child > details > div > div table th > *:first-child,
-                .class-details > div:last-child > details > div > div table td > *:first-child {
-                  margin-top: 0; }
               .class-details > div:last-child > details > div > div table th > ul,
               .class-details > div:last-child > details > div > div table th > li,
               .class-details > div:last-child > details > div > div table td > ul,
@@ -964,11 +942,6 @@ details summary {
   align-items: flex-start;
   margin: var(--s-lg) auto; }
   .class-footer > div {
-    padding: var(--s-md);
-    background-color: var(--c-white);
-    color: var(--c-fg-dk);
-    border: 1px solid var(--c-br-lt);
-    border-radius: var(--s-br-md);
     width: 100%; }
     @media (min-width: 768px) {
       .class-footer > div {
@@ -988,14 +961,11 @@ details summary {
       .class-footer > div > div:has(table) {
         overflow-x: auto; }
       .class-footer > div > div > * {
-        margin-top: var(--s-md);
         max-width: var(--w-2xl); }
-        .class-footer > div > div > *:first-child {
-          margin-top: 0; }
-      .class-footer > div > div > h1, .class-footer > div > div > h2, .class-footer > div > div > h3, .class-footer > div > div > h4, .class-footer > div > div > h5, .class-footer > div > div > h6 {
+        .class-footer > div > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .class-footer > div > div > h1:not(:first-child), .class-footer > div > div > h2:not(:first-child), .class-footer > div > div > h3:not(:first-child), .class-footer > div > div > h4:not(:first-child), .class-footer > div > div > h5:not(:first-child), .class-footer > div > div > h6:not(:first-child) {
         margin-top: var(--s-md); }
-        .class-footer > div > div > h1:first-child, .class-footer > div > div > h2:first-child, .class-footer > div > div > h3:first-child, .class-footer > div > div > h4:first-child, .class-footer > div > div > h5:first-child, .class-footer > div > div > h6:first-child {
-          margin-top: 0; }
       .class-footer > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -1044,10 +1014,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: decimal; }
         .class-footer > div > div ol > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .class-footer > div > div ol > li:first-child {
-            margin-top: 0; }
+          .class-footer > div > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .class-footer > div > div ol > li > ol,
           .class-footer > div > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -1060,10 +1029,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: disc; }
         .class-footer > div > div ul > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .class-footer > div > div ul > li:first-child {
-            margin-top: 0; }
+          .class-footer > div > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .class-footer > div > div ul > li > ol,
           .class-footer > div > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -1079,12 +1047,9 @@ details summary {
         .class-footer > div > div table td {
           padding: var(--s-md);
           border: 1px solid vaR(--c-br-lt); }
-          .class-footer > div > div table th > *,
-          .class-footer > div > div table td > * {
+          .class-footer > div > div table th > *:not(:first-child),
+          .class-footer > div > div table td > *:not(:first-child) {
             margin-top: var(--s-sm); }
-            .class-footer > div > div table th > *:first-child,
-            .class-footer > div > div table td > *:first-child {
-              margin-top: 0; }
           .class-footer > div > div table th > ul,
           .class-footer > div > div table th > li,
           .class-footer > div > div table td > ul,
@@ -1142,11 +1107,6 @@ details summary {
       .class-footer > article > figure > img {
         object-fit: cover; }
     .class-footer > article > div {
-      padding: var(--s-md);
-      background-color: var(--c-white);
-      color: var(--c-fg-dk);
-      border: 1px solid var(--c-br-lt);
-      border-radius: var(--s-br-md);
       border-top-left-radius: 0;
       border-top-right-radius: 0; }
       .class-footer > article > div > h3 {
@@ -1160,44 +1120,171 @@ details summary {
 .class-hero {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-sm);
+  padding-bottom: 0;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
-  margin: var(--s-lg) auto; }
+  align-items: flex-start; }
+  @media (min-width: 768px) {
+    .class-hero {
+      padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+      padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+      padding-top: var(--s-lg);
+      padding-bottom: 0; } }
   .class-hero > div:first-child {
-    padding: var(--s-md);
-    background-color: var(--c-white);
-    color: var(--c-fg-dk);
-    border: 1px solid var(--c-br-lt);
-    border-radius: var(--s-br-md);
+    position: relative;
+    z-index: 3;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--s-sm) var(--s-sm) var(--c-teal); }
-    @media (max-width: 767px) {
-      .class-hero > div:first-child {
-        width: 100%;
-        margin: calc(-1 * var(--s-lg)) var(--s-xs) auto var(--s-lg); } }
+    align-items: flex-start;
+    width: 100%; }
     @media (min-width: 768px) {
       .class-hero > div:first-child {
-        width: calc(50% - var(--s-sm));
-        margin-bottom: var(--s-sm); } }
-    @media (min-width: 992px) {
-      .class-hero > div:first-child {
-        width: calc(35% - var(--s-sm)); } }
+        width: calc(60% - var(--s-md)); } }
+    .class-hero > div:first-child > *:not(:first-child) {
+      margin-top: var(--s-sm); }
+    .class-hero > div:first-child > div {
+      color: var(--c-fg-dk); }
+      .class-hero > div:first-child > div:has(table) {
+        overflow-x: auto; }
+      .class-hero > div:first-child > div > * {
+        max-width: var(--w-2xl); }
+        .class-hero > div:first-child > div > *:not(:first-child) {
+          margin-top: var(--s-sm); }
+      .class-hero > div:first-child > div > h1:not(:first-child), .class-hero > div:first-child > div > h2:not(:first-child), .class-hero > div:first-child > div > h3:not(:first-child), .class-hero > div:first-child > div > h4:not(:first-child), .class-hero > div:first-child > div > h5:not(:first-child), .class-hero > div:first-child > div > h6:not(:first-child) {
+        margin-top: var(--s-sm); }
+      .class-hero > div:first-child > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .class-hero > div:first-child > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .class-hero > div:first-child > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .class-hero > div:first-child > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em; }
+      .class-hero > div:first-child > div ol {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        list-style-type: decimal; }
+        .class-hero > div:first-child > div ol > li {
+          margin-left: 1.5em; }
+          .class-hero > div:first-child > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ol > li > ol,
+          .class-hero > div:first-child > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ol > li > ul {
+            list-style-type: circle; }
+      .class-hero > div:first-child > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .class-hero > div:first-child > div ul > li {
+          margin-left: 1.5em; }
+          .class-hero > div:first-child > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ul > li > ol,
+          .class-hero > div:first-child > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ul > li > ul {
+            list-style-type: circle; }
+      .class-hero > div:first-child > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .class-hero > div:first-child > div table th,
+        .class-hero > div:first-child > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .class-hero > div:first-child > div table th > *:not(:first-child),
+          .class-hero > div:first-child > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div table th > ul,
+          .class-hero > div:first-child > div table th > li,
+          .class-hero > div:first-child > div table td > ul,
+          .class-hero > div:first-child > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+            line-height: 1.4em; }
+        .class-hero > div:first-child > div table td {
+          color: var(--c-fg-md); }
+        .class-hero > div:first-child > div table > thead {
+          background: var(--c-bg-lt); }
+      .class-hero > div:first-child > div iframe {
+        max-width: 100%; }
+      .class-hero > div:first-child > div figure {
+        margin: var(--s-lg) 0; }
+        .class-hero > div:first-child > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .class-hero > div:first-child > div i,
+      .class-hero > div:first-child > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .class-hero > div:first-child > div b,
+      .class-hero > div:first-child > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .class-hero > div:first-child > div a {
+        color: var(--c-black); }
+        .class-hero > div:first-child > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
     .class-hero > div:first-child > h1 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(50 * 1px), calc((84 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(84 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
-      margin-bottom: var(--s-sm);
       text-wrap: balance; }
     .class-hero > div:first-child > address {
       display: flex;
-      align-items: center;
-      margin-bottom: var(--s-sm); }
+      align-items: center; }
       .class-hero > div:first-child > address > a {
         display: flex;
         align-items: center; }
@@ -1209,48 +1296,167 @@ details summary {
         object-fit: cover; }
       .class-hero > div:first-child > address h2 {
         font-family: system-ui;
+        font-weight: 500;
+        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
+    .class-hero > div:first-child > div {
+      color: var(--c-fg-dk); }
+      .class-hero > div:first-child > div:has(table) {
+        overflow-x: auto; }
+      .class-hero > div:first-child > div > * {
+        max-width: var(--w-2xl); }
+        .class-hero > div:first-child > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .class-hero > div:first-child > div > h1:not(:first-child), .class-hero > div:first-child > div > h2:not(:first-child), .class-hero > div:first-child > div > h3:not(:first-child), .class-hero > div:first-child > div > h4:not(:first-child), .class-hero > div:first-child > div > h5:not(:first-child), .class-hero > div:first-child > div > h6:not(:first-child) {
+        margin-top: var(--s-md); }
+      .class-hero > div:first-child > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .class-hero > div:first-child > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .class-hero > div:first-child > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .class-hero > div:first-child > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .class-hero > div:first-child > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
+        line-height: 1.4em; }
+      .class-hero > div:first-child > div ol {
+        font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.4em;
-        color: var(--c-fg-md); }
-    .class-hero > div:first-child > div {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
-      max-width: var(--w-md);
-      color: var(--c-fg-md); }
+        list-style-type: decimal; }
+        .class-hero > div:first-child > div ol > li {
+          margin-left: 1.5em; }
+          .class-hero > div:first-child > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ol > li > ol,
+          .class-hero > div:first-child > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ol > li > ul {
+            list-style-type: circle; }
+      .class-hero > div:first-child > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .class-hero > div:first-child > div ul > li {
+          margin-left: 1.5em; }
+          .class-hero > div:first-child > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ul > li > ol,
+          .class-hero > div:first-child > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div ul > li > ul {
+            list-style-type: circle; }
+      .class-hero > div:first-child > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .class-hero > div:first-child > div table th,
+        .class-hero > div:first-child > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .class-hero > div:first-child > div table th > *:not(:first-child),
+          .class-hero > div:first-child > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .class-hero > div:first-child > div table th > ul,
+          .class-hero > div:first-child > div table th > li,
+          .class-hero > div:first-child > div table td > ul,
+          .class-hero > div:first-child > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+            line-height: 1.4em; }
+        .class-hero > div:first-child > div table td {
+          color: var(--c-fg-md); }
+        .class-hero > div:first-child > div table > thead {
+          background: var(--c-bg-lt); }
+      .class-hero > div:first-child > div iframe {
+        max-width: 100%; }
+      .class-hero > div:first-child > div figure {
+        margin: var(--s-lg) 0; }
+        .class-hero > div:first-child > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .class-hero > div:first-child > div i,
+      .class-hero > div:first-child > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .class-hero > div:first-child > div b,
+      .class-hero > div:first-child > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .class-hero > div:first-child > div a {
+        color: var(--c-black); }
+        .class-hero > div:first-child > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
+      .class-hero > div:first-child > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em; }
     .class-hero > div:first-child > a {
       font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
-      color: var(--c-green);
-      margin-top: var(--s-sm); }
+      font-weight: 444;
+      font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
+      line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px));
+      color: var(--c-green); }
       .class-hero > div:first-child > a:hover {
         text-decoration: underline; }
   .class-hero > div:last-child {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--s-br-md); }
+    order: -1;
+    width: 100%; }
     @media (max-width: 767px) {
       .class-hero > div:last-child {
-        z-index: -1;
-        width: calc(100% - var(--s-lg));
-        order: -1;
-        aspect-ratio: 4 / 3; } }
+        margin-bottom: var(--s-md); } }
     @media (min-width: 768px) {
       .class-hero > div:last-child {
-        width: calc(50% - var(--s-sm));
-        max-height: 70vh; } }
-    @media (min-width: 992px) {
-      .class-hero > div:last-child {
-        width: calc(65% - var(--s-sm)); } }
+        width: calc(40% - var(--s-md)); } }
+    .class-hero > div:last-child > figure {
+      aspect-ratio: 4 / 3; }
 
 .classes-listing {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  margin: var(--s-lg) auto; }
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl)))); }
   .classes-listing > header {
     display: flex;
     justify-content: center;
@@ -1326,14 +1532,11 @@ details summary {
     .expandable-text--size-sm > div:has(table) {
       overflow-x: auto; }
     .expandable-text--size-sm > div > * {
-      margin-top: var(--s-sm);
       max-width: var(--w-2xl); }
-      .expandable-text--size-sm > div > *:first-child {
-        margin-top: 0; }
-    .expandable-text--size-sm > div > h1, .expandable-text--size-sm > div > h2, .expandable-text--size-sm > div > h3, .expandable-text--size-sm > div > h4, .expandable-text--size-sm > div > h5, .expandable-text--size-sm > div > h6 {
+      .expandable-text--size-sm > div > *:not(:first-child) {
+        margin-top: var(--s-sm); }
+    .expandable-text--size-sm > div > h1:not(:first-child), .expandable-text--size-sm > div > h2:not(:first-child), .expandable-text--size-sm > div > h3:not(:first-child), .expandable-text--size-sm > div > h4:not(:first-child), .expandable-text--size-sm > div > h5:not(:first-child), .expandable-text--size-sm > div > h6:not(:first-child) {
       margin-top: var(--s-sm); }
-      .expandable-text--size-sm > div > h1:first-child, .expandable-text--size-sm > div > h2:first-child, .expandable-text--size-sm > div > h3:first-child, .expandable-text--size-sm > div > h4:first-child, .expandable-text--size-sm > div > h5:first-child, .expandable-text--size-sm > div > h6:first-child {
-        margin-top: 0; }
     .expandable-text--size-sm > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -1382,10 +1585,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: decimal; }
       .expandable-text--size-sm > div ol > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .expandable-text--size-sm > div ol > li:first-child {
-          margin-top: 0; }
+        .expandable-text--size-sm > div ol > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .expandable-text--size-sm > div ol > li > ol,
         .expandable-text--size-sm > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -1398,10 +1600,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: disc; }
       .expandable-text--size-sm > div ul > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .expandable-text--size-sm > div ul > li:first-child {
-          margin-top: 0; }
+        .expandable-text--size-sm > div ul > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .expandable-text--size-sm > div ul > li > ol,
         .expandable-text--size-sm > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -1417,12 +1618,9 @@ details summary {
       .expandable-text--size-sm > div table td {
         padding: var(--s-md);
         border: 1px solid vaR(--c-br-lt); }
-        .expandable-text--size-sm > div table th > *,
-        .expandable-text--size-sm > div table td > * {
+        .expandable-text--size-sm > div table th > *:not(:first-child),
+        .expandable-text--size-sm > div table td > *:not(:first-child) {
           margin-top: var(--s-sm); }
-          .expandable-text--size-sm > div table th > *:first-child,
-          .expandable-text--size-sm > div table td > *:first-child {
-            margin-top: 0; }
         .expandable-text--size-sm > div table th > ul,
         .expandable-text--size-sm > div table th > li,
         .expandable-text--size-sm > div table td > ul,
@@ -1464,14 +1662,11 @@ details summary {
     .expandable-text--size-md > div:has(table) {
       overflow-x: auto; }
     .expandable-text--size-md > div > * {
-      margin-top: var(--s-md);
       max-width: var(--w-2xl); }
-      .expandable-text--size-md > div > *:first-child {
-        margin-top: 0; }
-    .expandable-text--size-md > div > h1, .expandable-text--size-md > div > h2, .expandable-text--size-md > div > h3, .expandable-text--size-md > div > h4, .expandable-text--size-md > div > h5, .expandable-text--size-md > div > h6 {
+      .expandable-text--size-md > div > *:not(:first-child) {
+        margin-top: var(--s-md); }
+    .expandable-text--size-md > div > h1:not(:first-child), .expandable-text--size-md > div > h2:not(:first-child), .expandable-text--size-md > div > h3:not(:first-child), .expandable-text--size-md > div > h4:not(:first-child), .expandable-text--size-md > div > h5:not(:first-child), .expandable-text--size-md > div > h6:not(:first-child) {
       margin-top: var(--s-md); }
-      .expandable-text--size-md > div > h1:first-child, .expandable-text--size-md > div > h2:first-child, .expandable-text--size-md > div > h3:first-child, .expandable-text--size-md > div > h4:first-child, .expandable-text--size-md > div > h5:first-child, .expandable-text--size-md > div > h6:first-child {
-        margin-top: 0; }
     .expandable-text--size-md > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -1520,10 +1715,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: decimal; }
       .expandable-text--size-md > div ol > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .expandable-text--size-md > div ol > li:first-child {
-          margin-top: 0; }
+        .expandable-text--size-md > div ol > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .expandable-text--size-md > div ol > li > ol,
         .expandable-text--size-md > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -1536,10 +1730,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: disc; }
       .expandable-text--size-md > div ul > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .expandable-text--size-md > div ul > li:first-child {
-          margin-top: 0; }
+        .expandable-text--size-md > div ul > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .expandable-text--size-md > div ul > li > ol,
         .expandable-text--size-md > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -1555,12 +1748,9 @@ details summary {
       .expandable-text--size-md > div table td {
         padding: var(--s-md);
         border: 1px solid vaR(--c-br-lt); }
-        .expandable-text--size-md > div table th > *,
-        .expandable-text--size-md > div table td > * {
+        .expandable-text--size-md > div table th > *:not(:first-child),
+        .expandable-text--size-md > div table td > *:not(:first-child) {
           margin-top: var(--s-sm); }
-          .expandable-text--size-md > div table th > *:first-child,
-          .expandable-text--size-md > div table td > *:first-child {
-            margin-top: 0; }
         .expandable-text--size-md > div table th > ul,
         .expandable-text--size-md > div table th > li,
         .expandable-text--size-md > div table td > ul,
@@ -1603,7 +1793,6 @@ details summary {
   overflow: hidden;
   display: block;
   background-color: var(--c-white);
-  border: 1px solid var(--c-br-lt);
   border-radius: var(--s-br-md); }
   .figure > figure > img {
     width: 100%;
@@ -1640,14 +1829,11 @@ details summary {
   .form--invert > div:has(table) {
     overflow-x: auto; }
   .form--invert > div > * {
-    margin-top: var(--s-md);
     max-width: var(--w-2xl); }
-    .form--invert > div > *:first-child {
-      margin-top: 0; }
-  .form--invert > div > h1, .form--invert > div > h2, .form--invert > div > h3, .form--invert > div > h4, .form--invert > div > h5, .form--invert > div > h6 {
+    .form--invert > div > *:not(:first-child) {
+      margin-top: var(--s-md); }
+  .form--invert > div > h1:not(:first-child), .form--invert > div > h2:not(:first-child), .form--invert > div > h3:not(:first-child), .form--invert > div > h4:not(:first-child), .form--invert > div > h5:not(:first-child), .form--invert > div > h6:not(:first-child) {
     margin-top: var(--s-md); }
-    .form--invert > div > h1:first-child, .form--invert > div > h2:first-child, .form--invert > div > h3:first-child, .form--invert > div > h4:first-child, .form--invert > div > h5:first-child, .form--invert > div > h6:first-child {
-      margin-top: 0; }
   .form--invert > div > h1 {
     font-family: system-ui;
     font-weight: 400;
@@ -1696,10 +1882,9 @@ details summary {
     line-height: 1.4em;
     list-style-type: decimal; }
     .form--invert > div ol > li {
-      margin-top: var(--s-sm);
       margin-left: 1.5em; }
-      .form--invert > div ol > li:first-child {
-        margin-top: 0; }
+      .form--invert > div ol > li:not(:first-child) {
+        margin-top: var(--s-sm); }
       .form--invert > div ol > li > ol,
       .form--invert > div ol > li > ul {
         margin-top: var(--s-sm); }
@@ -1712,10 +1897,9 @@ details summary {
     line-height: 1.4em;
     list-style-type: disc; }
     .form--invert > div ul > li {
-      margin-top: var(--s-sm);
       margin-left: 1.5em; }
-      .form--invert > div ul > li:first-child {
-        margin-top: 0; }
+      .form--invert > div ul > li:not(:first-child) {
+        margin-top: var(--s-sm); }
       .form--invert > div ul > li > ol,
       .form--invert > div ul > li > ul {
         margin-top: var(--s-sm); }
@@ -1731,12 +1915,9 @@ details summary {
     .form--invert > div table td {
       padding: var(--s-md);
       border: 1px solid vaR(--c-br-lt); }
-      .form--invert > div table th > *,
-      .form--invert > div table td > * {
+      .form--invert > div table th > *:not(:first-child),
+      .form--invert > div table td > *:not(:first-child) {
         margin-top: var(--s-sm); }
-        .form--invert > div table th > *:first-child,
-        .form--invert > div table td > *:first-child {
-          margin-top: 0; }
       .form--invert > div table th > ul,
       .form--invert > div table th > li,
       .form--invert > div table td > ul,
@@ -1780,14 +1961,11 @@ details summary {
   .form:not(.form--invert) > div:has(table) {
     overflow-x: auto; }
   .form:not(.form--invert) > div > * {
-    margin-top: var(--s-md);
     max-width: var(--w-2xl); }
-    .form:not(.form--invert) > div > *:first-child {
-      margin-top: 0; }
-  .form:not(.form--invert) > div > h1, .form:not(.form--invert) > div > h2, .form:not(.form--invert) > div > h3, .form:not(.form--invert) > div > h4, .form:not(.form--invert) > div > h5, .form:not(.form--invert) > div > h6 {
+    .form:not(.form--invert) > div > *:not(:first-child) {
+      margin-top: var(--s-md); }
+  .form:not(.form--invert) > div > h1:not(:first-child), .form:not(.form--invert) > div > h2:not(:first-child), .form:not(.form--invert) > div > h3:not(:first-child), .form:not(.form--invert) > div > h4:not(:first-child), .form:not(.form--invert) > div > h5:not(:first-child), .form:not(.form--invert) > div > h6:not(:first-child) {
     margin-top: var(--s-md); }
-    .form:not(.form--invert) > div > h1:first-child, .form:not(.form--invert) > div > h2:first-child, .form:not(.form--invert) > div > h3:first-child, .form:not(.form--invert) > div > h4:first-child, .form:not(.form--invert) > div > h5:first-child, .form:not(.form--invert) > div > h6:first-child {
-      margin-top: 0; }
   .form:not(.form--invert) > div > h1 {
     font-family: system-ui;
     font-weight: 400;
@@ -1836,10 +2014,9 @@ details summary {
     line-height: 1.4em;
     list-style-type: decimal; }
     .form:not(.form--invert) > div ol > li {
-      margin-top: var(--s-sm);
       margin-left: 1.5em; }
-      .form:not(.form--invert) > div ol > li:first-child {
-        margin-top: 0; }
+      .form:not(.form--invert) > div ol > li:not(:first-child) {
+        margin-top: var(--s-sm); }
       .form:not(.form--invert) > div ol > li > ol,
       .form:not(.form--invert) > div ol > li > ul {
         margin-top: var(--s-sm); }
@@ -1852,10 +2029,9 @@ details summary {
     line-height: 1.4em;
     list-style-type: disc; }
     .form:not(.form--invert) > div ul > li {
-      margin-top: var(--s-sm);
       margin-left: 1.5em; }
-      .form:not(.form--invert) > div ul > li:first-child {
-        margin-top: 0; }
+      .form:not(.form--invert) > div ul > li:not(:first-child) {
+        margin-top: var(--s-sm); }
       .form:not(.form--invert) > div ul > li > ol,
       .form:not(.form--invert) > div ul > li > ul {
         margin-top: var(--s-sm); }
@@ -1871,12 +2047,9 @@ details summary {
     .form:not(.form--invert) > div table td {
       padding: var(--s-md);
       border: 1px solid vaR(--c-br-lt); }
-      .form:not(.form--invert) > div table th > *,
-      .form:not(.form--invert) > div table td > * {
+      .form:not(.form--invert) > div table th > *:not(:first-child),
+      .form:not(.form--invert) > div table td > *:not(:first-child) {
         margin-top: var(--s-sm); }
-        .form:not(.form--invert) > div table th > *:first-child,
-        .form:not(.form--invert) > div table td > *:first-child {
-          margin-top: 0; }
       .form:not(.form--invert) > div table th > ul,
       .form:not(.form--invert) > div table th > li,
       .form:not(.form--invert) > div table td > ul,
@@ -2102,8 +2275,7 @@ details summary {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  margin: var(--s-lg) auto;
-  padding-top: var(--s-md); }
+  margin-top: var(--s-md); }
   @media (min-width: 768px) {
     .home-dashboard {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
@@ -2167,10 +2339,9 @@ details summary {
     .home-dashboard > div:first-child > ul:not(:empty) {
       margin-top: var(--s-sm); }
       .home-dashboard > div:first-child > ul:not(:empty) > li {
-        box-shadow: calc($s * 0.5) var(--s-xs) var(--s-xs) rgba(44, 44, 44, 0.5);
-        margin-top: var(--s-sm); }
-        .home-dashboard > div:first-child > ul:not(:empty) > li:first-child {
-          margin-top: 0; }
+        box-shadow: calc($s * 0.5) var(--s-xs) var(--s-xs) rgba(44, 44, 44, 0.5); }
+        .home-dashboard > div:first-child > ul:not(:empty) > li:not(:first-child) {
+          margin-top: var(--s-sm); }
   .home-dashboard > div:last-child {
     width: 100%;
     margin-top: var(--s-md); }
@@ -2187,10 +2358,8 @@ details summary {
       margin-top: var(--s-xs); }
     .home-dashboard > div:last-child > ul:not(:empty) {
       margin-top: var(--s-md); }
-      .home-dashboard > div:last-child > ul:not(:empty) > li {
+      .home-dashboard > div:last-child > ul:not(:empty) > li:not(:first-child) {
         margin-top: var(--s-sm); }
-        .home-dashboard > div:last-child > ul:not(:empty) > li:first-child {
-          margin-top: 0; }
 
 .intro {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
@@ -2218,14 +2387,11 @@ details summary {
       .intro > header > div:has(table) {
         overflow-x: auto; }
       .intro > header > div > * {
-        margin-top: var(--s-md);
         max-width: var(--w-2xl); }
-        .intro > header > div > *:first-child {
-          margin-top: 0; }
-      .intro > header > div > h1, .intro > header > div > h2, .intro > header > div > h3, .intro > header > div > h4, .intro > header > div > h5, .intro > header > div > h6 {
+        .intro > header > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .intro > header > div > h1:not(:first-child), .intro > header > div > h2:not(:first-child), .intro > header > div > h3:not(:first-child), .intro > header > div > h4:not(:first-child), .intro > header > div > h5:not(:first-child), .intro > header > div > h6:not(:first-child) {
         margin-top: var(--s-md); }
-        .intro > header > div > h1:first-child, .intro > header > div > h2:first-child, .intro > header > div > h3:first-child, .intro > header > div > h4:first-child, .intro > header > div > h5:first-child, .intro > header > div > h6:first-child {
-          margin-top: 0; }
       .intro > header > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2274,10 +2440,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: decimal; }
         .intro > header > div ol > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .intro > header > div ol > li:first-child {
-            margin-top: 0; }
+          .intro > header > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .intro > header > div ol > li > ol,
           .intro > header > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2290,10 +2455,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: disc; }
         .intro > header > div ul > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .intro > header > div ul > li:first-child {
-            margin-top: 0; }
+          .intro > header > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .intro > header > div ul > li > ol,
           .intro > header > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2309,12 +2473,9 @@ details summary {
         .intro > header > div table td {
           padding: var(--s-md);
           border: 1px solid vaR(--c-br-lt); }
-          .intro > header > div table th > *,
-          .intro > header > div table td > * {
+          .intro > header > div table th > *:not(:first-child),
+          .intro > header > div table td > *:not(:first-child) {
             margin-top: var(--s-sm); }
-            .intro > header > div table th > *:first-child,
-            .intro > header > div table td > *:first-child {
-              margin-top: 0; }
           .intro > header > div table th > ul,
           .intro > header > div table th > li,
           .intro > header > div table td > ul,
@@ -2457,10 +2618,6 @@ details summary {
       padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
       padding-top: var(--s-lg);
       padding-bottom: var(--s-lg); } }
-  @media (min-width: 992px) {
-    .primary-hero {
-      padding-top: var(--s-lg);
-      padding-bottom: var(--s-lg); } }
   .primary-hero:after {
     position: absolute;
     top: 0;
@@ -2511,14 +2668,11 @@ details summary {
       .primary-hero > div > div:has(table) {
         overflow-x: auto; }
       .primary-hero > div > div > * {
-        margin-top: var(--s-sm);
         max-width: var(--w-2xl); }
-        .primary-hero > div > div > *:first-child {
-          margin-top: 0; }
-      .primary-hero > div > div > h1, .primary-hero > div > div > h2, .primary-hero > div > div > h3, .primary-hero > div > div > h4, .primary-hero > div > div > h5, .primary-hero > div > div > h6 {
+        .primary-hero > div > div > *:not(:first-child) {
+          margin-top: var(--s-sm); }
+      .primary-hero > div > div > h1:not(:first-child), .primary-hero > div > div > h2:not(:first-child), .primary-hero > div > div > h3:not(:first-child), .primary-hero > div > div > h4:not(:first-child), .primary-hero > div > div > h5:not(:first-child), .primary-hero > div > div > h6:not(:first-child) {
         margin-top: var(--s-sm); }
-        .primary-hero > div > div > h1:first-child, .primary-hero > div > div > h2:first-child, .primary-hero > div > div > h3:first-child, .primary-hero > div > div > h4:first-child, .primary-hero > div > div > h5:first-child, .primary-hero > div > div > h6:first-child {
-          margin-top: 0; }
       .primary-hero > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2567,10 +2721,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: decimal; }
         .primary-hero > div > div ol > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .primary-hero > div > div ol > li:first-child {
-            margin-top: 0; }
+          .primary-hero > div > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .primary-hero > div > div ol > li > ol,
           .primary-hero > div > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2583,10 +2736,9 @@ details summary {
         line-height: 1.4em;
         list-style-type: disc; }
         .primary-hero > div > div ul > li {
-          margin-top: var(--s-sm);
           margin-left: 1.5em; }
-          .primary-hero > div > div ul > li:first-child {
-            margin-top: 0; }
+          .primary-hero > div > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
           .primary-hero > div > div ul > li > ol,
           .primary-hero > div > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2602,12 +2754,9 @@ details summary {
         .primary-hero > div > div table td {
           padding: var(--s-md);
           border: 1px solid vaR(--c-br-lt); }
-          .primary-hero > div > div table th > *,
-          .primary-hero > div > div table td > * {
+          .primary-hero > div > div table th > *:not(:first-child),
+          .primary-hero > div > div table td > *:not(:first-child) {
             margin-top: var(--s-sm); }
-            .primary-hero > div > div table th > *:first-child,
-            .primary-hero > div > div table td > *:first-child {
-              margin-top: 0; }
           .primary-hero > div > div table th > ul,
           .primary-hero > div > div table th > li,
           .primary-hero > div > div table td > ul,
@@ -2768,14 +2917,11 @@ details summary {
     .split > div:has(table) {
       overflow-x: auto; }
     .split > div > * {
-      margin-top: var(--s-md);
       max-width: var(--w-2xl); }
-      .split > div > *:first-child {
-        margin-top: 0; }
-    .split > div > h1, .split > div > h2, .split > div > h3, .split > div > h4, .split > div > h5, .split > div > h6 {
+      .split > div > *:not(:first-child) {
+        margin-top: var(--s-md); }
+    .split > div > h1:not(:first-child), .split > div > h2:not(:first-child), .split > div > h3:not(:first-child), .split > div > h4:not(:first-child), .split > div > h5:not(:first-child), .split > div > h6:not(:first-child) {
       margin-top: var(--s-md); }
-      .split > div > h1:first-child, .split > div > h2:first-child, .split > div > h3:first-child, .split > div > h4:first-child, .split > div > h5:first-child, .split > div > h6:first-child {
-        margin-top: 0; }
     .split > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -2824,10 +2970,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: decimal; }
       .split > div ol > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .split > div ol > li:first-child {
-          margin-top: 0; }
+        .split > div ol > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .split > div ol > li > ol,
         .split > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -2840,10 +2985,9 @@ details summary {
       line-height: 1.4em;
       list-style-type: disc; }
       .split > div ul > li {
-        margin-top: var(--s-sm);
         margin-left: 1.5em; }
-        .split > div ul > li:first-child {
-          margin-top: 0; }
+        .split > div ul > li:not(:first-child) {
+          margin-top: var(--s-sm); }
         .split > div ul > li > ol,
         .split > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -2859,12 +3003,9 @@ details summary {
       .split > div table td {
         padding: var(--s-md);
         border: 1px solid vaR(--c-br-lt); }
-        .split > div table th > *,
-        .split > div table td > * {
+        .split > div table th > *:not(:first-child),
+        .split > div table td > *:not(:first-child) {
           margin-top: var(--s-sm); }
-          .split > div table th > *:first-child,
-          .split > div table td > *:first-child {
-            margin-top: 0; }
         .split > div table th > ul,
         .split > div table th > li,
         .split > div table td > ul,

@@ -108,12 +108,12 @@ body {
 	cursor: var(--cursor-default);
 }
 
-article {
+main > article {
 	padding-top: var(--h-header);
-}
 
-section {
-	margin: var(--s-lg) auto;
+	> section {
+		margin: var(--s-lg) auto;
+	}
 }
 
 [id] {

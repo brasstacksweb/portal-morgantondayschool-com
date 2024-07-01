@@ -42,7 +42,7 @@ $handle: "header";
 
 		@include media($max: "xs") {
 			@include absolute(calc(var(--h-header) + 1px), 0, auto, 0);
-			@include pad("sm");
+			@include pad(var(--s-sm));
 			z-index: 9;
 			opacity: 0;
 			transform: translateY(-100%);
