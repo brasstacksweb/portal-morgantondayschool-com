@@ -10,6 +10,16 @@ use modules\components\services\Components;
 
 class ComponentsVariable
 {
+    public array $colors = [
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'violet',
+    ];
+
     public function newCta(?Entry $cta, array $options = []): ?Cta
     {
         return Components::newCta($cta, $options);

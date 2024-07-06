@@ -1,4 +1,4 @@
-dateModified: 1719683972
+dateModified: 1720283824
 elementSources:
   craft\elements\Entry:
     -
@@ -123,7 +123,7 @@ meta:
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
     6271783c-fcdd-4d3b-89b1-246b1c93cc0d: Video # Video
-    93400719-64ce-46ce-996c-008e37c78a42: Split # Split
+    93400719-64ce-46ce-996c-008e37c78a42: 'Color Split' # Color Split
     a4fa5523-8cdd-400d-8f0e-50b8bd7c2802: 'Reference URL' # Reference URL
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview

@@ -6,7 +6,8 @@
  # @param {Entry[]} ctas
  # @param {object} image
  # @param {string} backgroundColor
- # @param {string} mediaPosition <left*, right>
+ # @param {string} headingPosition <left*, right>
+ # @param {string} headingAlignment <top, center*, bottom>
  #}
 
 {# Params #}
@@ -16,14 +17,19 @@
 {% set ctas = ctas ?? [] %}
 {% set image = image ?? null %}
 {% set backgroundColor = backgroundColor ?? '' %}
-{% set mediaPosition = mediaPosition ?? '' %}
+{% set headingPosition = headingPosition ?? 'left' %}
+{% set headingAlignment = headingAlignment ?? 'center' %}
 
 {# Variables #}
-{% set handle = 'split' %}
+{% set handle = 'color-split' %}
 
 {# Markup #}
-<div class="{{ handle }} {{ handle }}--media-position-{{ mediaPosition }}">
-	<header style="background-color: var(--c-{{ backgroundColor }}-lt)">
+<div class="
+	{{ handle }}
+	{{ handle }}--heading-position-{{ headingPosition }}
+	{{ handle }}--heading-alignment-{{ headingAlignment }}
+">
+	<header style="background-color: var(--c-{{ backgroundColor }}-dk)">
 		<h2>{{ heading }}</h2>
 		{% if subheading is not empty %}
 			<h3>{{ subheading }}</h3>
@@ -41,7 +47,7 @@
 			{{ image.render({ type: 'figure' }) }}
 		{% endif %}
 	</header>
-	<div style="background-color: var(--c-{{ backgroundColor }}-dk)">
+	<div style="background-color: var(--c-{{ backgroundColor }}-lt)">
 		{{ body }}
 	</div>
 </div>

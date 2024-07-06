@@ -127,10 +127,10 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 5a81ee8e-7a65-4713-a91b-b4904e4f5e50 # Left Right
-            handle: mediaPosition
+            handle: headingPosition
             includeInCards: false
             instructions: null
-            label: 'Media Position'
+            label: 'Heading Position'
             providesThumbs: false
             required: false
             tip: null
@@ -142,10 +142,10 @@ fieldLayouts:
         name: Content
         uid: 8f89f689-3d80-49a5-843d-6de329665eb4
         userCondition: null
-handle: split
+handle: colorSplit
 hasTitleField: false
 icon: table-columns
-name: Split
+name: 'Color Split'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

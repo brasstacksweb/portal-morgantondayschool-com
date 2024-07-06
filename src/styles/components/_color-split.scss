@@ -1,4 +1,4 @@
-$handle: "split";
+$handle: "color-split";
 
 .#{$handle} {
 	@include pad(var(--s-sm), var(--w-md));
@@ -58,7 +58,7 @@ $handle: "split";
 		}
 	}
 
-	&--media-position-left > header {
+	&--heading-position-left > header {
 		@include media("md") {
 			border-top-left-radius: var(--s-br-lg);
 			border-bottom-left-radius: var(--s-br-lg);
@@ -71,7 +71,7 @@ $handle: "split";
 		}
 	}
 
-	&--media-position-right > header {
+	&--heading-position-right > header {
 		@include media("md") {
 			border-top-right-radius: var(--s-br-lg);
 			border-bottom-right-radius: var(--s-br-lg);
@@ -82,6 +82,14 @@ $handle: "split";
 				left: calc(-1 * var(--s-br-lg));
 			}
 		}
+	}
+
+	&--heading-alignment-top > header {
+		justify-content: flex-start;
+	}
+
+	&--heading-alignment-bottom > header {
+		justify-content: flex-end;
 	}
 
 	> div {
@@ -98,7 +106,7 @@ $handle: "split";
 		}
 	}
 
-	&--media-position-left > div {
+	&--heading-position-left > div {
 		@include media ($max: "sm") {
 			border-radius: var(--s-br-lg);
 			border-top-left-radius: 0;
@@ -111,7 +119,7 @@ $handle: "split";
 		}
 	}
 
-	&--media-position-right > div {
+	&--heading-position-right > div {
 		@include media ($max: "sm") {
 			border-radius: var(--s-br-lg);
 			border-top-right-radius: 0;

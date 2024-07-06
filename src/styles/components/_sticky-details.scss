@@ -1,0 +1,32 @@
+$handle: "sticky-details";
+
+.#{$handle} {
+	@include pad(var(--s-sm), var(--w-xl));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	> header {
+		position: sticky;
+		top: calc(var(--h-header) + var(--s-md));
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(30% - var(--s-sm));
+		}
+
+		> h2 {
+			@include font("heading", "md");
+		}
+	}
+
+	> div {
+		@include richText("lg");
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(70% - var(--s-sm));
+		}
+	}
+}

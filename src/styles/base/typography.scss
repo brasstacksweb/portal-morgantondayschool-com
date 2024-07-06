@@ -158,7 +158,7 @@
 	}
 
 	> * {
-		max-width: var(--w-2xl);
+		max-width: var(--w-lg);
 
 		&:not(:first-child) {
 			margin-top: if($size == "sm", var(--s-sm), var(--s-md));
@@ -222,7 +222,7 @@
 
 			> ul,
 			> li {
-				@include font("body", "sm");
+				@include font("body", $size);
 			}
 		}
 

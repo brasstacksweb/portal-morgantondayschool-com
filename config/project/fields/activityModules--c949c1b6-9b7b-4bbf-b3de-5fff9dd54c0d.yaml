@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'New Module'
   entryTypes:
-    - 93400719-64ce-46ce-996c-008e37c78a42 # Split
+    - 93400719-64ce-46ce-996c-008e37c78a42 # Color Split
     - 1e6dc74f-eb75-4216-9fff-e9ca1d82313c # Intro
   includeTableView: false
   maxEntries: null
