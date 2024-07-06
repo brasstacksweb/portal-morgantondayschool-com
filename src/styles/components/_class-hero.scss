@@ -30,10 +30,6 @@ $handle: "class-hero";
 			margin-top: var(--s-sm);
 		}
 
-		> div {
-			@include richText("sm");
-		}
-
 		> h1 {
 			@include font("heading", "xl");
 			text-wrap: balance;
@@ -63,10 +59,6 @@ $handle: "class-hero";
 
 		> div {
 			@include richText;
-
-			> p {
-				@include font("body", "lg");
-			}
 		}
 
 		> a {

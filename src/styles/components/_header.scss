@@ -30,7 +30,7 @@ $handle: "header";
 		flex-shrink: 0;
 		height: var(--h-header);
 		margin-right: var(--s-sm);
-		padding: var(--s);
+		padding: var(--s) var(--s-xs);
 		border-left: 1px solid var(--c-black);
 		border-right: 1px solid var(--c-black);
 	}

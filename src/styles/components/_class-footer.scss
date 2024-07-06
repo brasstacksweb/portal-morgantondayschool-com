@@ -2,11 +2,16 @@ $handle: "class-footer";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
+	@include space(var(--s-sm));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
-	margin: var(--s-lg) auto;
+
+	@include media("sm") {
+		@include pad(var(--s-md));
+		@include space(var(--s-lg));
+	}
 
 	> div {
 		width: 100%;
