@@ -90,7 +90,7 @@
 			</footer>
 		{% endif %}
 
-		<dialog><button type="button">Close</button><section></section></dialog>
+		<dialog><button type="button" aria-label="Close">&times;</button><section></section></dialog>
 
 		{% if loadForm %}
 			<script src="https://www.google.com/recaptcha/api.js?render={{ getenv('RECAPTCHA_SITE_KEY') }}"></script>

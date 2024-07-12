@@ -1,12 +1,14 @@
 $handle: "color-split";
 
 .#{$handle} {
-	@include pad(var(--s-sm), var(--w-md));
+	@include pad(var(--s-sm));
 	display: flex;
 	flex-wrap: wrap;
+	margin: var(--s-md) auto;
 
-	@include media("md") {
-		@include pad(var(--s-md), var(--w-xl));
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		margin: var(--s-lg) auto;
 	}
 
 	> header {

@@ -43,8 +43,14 @@ $handle: "media-split";
 			@include font("heading", "lg");
 		}
 
+		> h3 {
+			@include font("eyebrow");
+			order: -1;
+			margin-bottom: var(--s-xs);
+		}
+
 		> div {
-			@include richText("lg");
+			@include richText;
 			margin-top: var(--s-sm);
 		}
 

@@ -36,23 +36,18 @@
 		<header>
 			{% include '_components/hero' with {
 				heading: entry.heading,
+				body: entry.overview,
 				avatar: entry.teacher[0] ?? null,
 				ctas: [create({
 					class: 'craft\\elements\\Entry',
 					typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
 					title: 'View Resources',
-					page: entry,
+					page: [entry.id],
 					anchor: 'resources',
 				})],
 				image: entry.heroImage[0] ?? null,
 			} only %}
 		</header>
-
-		<section>
-			{% include '_components/intro' with {
-				body: entry.overview,
-			} only %}
-		</section>
 
 		<section>
 			{% include '_components/text-list' with {
@@ -83,7 +78,7 @@
 		{# TODO: Promo #}
 
 		<section>
-			{% include '_components/posts-gallery' with {
+			{% include '_components/gallery' with {
 				heading: 'In the Classroom',
 				posts: entry.posts,
 			} only %}

@@ -115,18 +115,24 @@ body > dialog {
 	display: none;
 	flex-direction: column;
 	padding: 0;
-	border: 1px solid var(--c-br-dk);
+	border: 0;
 
 	&[open] {
 		display: flex;
 	}
 
 	> button {
-		margin: var(--s-xs) var(--s-xs) var(--s-xs) auto;
-		padding: var(--s) var(--s-xs);
+		position: absolute;
+		top: var(--s-xs);
+		right: var(--s-xs);
+		flex-shrink: 0;
+		width: var(--s-md);
+		height: var(--s-md);
 		background-color: var(--c-black);
 		color: var(--c-white);
-		border-radius: var(--s-br-sm);
+		border-radius: 50%;
+		font-size: var(--s-sm);
+
 	}
 }
 

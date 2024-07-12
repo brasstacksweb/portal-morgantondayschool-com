@@ -7,8 +7,12 @@
 {% set entry = craft.entries.id(entry.id).with([
 	'heroImage',
 	'cta.pageCta:page',
-	'activityModules.hero:image',
-	'activityModules.hero:ctas.pageCta:page',
+	'activityModules.accordionList:accordions.textBlock:cta.pageCta:page',
+	'activityModules.cardList:cards.card:image',
+	'activityModules.cardList:cards.card:cta.pageCta:page',
+	'activityModules.mediaSplit:image',
+	'activityModules.mediaSplit:cta.pageCta:page',
+	'activityModules.textList:textlist.textBlock:cta.pageCta:page',
 ]).one() %}
 
 {# Markup #}

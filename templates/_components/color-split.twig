@@ -37,9 +37,8 @@
 		{% if ctas is not empty %}
 			<nav>
 				{% for c in ctas %}
-					{{ c.render({
-						type: loop.first ? 'primary' : 'secondary',
-					}) }}
+					{{ cta.render({ type: 'tertiary' }) }}
+					{{ c.render({ type: loop.first ? 'primary' : 'tertiary' }) }}
 				{% endfor %}
 			</nav>
 		{% endif %}

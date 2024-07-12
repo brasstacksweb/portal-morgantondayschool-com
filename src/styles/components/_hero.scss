@@ -2,7 +2,7 @@ $handle: "hero";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
-	@include space(var(--s-sm), var(--s-md));
+	@include space(var(--s-sm)0);
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
@@ -11,7 +11,7 @@ $handle: "hero";
 
 	@include media("sm") {
 		@include pad(var(--s-md), var(--w-xl));
-		@include space(var(--s-lg));
+		@include space(var(--s-lg), 0);
 	}
 
 	> div {
@@ -35,10 +35,6 @@ $handle: "hero";
 			}
 		}
 
-		> *:not(:first-child) {
-			margin-top: var(--s-sm);
-		}
-
 		> h1 {
 			@include font("heading", "xl");
 		}
@@ -46,10 +42,16 @@ $handle: "hero";
 		> h2 {
 			@include font("eyebrow");
 			order: -1;
+			margin-bottom: var(--s-xs);
 		}
 
 		> div {
 			@include richText("sm");
+			margin-top: var(--s-sm);
+		}
+
+		> nav {
+			margin-top: var(--s-sm);
 		}
 	}
 }
