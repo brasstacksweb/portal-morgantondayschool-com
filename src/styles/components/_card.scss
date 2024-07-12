@@ -1,0 +1,29 @@
+$handle: "card";
+
+.#{$handle} {
+	> a > article,
+	> article {
+		> header {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			&:nth-child(2) {
+				margin-top: var(--s-sm);
+			}
+
+			> h3 {
+				@include font("heading", "sm");
+			}
+
+			> div {
+				@include richText("sm");
+				margin-top: var(--s-sm);
+			}
+
+			> em {
+				margin-top: var(--s-sm);
+			}
+		}
+	}
+}

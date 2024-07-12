@@ -1,0 +1,61 @@
+$handle: "media-split";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-md));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	&--alignment-top {
+		align-items: flex-start;
+	}
+
+	&--alignment-bottom {
+		align-items: flex-end;
+	}
+
+	> div {
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(60% - var(--s-md));
+		}
+	}
+
+	> header {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(40% - var(--s-md));
+		}
+
+		> h2 {
+			@include font("heading", "lg");
+		}
+
+		> div {
+			@include richText("lg");
+			margin-top: var(--s-sm);
+		}
+
+		> nav {
+			margin-top: var(--s-sm);
+		}
+	}
+
+	&--media-position-right > header {
+		@include media("sm") {
+			order: -1;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+$handle: "hero";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm), var(--s-md));
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@include media("sm") {
+		@include pad(var(--s-md), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	> div {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(50% - var(--s-md));
+		}
+
+		&:nth-child(2) {
+			@include media($max: "xs") {
+				margin-top: var(--s-sm);
+			}
+
+			@include media("sm") {
+				order: -1;
+			}
+		}
+
+		> *:not(:first-child) {
+			margin-top: var(--s-sm);
+		}
+
+		> h1 {
+			@include font("heading", "xl");
+		}
+
+		> h2 {
+			@include font("eyebrow");
+			order: -1;
+		}
+
+		> div {
+			@include richText("sm");
+		}
+	}
+}

@@ -36,36 +36,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c # Datetime
-            handle: startDate
-            includeInCards: false
-            instructions: null
-            label: 'Start Date'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7755f22c-04ed-4a5d-8018-67e4f8bc2cb2
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: a9f36339-edb8-49a5-889e-3545779d1794 # Activity
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: ed2f31db-f2c3-498e-9a3b-b23b3967c137
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: null
             includeInCards: false
@@ -81,6 +51,36 @@ fieldLayouts:
             width: 75
           -
             elementCondition: null
+            fieldUid: a9f36339-edb8-49a5-889e-3545779d1794 # Activity
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed2f31db-f2c3-498e-9a3b-b23b3967c137
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: date
+            includeInCards: false
+            instructions: null
+            label: Date
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d429468b-fac4-49e3-931c-b0c028d09e5d
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: 6f19cee3-1de8-4684-852b-f59cfdf23892 # CTA
             handle: null
             includeInCards: false
@@ -93,7 +93,7 @@ fieldLayouts:
             uid: 50b86e24-a2a8-4ae1-b34d-2109fe49096f
             userCondition: null
             warning: null
-            width: 25
+            width: 50
         name: Content
         uid: 474bf09e-64a3-4405-a80a-0fb1bf7c7e3a
         userCondition: null

@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: textList
+instructions: null
+name: 'Text List'
+searchable: false
+settings:
+  createButtonLabel: 'New Item'
+  entryTypes:
+    - 27b3396e-b5a4-4d09-8403-237a05d2ffdd # Text Block
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

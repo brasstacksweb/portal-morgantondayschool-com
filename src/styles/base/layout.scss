@@ -8,6 +8,16 @@
 	@return m#{a}x($padding, calc(0.5 * (#{$cont-width} - #{$max-width})));
 }
 
+@mixin pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
+	padding-left: pad($padding, $max-width, $cont-width);;
+	padding-right: pad($padding, $max-width, $cont-width);;
+}
+
+@mixin space($padding: var(--s-md), $bottom: false) {
+	padding-top: $padding;
+	padding-bottom: if($bottom, $bottom, $padding);
+}
+
 @mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
 	position: absolute;
 	top: $top;
@@ -43,8 +53,8 @@
 	box-shadow: calc($s * 0.5) $s $s rgba(44, 44, 44, 0.5);
 }
 
-@mixin gridLines($cols, $color: var(--c-br-lt)) {
-	border: 1px solid var(--c-br-lt);
+@mixin gridLines($cols, $color: var(--c-black)) {
+	border: 1px solid $color;
 	border-left: 0;
 
 	&:nth-child(n + #{$cols + 1}) {
@@ -52,16 +62,6 @@
 	}
 
 	&:nth-child(#{$cols}n + 1) {
-		border-left: 1px solid var(--c-br-lt);
+		border-left: 1px solid $color;
 	}
-}
-
-@mixin pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
-	padding-left: pad($padding, $max-width, $cont-width);;
-	padding-right: pad($padding, $max-width, $cont-width);;
-}
-
-@mixin space($padding: var(--s-md), $bottom: false) {
-	padding-top: $padding;
-	padding-bottom: if($bottom, $bottom, $padding);
 }

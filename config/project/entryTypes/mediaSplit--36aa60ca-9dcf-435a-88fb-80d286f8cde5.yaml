@@ -1,0 +1,140 @@
+color: null
+fieldLayouts:
+  dc8e7069-009f-4f23-8088-fbf6f451fd49:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 984d4b44-283b-42da-868a-57a72113da0e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: heading
+            includeInCards: false
+            instructions: null
+            label: Heading
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 989ca35d-74fd-4bba-9a80-e134f2e2a374
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Description
+            handle: body
+            includeInCards: false
+            instructions: null
+            label: Body
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 632158b7-0886-4820-bf76-445f176869f2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 6f19cee3-1de8-4684-852b-f59cfdf23892 # CTA
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 771a5ea3-8035-45c8-b682-8e80a0dbac9f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 85678c0a-c3dc-4608-8a80-f2b7bb26850c
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 5a81ee8e-7a65-4713-a91b-b4904e4f5e50 # Left Right
+            handle: mediaPosition
+            includeInCards: false
+            instructions: null
+            label: 'Media Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4006c969-9cfc-4a34-84f1-c0e5de1bdb8e
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15 # Color
+            handle: backgroundColor
+            includeInCards: false
+            instructions: null
+            label: 'Background Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7b1414c5-d39f-4965-9ce1-441968232f90
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: c9d170db-4b1c-4620-80de-239bd5695196
+        userCondition: null
+handle: mediaSplit
+hasTitleField: false
+icon: cassette-betamax
+name: 'Media Split'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

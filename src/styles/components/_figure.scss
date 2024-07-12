@@ -2,28 +2,29 @@ $handle: "figure";
 
 .#{$handle} {
 	> figure {
-		position: relative;
-		overflow: hidden;
 		display: block;
-		background-color: var(--c-white);
-		border-radius: var(--s-br-md);
 
-		> img {
-			width: 100%;
-			filter: saturate(150%);
+		> div {
+			position: relative;
+			overflow: hidden;
+
+			> img {
+				width: 100%;
+				filter: saturate(150%);
+				background-color: var(--c-black);
+			}
+
+			> video {
+				@include absolute(-1px, -1px, -1px, -1px);
+				width: calc(100% + 2px);
+				height: calc(100% + 2px);
+				background-color: var(--c-black);
+			}
 		}
 
 		> figcaption {
 			@include font("body", -1);
-			padding: var(--s-xs) var(--s-sm);
-			color: var(--c-black);
-		}
-
-		> video {
-			@include absolute(-1px, -1px, -1px, -1px);
-			width: calc(100% + 2px);
-			height: calc(100% + 2px);
-			object-fit: cover;
+			padding: var(--s-xs);
 		}
 	}
 }

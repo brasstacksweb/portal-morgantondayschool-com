@@ -16,26 +16,23 @@
  * Order alphabetically
  */
 
-@import "components/activity-card";
+@import "components/accordion-list";
 @import "components/background-image";
 @import "components/card";
+@import "components/card-list";
 @import "components/class-card";
-@import "components/class-details";
-@import "components/class-footer";
-@import "components/class-hero";
-@import "components/classes-listing";
+@import "components/class-list";
 @import "components/color-split";
-@import "components/expandable-text";
+// @import "components/expandable-text";
 @import "components/figure";
 @import "components/form";
 @import "components/form-field";
 @import "components/header";
-@import "components/home-dashboard";
+@import "components/hero";
 @import "components/intro";
-@import "components/modal";
+@import "components/media-split";
 @import "components/posts-gallery";
-@import "components/primary-hero";
-@import "components/reminder-card";
-@import "components/sticky-details";
+// @import "components/reminder-card";
+@import "components/text-block";
 @import "components/text-cta";
-@import "components/youtube-video";
+@import "components/text-list";

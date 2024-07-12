@@ -2,6 +2,20 @@
  # Home page
  #}
 
+{% set week = date('sunday last week') %}
+{% set prevWeek = week|date_modify('-1 week')|atom %}
+{% set nextWeek = week|date_modify('+1 week')|atom %}
+
+{% set reminders = craft.entries.section('reminders')
+	.with(['activity', 'cta.pageCta:page'])
+	.all() %}
+
+{% set month = date('first day of next month') %}
+{% set activities = craft.entries.section('activities')
+	.with(['previewImage'])
+	.relatedTo(craft.categories.group('months').slug(month|date('F')|lower).ids())
+	.all() %}
+
 {% set classes = craft.entries.section('classes')
 	.with(['teacher'])
 	.all() %}
@@ -13,15 +27,36 @@
 
 {% block content %}
 	<article>
-		<header>
-			{% include '_components/home-dashboard' with {
-				activitiesHeading: 'Upcoming',
-				remindersHeading: 'Top of Mind',
+		<section>
+			{% include '_components/text-list' with {
+				heading: 'Upcoming Events',
+				listItems: reminders,
+				paginate: {
+					prevParam: prevWeek,
+					nextParam: nextWeek,
+					current: 'Week of ' ~ week|date('m/d/Y'),
+					endpoint: '/json/reminder-list',
+					paramName: 'week',
+					emptyText: 'No reminders for this week.',
+				},
 			} only %}
-		</header>
+		</section>
+
+		<section>
+			{% set body %}
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			{% endset %}
+
+			{% include '_components/card-list' with {
+				heading: 'Activities',
+				body: body,
+				cards: activities,
+				gridSize: '2',
+			} only %}
+		</section>
 
 		<section id="classes">
-			{% include '_components/classes-listing' with {
+			{% include '_components/class-list' with {
 				classes: classes|map(c => c|merge({
 					teacher: c.teacher[0] ?? null,
 					color: c.color.value,

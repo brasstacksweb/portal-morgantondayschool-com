@@ -1,0 +1,47 @@
+{##
+ # Accordions component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {object[]} accordions
+ # |_@param {string} heading
+ # |_@param {HTML} body
+ # @param {string} accordionPosition
+ # @param {string} backgroundColor
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set accordions = accordions ?? [] %}
+{% set accordionPosition = accordionPosition ?? '' %}
+{% set backgroundColor = backgroundColor ?? '' %}
+
+{# Variables #}
+{% set handle = 'accordion-list' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div class="
+	{{ handle }}
+	{{ handle }}--accordion-position-{{ accordionPosition }}
+	{{ handle }}--background-color-{{ backgroundColor }}
+">
+	<header>
+		<h2>{{ heading }}</h2>
+		{% if body is not empty %}
+			<div>{{ body }}</div>
+		{% endif %}
+	</header>
+	<div>
+		{% for a in accordions %}
+			<details>
+				<summary>
+					<h3>{{ a.heading }}</h3>
+					<i>{{ icons.chevron('down') }}</i>
+				</summary>
+				<div>{{ a.body }}</div>
+			</details>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,82 @@
+$handle: "accordion-list";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-md));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	> header {
+		position: sticky;
+		top: calc(var(--h-header) + var(--s-md));
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(40% - var(--s-md));
+		}
+
+		> h2 {
+			@include font("heading", "lg");
+		}
+
+		> div {
+			@include richText("lg");
+			margin-top: var(--s-sm);
+		}
+	}
+
+	> div {
+		width: 100%;
+
+		@include media("sm") {
+			width: calc(60% - var(--s-md));
+		}
+
+		> details {
+			width: 100%;
+			border-bottom: 1px solid var(--c-br-dk);
+
+			> summary {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: var(--s-sm) 0;
+				cursor: pointer;
+
+				> h3 {
+					@include font("heading", "md");
+					display: flex;
+					align-items: center;
+				}
+
+				> i {
+					flex-shrink: 0;
+					width: var(--s-icon-lg);
+					height: var(--s-icon-lg);
+				}
+			}
+
+			&[open] > summary > i {
+				transform: rotate(180deg);
+			}
+
+			> div {
+				@include richText("sm");
+				padding-bottom: var(--s-sm);
+			}
+		}
+	}
+
+	&--accordion-position-left > div {
+		@include media("sm") {
+			order: -1;
+		}
+	}
+}

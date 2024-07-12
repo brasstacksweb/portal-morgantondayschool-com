@@ -1,18 +1,23 @@
+{% set content = content ?? '' %}
 {% set type = type ?? 'primary' %}
 {% set size = size ?? 'md' %}
 {% set invert = invert ?? false %}
 
-{% set url = entry.page[0].url ?? '' %}
+{% set url = entry.page[0].url ?? siteUrl %}
 
 {% if entry.anchor is not empty %}
 	{% set url = url ~ '#' ~ entry.anchor %}
 {% endif %}
 
 <a href="{{ url }}" title="{{ entry.title }}">
-	{% include '_components/text-cta' with {
-		title: entry.title,
-		type: type,
-		size: size,
-		invert: invert,
-	} only %}
+	{% if content is not empty %}
+		{{ content }}
+	{% else %}
+		{% include '_components/text-cta' with {
+			title: entry.title,
+			type: type,
+			size: size,
+			invert: invert,
+		} only %}
+	{% endif %}
 </a>

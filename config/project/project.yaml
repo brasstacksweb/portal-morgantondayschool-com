@@ -1,4 +1,4 @@
-dateModified: 1720283824
+dateModified: 1720804497
 elementSources:
   craft\elements\Entry:
     -
@@ -102,9 +102,11 @@ meta:
     7c331c3a-8fcf-4b9f-ad9e-c937ea0d6e1d: Page # Page
     9cb11a30-840e-4778-ac4e-d560ae4b70ce: Subject # Subject
     9d9dfbb2-88b3-4274-9762-69c856f6b518: 'Preview Image' # Preview Image
-    13cb83d3-ff25-4a72-a806-0c270db265e4: 'Primary Hero' # Primary Hero
+    13cb83d3-ff25-4a72-a806-0c270db265e4: Hero # Hero
     17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c: Datetime # Datetime
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School
+    27b3396e-b5a4-4d09-8403-237a05d2ffdd: 'Text Block' # Text Block
+    36aa60ca-9dcf-435a-88fb-80d286f8cde5: 'Media Split' # Media Split
     87c7eb6f-29f4-4836-8740-ee6965ccb886: Posts # Posts
     88e145c4-1350-4e7c-bb88-a9a9233ebaf2: Announcement # Announcement
     96a1a8e5-308a-4f2e-b084-6b353e026e23: Images # Images
@@ -113,12 +115,16 @@ meta:
     507c2c35-81fa-4361-90d7-f7514bbb4434: Activity # Activity
     613dcfc9-5442-4f47-8d88-b634483e0d47: 'Subject Updates' # Subject Updates
     666a2d7b-63a0-4256-acdd-fd5c0af0714f: Subjects # Subjects
+    731fd8e2-ca50-4fbb-b8b7-3a27ef8bf902: Card # Card
     812fd012-9cc4-4c3c-bf03-845a6340a1f5: 'Morganton Day School' # Morganton Day School
+    886f28e9-c88b-48e4-9f01-f841e4637ee9: Cards # Cards
+    904d4a16-ab49-40f5-9519-53c814f59997: 'Text List' # Text List
     938bdfab-80e2-4116-9e3d-66d94c36376f: Classes # Classes
     1908e08e-4715-4582-981a-ae20b88e9b7c: Months # Months
     2757b28b-9302-44d3-8dcf-259f2c2fdf24: 'Page CTA' # Page CTA
     5482c96e-84ee-4297-9e2b-8ac82e183ec2: Videos # Videos
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
+    21845b92-9016-4975-ad69-346de1c7a9a8: Description # Description
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
@@ -126,12 +132,16 @@ meta:
     93400719-64ce-46ce-996c-008e37c78a42: 'Color Split' # Color Split
     a4fa5523-8cdd-400d-8f0e-50b8bd7c2802: 'Reference URL' # Reference URL
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
+    ae3e4e31-15a0-4883-9c22-01637617e803: 'Card List' # Card List
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
     bf142fa8-b2dd-4970-a630-d5ad5cb11849: CTAs # CTAs
+    c48c6bc5-59fc-4be3-b77e-69ec7977c6df: 'Grid Size' # Grid Size
+    c56fb994-3459-4417-9f0f-0ce9f4359b70: 'Accordion List' # Accordion List
     c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d: 'Activity Modules' # Activity Modules
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
     cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links
+    ce1d738b-afb4-4eaa-a764-344ef98eb743: 'Text List' # Text List
     dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
@@ -140,6 +150,7 @@ meta:
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog
     fd20c5e5-4c47-4c8c-af5b-ee45e71242b4: 'User Photos' # User Photos
+    fda357e6-6234-4a8c-843e-7c973f47e463: 'Simple Plus' # Simple Plus
 plugins:
   ckeditor:
     edition: standard

@@ -1,0 +1,21 @@
+$handle: "avatar";
+
+.#{$handle} {
+	> a > address,
+	> address {
+		display: flex;
+		align-items: center;
+
+		img {
+			width: var(--s-icon-lg);
+			height: var(--s-icon-lg);
+			margin-right: var(--s);
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		strong {
+			@include font("eyebrow");
+		}
+	}
+}

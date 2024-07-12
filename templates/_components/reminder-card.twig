@@ -14,20 +14,27 @@
 {% set handle = 'reminder-card' %}
 
 {# Markup #}
+{% import '_icons' as icons %}
+
 <div class="{{ handle }}">
-	<h4>{{ reminder.title }}</h4>
-	<div>
-		{% if reminder.startDate ?? null %}
-			<time datetime="{{ reminder.startDate|atom }}">
-				{{ reminder.startDate|date('F j g:ia') }}
-			</time>
-		{% endif %}
-		<p>{{ reminder.text }}</p>
+	<h4>
+		{{ icons.info() }}
+		{{ reminder.title }}
+	</h4>
+	{% if reminder.startDate %}
+		<time datetime="{{ reminder.startDate|atom }}">
+			{{ reminder.startDate|date('F j g:ia') }}
+		</time>
+	{% endif %}
+	<p>{{ reminder.text }}</p>
+	{% if reminder.cta %}
 		<nav>
-			{% if reminder.cta ?? null %}
-				{{ reminder.cta.render() }}
-			{% endif %}
+			{{ reminder.cta.render({
+				title: 'Learn More',
+				type: 'secondary',
+				size: 'sm',
+			}) }}
 			{# TODO: Set Reminder #}
 		</nav>
-	</div>
+	{% endif %}
 </div>

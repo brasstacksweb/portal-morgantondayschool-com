@@ -156,9 +156,9 @@ a:focus {
   --s-md: calc(var(--s) * 8);
   --s-lg: calc(var(--s) * 16);
   --s-xl: calc(var(--s) * 32);
-  --s-br-sm: 8px;
-  --s-br-md: 16px;
-  --s-br-lg: 32px;
+  --s-br-sm: 13px;
+  --s-br-md: 27px;
+  --s-br-lg: 41px;
   --s-icon-sm: 10px;
   --s-icon-md: 20px;
   --s-icon-lg: 30px;
@@ -166,8 +166,8 @@ a:focus {
   --w-xs: calc(var(--w) * 2);
   --w-sm: calc(var(--w) * 4);
   --w-md: calc(var(--w) * 5);
-  --w-lg: calc(var(--w) * 6);
-  --w-xl: calc(var(--w) * 9);
+  --w-lg: calc(var(--w) * 7);
+  --w-xl: calc(var(--w) * 10);
   --h-header: var(--s-lg);
   --c-white: #FFF;
   --c-black: #000;
@@ -202,9 +202,7 @@ a:focus {
   --a-md: var(--a-s-md) ease-in-out;
   --a-lg: var(--a-s-lg) ease-in-out;
   --a-xl: var(--a-s-xl) ease-in-out;
-  --cursor-default: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='31' fill='none' viewBox='0 0 26 31'%3E%3Cpath fill='%23fff' fill-rule='evenodd' stroke='%23010101' stroke-linecap='square' stroke-width='2.5' d='M21.993 14.425 2.549 2.935l4.444 23.108 4.653-10.002 10.347-1.616Z' clip-rule='evenodd'/%3E%3C/svg%3E" ),auto;
-  --cursor-pointer: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='29' fill='none' viewBox='0 0 28 29'%3E%3Cpath fill='%23fff' d='M6.84 21.83c-.47-.6-1.05-1.82-2.07-3.34-.58-.83-2.01-2.41-2.45-3.23a2.1 2.1 0 0 1-.25-1.67 2.2 2.2 0 0 1 2.39-1.67c.85.18 1.63.6 2.25 1.2.43.41.82.85 1.18 1.32.27.34.33.47.63.85.3.39.5.77.35.2-.11-.83-.31-2.23-.6-3.48-.21-.95-.26-1.1-.46-1.82s-.32-1.32-.54-2.13c-.2-.8-.35-1.62-.46-2.44a4.7 4.7 0 0 1 .43-3.08c.58-.55 1.44-.7 2.17-.37a4.4 4.4 0 0 1 1.57 2.17c.43 1.07.72 2.19.86 3.33.27 1.67.79 4.1.8 4.6 0-.61-.11-1.91 0-2.5.12-.6.54-1.1 1.12-1.33.5-.15 1.02-.19 1.53-.1.52.1.98.4 1.29.83.38.98.6 2 .63 3.05.04-.91.2-1.82.47-2.7.28-.39.68-.67 1.15-.8.55-.1 1.11-.1 1.66 0 .46.15.85.44 1.14.82.35.88.56 1.82.63 2.77 0 .23.12-.65.48-1.24a1.67 1.67 0 1 1 3.17 1.07v3.77c-.06.97-.2 1.94-.4 2.9-.29.85-.7 1.65-1.2 2.38-.8.9-1.48 1.92-1.98 3.02a6.67 6.67 0 0 0 .03 3.2c-.68.07-1.37.07-2.05 0-.65-.1-1.45-1.4-1.67-1.8a.63.63 0 0 0-1.13 0c-.37.64-1.18 1.79-1.75 1.85-1.12.14-3.42 0-5.23 0 0 0 .3-1.66-.39-2.27-.68-.6-1.38-1.3-1.9-1.76l-1.4-1.6Z'/%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.25' d='M6.84 21.83c-.47-.6-1.05-1.82-2.07-3.34-.58-.83-2.01-2.41-2.45-3.23a2.1 2.1 0 0 1-.25-1.67 2.2 2.2 0 0 1 2.39-1.67c.85.18 1.63.6 2.25 1.2.43.41.82.85 1.18 1.32.27.34.33.47.63.85.3.39.5.77.35.2-.11-.83-.31-2.23-.6-3.48-.21-.95-.26-1.1-.46-1.82s-.32-1.32-.54-2.13c-.2-.8-.35-1.62-.46-2.44a4.7 4.7 0 0 1 .43-3.08c.58-.55 1.44-.7 2.17-.37a4.4 4.4 0 0 1 1.57 2.17c.43 1.07.72 2.19.86 3.33.27 1.67.79 4.1.8 4.6 0-.61-.11-1.91 0-2.5.12-.6.54-1.1 1.12-1.33.5-.15 1.02-.19 1.53-.1.52.1.98.4 1.29.83.38.98.6 2 .63 3.05.04-.91.2-1.82.47-2.7.28-.39.68-.67 1.15-.8.55-.1 1.11-.1 1.66 0 .46.15.85.44 1.14.82.35.88.56 1.82.63 2.77 0 .23.12-.65.48-1.24a1.67 1.67 0 1 1 3.17 1.07v3.77c-.06.97-.2 1.94-.4 2.9-.29.85-.7 1.65-1.2 2.38-.8.9-1.48 1.92-1.98 3.02a6.67 6.67 0 0 0 .03 3.2c-.68.07-1.37.07-2.05 0-.65-.1-1.45-1.4-1.67-1.8a.63.63 0 0 0-1.13 0c-.37.64-1.18 1.79-1.75 1.85-1.12.14-3.42 0-5.23 0 0 0 .3-1.66-.39-2.27-.68-.6-1.38-1.3-1.9-1.76l-1.4-1.6Z' clip-rule='evenodd'/%3E%3Cpath fill='%23000' d='M20.65 22.3v-6.24c0-.38-.31-.68-.7-.68-.37 0-.68.3-.68.68v6.23c0 .38.3.68.69.68.38 0 .69-.3.69-.68ZM17.2 22.3l-.04-6.25a.67.67 0 1 0-1.34.01l.04 6.24a.67.67 0 1 0 1.34 0ZM12.37 16.07l.04 6.22c0 .38.3.68.67.68.37 0 .67-.3.67-.68l-.04-6.23c0-.38-.3-.68-.67-.68-.37 0-.67.31-.67.69Z'/%3E%3C/svg%3E" ),auto
-; }
+  --cursor-default: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='31' fill='none' viewBox='0 0 26 31'%3E%3Cpath fill='%23fff' fill-rule='evenodd' stroke='%23010101' stroke-linecap='square' stroke-width='2.5' d='M21.993 14.425 2.549 2.935l4.444 23.108 4.653-10.002 10.347-1.616Z' clip-rule='evenodd'/%3E%3C/svg%3E" ),auto; }
 
 @media screen and (min-width: 1600px) {
   :root {
@@ -227,21 +225,30 @@ body {
 
 main > article {
   padding-top: var(--h-header); }
-  main > article > section {
-    margin: var(--s-lg) auto; }
+
+body > dialog {
+  display: none;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid var(--c-br-dk); }
+  body > dialog[open] {
+    display: flex; }
+  body > dialog > button {
+    margin: var(--s-xs) var(--s-xs) var(--s-xs) auto;
+    padding: var(--s) var(--s-xs);
+    background-color: var(--c-black);
+    color: var(--c-white);
+    border-radius: var(--s-br-sm); }
 
 [id] {
   scroll-margin-top: var(--h-header); }
 
 a {
-  cursor: var(--cursor-pointer) !important; }
+  cursor: pointer; }
   a[name] {
     display: inline-block;
     height: 0;
     line-height: 0; }
-
-h1, h2, h3, h4, h5, h6, p, figcaption {
-  cursor: text; }
 
 sub {
   vertical-align: sub;
@@ -254,6 +261,10 @@ sup {
 img {
   display: block;
   max-width: 100%; }
+
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--c-br-dk); }
 
 svg {
   display: block;
@@ -321,9 +332,7 @@ textarea {
 
 [type="file"],
 [type="reset"],
-[type="submit"] {
-  cursor: pointer; }
-
+[type="submit"],
 label {
   cursor: pointer; }
 
@@ -332,7 +341,7 @@ button {
   background: none;
   border: 0;
   border-radius: 0;
-  cursor: var(--cursor-pointer); }
+  cursor: pointer; }
   button:disabled {
     cursor: inherit; }
 
@@ -350,26 +359,333 @@ details summary {
 /**
  * Order alphabetically
  */
-.activity-card > article > a {
-  position: relative;
-  display: block;
-  aspect-ratio: 4 / 3; }
-  .activity-card > article > a > img {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
-  .activity-card > article > a > h3 {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: var(--s-sm);
-    left: var(--s-sm);
-    max-width: calc(100% - (2 * var(--s-sm))); }
+.accordion-list {
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; }
+  @media (min-width: 768px) {
+    .accordion-list {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
+  .accordion-list > header {
+    position: sticky;
+    top: calc(var(--h-header) + var(--s-md));
+    width: 100%; }
+    @media (min-width: 768px) {
+      .accordion-list > header {
+        width: calc(40% - var(--s-md)); } }
+    .accordion-list > header > h2 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .accordion-list > header > div {
+      color: var(--c-fg-dk);
+      margin-top: var(--s-sm); }
+      .accordion-list > header > div:has(table) {
+        overflow-x: auto; }
+      .accordion-list > header > div > * {
+        max-width: var(--w-lg); }
+        .accordion-list > header > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .accordion-list > header > div > h1:not(:first-child), .accordion-list > header > div > h2:not(:first-child), .accordion-list > header > div > h3:not(:first-child), .accordion-list > header > div > h4:not(:first-child), .accordion-list > header > div > h5:not(:first-child), .accordion-list > header > div > h6:not(:first-child) {
+        margin-top: var(--s-md); }
+      .accordion-list > header > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .accordion-list > header > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .accordion-list > header > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .accordion-list > header > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .accordion-list > header > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .accordion-list > header > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .accordion-list > header > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em; }
+      .accordion-list > header > div ol {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: decimal; }
+        .accordion-list > header > div ol > li {
+          margin-left: 1.5em; }
+          .accordion-list > header > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .accordion-list > header > div ol > li > ol,
+          .accordion-list > header > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .accordion-list > header > div ol > li > ul {
+            list-style-type: circle; }
+      .accordion-list > header > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .accordion-list > header > div ul > li {
+          margin-left: 1.5em; }
+          .accordion-list > header > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .accordion-list > header > div ul > li > ol,
+          .accordion-list > header > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .accordion-list > header > div ul > li > ul {
+            list-style-type: circle; }
+      .accordion-list > header > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .accordion-list > header > div table th,
+        .accordion-list > header > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .accordion-list > header > div table th > *:not(:first-child),
+          .accordion-list > header > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .accordion-list > header > div table th > ul,
+          .accordion-list > header > div table th > li,
+          .accordion-list > header > div table td > ul,
+          .accordion-list > header > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+            line-height: 1.4em; }
+        .accordion-list > header > div table td {
+          color: var(--c-fg-md); }
+      .accordion-list > header > div iframe {
+        max-width: 100%; }
+      .accordion-list > header > div figure {
+        margin: var(--s-lg) 0; }
+        .accordion-list > header > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .accordion-list > header > div i,
+      .accordion-list > header > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .accordion-list > header > div b,
+      .accordion-list > header > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .accordion-list > header > div a {
+        color: var(--c-black); }
+        .accordion-list > header > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
+      .accordion-list > header > div hr {
+        max-width: var(--w-xs);
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: double var(--c-br-dk); }
+  .accordion-list > div {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .accordion-list > div {
+        width: calc(60% - var(--s-md)); } }
+    .accordion-list > div > details {
+      width: 100%;
+      border-bottom: 1px solid var(--c-br-dk); }
+      .accordion-list > div > details > summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--s-sm) 0;
+        cursor: pointer; }
+        .accordion-list > div > details > summary > h3 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
+          display: flex;
+          align-items: center; }
+        .accordion-list > div > details > summary > i {
+          flex-shrink: 0;
+          width: var(--s-icon-lg);
+          height: var(--s-icon-lg); }
+      .accordion-list > div > details[open] > summary > i {
+        transform: rotate(180deg); }
+      .accordion-list > div > details > div {
+        color: var(--c-fg-dk);
+        padding-bottom: var(--s-sm); }
+        .accordion-list > div > details > div:has(table) {
+          overflow-x: auto; }
+        .accordion-list > div > details > div > * {
+          max-width: var(--w-lg); }
+          .accordion-list > div > details > div > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+        .accordion-list > div > details > div > h1:not(:first-child), .accordion-list > div > details > div > h2:not(:first-child), .accordion-list > div > details > div > h3:not(:first-child), .accordion-list > div > details > div > h4:not(:first-child), .accordion-list > div > details > div > h5:not(:first-child), .accordion-list > div > details > div > h6:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .accordion-list > div > details > div > h1 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+        .accordion-list > div > details > div > h2 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+        .accordion-list > div > details > div > h3 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+        .accordion-list > div > details > div > h4 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+        .accordion-list > div > details > div > h5 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+        .accordion-list > div > details > div > h6 {
+          font-family: system-ui;
+          font-weight: 400;
+          font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+          line-height: 1.1em;
+          letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+        .accordion-list > div > details > div > p {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.4em; }
+        .accordion-list > div > details > div ol {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.4em;
+          list-style-type: decimal; }
+          .accordion-list > div > details > div ol > li {
+            margin-left: 1.5em; }
+            .accordion-list > div > details > div ol > li:not(:first-child) {
+              margin-top: var(--s-sm); }
+            .accordion-list > div > details > div ol > li > ol,
+            .accordion-list > div > details > div ol > li > ul {
+              margin-top: var(--s-sm); }
+            .accordion-list > div > details > div ol > li > ul {
+              list-style-type: circle; }
+        .accordion-list > div > details > div ul {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.4em;
+          list-style-type: disc; }
+          .accordion-list > div > details > div ul > li {
+            margin-left: 1.5em; }
+            .accordion-list > div > details > div ul > li:not(:first-child) {
+              margin-top: var(--s-sm); }
+            .accordion-list > div > details > div ul > li > ol,
+            .accordion-list > div > details > div ul > li > ul {
+              margin-top: var(--s-sm); }
+            .accordion-list > div > details > div ul > li > ul {
+              list-style-type: circle; }
+        .accordion-list > div > details > div table {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.4em;
+          min-width: var(--w-md); }
+          .accordion-list > div > details > div table th,
+          .accordion-list > div > details > div table td {
+            padding: var(--s-md);
+            border: 1px solid vaR(--c-br-lt); }
+            .accordion-list > div > details > div table th > *:not(:first-child),
+            .accordion-list > div > details > div table td > *:not(:first-child) {
+              margin-top: var(--s-sm); }
+            .accordion-list > div > details > div table th > ul,
+            .accordion-list > div > details > div table th > li,
+            .accordion-list > div > details > div table td > ul,
+            .accordion-list > div > details > div table td > li {
+              font-family: system-ui;
+              font-weight: 333;
+              font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+              line-height: 1.4em; }
+          .accordion-list > div > details > div table td {
+            color: var(--c-fg-md); }
+        .accordion-list > div > details > div iframe {
+          max-width: 100%; }
+        .accordion-list > div > details > div figure {
+          margin: var(--s-lg) 0; }
+          .accordion-list > div > details > div figure > figcaption {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+            line-height: 1.4em;
+            margin-top: var(--s-xs);
+            color: var(--c-fg-md); }
+        .accordion-list > div > details > div i,
+        .accordion-list > div > details > div em {
+          font-style: italic;
+          letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+        .accordion-list > div > details > div b,
+        .accordion-list > div > details > div strong {
+          font-weight: bold;
+          letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+        .accordion-list > div > details > div a {
+          color: var(--c-black); }
+          .accordion-list > div > details > div a:hover {
+            color: var(--c-green);
+            text-decoration: underline; }
+        .accordion-list > div > details > div hr {
+          max-width: var(--w-xs);
+          margin-left: auto;
+          margin-right: auto;
+          border-bottom: double var(--c-br-dk); }
+  @media (min-width: 768px) {
+    .accordion-list--accordion-position-left > div {
+      order: -1; } }
 
 .background-image > div {
   position: absolute;
@@ -397,247 +713,370 @@ details summary {
     height: calc(100% + 2px);
     object-fit: cover; }
 
-.card {
-  position: relative;
+.card > a > article > header,
+.card > article > header {
   display: flex;
   flex-direction: column;
-  height: 100%; }
-  @media (min-width: 992px) {
-    .card--split {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start; } }
-  .card > figure {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    width: 100%; }
-    .card > figure > img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      transition: transform var(--a-xs); }
-      .card > figure > img + video {
-        position: absolute;
-        top: 0;
-        right: auto;
-        bottom: auto;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; }
-    .card > figure + div {
-      margin-top: var(--s-md); }
-  .card--image-pos-bottom > figure {
-    margin-top: var(--s-lg); }
-    @media (min-width: 768px) {
-      .card--image-pos-bottom > figure {
-        order: 2; } }
-  .card--image-height-sm > figure > img {
-    aspect-ratio: 3 / 1; }
-  .card--image-height-lg > figure > img {
-    aspect-ratio: 1 / 1; }
-  @media (min-width: 992px) {
-    .card--split > figure {
-      width: 50%; } }
-  @media (min-width: 1280px) {
-    .card--split > figure {
-      width: 65%; } }
-  @media (min-width: 992px) {
-    .card--split > figure > img {
-      aspect-ratio: 4 / 3; } }
-  @media (min-width: 992px) {
-    .card:hover > figure > img {
-      transform: scale(1.1);
-      transition: transform var(--a-lg); } }
-  .card > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
-    max-width: var(--w-lg); }
-    .card > div > h3 {
+  align-items: flex-start; }
+  .card > a > article > header:nth-child(2),
+  .card > article > header:nth-child(2) {
+    margin-top: var(--s-sm); }
+  .card > a > article > header > h3,
+  .card > article > header > h3 {
+    font-family: system-ui;
+    font-weight: 400;
+    font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+  .card > a > article > header > div,
+  .card > article > header > div {
+    color: var(--c-fg-dk);
+    margin-top: var(--s-sm); }
+    .card > a > article > header > div:has(table),
+    .card > article > header > div:has(table) {
+      overflow-x: auto; }
+    .card > a > article > header > div > *,
+    .card > article > header > div > * {
+      max-width: var(--w-lg); }
+      .card > a > article > header > div > *:not(:first-child),
+      .card > article > header > div > *:not(:first-child) {
+        margin-top: var(--s-sm); }
+    .card > a > article > header > div > h1:not(:first-child), .card > a > article > header > div > h2:not(:first-child), .card > a > article > header > div > h3:not(:first-child), .card > a > article > header > div > h4:not(:first-child), .card > a > article > header > div > h5:not(:first-child), .card > a > article > header > div > h6:not(:first-child),
+    .card > article > header > div > h1:not(:first-child),
+    .card > article > header > div > h2:not(:first-child),
+    .card > article > header > div > h3:not(:first-child),
+    .card > article > header > div > h4:not(:first-child),
+    .card > article > header > div > h5:not(:first-child),
+    .card > article > header > div > h6:not(:first-child) {
+      margin-top: var(--s-sm); }
+    .card > a > article > header > div > h1,
+    .card > article > header > div > h1 {
       font-family: system-ui;
       font-weight: 400;
-      order: 3; }
-    .card > div > h4 {
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .card > a > article > header > div > h2,
+    .card > article > header > div > h2 {
       font-family: system-ui;
-      font-weight: 500;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-      line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
-      order: 2;
-      margin-bottom: var(--s-sm);
-      color: var(--c-fg-lt); }
-    .card > div > div {
-      color: var(--c-fg-dk);
-      order: 4;
-      margin-top: var(--s-sm);
-      color: var(--c-fg-md); }
-      .card > div > div:has(table) {
-        overflow-x: auto; }
-      .card > div > div > * {
-        max-width: var(--w-lg); }
-        .card > div > div > *:not(:first-child) {
+      font-weight: 400;
+      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+    .card > a > article > header > div > h3,
+    .card > article > header > div > h3 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    .card > a > article > header > div > h4,
+    .card > article > header > div > h4 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card > a > article > header > div > h5,
+    .card > article > header > div > h5 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card > a > article > header > div > h6,
+    .card > article > header > div > h6 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card > a > article > header > div > p,
+    .card > article > header > div > p {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.4em; }
+    .card > a > article > header > div ol,
+    .card > article > header > div ol {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.4em;
+      list-style-type: decimal; }
+      .card > a > article > header > div ol > li,
+      .card > article > header > div ol > li {
+        margin-left: 1.5em; }
+        .card > a > article > header > div ol > li:not(:first-child),
+        .card > article > header > div ol > li:not(:first-child) {
           margin-top: var(--s-sm); }
-      .card > div > div > h1:not(:first-child), .card > div > div > h2:not(:first-child), .card > div > div > h3:not(:first-child), .card > div > div > h4:not(:first-child), .card > div > div > h5:not(:first-child), .card > div > div > h6:not(:first-child) {
-        margin-top: var(--s-sm); }
-      .card > div > div > h1 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .card > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .card > div > div > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-      .card > div > div > h4 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .card > div > div > h5 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .card > div > div > h6 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .card > div > div > p {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em; }
-      .card > div > div ol {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        list-style-type: decimal; }
-        .card > div > div ol > li {
-          margin-left: 1.5em; }
-          .card > div > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .card > div > div ol > li > ol,
-          .card > div > div ol > li > ul {
-            margin-top: var(--s-sm); }
-          .card > div > div ol > li > ul {
-            list-style-type: circle; }
-      .card > div > div ul {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        list-style-type: disc; }
-        .card > div > div ul > li {
-          margin-left: 1.5em; }
-          .card > div > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .card > div > div ul > li > ol,
-          .card > div > div ul > li > ul {
-            margin-top: var(--s-sm); }
-          .card > div > div ul > li > ul {
-            list-style-type: circle; }
-      .card > div > div table {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        min-width: var(--w-md); }
-        .card > div > div table th,
-        .card > div > div table td {
-          padding: var(--s-md);
-          border: 1px solid vaR(--c-br-lt); }
-          .card > div > div table th > *:not(:first-child),
-          .card > div > div table td > *:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .card > div > div table th > ul,
-          .card > div > div table th > li,
-          .card > div > div table td > ul,
-          .card > div > div table td > li {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em; }
-        .card > div > div table td {
-          color: var(--c-fg-md); }
-        .card > div > div table > thead {
-          background: var(--c-bg-lt); }
-      .card > div > div iframe {
-        max-width: 100%; }
-      .card > div > div figure {
-        margin: var(--s-lg) 0; }
-        .card > div > div figure > figcaption {
+        .card > a > article > header > div ol > li > ol,
+        .card > a > article > header > div ol > li > ul,
+        .card > article > header > div ol > li > ol,
+        .card > article > header > div ol > li > ul {
+          margin-top: var(--s-sm); }
+        .card > a > article > header > div ol > li > ul,
+        .card > article > header > div ol > li > ul {
+          list-style-type: circle; }
+    .card > a > article > header > div ul,
+    .card > article > header > div ul {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.4em;
+      list-style-type: disc; }
+      .card > a > article > header > div ul > li,
+      .card > article > header > div ul > li {
+        margin-left: 1.5em; }
+        .card > a > article > header > div ul > li:not(:first-child),
+        .card > article > header > div ul > li:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .card > a > article > header > div ul > li > ol,
+        .card > a > article > header > div ul > li > ul,
+        .card > article > header > div ul > li > ol,
+        .card > article > header > div ul > li > ul {
+          margin-top: var(--s-sm); }
+        .card > a > article > header > div ul > li > ul,
+        .card > article > header > div ul > li > ul {
+          list-style-type: circle; }
+    .card > a > article > header > div table,
+    .card > article > header > div table {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.4em;
+      min-width: var(--w-md); }
+      .card > a > article > header > div table th,
+      .card > a > article > header > div table td,
+      .card > article > header > div table th,
+      .card > article > header > div table td {
+        padding: var(--s-md);
+        border: 1px solid vaR(--c-br-lt); }
+        .card > a > article > header > div table th > *:not(:first-child),
+        .card > a > article > header > div table td > *:not(:first-child),
+        .card > article > header > div table th > *:not(:first-child),
+        .card > article > header > div table td > *:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .card > a > article > header > div table th > ul,
+        .card > a > article > header > div table th > li,
+        .card > a > article > header > div table td > ul,
+        .card > a > article > header > div table td > li,
+        .card > article > header > div table th > ul,
+        .card > article > header > div table th > li,
+        .card > article > header > div table td > ul,
+        .card > article > header > div table td > li {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
-          margin-top: var(--s-xs);
-          color: var(--c-fg-md); }
-      .card > div > div i,
-      .card > div > div em {
-        font-style: italic;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .card > div > div b,
-      .card > div > div strong {
-        font-weight: bold;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .card > div > div a {
-        color: var(--c-black); }
-        .card > div > div a:hover {
-          color: var(--c-green);
-          text-decoration: underline; }
-      .card > div > div:not(:has(p)) {
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.4em; }
+      .card > a > article > header > div table td,
+      .card > article > header > div table td {
+        color: var(--c-fg-md); }
+    .card > a > article > header > div iframe,
+    .card > article > header > div iframe {
+      max-width: 100%; }
+    .card > a > article > header > div figure,
+    .card > article > header > div figure {
+      margin: var(--s-lg) 0; }
+      .card > a > article > header > div figure > figcaption,
+      .card > article > header > div figure > figcaption {
         font-family: system-ui;
-        font-weight: 333; }
-    .card > div > em,
-    .card > div > a {
-      order: 5;
-      margin: auto 0 0; }
-      .card > div > em > *,
-      .card > div > a > * {
-        margin-top: var(--s-lg); }
-  @media (min-width: 992px) {
-    .card--image-pos-bottom > div {
-      margin-top: 0 !important; } }
-  @media (min-width: 992px) {
-    .card--split > div {
-      flex-grow: 0;
-      width: calc(50% - var(--s-lg));
-      margin-top: 0 !important; } }
-  @media (min-width: 1280px) {
-    .card--split > div {
-      width: calc(35% - var(--s-lg)); } }
-  .card--size-md > div > h3 {
+        font-weight: 333;
+        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+        line-height: 1.4em;
+        margin-top: var(--s-xs);
+        color: var(--c-fg-md); }
+    .card > a > article > header > div i,
+    .card > a > article > header > div em,
+    .card > article > header > div i,
+    .card > article > header > div em {
+      font-style: italic;
+      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .card > a > article > header > div b,
+    .card > a > article > header > div strong,
+    .card > article > header > div b,
+    .card > article > header > div strong {
+      font-weight: bold;
+      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .card > a > article > header > div a,
+    .card > article > header > div a {
+      color: var(--c-black); }
+      .card > a > article > header > div a:hover,
+      .card > article > header > div a:hover {
+        color: var(--c-green);
+        text-decoration: underline; }
+    .card > a > article > header > div hr,
+    .card > article > header > div hr {
+      max-width: var(--w-xs);
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: double var(--c-br-dk); }
+  .card > a > article > header > em,
+  .card > article > header > em {
+    margin-top: var(--s-sm); }
+
+.card-list {
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md); }
+  @media (min-width: 768px) {
+    .card-list {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
+  .card-list > header > h2 {
     font-family: system-ui;
-    font-weight: 400; }
-  .card--size-lg > figure + div {
-    margin-top: var(--s-lg); }
-  .card--size-lg > div > h3 {
-    font-family: system-ui;
-    font-weight: 400; }
-  .card--size-lg > div > div {
-    font-family: system-ui;
-    font-weight: 333;
-    font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em; }
-  .card--style-leader > div > h4 {
-    min-height: 2.2em;
-    text-transform: none; }
+    font-weight: 400;
+    font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+    line-height: 1.1em;
+    letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+  .card-list > header > div {
+    color: var(--c-fg-dk);
+    margin-top: var(--s-sm); }
+    .card-list > header > div:has(table) {
+      overflow-x: auto; }
+    .card-list > header > div > * {
+      max-width: var(--w-lg); }
+      .card-list > header > div > *:not(:first-child) {
+        margin-top: var(--s-md); }
+    .card-list > header > div > h1:not(:first-child), .card-list > header > div > h2:not(:first-child), .card-list > header > div > h3:not(:first-child), .card-list > header > div > h4:not(:first-child), .card-list > header > div > h5:not(:first-child), .card-list > header > div > h6:not(:first-child) {
+      margin-top: var(--s-md); }
+    .card-list > header > div > h1 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .card-list > header > div > h2 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+    .card-list > header > div > h3 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    .card-list > header > div > h4 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card-list > header > div > h5 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card-list > header > div > h6 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+    .card-list > header > div > p {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.4em; }
+    .card-list > header > div ol {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.4em;
+      list-style-type: decimal; }
+      .card-list > header > div ol > li {
+        margin-left: 1.5em; }
+        .card-list > header > div ol > li:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .card-list > header > div ol > li > ol,
+        .card-list > header > div ol > li > ul {
+          margin-top: var(--s-sm); }
+        .card-list > header > div ol > li > ul {
+          list-style-type: circle; }
+    .card-list > header > div ul {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      line-height: 1.4em;
+      list-style-type: disc; }
+      .card-list > header > div ul > li {
+        margin-left: 1.5em; }
+        .card-list > header > div ul > li:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .card-list > header > div ul > li > ol,
+        .card-list > header > div ul > li > ul {
+          margin-top: var(--s-sm); }
+        .card-list > header > div ul > li > ul {
+          list-style-type: circle; }
+    .card-list > header > div table {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.4em;
+      min-width: var(--w-md); }
+      .card-list > header > div table th,
+      .card-list > header > div table td {
+        padding: var(--s-md);
+        border: 1px solid vaR(--c-br-lt); }
+        .card-list > header > div table th > *:not(:first-child),
+        .card-list > header > div table td > *:not(:first-child) {
+          margin-top: var(--s-sm); }
+        .card-list > header > div table th > ul,
+        .card-list > header > div table th > li,
+        .card-list > header > div table td > ul,
+        .card-list > header > div table td > li {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+          line-height: 1.4em; }
+      .card-list > header > div table td {
+        color: var(--c-fg-md); }
+    .card-list > header > div iframe {
+      max-width: 100%; }
+    .card-list > header > div figure {
+      margin: var(--s-lg) 0; }
+      .card-list > header > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+        line-height: 1.4em;
+        margin-top: var(--s-xs);
+        color: var(--c-fg-md); }
+    .card-list > header > div i,
+    .card-list > header > div em {
+      font-style: italic;
+      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .card-list > header > div b,
+    .card-list > header > div strong {
+      font-weight: bold;
+      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+    .card-list > header > div a {
+      color: var(--c-black); }
+      .card-list > header > div a:hover {
+        color: var(--c-green);
+        text-decoration: underline; }
+    .card-list > header > div hr {
+      max-width: var(--w-xs);
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: double var(--c-br-dk); }
+  .card-list > div {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr) var(--s-md);
+    gap: var(--s-md);
+    margin-top: var(--s-md); }
+    .card-list > div > * {
+      margin-bottom: var(--s-md);
+      grid-column: span 12; }
+      @media (min-width: 768px) {
+        .card-list > div > * {
+          grid-column: span var(--span); } }
 
 .class-card > article > a {
   position: relative;
@@ -694,665 +1133,41 @@ details summary {
     opacity: 1;
     transform: translateX(var(--s-xs)); }
 
-.class-details {
+.class-listing {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: var(--s-lg) auto; }
-  .class-details > div:first-child {
-    width: 100%; }
-    @media (min-width: 768px) {
-      .class-details > div:first-child {
-        width: calc(50% - var(--s-sm)); } }
-    .class-details > div:first-child > header {
-      margin-bottom: var(--s-md); }
-      .class-details > div:first-child > header > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .class-details > div:first-child > article {
-      margin-top: var(--s-sm); }
-      .class-details > div:first-child > article > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
-        margin-bottom: var(--s-sm); }
-  .class-details > div:last-child {
-    width: 100%;
-    margin-top: var(--s-md); }
-    @media (min-width: 768px) {
-      .class-details > div:last-child {
-        width: calc(50% - var(--s-sm));
-        margin: 0; } }
-    .class-details > div:last-child > header {
-      margin-bottom: var(--s-md); }
-      .class-details > div:last-child > header > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .class-details > div:last-child > details {
-      width: 100%;
-      background-color: var(--c-white);
-      border: 1px solid var(--c-br-lt);
-      border-top: 0; }
-      .class-details > div:last-child > details:first-of-type {
-        border-top: 1px solid var(--c-br-lt);
-        border-top-left-radius: var(--s-br-md);
-        border-top-right-radius: var(--s-br-md); }
-      .class-details > div:last-child > details:last-of-type {
-        border-bottom-left-radius: var(--s-br-md);
-        border-bottom-right-radius: var(--s-br-md); }
-      .class-details > div:last-child > details > summary {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--s-sm);
-        cursor: pointer; }
-        .class-details > div:last-child > details > summary > h3 {
-          font-family: system-ui;
-          font-weight: 400;
-          font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-          line-height: 1.1em;
-          letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
-          display: flex;
-          align-items: center; }
-          .class-details > div:last-child > details > summary > h3 > i {
-            width: var(--s-icon-xs);
-            height: var(--s-icon-xs);
-            margin-right: var(--s-xs);
-            background-color: var(--c-subject);
-            border-radius: 50%; }
-        .class-details > div:last-child > details > summary > i {
-          position: relative;
-          width: var(--s-icon-sm);
-          height: var(--s-icon-sm);
-          flex-shrink: 0; }
-          .class-details > div:last-child > details > summary > i:before, .class-details > div:last-child > details > summary > i:after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            content: "";
-            height: var(--s-icon-sm);
-            border-left: 2px solid var(--c-green); }
-          .class-details > div:last-child > details > summary > i:before {
-            transform-origin: center;
-            transform: rotate(90deg) translate(calc(-0.5 * var(--s-icon-sm)), 0); }
-      .class-details > div:last-child > details[open] > summary > i {
-        transform: rotate(45deg); }
-      .class-details > div:last-child > details > div {
-        padding: 0 var(--s-sm) var(--s-sm); }
-        .class-details > div:last-child > details > div > h4 {
-          font-family: system-ui;
-          font-weight: 400;
-          font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-          line-height: 1.1em;
-          letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-        .class-details > div:last-child > details > div > div {
-          color: var(--c-fg-dk);
-          margin-top: var(--s-xs); }
-          .class-details > div:last-child > details > div > div:has(table) {
-            overflow-x: auto; }
-          .class-details > div:last-child > details > div > div > * {
-            max-width: var(--w-lg); }
-            .class-details > div:last-child > details > div > div > *:not(:first-child) {
-              margin-top: var(--s-sm); }
-          .class-details > div:last-child > details > div > div > h1:not(:first-child), .class-details > div:last-child > details > div > div > h2:not(:first-child), .class-details > div:last-child > details > div > div > h3:not(:first-child), .class-details > div:last-child > details > div > div > h4:not(:first-child), .class-details > div:last-child > details > div > div > h5:not(:first-child), .class-details > div:last-child > details > div > div > h6:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-details > div:last-child > details > div > div > h1 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-          .class-details > div:last-child > details > div > div > h2 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-          .class-details > div:last-child > details > div > div > h3 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-          .class-details > div:last-child > details > div > div > h4 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-          .class-details > div:last-child > details > div > div > h5 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-          .class-details > div:last-child > details > div > div > h6 {
-            font-family: system-ui;
-            font-weight: 400;
-            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.1em;
-            letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-          .class-details > div:last-child > details > div > div > p {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em; }
-          .class-details > div:last-child > details > div > div ol {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em;
-            list-style-type: decimal; }
-            .class-details > div:last-child > details > div > div ol > li {
-              margin-left: 1.5em; }
-              .class-details > div:last-child > details > div > div ol > li:not(:first-child) {
-                margin-top: var(--s-sm); }
-              .class-details > div:last-child > details > div > div ol > li > ol,
-              .class-details > div:last-child > details > div > div ol > li > ul {
-                margin-top: var(--s-sm); }
-              .class-details > div:last-child > details > div > div ol > li > ul {
-                list-style-type: circle; }
-          .class-details > div:last-child > details > div > div ul {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em;
-            list-style-type: disc; }
-            .class-details > div:last-child > details > div > div ul > li {
-              margin-left: 1.5em; }
-              .class-details > div:last-child > details > div > div ul > li:not(:first-child) {
-                margin-top: var(--s-sm); }
-              .class-details > div:last-child > details > div > div ul > li > ol,
-              .class-details > div:last-child > details > div > div ul > li > ul {
-                margin-top: var(--s-sm); }
-              .class-details > div:last-child > details > div > div ul > li > ul {
-                list-style-type: circle; }
-          .class-details > div:last-child > details > div > div table {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em;
-            min-width: var(--w-md); }
-            .class-details > div:last-child > details > div > div table th,
-            .class-details > div:last-child > details > div > div table td {
-              padding: var(--s-md);
-              border: 1px solid vaR(--c-br-lt); }
-              .class-details > div:last-child > details > div > div table th > *:not(:first-child),
-              .class-details > div:last-child > details > div > div table td > *:not(:first-child) {
-                margin-top: var(--s-sm); }
-              .class-details > div:last-child > details > div > div table th > ul,
-              .class-details > div:last-child > details > div > div table th > li,
-              .class-details > div:last-child > details > div > div table td > ul,
-              .class-details > div:last-child > details > div > div table td > li {
-                font-family: system-ui;
-                font-weight: 333;
-                font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-                line-height: 1.4em; }
-            .class-details > div:last-child > details > div > div table td {
-              color: var(--c-fg-md); }
-            .class-details > div:last-child > details > div > div table > thead {
-              background: var(--c-bg-lt); }
-          .class-details > div:last-child > details > div > div iframe {
-            max-width: 100%; }
-          .class-details > div:last-child > details > div > div figure {
-            margin: var(--s-lg) 0; }
-            .class-details > div:last-child > details > div > div figure > figcaption {
-              font-family: system-ui;
-              font-weight: 333;
-              font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-              line-height: 1.4em;
-              margin-top: var(--s-xs);
-              color: var(--c-fg-md); }
-          .class-details > div:last-child > details > div > div i,
-          .class-details > div:last-child > details > div > div em {
-            font-style: italic;
-            letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-          .class-details > div:last-child > details > div > div b,
-          .class-details > div:last-child > details > div > div strong {
-            font-weight: bold;
-            letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-          .class-details > div:last-child > details > div > div a {
-            color: var(--c-black); }
-            .class-details > div:last-child > details > div > div a:hover {
-              color: var(--c-green);
-              text-decoration: underline; }
-          .class-details > div:last-child > details > div > div + h4 {
-            margin-top: var(--s-sm);
-            padding-top: var(--s-sm);
-            border-top: 1px solid var(--c-br-lt); }
-
-.class-footer {
-  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-top: var(--s-sm);
-  padding-bottom: var(--s-sm);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start; }
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md); }
   @media (min-width: 768px) {
-    .class-footer {
-      padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-      padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+    .class-listing {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
       padding-top: var(--s-lg);
       padding-bottom: var(--s-lg); } }
-  .class-footer > div {
-    width: 100%; }
-    @media (min-width: 768px) {
-      .class-footer > div {
-        width: calc(50% - var(--s-sm)); } }
-    @media (min-width: 992px) {
-      .class-footer > div {
-        width: calc(65% - var(--s-sm)); } }
-    .class-footer > div > header > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .class-footer > div > div {
-      color: var(--c-fg-dk);
-      margin-top: var(--s-sm); }
-      .class-footer > div > div:has(table) {
-        overflow-x: auto; }
-      .class-footer > div > div > * {
-        max-width: var(--w-lg); }
-        .class-footer > div > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
-      .class-footer > div > div > h1:not(:first-child), .class-footer > div > div > h2:not(:first-child), .class-footer > div > div > h3:not(:first-child), .class-footer > div > div > h4:not(:first-child), .class-footer > div > div > h5:not(:first-child), .class-footer > div > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
-      .class-footer > div > div > h1 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .class-footer > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .class-footer > div > div > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-      .class-footer > div > div > h4 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-footer > div > div > h5 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-footer > div > div > h6 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-footer > div > div > p {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
-      .class-footer > div > div ol {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
-        list-style-type: decimal; }
-        .class-footer > div > div ol > li {
-          margin-left: 1.5em; }
-          .class-footer > div > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-footer > div > div ol > li > ol,
-          .class-footer > div > div ol > li > ul {
-            margin-top: var(--s-sm); }
-          .class-footer > div > div ol > li > ul {
-            list-style-type: circle; }
-      .class-footer > div > div ul {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
-        list-style-type: disc; }
-        .class-footer > div > div ul > li {
-          margin-left: 1.5em; }
-          .class-footer > div > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-footer > div > div ul > li > ol,
-          .class-footer > div > div ul > li > ul {
-            margin-top: var(--s-sm); }
-          .class-footer > div > div ul > li > ul {
-            list-style-type: circle; }
-      .class-footer > div > div table {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        min-width: var(--w-md); }
-        .class-footer > div > div table th,
-        .class-footer > div > div table td {
-          padding: var(--s-md);
-          border: 1px solid vaR(--c-br-lt); }
-          .class-footer > div > div table th > *:not(:first-child),
-          .class-footer > div > div table td > *:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-footer > div > div table th > ul,
-          .class-footer > div > div table th > li,
-          .class-footer > div > div table td > ul,
-          .class-footer > div > div table td > li {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-            line-height: 1.4em; }
-        .class-footer > div > div table td {
-          color: var(--c-fg-md); }
-        .class-footer > div > div table > thead {
-          background: var(--c-bg-lt); }
-      .class-footer > div > div iframe {
-        max-width: 100%; }
-      .class-footer > div > div figure {
-        margin: var(--s-lg) 0; }
-        .class-footer > div > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
-          margin-top: var(--s-xs);
-          color: var(--c-fg-md); }
-      .class-footer > div > div i,
-      .class-footer > div > div em {
-        font-style: italic;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .class-footer > div > div b,
-      .class-footer > div > div strong {
-        font-weight: bold;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .class-footer > div > div a {
-        color: var(--c-black); }
-        .class-footer > div > div a:hover {
-          color: var(--c-green);
-          text-decoration: underline; }
-  .class-footer > article {
-    width: 100%; }
-    @media (max-width: 767px) {
-      .class-footer > article {
-        margin-top: var(--s-md); } }
-    @media (min-width: 768px) {
-      .class-footer > article {
-        width: calc(50% - var(--s-sm));
-        margin-left: var(--s-md); } }
-    @media (min-width: 992px) {
-      .class-footer > article {
-        width: calc(35% - var(--s-sm)); } }
-    .class-footer > article > figure {
-      position: relative;
-      overflow: hidden;
-      border-top-left-radius: var(--s-br-md);
-      border-top-right-radius: var(--s-br-md);
-      aspect-ratio: 1 / 1; }
-      .class-footer > article > figure > img {
-        object-fit: cover; }
-    .class-footer > article > div {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0; }
-      .class-footer > article > div > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
-        margin-bottom: var(--s-sm); }
-
-.class-hero {
-  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-top: var(--s-sm);
-  padding-bottom: 0;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start; }
-  @media (min-width: 768px) {
-    .class-hero {
-      padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-      padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-      padding-top: var(--s-lg);
-      padding-bottom: 0; } }
-  .class-hero > div:first-child {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%; }
-    @media (min-width: 768px) {
-      .class-hero > div:first-child {
-        width: calc(60% - var(--s-md)); } }
-    .class-hero > div:first-child > *:not(:first-child) {
-      margin-top: var(--s-sm); }
-    .class-hero > div:first-child > h1 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(50 * 1px), calc((84 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(84 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
-      text-wrap: balance; }
-    .class-hero > div:first-child > address {
-      display: flex;
-      align-items: center; }
-      .class-hero > div:first-child > address > a {
-        display: flex;
-        align-items: center; }
-      .class-hero > div:first-child > address img {
-        width: var(--s-icon-lg);
-        height: var(--s-icon-lg);
-        margin-right: var(--s);
-        border-radius: 50%;
-        object-fit: cover; }
-      .class-hero > div:first-child > address h2 {
-        font-family: system-ui;
-        font-weight: 500;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em)); }
-    .class-hero > div:first-child > div {
-      color: var(--c-fg-dk); }
-      .class-hero > div:first-child > div:has(table) {
-        overflow-x: auto; }
-      .class-hero > div:first-child > div > * {
-        max-width: var(--w-lg); }
-        .class-hero > div:first-child > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
-      .class-hero > div:first-child > div > h1:not(:first-child), .class-hero > div:first-child > div > h2:not(:first-child), .class-hero > div:first-child > div > h3:not(:first-child), .class-hero > div:first-child > div > h4:not(:first-child), .class-hero > div:first-child > div > h5:not(:first-child), .class-hero > div:first-child > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
-      .class-hero > div:first-child > div > h1 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .class-hero > div:first-child > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .class-hero > div:first-child > div > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-      .class-hero > div:first-child > div > h4 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-hero > div:first-child > div > h5 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-hero > div:first-child > div > h6 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .class-hero > div:first-child > div > p {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
-      .class-hero > div:first-child > div ol {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
-        list-style-type: decimal; }
-        .class-hero > div:first-child > div ol > li {
-          margin-left: 1.5em; }
-          .class-hero > div:first-child > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-hero > div:first-child > div ol > li > ol,
-          .class-hero > div:first-child > div ol > li > ul {
-            margin-top: var(--s-sm); }
-          .class-hero > div:first-child > div ol > li > ul {
-            list-style-type: circle; }
-      .class-hero > div:first-child > div ul {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
-        list-style-type: disc; }
-        .class-hero > div:first-child > div ul > li {
-          margin-left: 1.5em; }
-          .class-hero > div:first-child > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-hero > div:first-child > div ul > li > ol,
-          .class-hero > div:first-child > div ul > li > ul {
-            margin-top: var(--s-sm); }
-          .class-hero > div:first-child > div ul > li > ul {
-            list-style-type: circle; }
-      .class-hero > div:first-child > div table {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        min-width: var(--w-md); }
-        .class-hero > div:first-child > div table th,
-        .class-hero > div:first-child > div table td {
-          padding: var(--s-md);
-          border: 1px solid vaR(--c-br-lt); }
-          .class-hero > div:first-child > div table th > *:not(:first-child),
-          .class-hero > div:first-child > div table td > *:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .class-hero > div:first-child > div table th > ul,
-          .class-hero > div:first-child > div table th > li,
-          .class-hero > div:first-child > div table td > ul,
-          .class-hero > div:first-child > div table td > li {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-            line-height: 1.4em; }
-        .class-hero > div:first-child > div table td {
-          color: var(--c-fg-md); }
-        .class-hero > div:first-child > div table > thead {
-          background: var(--c-bg-lt); }
-      .class-hero > div:first-child > div iframe {
-        max-width: 100%; }
-      .class-hero > div:first-child > div figure {
-        margin: var(--s-lg) 0; }
-        .class-hero > div:first-child > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
-          margin-top: var(--s-xs);
-          color: var(--c-fg-md); }
-      .class-hero > div:first-child > div i,
-      .class-hero > div:first-child > div em {
-        font-style: italic;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .class-hero > div:first-child > div b,
-      .class-hero > div:first-child > div strong {
-        font-weight: bold;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .class-hero > div:first-child > div a {
-        color: var(--c-black); }
-        .class-hero > div:first-child > div a:hover {
-          color: var(--c-green);
-          text-decoration: underline; }
-    .class-hero > div:first-child > a {
-      font-family: system-ui;
-      font-weight: 444;
-      font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
-      line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px));
-      color: var(--c-green); }
-      .class-hero > div:first-child > a:hover {
-        text-decoration: underline; }
-  .class-hero > div:last-child {
-    order: -1;
-    width: 100%; }
-    @media (max-width: 767px) {
-      .class-hero > div:last-child {
-        margin-bottom: var(--s-md); } }
-    @media (min-width: 768px) {
-      .class-hero > div:last-child {
-        width: calc(40% - var(--s-md)); } }
-    .class-hero > div:last-child > figure {
-      aspect-ratio: 4 / 3; }
-
-.classes-listing {
-  padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl)))); }
-  .classes-listing > header {
+  .class-listing > header {
     display: flex;
     justify-content: center;
     margin-bottom: var(--s-md); }
-    .classes-listing > header > h2 {
+    .class-listing > header > h2 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-  .classes-listing > ul {
+  .class-listing > ul {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: var(--s-sm); }
-    .classes-listing > ul > li {
+    .class-listing > ul > li {
       grid-column: span 6; }
       @media (min-width: 768px) {
-        .classes-listing > ul > li {
+        .class-listing > ul > li {
           grid-column: span 4; } }
       @media (min-width: 992px) {
-        .classes-listing > ul > li {
+        .class-listing > ul > li {
           grid-column: span 3; } }
       @media (min-width: 768px) {
-        .classes-listing > ul > li:nth-child(1), .classes-listing > ul > li:nth-child(2), .classes-listing > ul > li:nth-child(3) {
+        .class-listing > ul > li:nth-child(1), .class-listing > ul > li:nth-child(2), .class-listing > ul > li:nth-child(3) {
           grid-column: span 4; } }
 
 .color-split {
@@ -1546,8 +1361,6 @@ details summary {
           line-height: 1.4em; }
       .color-split > div table td {
         color: var(--c-fg-md); }
-      .color-split > div table > thead {
-        background: var(--c-bg-lt); }
     .color-split > div iframe {
       max-width: 100%; }
     .color-split > div figure {
@@ -1572,6 +1385,11 @@ details summary {
       .color-split > div a:hover {
         color: var(--c-green);
         text-decoration: underline; }
+    .color-split > div hr {
+      max-width: var(--w-xs);
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: double var(--c-br-dk); }
     @media (min-width: 992px) {
       .color-split > div {
         padding-left: max(var(--s-md), calc(0.5 * (50% - var(--w-sm))));
@@ -1597,334 +1415,28 @@ details summary {
       border-bottom-left-radius: var(--s-br-lg);
       border-bottom-right-radius: var(--s-br-lg); } }
 
-.expandable-text {
-  display: flex;
-  flex-direction: column; }
-  .expandable-text > [type="checkbox"]:checked ~ div {
-    max-height: inherit;
-    text-overflow: inherit; }
-  .expandable-text > label {
-    order: 2;
-    align-self: flex-end;
-    margin-top: var(--s-sm);
-    color: var(--c-green); }
-    .expandable-text > label > span {
-      display: flex;
-      align-items: center; }
-      .expandable-text > label > span:after {
-        margin-left: calc(0.5 * var(--s-xs)); }
-    .expandable-text > label > span:first-child:after {
-      content: "+"; }
-    .expandable-text > label > span:last-child {
-      display: none; }
-      .expandable-text > label > span:last-child:after {
-        content: "-"; }
-  .expandable-text > [type="checkbox"]:checked + label > span:first-child {
-    display: none; }
-  .expandable-text > [type="checkbox"]:checked + label > span:last-child {
-    display: block; }
-  .expandable-text > div {
-    display: -webkit-box;
-    -webkit-line-clamp: 1.4em;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: calc(var(--n-lines) * 1.4em);
-    position: relative;
-    padding-bottom: var(--s-md); }
-    .expandable-text > div:after {
-      position: absolute;
-      top: auto;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: "";
-      height: var(--s-md);
-      background: linear-gradient(to top, var(--c-white), transparent); }
-  .expandable-text--size-sm > div {
-    color: var(--c-fg-dk); }
-    .expandable-text--size-sm > div:has(table) {
-      overflow-x: auto; }
-    .expandable-text--size-sm > div > * {
-      max-width: var(--w-lg); }
-      .expandable-text--size-sm > div > *:not(:first-child) {
-        margin-top: var(--s-sm); }
-    .expandable-text--size-sm > div > h1:not(:first-child), .expandable-text--size-sm > div > h2:not(:first-child), .expandable-text--size-sm > div > h3:not(:first-child), .expandable-text--size-sm > div > h4:not(:first-child), .expandable-text--size-sm > div > h5:not(:first-child), .expandable-text--size-sm > div > h6:not(:first-child) {
-      margin-top: var(--s-sm); }
-    .expandable-text--size-sm > div > h1 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .expandable-text--size-sm > div > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-    .expandable-text--size-sm > div > h3 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-    .expandable-text--size-sm > div > h4 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-sm > div > h5 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-sm > div > h6 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-sm > div > p {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em; }
-    .expandable-text--size-sm > div ol {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
-      list-style-type: decimal; }
-      .expandable-text--size-sm > div ol > li {
-        margin-left: 1.5em; }
-        .expandable-text--size-sm > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-sm > div ol > li > ol,
-        .expandable-text--size-sm > div ol > li > ul {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-sm > div ol > li > ul {
-          list-style-type: circle; }
-    .expandable-text--size-sm > div ul {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
-      list-style-type: disc; }
-      .expandable-text--size-sm > div ul > li {
-        margin-left: 1.5em; }
-        .expandable-text--size-sm > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-sm > div ul > li > ol,
-        .expandable-text--size-sm > div ul > li > ul {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-sm > div ul > li > ul {
-          list-style-type: circle; }
-    .expandable-text--size-sm > div table {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
-      min-width: var(--w-md); }
-      .expandable-text--size-sm > div table th,
-      .expandable-text--size-sm > div table td {
-        padding: var(--s-md);
-        border: 1px solid vaR(--c-br-lt); }
-        .expandable-text--size-sm > div table th > *:not(:first-child),
-        .expandable-text--size-sm > div table td > *:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-sm > div table th > ul,
-        .expandable-text--size-sm > div table th > li,
-        .expandable-text--size-sm > div table td > ul,
-        .expandable-text--size-sm > div table td > li {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em; }
-      .expandable-text--size-sm > div table td {
-        color: var(--c-fg-md); }
-      .expandable-text--size-sm > div table > thead {
-        background: var(--c-bg-lt); }
-    .expandable-text--size-sm > div iframe {
-      max-width: 100%; }
-    .expandable-text--size-sm > div figure {
-      margin: var(--s-lg) 0; }
-      .expandable-text--size-sm > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
-        margin-top: var(--s-xs);
-        color: var(--c-fg-md); }
-    .expandable-text--size-sm > div i,
-    .expandable-text--size-sm > div em {
-      font-style: italic;
-      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .expandable-text--size-sm > div b,
-    .expandable-text--size-sm > div strong {
-      font-weight: bold;
-      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .expandable-text--size-sm > div a {
-      color: var(--c-black); }
-      .expandable-text--size-sm > div a:hover {
-        color: var(--c-green);
-        text-decoration: underline; }
-  .expandable-text--size-md > div {
-    color: var(--c-fg-dk); }
-    .expandable-text--size-md > div:has(table) {
-      overflow-x: auto; }
-    .expandable-text--size-md > div > * {
-      max-width: var(--w-lg); }
-      .expandable-text--size-md > div > *:not(:first-child) {
-        margin-top: var(--s-md); }
-    .expandable-text--size-md > div > h1:not(:first-child), .expandable-text--size-md > div > h2:not(:first-child), .expandable-text--size-md > div > h3:not(:first-child), .expandable-text--size-md > div > h4:not(:first-child), .expandable-text--size-md > div > h5:not(:first-child), .expandable-text--size-md > div > h6:not(:first-child) {
-      margin-top: var(--s-md); }
-    .expandable-text--size-md > div > h1 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .expandable-text--size-md > div > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-    .expandable-text--size-md > div > h3 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-    .expandable-text--size-md > div > h4 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-md > div > h5 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-md > div > h6 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .expandable-text--size-md > div > p {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em; }
-    .expandable-text--size-md > div ol {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
-      list-style-type: decimal; }
-      .expandable-text--size-md > div ol > li {
-        margin-left: 1.5em; }
-        .expandable-text--size-md > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-md > div ol > li > ol,
-        .expandable-text--size-md > div ol > li > ul {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-md > div ol > li > ul {
-          list-style-type: circle; }
-    .expandable-text--size-md > div ul {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
-      list-style-type: disc; }
-      .expandable-text--size-md > div ul > li {
-        margin-left: 1.5em; }
-        .expandable-text--size-md > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-md > div ul > li > ol,
-        .expandable-text--size-md > div ul > li > ul {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-md > div ul > li > ul {
-          list-style-type: circle; }
-    .expandable-text--size-md > div table {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
-      min-width: var(--w-md); }
-      .expandable-text--size-md > div table th,
-      .expandable-text--size-md > div table td {
-        padding: var(--s-md);
-        border: 1px solid vaR(--c-br-lt); }
-        .expandable-text--size-md > div table th > *:not(:first-child),
-        .expandable-text--size-md > div table td > *:not(:first-child) {
-          margin-top: var(--s-sm); }
-        .expandable-text--size-md > div table th > ul,
-        .expandable-text--size-md > div table th > li,
-        .expandable-text--size-md > div table td > ul,
-        .expandable-text--size-md > div table td > li {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-          line-height: 1.4em; }
-      .expandable-text--size-md > div table td {
-        color: var(--c-fg-md); }
-      .expandable-text--size-md > div table > thead {
-        background: var(--c-bg-lt); }
-    .expandable-text--size-md > div iframe {
-      max-width: 100%; }
-    .expandable-text--size-md > div figure {
-      margin: var(--s-lg) 0; }
-      .expandable-text--size-md > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
-        margin-top: var(--s-xs);
-        color: var(--c-fg-md); }
-    .expandable-text--size-md > div i,
-    .expandable-text--size-md > div em {
-      font-style: italic;
-      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .expandable-text--size-md > div b,
-    .expandable-text--size-md > div strong {
-      font-weight: bold;
-      letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .expandable-text--size-md > div a {
-      color: var(--c-black); }
-      .expandable-text--size-md > div a:hover {
-        color: var(--c-green);
-        text-decoration: underline; }
-
 .figure > figure {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  background-color: var(--c-white);
-  border-radius: var(--s-br-md); }
-  .figure > figure > img {
-    width: 100%;
-    filter: saturate(150%); }
+  display: block; }
+  .figure > figure > div {
+    position: relative;
+    overflow: hidden; }
+    .figure > figure > div > img {
+      width: 100%;
+      filter: saturate(150%);
+      background-color: var(--c-black); }
+    .figure > figure > div > video {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      background-color: var(--c-black); }
   .figure > figure > figcaption {
     font-family: system-ui;
     font-weight: 333;
-    padding: var(--s-xs) var(--s-sm);
-    color: var(--c-black); }
-  .figure > figure > video {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    object-fit: cover; }
+    padding: var(--s-xs); }
 
 .form > form {
   display: flex;
@@ -2042,8 +1554,6 @@ details summary {
         line-height: 1.4em; }
     .form--invert > div table td {
       color: var(--c-fg-md); }
-    .form--invert > div table > thead {
-      background: var(--c-bg-lt); }
   .form--invert > div iframe {
     max-width: 100%; }
   .form--invert > div figure {
@@ -2068,6 +1578,11 @@ details summary {
     .form--invert > div a:hover {
       color: var(--c-gold-lt);
       text-decoration: underline; }
+  .form--invert > div hr {
+    max-width: var(--w-xs);
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: double var(--c-br-dk); }
 
 .form:not(.form--invert) > div {
   color: var(--c-fg-dk);
@@ -2174,8 +1689,6 @@ details summary {
         line-height: 1.4em; }
     .form:not(.form--invert) > div table td {
       color: var(--c-fg-md); }
-    .form:not(.form--invert) > div table > thead {
-      background: var(--c-bg-lt); }
   .form:not(.form--invert) > div iframe {
     max-width: 100%; }
   .form:not(.form--invert) > div figure {
@@ -2200,6 +1713,11 @@ details summary {
     .form:not(.form--invert) > div a:hover {
       color: var(--c-green);
       text-decoration: underline; }
+  .form:not(.form--invert) > div hr {
+    max-width: var(--w-xs);
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: double var(--c-br-dk); }
 
 .form-field {
   position: relative; }
@@ -2293,8 +1811,7 @@ details summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  color: var(--c-black); }
+  width: 100%; }
   .header:before {
     position: absolute;
     top: 0;
@@ -2306,7 +1823,7 @@ details summary {
     content: "";
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid var(--c-black);
+    border-bottom: 1px solid var(--c-br-dk);
     backdrop-filter: blur(var(--s-xs)); }
   .header > a {
     font-family: system-ui;
@@ -2320,10 +1837,10 @@ details summary {
     align-items: center;
     flex-shrink: 0;
     height: var(--h-header);
-    margin-right: var(--s-sm);
+    margin-right: var(--s-md);
     padding: var(--s) var(--s-xs);
-    border-left: 1px solid var(--c-black);
-    border-right: 1px solid var(--c-black); }
+    border-left: 1px solid var(--c-br-dk);
+    border-right: 1px solid var(--c-br-dk); }
   .header > nav {
     z-index: 10;
     width: 100%; }
@@ -2340,19 +1857,28 @@ details summary {
         opacity: 0;
         transform: translateY(-100%);
         background-color: rgba(255, 255, 255, 0.8);
-        border-bottom: 1px solid var(--c-black);
+        border-bottom: 1px solid var(--c-br-dk);
         backdrop-filter: blur(var(--s-xs));
         transition: transform var(--a-sm);
         pointer-event: none; } }
-    @media (max-width: 767px) {
-      .header > nav > ul {
-        padding-top: var(--s-md);
-        padding-bottom: var(--s-md); } }
-    @media (min-width: 768px) {
-      .header > nav > ul {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center; } }
+    .header > nav > ul {
+      display: flex; }
+      @media (max-width: 767px) {
+        .header > nav > ul {
+          padding-top: var(--s-md);
+          padding-bottom: var(--s-md);
+          flex-direction: column;
+          align-items: flex-start; } }
+      @media (min-width: 768px) {
+        .header > nav > ul {
+          justify-content: flex-start;
+          align-items: center; } }
+      @media (max-width: 767px) {
+        .header > nav > ul > li:not(:first-child) {
+          margin-top: var(--s-sm); } }
+      @media (min-width: 768px) {
+        .header > nav > ul > li:not(:first-child) {
+          margin-left: var(--s-sm); } }
   .header > #nav-toggle:checked ~ nav {
     opacity: 1;
     transform: translateY(0);
@@ -2382,106 +1908,194 @@ details summary {
       .header > label > i:last-child {
         bottom: 0; }
 
-.home-dashboard {
+.hero {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-sm);
+  padding-bottom: var(--s-md);
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-top: var(--s-md); }
+  align-items: flex-start; }
   @media (min-width: 768px) {
-    .home-dashboard {
+    .hero {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
-      padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl)))); } }
-  .home-dashboard > div > nav {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--s-md);
-    margin-top: var(--s-md);
-    padding: 0 var(--s-xs);
-    border: 2px solid var(--c-br-lt);
-    border-radius: calc(0.5 * var(--s-lg));
-    transition: border-color var(--a-xs); }
-    .home-dashboard > div > nav:hover {
-      border-color: var(--c-teal); }
-    .home-dashboard > div > nav > button {
-      transition: transform var(--a-xs); }
-      .home-dashboard > div > nav > button:hover {
-        transform: scale(1.2); }
-      .home-dashboard > div > nav > button:disabled {
-        opacity: 0.5;
-        pointer-events: none; }
-      .home-dashboard > div > nav > button > svg {
-        width: var(--s-icon-md);
-        height: var(--s-icon-md);
-        fill: var(--c-black); }
-    .home-dashboard > div > nav > span {
+      padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
+  .hero > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; }
+    @media (min-width: 768px) {
+      .hero > div {
+        width: calc(50% - var(--s-md)); } }
+    @media (max-width: 767px) {
+      .hero > div:nth-child(2) {
+        margin-top: var(--s-sm); } }
+    @media (min-width: 768px) {
+      .hero > div:nth-child(2) {
+        order: -1; } }
+    .hero > div > *:not(:first-child) {
+      margin-top: var(--s-sm); }
+    .hero > div > h1 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(50 * 1px), calc((84 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(84 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
+    .hero > div > h2 {
       font-family: system-ui;
       font-weight: 500;
       font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
-      margin: 0 var(--s-sm); }
-  .home-dashboard > div > ul {
-    transition: opacity var(--a-sm); }
-    .home-dashboard > div > ul:empty {
-      display: none; }
-      .home-dashboard > div > ul:empty + p {
-        display: block; }
-  .home-dashboard > div.is-loading > ul {
-    opacity: 0.5;
-    pointer-events: none; }
-  .home-dashboard > div > p {
-    font-family: system-ui;
-    font-weight: 333;
-    font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-    line-height: 1.4em;
-    display: none;
-    margin-top: var(--s-md); }
-  .home-dashboard > div:first-child {
-    width: 100%; }
-    @media (min-width: 768px) {
-      .home-dashboard > div:first-child {
-        width: calc(60% - var(--s-sm)); } }
-    .home-dashboard > div:first-child > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .home-dashboard > div:first-child > ul:not(:empty) {
-      margin-top: var(--s-sm); }
-      .home-dashboard > div:first-child > ul:not(:empty) > li {
-        box-shadow: calc($s * 0.5) var(--s-xs) var(--s-xs) rgba(44, 44, 44, 0.5); }
-        .home-dashboard > div:first-child > ul:not(:empty) > li:not(:first-child) {
+      order: -1; }
+    .hero > div > div {
+      color: var(--c-fg-dk); }
+      .hero > div > div:has(table) {
+        overflow-x: auto; }
+      .hero > div > div > * {
+        max-width: var(--w-lg); }
+        .hero > div > div > *:not(:first-child) {
           margin-top: var(--s-sm); }
-  .home-dashboard > div:last-child {
-    width: 100%;
-    margin-top: var(--s-md); }
-    @media (min-width: 768px) {
-      .home-dashboard > div:last-child {
-        width: calc(40% - var(--s-sm));
-        margin: 0; } }
-    .home-dashboard > div:last-child > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
-      margin-top: var(--s-xs); }
-    .home-dashboard > div:last-child > ul:not(:empty) {
-      margin-top: var(--s-md); }
-      .home-dashboard > div:last-child > ul:not(:empty) > li:not(:first-child) {
+      .hero > div > div > h1:not(:first-child), .hero > div > div > h2:not(:first-child), .hero > div > div > h3:not(:first-child), .hero > div > div > h4:not(:first-child), .hero > div > div > h5:not(:first-child), .hero > div > div > h6:not(:first-child) {
         margin-top: var(--s-sm); }
+      .hero > div > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .hero > div > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .hero > div > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .hero > div > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .hero > div > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .hero > div > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .hero > div > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em; }
+      .hero > div > div ol {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        list-style-type: decimal; }
+        .hero > div > div ol > li {
+          margin-left: 1.5em; }
+          .hero > div > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .hero > div > div ol > li > ol,
+          .hero > div > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .hero > div > div ol > li > ul {
+            list-style-type: circle; }
+      .hero > div > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .hero > div > div ul > li {
+          margin-left: 1.5em; }
+          .hero > div > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .hero > div > div ul > li > ol,
+          .hero > div > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .hero > div > div ul > li > ul {
+            list-style-type: circle; }
+      .hero > div > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .hero > div > div table th,
+        .hero > div > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .hero > div > div table th > *:not(:first-child),
+          .hero > div > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .hero > div > div table th > ul,
+          .hero > div > div table th > li,
+          .hero > div > div table td > ul,
+          .hero > div > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+            line-height: 1.4em; }
+        .hero > div > div table td {
+          color: var(--c-fg-md); }
+      .hero > div > div iframe {
+        max-width: 100%; }
+      .hero > div > div figure {
+        margin: var(--s-lg) 0; }
+        .hero > div > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .hero > div > div i,
+      .hero > div > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .hero > div > div b,
+      .hero > div > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .hero > div > div a {
+        color: var(--c-black); }
+        .hero > div > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
+      .hero > div > div hr {
+        max-width: var(--w-xs);
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: double var(--c-br-dk); }
 
 .intro {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px)))); }
   .intro > header {
     max-width: var(--w-lg);
-    margin: 0 auto;
-    text-align: center; }
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .intro > header {
+        text-align: center; } }
     .intro > header > h2 {
       font-family: system-ui;
       font-weight: 400;
@@ -2600,8 +2214,6 @@ details summary {
             line-height: 1.4em; }
         .intro > header > div table td {
           color: var(--c-fg-md); }
-        .intro > header > div table > thead {
-          background: var(--c-bg-lt); }
       .intro > header > div iframe {
         max-width: 100%; }
       .intro > header > div figure {
@@ -2626,61 +2238,189 @@ details summary {
         .intro > header > div a:hover {
           color: var(--c-green);
           text-decoration: underline; }
+      .intro > header > div hr {
+        max-width: var(--w-xs);
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: double var(--c-br-dk); }
 
-.modal {
-  position: absolute;
-  top: 0;
-  right: auto;
-  bottom: auto;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  opacity: 0;
-  z-index: -1;
-  background: var(--c-black);
-  transition: opacity var(1-sm), z-index var(--a-sm); }
-  .modal.is-active {
-    z-index: 100;
-    opacity: 1;
-    transition: none; }
-  .modal > button {
-    position: absolute;
-    top: var(--s-lg);
-    right: var(--s-xl);
-    bottom: auto;
-    left: auto;
-    z-index: 1;
+.media-split {
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center; }
+  @media (min-width: 768px) {
+    .media-split {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
+  .media-split--alignment-top {
+    align-items: flex-start; }
+  .media-split--alignment-bottom {
+    align-items: flex-end; }
+  .media-split > div {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .media-split > div {
+        width: calc(60% - var(--s-md)); } }
+  .media-split > header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--s-3xl);
-    height: var(--s-3xl);
-    background-color: var(--c-green-dk);
-    transition: background-color var(--a-sm);
-    border-radius: 50%; }
-    @media (min-width: 992px) {
-      .modal > button {
-        width: var(--w);
-        height: var(--w); } }
-    .modal > button:hover {
-      background-color: var(--c-white); }
-    .modal > button > svg {
-      display: block;
-      width: var(--s-icon-lg);
-      height: var(--s-icon-lg);
-      fill: var(--c-white);
-      transition: fill var(--a-sm); }
-    .modal > button:hover > svg {
-      fill: var(--c-green-dk); }
-  .modal > div {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; }
+    @media (min-width: 768px) {
+      .media-split > header {
+        width: calc(40% - var(--s-md)); } }
+    .media-split > header > h2 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .media-split > header > div {
+      color: var(--c-fg-dk);
+      margin-top: var(--s-sm); }
+      .media-split > header > div:has(table) {
+        overflow-x: auto; }
+      .media-split > header > div > * {
+        max-width: var(--w-lg); }
+        .media-split > header > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .media-split > header > div > h1:not(:first-child), .media-split > header > div > h2:not(:first-child), .media-split > header > div > h3:not(:first-child), .media-split > header > div > h4:not(:first-child), .media-split > header > div > h5:not(:first-child), .media-split > header > div > h6:not(:first-child) {
+        margin-top: var(--s-md); }
+      .media-split > header > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .media-split > header > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .media-split > header > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .media-split > header > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .media-split > header > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .media-split > header > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .media-split > header > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em; }
+      .media-split > header > div ol {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: decimal; }
+        .media-split > header > div ol > li {
+          margin-left: 1.5em; }
+          .media-split > header > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .media-split > header > div ol > li > ol,
+          .media-split > header > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .media-split > header > div ol > li > ul {
+            list-style-type: circle; }
+      .media-split > header > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .media-split > header > div ul > li {
+          margin-left: 1.5em; }
+          .media-split > header > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .media-split > header > div ul > li > ol,
+          .media-split > header > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .media-split > header > div ul > li > ul {
+            list-style-type: circle; }
+      .media-split > header > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .media-split > header > div table th,
+        .media-split > header > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .media-split > header > div table th > *:not(:first-child),
+          .media-split > header > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .media-split > header > div table th > ul,
+          .media-split > header > div table th > li,
+          .media-split > header > div table td > ul,
+          .media-split > header > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+            line-height: 1.4em; }
+        .media-split > header > div table td {
+          color: var(--c-fg-md); }
+      .media-split > header > div iframe {
+        max-width: 100%; }
+      .media-split > header > div figure {
+        margin: var(--s-lg) 0; }
+        .media-split > header > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .media-split > header > div i,
+      .media-split > header > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .media-split > header > div b,
+      .media-split > header > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .media-split > header > div a {
+        color: var(--c-black); }
+        .media-split > header > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
+      .media-split > header > div hr {
+        max-width: var(--w-xs);
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: double var(--c-br-dk); }
+    .media-split > header > nav {
+      margin-top: var(--s-sm); }
+  @media (min-width: 768px) {
+    .media-split--media-position-right > header {
+      order: -1; } }
 
 .posts-gallery {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
@@ -2718,397 +2458,197 @@ details summary {
         .posts-gallery > ul > li {
           width: calc((100% / 4) - var(--s-sm)); } }
 
-.primary-hero {
-  padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  padding-top: 50%;
-  padding-bottom: var(--s-lg);
-  position: relative;
-  display: flex;
-  align-items: flex-end; }
-  @media (min-width: 768px) {
-    .primary-hero {
-      padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
-      padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
-      padding-top: var(--s-lg);
-      padding-bottom: var(--s-lg); } }
-  .primary-hero:after {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    z-index: 2;
-    background: linear-gradient(to top, var(--c-bg-lt), var(--c-bg-lt) 40%, transparent 60%, transparent); }
-    @media (min-width: 768px) {
-      .primary-hero:after {
-        background: linear-gradient(to right, var(--c-bg-lt), var(--c-bg-lt) 40%, transparent 60%, transparent); } }
-  .primary-hero > img {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    object-fit: cover; }
-  .primary-hero > div {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: var(--w-sm); }
-    .primary-hero > div > *:not(:first-child) {
-      margin-top: var(--s-sm); }
-    .primary-hero > div > h1 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(50 * 1px), calc((84 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(84 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
-    .primary-hero > div > h2 {
-      font-family: system-ui;
-      font-weight: 500;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-      line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
-      order: -1; }
-    .primary-hero > div > div {
-      color: var(--c-fg-dk); }
-      .primary-hero > div > div:has(table) {
-        overflow-x: auto; }
-      .primary-hero > div > div > * {
-        max-width: var(--w-lg); }
-        .primary-hero > div > div > *:not(:first-child) {
-          margin-top: var(--s-sm); }
-      .primary-hero > div > div > h1:not(:first-child), .primary-hero > div > div > h2:not(:first-child), .primary-hero > div > div > h3:not(:first-child), .primary-hero > div > div > h4:not(:first-child), .primary-hero > div > div > h5:not(:first-child), .primary-hero > div > div > h6:not(:first-child) {
-        margin-top: var(--s-sm); }
-      .primary-hero > div > div > h1 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-      .primary-hero > div > div > h2 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-      .primary-hero > div > div > h3 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-      .primary-hero > div > div > h4 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .primary-hero > div > div > h5 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .primary-hero > div > div > h6 {
-        font-family: system-ui;
-        font-weight: 400;
-        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.1em;
-        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-      .primary-hero > div > div > p {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em; }
-      .primary-hero > div > div ol {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        list-style-type: decimal; }
-        .primary-hero > div > div ol > li {
-          margin-left: 1.5em; }
-          .primary-hero > div > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .primary-hero > div > div ol > li > ol,
-          .primary-hero > div > div ol > li > ul {
-            margin-top: var(--s-sm); }
-          .primary-hero > div > div ol > li > ul {
-            list-style-type: circle; }
-      .primary-hero > div > div ul {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        list-style-type: disc; }
-        .primary-hero > div > div ul > li {
-          margin-left: 1.5em; }
-          .primary-hero > div > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .primary-hero > div > div ul > li > ol,
-          .primary-hero > div > div ul > li > ul {
-            margin-top: var(--s-sm); }
-          .primary-hero > div > div ul > li > ul {
-            list-style-type: circle; }
-      .primary-hero > div > div table {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
-        min-width: var(--w-md); }
-        .primary-hero > div > div table th,
-        .primary-hero > div > div table td {
-          padding: var(--s-md);
-          border: 1px solid vaR(--c-br-lt); }
-          .primary-hero > div > div table th > *:not(:first-child),
-          .primary-hero > div > div table td > *:not(:first-child) {
-            margin-top: var(--s-sm); }
-          .primary-hero > div > div table th > ul,
-          .primary-hero > div > div table th > li,
-          .primary-hero > div > div table td > ul,
-          .primary-hero > div > div table td > li {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em; }
-        .primary-hero > div > div table td {
-          color: var(--c-fg-md); }
-        .primary-hero > div > div table > thead {
-          background: var(--c-bg-lt); }
-      .primary-hero > div > div iframe {
-        max-width: 100%; }
-      .primary-hero > div > div figure {
-        margin: var(--s-lg) 0; }
-        .primary-hero > div > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
-          margin-top: var(--s-xs);
-          color: var(--c-fg-md); }
-      .primary-hero > div > div i,
-      .primary-hero > div > div em {
-        font-style: italic;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .primary-hero > div > div b,
-      .primary-hero > div > div strong {
-        font-weight: bold;
-        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-      .primary-hero > div > div a {
-        color: var(--c-black); }
-        .primary-hero > div > div a:hover {
-          color: var(--c-green);
-          text-decoration: underline; }
-
-.reminder-card {
-  overflow: hidden;
-  max-width: var(--w-md);
-  border-radius: var(--s-br-md); }
-  .reminder-card > h4 {
-    font-family: system-ui;
-    font-weight: 400;
-    font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-    line-height: 1.1em;
-    letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px));
-    padding: var(--s-xs) var(--s-sm);
-    background-color: var(--c-blue-dk); }
-  .reminder-card > div {
-    padding: var(--s-xs) var(--s-sm) var(--s-sm);
-    background-color: var(--c-blue-lt); }
-    .reminder-card > div > time {
-      font-family: system-ui;
-      font-weight: 500;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
-      line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
-      display: block;
-      margin-bottom: var(--s-sm); }
-    .reminder-card > div > p {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em; }
-    .reminder-card > div > nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: var(--s-sm); }
-      .reminder-card > div > nav > a {
-        text-decoration: underline; }
-
-.sticky-details {
-  padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
+.text-block {
+  padding-top: var(--s-sm);
+  padding-bottom: var(--s-sm);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start; }
-  .sticky-details > header {
-    position: sticky;
-    top: calc(var(--h-header) + var(--s-md));
-    width: 100%; }
-    @media (min-width: 768px) {
-      .sticky-details > header {
-        width: calc(30% - var(--s-sm)); } }
-    .sticky-details > header > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-  .sticky-details > div {
-    color: var(--c-fg-dk);
-    width: 100%; }
-    .sticky-details > div:has(table) {
-      overflow-x: auto; }
-    .sticky-details > div > * {
-      max-width: var(--w-lg); }
-      .sticky-details > div > *:not(:first-child) {
-        margin-top: var(--s-md); }
-    .sticky-details > div > h1:not(:first-child), .sticky-details > div > h2:not(:first-child), .sticky-details > div > h3:not(:first-child), .sticky-details > div > h4:not(:first-child), .sticky-details > div > h5:not(:first-child), .sticky-details > div > h6:not(:first-child) {
-      margin-top: var(--s-md); }
-    .sticky-details > div > h1 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
-    .sticky-details > div > h2 {
-      font-family: system-ui;
-      font-weight: 400;
-      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
-      line-height: 1.1em;
-      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
-    .sticky-details > div > h3 {
+  justify-content: space-between; }
+  .text-block > header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(40% - var(--s-sm)); }
+    .text-block > header > h3 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
-    .sticky-details > div > h4 {
+    .text-block > header > div {
+      display: flex;
+      align-items: center;
+      margin-top: var(--s-sm); }
+      .text-block > header > div > *:not(:first-child) {
+        margin-right: var(--s-sm); }
+      .text-block > header > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+  .text-block > div {
+    color: var(--c-fg-dk);
+    width: calc(60% - var(--s-sm));
+    margin-top: var(--s-xs); }
+    .text-block > div:has(table) {
+      overflow-x: auto; }
+    .text-block > div > * {
+      max-width: var(--w-lg); }
+      .text-block > div > *:not(:first-child) {
+        margin-top: var(--s-md); }
+    .text-block > div > h1:not(:first-child), .text-block > div > h2:not(:first-child), .text-block > div > h3:not(:first-child), .text-block > div > h4:not(:first-child), .text-block > div > h5:not(:first-child), .text-block > div > h6:not(:first-child) {
+      margin-top: var(--s-md); }
+    .text-block > div > h1 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .text-block > div > h2 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+    .text-block > div > h3 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+    .text-block > div > h4 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .sticky-details > div > h5 {
+    .text-block > div > h5 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .sticky-details > div > h6 {
+    .text-block > div > h6 {
       font-family: system-ui;
       font-weight: 400;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
-    .sticky-details > div > p {
+    .text-block > div > p {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em; }
-    .sticky-details > div ol {
+    .text-block > div ol {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       list-style-type: decimal; }
-      .sticky-details > div ol > li {
+      .text-block > div ol > li {
         margin-left: 1.5em; }
-        .sticky-details > div ol > li:not(:first-child) {
+        .text-block > div ol > li:not(:first-child) {
           margin-top: var(--s-sm); }
-        .sticky-details > div ol > li > ol,
-        .sticky-details > div ol > li > ul {
+        .text-block > div ol > li > ol,
+        .text-block > div ol > li > ul {
           margin-top: var(--s-sm); }
-        .sticky-details > div ol > li > ul {
+        .text-block > div ol > li > ul {
           list-style-type: circle; }
-    .sticky-details > div ul {
+    .text-block > div ul {
       font-family: system-ui;
       font-weight: 333;
-      font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+      font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
       line-height: 1.4em;
       list-style-type: disc; }
-      .sticky-details > div ul > li {
+      .text-block > div ul > li {
         margin-left: 1.5em; }
-        .sticky-details > div ul > li:not(:first-child) {
+        .text-block > div ul > li:not(:first-child) {
           margin-top: var(--s-sm); }
-        .sticky-details > div ul > li > ol,
-        .sticky-details > div ul > li > ul {
+        .text-block > div ul > li > ol,
+        .text-block > div ul > li > ul {
           margin-top: var(--s-sm); }
-        .sticky-details > div ul > li > ul {
+        .text-block > div ul > li > ul {
           list-style-type: circle; }
-    .sticky-details > div table {
+    .text-block > div table {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
       line-height: 1.4em;
       min-width: var(--w-md); }
-      .sticky-details > div table th,
-      .sticky-details > div table td {
+      .text-block > div table th,
+      .text-block > div table td {
         padding: var(--s-md);
         border: 1px solid vaR(--c-br-lt); }
-        .sticky-details > div table th > *:not(:first-child),
-        .sticky-details > div table td > *:not(:first-child) {
+        .text-block > div table th > *:not(:first-child),
+        .text-block > div table td > *:not(:first-child) {
           margin-top: var(--s-sm); }
-        .sticky-details > div table th > ul,
-        .sticky-details > div table th > li,
-        .sticky-details > div table td > ul,
-        .sticky-details > div table td > li {
+        .text-block > div table th > ul,
+        .text-block > div table th > li,
+        .text-block > div table td > ul,
+        .text-block > div table td > li {
           font-family: system-ui;
           font-weight: 333;
-          font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+          font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
           line-height: 1.4em; }
-      .sticky-details > div table td {
+      .text-block > div table td {
         color: var(--c-fg-md); }
-      .sticky-details > div table > thead {
-        background: var(--c-bg-lt); }
-    .sticky-details > div iframe {
+    .text-block > div iframe {
       max-width: 100%; }
-    .sticky-details > div figure {
+    .text-block > div figure {
       margin: var(--s-lg) 0; }
-      .sticky-details > div figure > figcaption {
+      .text-block > div figure > figcaption {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
         line-height: 1.4em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
-    .sticky-details > div i,
-    .sticky-details > div em {
+    .text-block > div i,
+    .text-block > div em {
       font-style: italic;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .sticky-details > div b,
-    .sticky-details > div strong {
+    .text-block > div b,
+    .text-block > div strong {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
-    .sticky-details > div a {
+    .text-block > div a {
       color: var(--c-black); }
-      .sticky-details > div a:hover {
+      .text-block > div a:hover {
         color: var(--c-green);
         text-decoration: underline; }
-    @media (min-width: 768px) {
-      .sticky-details > div {
-        width: calc(70% - var(--s-sm)); } }
+    .text-block > div hr {
+      max-width: var(--w-xs);
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: double var(--c-br-dk); }
 
 .text-cta {
-  padding: 0 var(--s-sm);
+  position: relative;
   border-radius: var(--s-br-sm);
   white-space: nowrap;
   transition: border-radius var(--a-xs); }
+  .text-cta:after {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(var(--s));
+    border-bottom: 1px solid var(--c-black);
+    transition: opacity var(--a-xs), transform var(--a-xs); }
+  .text-cta:hover:after {
+    opacity: 1;
+    transform: translateY(0); }
   .text-cta--type-primary:not(text-cta--invert) {
     background-color: var(--c-black);
-    color: var(--c-white); }
+    color: var(--c-white);
+    border: 1px solid var(--c-white); }
   .text-cta--type-primary.text-cta--invert {
     background-color: var(--c-white);
-    color: var(--c-black); }
+    color: var(--c-black);
+    border: 1px solid var(--c-black); }
   .text-cta--type-secondary:not(text-cta--invert) {
     background-color: transparent;
     color: var(--c-black);
@@ -3118,26 +2658,36 @@ details summary {
     color: var(--c-white);
     border: 1px solid var(--c-white); }
   .text-cta--type-tertiary:not(text-cta--invert) {
+    padding: 0;
     background-color: transparent;
     color: var(--c-black); }
+    .text-cta--type-tertiary:not(text-cta--invert):after {
+      content: ""; }
   .text-cta--type-tertiary.text-cta--invert {
+    padding: 0;
     background-color: transparent;
     color: var(--c-white); }
+    .text-cta--type-tertiary.text-cta--invert:after {
+      content: "";
+      border-color: var(--c-white); }
   .text-cta--size-sm {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px)); }
+    line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px));
+    padding: 0 var(--s-xs); }
   .text-cta--size-md {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
-    line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px)); }
+    line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px));
+    padding: 0 var(--s-sm); }
   .text-cta--size-lg {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
-    line-height: clamp(calc(70 * 1px), calc((80 - 70) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 70 * 1px), calc(80 * 1px)); }
+    line-height: clamp(calc(70 * 1px), calc((80 - 70) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 70 * 1px), calc(80 * 1px));
+    padding: 0 var(--s-md); }
   .text-cta:hover {
     border-radius: 0; }
   .text-cta > span {
@@ -3163,28 +2713,226 @@ details summary {
     fill: var(--c-black); }
   .text-cta--type-secondary.text-cta--invert > span > svg {
     fill: var(--c-white); }
-  .text-cta--type-tertiary:not(text-cta--invert) > span > svg {
-    fill: var(--c-black); }
-  .text-cta--type-tertiary.text-cta--invert > span > svg {
-    fill: var(--c-white); }
-  .text-cta:hover > span {
+  .text-cta--type-tertiary > span > svg {
+    display: none; }
+  .text-cta:not(.text-cta--type-tertiary):hover > span {
     transform: translateX(calc(0.5 * var(--size))); }
-    .text-cta:hover > span > svg {
+    .text-cta:not(.text-cta--type-tertiary):hover > span > svg {
       opacity: 1; }
 
-.youtube-video {
-  position: absolute;
-  top: 0;
-  right: auto;
-  bottom: auto;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-  .youtube-video > iframe {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+.text-list {
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md); }
+  @media (min-width: 768px) {
+    .text-list {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
+  .text-list > header {
+    position: relative; }
+    .text-list > header > h2 {
+      font-family: system-ui;
+      font-weight: 400;
+      font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+      line-height: 1.1em;
+      letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+    .text-list > header > div {
+      color: var(--c-fg-dk);
+      margin-top: var(--s-sm); }
+      .text-list > header > div:has(table) {
+        overflow-x: auto; }
+      .text-list > header > div > * {
+        max-width: var(--w-lg); }
+        .text-list > header > div > *:not(:first-child) {
+          margin-top: var(--s-md); }
+      .text-list > header > div > h1:not(:first-child), .text-list > header > div > h2:not(:first-child), .text-list > header > div > h3:not(:first-child), .text-list > header > div > h4:not(:first-child), .text-list > header > div > h5:not(:first-child), .text-list > header > div > h6:not(:first-child) {
+        margin-top: var(--s-md); }
+      .text-list > header > div > h1 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(42 * 1px), calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), calc(70 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
+      .text-list > header > div > h2 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
+      .text-list > header > div > h3 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
+      .text-list > header > div > h4 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .text-list > header > div > h5 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .text-list > header > div > h6 {
+        font-family: system-ui;
+        font-weight: 400;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.1em;
+        letter-spacing: clamp(calc(-0.75 * 1px), calc((-0.75 - -0.4) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.4 * 1px), calc(-0.4 * 1px)); }
+      .text-list > header > div > p {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em; }
+      .text-list > header > div ol {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: decimal; }
+        .text-list > header > div ol > li {
+          margin-left: 1.5em; }
+          .text-list > header > div ol > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .text-list > header > div ol > li > ol,
+          .text-list > header > div ol > li > ul {
+            margin-top: var(--s-sm); }
+          .text-list > header > div ol > li > ul {
+            list-style-type: circle; }
+      .text-list > header > div ul {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+        line-height: 1.4em;
+        list-style-type: disc; }
+        .text-list > header > div ul > li {
+          margin-left: 1.5em; }
+          .text-list > header > div ul > li:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .text-list > header > div ul > li > ol,
+          .text-list > header > div ul > li > ul {
+            margin-top: var(--s-sm); }
+          .text-list > header > div ul > li > ul {
+            list-style-type: circle; }
+      .text-list > header > div table {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.4em;
+        min-width: var(--w-md); }
+        .text-list > header > div table th,
+        .text-list > header > div table td {
+          padding: var(--s-md);
+          border: 1px solid vaR(--c-br-lt); }
+          .text-list > header > div table th > *:not(:first-child),
+          .text-list > header > div table td > *:not(:first-child) {
+            margin-top: var(--s-sm); }
+          .text-list > header > div table th > ul,
+          .text-list > header > div table th > li,
+          .text-list > header > div table td > ul,
+          .text-list > header > div table td > li {
+            font-family: system-ui;
+            font-weight: 333;
+            font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+            line-height: 1.4em; }
+        .text-list > header > div table td {
+          color: var(--c-fg-md); }
+      .text-list > header > div iframe {
+        max-width: 100%; }
+      .text-list > header > div figure {
+        margin: var(--s-lg) 0; }
+        .text-list > header > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
+          line-height: 1.4em;
+          margin-top: var(--s-xs);
+          color: var(--c-fg-md); }
+      .text-list > header > div i,
+      .text-list > header > div em {
+        font-style: italic;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .text-list > header > div b,
+      .text-list > header > div strong {
+        font-weight: bold;
+        letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
+      .text-list > header > div a {
+        color: var(--c-black); }
+        .text-list > header > div a:hover {
+          color: var(--c-green);
+          text-decoration: underline; }
+      .text-list > header > div hr {
+        max-width: var(--w-xs);
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: double var(--c-br-dk); }
+    .text-list > header > nav {
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      height: var(--s-md);
+      margin-top: var(--s-sm);
+      padding: 0 var(--s);
+      border: 1px solid var(--c-br-dk);
+      border-radius: calc(0.5 * var(--s-lg));
+      transition: border-color var(--a-xs); }
+      @media (min-width: 768px) {
+        .text-list > header > nav {
+          position: absolute;
+          top: auto;
+          right: 0;
+          bottom: 0;
+          left: auto;
+          margin: 0; } }
+      .text-list > header > nav > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--s-sm) * 1.5);
+        height: calc(var(--s-sm) * 1.5);
+        background-color: var(--c-white);
+        border-radius: 50%;
+        transition: background-color var(--a-xs); }
+        .text-list > header > nav > button:hover {
+          background-color: var(--c-black); }
+        .text-list > header > nav > button:disabled {
+          opacity: 0.5;
+          pointer-events: none; }
+        .text-list > header > nav > button > svg {
+          width: var(--s-icon-md);
+          height: var(--s-icon-md);
+          fill: var(--c-black);
+          transition: fill var(--a-xs); }
+        .text-list > header > nav > button:hover > svg {
+          fill: var(--c-white); }
+      .text-list > header > nav > span {
+        font-family: system-ui;
+        font-weight: 500;
+        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
+        margin: 0 var(--s-sm); }
+  .text-list > ul {
+    margin-top: var(--s-md); }
+    .text-list > ul:empty {
+      display: none; }
+      .text-list > ul:empty + p {
+        display: block; }
+    .text-list > ul > li {
+      border-bottom: 1px solid var(--c-br-dk); }
+  .text-list.is-loading > ul {
+    opacity: 0.5;
+    pointer-events: none; }
+  .text-list > p {
+    font-family: system-ui;
+    font-weight: 333;
+    font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+    line-height: 1.4em;
+    display: none;
+    margin-top: var(--s-md); }

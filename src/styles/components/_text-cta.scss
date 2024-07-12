@@ -1,19 +1,34 @@
 $handle: "text-cta";
 
 .#{$handle} {
-	padding: 0 var(--s-sm);
+	position: relative;
 	border-radius: var(--s-br-sm);
 	white-space: nowrap;
 	transition: border-radius var(--a-xs);;
 
+	&:after {
+		@include absolute(auto, 0, 0, 0);
+		opacity: 0;
+		transform: translateY(var(--s));
+		border-bottom: 1px solid var(--c-black);
+		transition: opacity var(--a-xs), transform var(--a-xs);
+	}
+
+	&:hover:after {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
 	&--type-primary:not(#{$handle}--invert) {
 		background-color: var(--c-black);
 		color: var(--c-white);
+		border: 1px solid var(--c-white);
 	}
 
 	&--type-primary.#{$handle}--invert {
 		background-color: var(--c-white);
 		color: var(--c-black);
+		border: 1px solid var(--c-black);
 	}
 
 	&--type-secondary:not(#{$handle}--invert) {
@@ -29,25 +44,39 @@ $handle: "text-cta";
 	}
 
 	&--type-tertiary:not(#{$handle}--invert) {
+		padding: 0;
 		background-color: transparent;
 		color: var(--c-black);
+
+		&:after {
+			content: "";
+		}
 	}
 
 	&--type-tertiary.#{$handle}--invert {
+		padding: 0;
 		background-color: transparent;
 		color: var(--c-white);
+
+		&:after {
+			content: "";
+			border-color: var(--c-white);
+		}
 	}
 
 	&--size-sm {
 		@include font("link", "sm");
+		padding: 0 var(--s-xs);
 	}
 
 	&--size-md {
 		@include font("link", "md");
+		padding: 0 var(--s-sm);
 	}
 
 	&--size-lg {
 		@include font("link", "lg");
+		padding: 0 var(--s-md);
 	}
 
 	&:hover {
@@ -86,15 +115,11 @@ $handle: "text-cta";
 		fill: var(--c-white);
 	}
 
-	&--type-tertiary:not(#{$handle}--invert) > span > svg {
-		fill: var(--c-black);
+	&--type-tertiary > span > svg {
+		display: none;
 	}
 
-	&--type-tertiary.#{$handle}--invert > span > svg {
-		fill: var(--c-white);
-	}
-
-	&:hover > span {
+	&:not(.#{$handle}--type-tertiary):hover > span {
 		transform: translateX(calc(0.5 * var(--size)));
 
 		> svg {

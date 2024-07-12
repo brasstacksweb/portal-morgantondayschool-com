@@ -6,9 +6,9 @@
 {# Params #}
 {% set entry = craft.entries.id(entry.id).with([
 	'heroImage',
-	'cta.pageCta:ctaPage',
-	'activityModules.primaryHero:heroImage',
-	'activityModules.primaryHero:ctas.pageCta:ctaPage',
+	'cta.pageCta:page',
+	'activityModules.hero:image',
+	'activityModules.hero:ctas.pageCta:page',
 ]).one() %}
 
 {# Markup #}
@@ -20,7 +20,7 @@
 {% block content %}
 	<article>
 		<header>
-			{% include '_components/primary-hero' with {
+			{% include '_components/hero' with {
 				image: entry.heroImage[0] ?? null,
 				heading: entry.heading,
 				subheading: entry.subheading,

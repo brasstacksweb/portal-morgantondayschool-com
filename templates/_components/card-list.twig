@@ -1,0 +1,35 @@
+{##
+ # Card List component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {object[]} cards
+ # @param {string} gridSize <2, 3*, 4>
+ # @param {string} backgroundColor
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set cards = cards ?? [] %}
+{% set gridSize = gridSize ?? '3' %}
+{% set backgroundColor = backgroundColor ?? '' %}
+
+{# Variables #}
+{% set handle = 'card-list' %}
+
+{# Markup #}
+<div
+	class="{{ handle }} {{ handle }}--background-color-{{ backgroundColor }}"
+	style="--span: {{ { '2': 6, '3': 4, '4': 3 }[gridSize] }}">
+	<header>
+		<h2>{{ heading }}</h2>
+		{% if body is not empty %}
+			<div>{{ body }}</div>
+		{% endif %}
+	</header>
+	<div>
+		{% for c in cards %}
+			{{ c.render() }}
+		{% endfor %}
+	</div>
+</div>

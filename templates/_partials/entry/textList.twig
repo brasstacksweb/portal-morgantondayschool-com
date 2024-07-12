@@ -1,0 +1,8 @@
+<section>
+	{% include '_components/text-list' with {
+		heading: entry.heading,
+		body: entry.body,
+		backgroundColor: entry.backgroundColor.value,
+		listItems: entry.textList.all(),
+	} only %}
+</section>

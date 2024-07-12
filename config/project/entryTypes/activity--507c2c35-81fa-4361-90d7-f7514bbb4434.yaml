@@ -162,27 +162,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 2efcdd43-3927-46bc-aab7-7d1576e97e29 # Announcements
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 1f0bd293-36f6-41d1-8a5a-6c6bd409a6a2
-            userCondition: null
-            warning: null
-            width: 100
-        name: Content
-        uid: c9574e28-8586-4710-b9cd-a32663a53be6
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            elementCondition: null
             fieldUid: c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d # Activity Modules
             handle: null
             includeInCards: false
@@ -196,8 +175,8 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Modules
-        uid: 7bba087f-d673-4cad-bcfa-0859660504f4
+        name: Content
+        uid: c9574e28-8586-4710-b9cd-a32663a53be6
         userCondition: null
 handle: activity
 hasTitleField: true

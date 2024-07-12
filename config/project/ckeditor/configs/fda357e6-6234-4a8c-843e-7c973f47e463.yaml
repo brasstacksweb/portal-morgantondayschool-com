@@ -1,0 +1,10 @@
+headingLevels: false
+name: 'Simple Plus'
+toolbar:
+  - bold
+  - italic
+  - link
+  - subscript
+  - superscript
+  - bulletedList
+  - numberedList

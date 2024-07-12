@@ -1,0 +1,75 @@
+{##
+ # Text List Component
+ # @param {string} heading
+ # @param {HTML} body
+ # @param {object[]} listItems
+ # |_@param {string} heading
+ # |_@param {string} subheading
+ # |_@param {HTML} body
+ # |_@param {object} cta
+ # @param {string} backgroundColor
+ # @param {object} paginate
+ # |_@param {string} prevParam
+ # |_@param {string} nextParam
+ # |_@param {string} current
+ # |_@param {string} endpoint
+ # |_@param {string} paramName
+ # |_@param {string} emptyText
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set listItems = listItems ?? [] %}
+{% set backgroundColor = backgroundColor ?? '' %}
+{% set paginate = paginate ?? null %}
+
+{# Variables #}
+{% set handle = 'text-list' %}
+
+{% set params = paginate
+	? {
+		prevParam: paginate.prevParam,
+		nextParam: paginate.nextParam,
+		endpoint: paginate.endpoint,
+		paramName: paginate.paramName,
+	}
+	: null %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div
+	class="{{ handle }} {{ handle }}--background-color-{{ backgroundColor }}"
+	{% if paginate %}
+		data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}"
+	{% endif %}
+	>
+	<header>
+		<h2>{{ heading }}</h2>
+		{% if body is not empty %}
+			<div>{{ body }}</div>
+		{% endif %}
+		{% if paginate %}
+			<nav>
+				<button type="button" aria-label="Previous">
+					{{ icons.chevron("left") }}
+				</button>
+				<span>{{ paginate.current }}</span>
+				<button type="button" aria-label="Next">
+					{{ icons.chevron("right") }}
+				</button>
+			</nav>
+		{% endif %}
+	</header>
+	<ul>
+		{% for li in listItems %}
+			<li>
+				{{ li.render() }}
+			</li>
+		{% endfor %}
+	</ul>
+	{% if paginate %}
+		<p>{{ paginate.emptyText }}</p>
+	{% endif %}
+</div>

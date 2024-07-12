@@ -2,6 +2,8 @@
  # Figure component
  # @param {string} title
  # @param {string} url
+ # @param {string} fit
+ # @param {string} position
  # @param {string} alt
  # @param {string} caption
  # @param {object} video
@@ -10,6 +12,8 @@
 {# Params #}
 {% set title = title ?? '' %}
 {% set url = url ?? '' %}
+{% set fit = fit ?? 'cover' %}
+{% set position = position ?? 'center' %}
 {% set alt = alt ?? '' %}
 {% set caption = caption ?? '' %}
 {% set video = video ?? null %}
@@ -20,19 +24,28 @@
 {# Markup #}
 <div class="{{ handle }}">
 	<figure>
-		<img
-			src="{{ url }}"
-			alt="{{ caption ?? alt ?? title }}"
-			style="
-				object-size: {{ fit ?? "cover" }};
-				object-position: {{ position ?? "center" }}
-			"
-			loading="lazy" />
+		<div>
+			<img
+				data-bigable="true"
+				src="{{ url }}"
+				alt="{{ caption ?? alt ?? title }}"
+				style="
+					object-size: {{ fit }};
+					object-position: {{ position }}
+				"
+				loading="lazy" />
+			{% if video %}
+				<video
+					style="
+						object-size: {{ fit }};
+						object-position: {{ position }}
+					"
+					src="{{ video.url }}"
+					autoplay playsinline muted loop></video>
+			{% endif %}
+		</div>
 		{% if caption is not empty %}
 			<figcaption>{{ caption }}</figcaption>
-		{% endif %}
-		{% if video %}
-			<video src="{{ video.url }}" autoplay playsinline muted loop></video>
 		{% endif %}
 	</figure>
 </div>

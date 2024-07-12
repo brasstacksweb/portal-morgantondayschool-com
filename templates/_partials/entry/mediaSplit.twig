@@ -1,0 +1,11 @@
+<section>
+	{% include '_components/media-split' with {
+		heading: entry.heading,
+		subheading: entry.subheading,
+		body: entry.body,
+		cta: entry.cta,
+		image: entry.image[0] ?? null,
+		mediaPosition: entry.mediaPosition.value,
+		backgroundColor: entry.backgroundColor.value,
+	} only %}
+</section>

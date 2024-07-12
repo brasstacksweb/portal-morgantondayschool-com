@@ -1,0 +1,9 @@
+<section>
+	{% include '_components/accordion-list' with {
+		heading: entry.heading,
+		body: entry.body,
+		accordionPosition: entry.accordionPosition.value,
+		backgroundColor: entry.backgroundColor.value,
+		accordions: entry.accordions.all(),
+	} only %}
+</section>

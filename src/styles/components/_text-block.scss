@@ -1,0 +1,39 @@
+$handle: "text-block";
+
+.#{$handle} {
+	@include space(var(--s-sm));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	> header {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: calc(40% - var(--s-sm));
+
+		> h3 {
+			@include font("heading", "sm");
+		}
+
+		> div {
+			display: flex;
+			align-items: center;
+			margin-top : var(--s-sm);
+
+			> *:not(:first-child) {
+				margin-right: var(--s-sm);
+			}
+
+			> h4 {
+				@include font("heading", "xs");
+			}
+		}
+	}
+
+	> div {
+		@include richText;
+		width: calc(60% - var(--s-sm));
+		margin-top: var(--s-xs);
+	}
+}

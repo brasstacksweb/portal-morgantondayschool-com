@@ -1,0 +1,6 @@
+{% include '_components/card' with {
+	image: entry.image[0] ?? null,
+	heading: entry.heading,
+	body: entry.body,
+	cta: entry.cta.with(['page']).one(),
+} only %}

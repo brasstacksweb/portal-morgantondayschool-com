@@ -1,0 +1,32 @@
+{##
+ # Avatar component
+ # @param {object} image
+ # @param {string} name
+ # @param {object} cta
+ #}
+
+{# Params #}
+{% set name = name ?? '' %}
+{% set image = image ?? null %}
+{% set cta = cta ?? null %}
+
+{# Variables #}
+{% set handle = 'avatar' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	{% set content %}
+		<address>
+			{% if teacher.photo %}
+				<img src="{{ teacher.photo.url }}" alt="{{ teacher.fullName }} headshot" />
+			{% endif %}
+			<strong>{{ teacher.fullName }}</strong>
+		</address>
+	{% endset %}
+
+	{% if cta %}
+		{{ cta.render(content) }}
+	{% else %}
+		{{ content }}
+	{% endif %}
+</div>

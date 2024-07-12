@@ -1,0 +1,11 @@
+{% include '_components/card' with {
+	image: entry.previewImage[0] ?? null,
+	heading: entry.title,
+	body: entry.previewText,
+	cta: create({
+		class: 'craft\\elements\\Entry',
+		typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+		title: 'View Activity',
+		page: [entry.id],
+	}),
+} only %}

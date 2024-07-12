@@ -1,0 +1,41 @@
+{##
+ # Reminder List json
+ # @query {string} week
+ #}
+
+{# Query  #}
+{% set weekParam = craft.app.request.getParam('week') %}
+
+{# Variables #}
+{% set week = date(weekParam) %}
+{% set prevWeek = week|date_modify('-1 week')|atom %}
+{% set nextWeek = week|date_modify('+1 week')|atom %}
+{% set reminders = craft.entries.section('reminders')
+	.with(['activity', 'cta'])
+	.anyStatus()
+	.postDate([
+		'and',
+		'>= ' ~ week|date_modify('sunday last week')|atom,
+		'< ' ~ week|date_modify('saturday this week')|atom,
+	])
+	.all() %}
+
+{% set markup %}
+	<ul>
+		{% for r in reminders %}
+			<li>
+				{{ r.render() }}
+			</li>
+		{% endfor %}
+	</ul>
+{% endset %}
+
+{# Res #}
+{% header 'Content-Type: application/json' %}
+
+{{ {
+	markup: markup|spaceless,
+	prevParam: prevWeek,
+	nextParam: nextWeek,
+	current: 'Week of ' ~ week|date('m/d/Y'),
+}|json_encode|raw }}

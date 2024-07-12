@@ -229,10 +229,6 @@
 		td {
 			color: var(--c-fg-md);
 		}
-
-		> thead {
-			background: var(--c-bg-lt);
-		}
 	}
 
 	iframe {
@@ -262,23 +258,11 @@
 	a {
 		@include link($invert);
 	}
-}
 
-@mixin cross($size: "sm", $color: var(--c-green)) {
-	position: relative;
-	width: var(--s-icon-#{$size});
-	height: var(--s-icon-#{$size});
-
-	&:before,
-	&:after {
-		@include centerer;
-		content: "";
-		height: var(--s-icon-#{$size});
-		border-left: 2px solid $color;
-	}
-
-	&:before {
-		transform-origin: center;
-		transform: rotate(90deg) translate(calc(-0.5 * var(--s-icon-#{$size})), 0);
+	hr {
+		max-width: var(--w-xs);
+		margin-left: auto;
+		margin-right: auto;
+		border-bottom: double var(--c-br-dk);
 	}
 }

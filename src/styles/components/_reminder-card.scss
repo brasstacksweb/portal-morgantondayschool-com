@@ -1,39 +1,44 @@
 $handle: "reminder-card";
 
 .#{$handle} {
+	position: relative;
 	overflow: hidden;
 	max-width: var(--w-md);
+	background-color: var(--c-white);
+	border: 1px solid var(--c-br-dk);
 	border-radius: var(--s-br-md);
+	padding: var(--s-sm);
+	padding-left: calc(1 * var(--s-md));
 
 	> h4 {
 		@include font("heading", "xs");
-		padding: var(--s-xs) var(--s-sm);
-		background-color: var(--c-blue-dk);
+		display: flex;
+		align-items: center;
+		margin-left: calc(-1 * (var(--s-icon-md) + var(--s-xs)));
+
+		> svg {
+			width: var(--s-icon-md);
+			height: var(--s-icon-md);
+			margin-right: var(--s-xs);
+			fill: var(--c-black);
+		}
 	}
 
-	> div {
-		padding: var(--s-xs) var(--s-sm) var(--s-sm);
-		background-color: var(--c-blue-lt);
+	> time {
+		@include font("eyebrow");
+		display: block;
+		margin-top: var(--s-xs);
+	}
 
-		> time {
-			@include font("eyebrow");
-			display: block;
-			margin-bottom: var(--s-sm);
-		}
+	> p {
+		@include font("body", "sm");
+		margin-top: var(--s-xs);
+	}
 
-		> p {
-			@include font("body", "sm");
-		}
-
-		> nav {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-top: var(--s-sm);
-
-			> a {
-				text-decoration: underline;
-			}
-		}
+	> nav {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: var(--s-sm);
 	}
 }

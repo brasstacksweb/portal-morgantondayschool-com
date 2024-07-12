@@ -1,0 +1,9 @@
+<section>
+	{% include '_components/card-list' with {
+		heading: entry.heading,
+		body: entry.body,
+		gridSize: entry.gridSize.value,
+		backgroundColor: entry.backgroundColor.value,
+		cards: entry.cards.with(['image']).all()
+	} only %}
+</section>

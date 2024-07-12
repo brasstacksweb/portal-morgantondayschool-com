@@ -56,7 +56,7 @@ handle: externalCta
 hasTitleField: true
 icon: arrow-up-right-from-square
 name: 'External CTA'
-showSlugField: true
+showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

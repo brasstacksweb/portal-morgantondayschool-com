@@ -1,0 +1,10 @@
+<header>
+	{% include '_components/hero' with {
+		heading: entry.heading,
+		subheading: entry.subheading,
+		body: entry.body,
+		avatar: entry.avatar[0] ?? null,
+		ctas: entry.ctas,
+		image: entry.image[0] ?? null,
+	} only %}
+</header>

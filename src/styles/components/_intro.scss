@@ -6,7 +6,10 @@ $handle: "intro";
 	> header {
 		max-width: var(--w-lg);
 		margin: 0 auto;
-		text-align: center;
+
+		@include media("sm") {
+			text-align: center;
+		}
 
 		> h2 {
 			@include font("heading", "lg");

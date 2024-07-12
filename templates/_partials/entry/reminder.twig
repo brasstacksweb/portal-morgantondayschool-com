@@ -1,0 +1,18 @@
+{% set cta = entry.cta[0] ?? null %}
+
+{% set activity = entry.activity[0] ?? null %}
+{% if activity %}
+	{% set cta = create({
+		class: 'craft\\elements\\Entry',
+		typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+		title: 'View Activity',
+		page: [activity.id],
+	}) %}
+{% endif %}
+
+{% include '_components/text-block' with {
+	heading: entry.title,
+	subheading: entry.date,
+	body: entry.text,
+	cta: cta,
+} only %}

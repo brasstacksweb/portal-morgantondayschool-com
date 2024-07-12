@@ -1,0 +1,28 @@
+{##
+ # Classes Listing component
+ # @param {string} heading
+ # @param {object[]} classes
+ #}
+
+{# Params #}
+{% set heading = heading ?? 'Class Pages' %}
+{% set classes = classes ?? [] %}
+
+{# Variables #}
+{% set handle = 'class-listing' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% if classes is not empty %}
+		<ul>
+			{% for c in classes %}
+				<li>
+					{% include '_components/class-card' with { class: c } only %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</div>

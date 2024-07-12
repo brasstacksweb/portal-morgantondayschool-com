@@ -71,7 +71,7 @@ handle: pageCta
 hasTitleField: true
 icon: arrow-right
 name: 'Page CTA'
-showSlugField: true
+showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

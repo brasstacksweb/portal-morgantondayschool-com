@@ -1,0 +1,104 @@
+$handle: "text-list";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-md));
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	> header {
+		position: relative;
+
+		> h2 {
+			@include font("heading", "lg");
+		}
+
+		> div {
+			@include richText("lg");
+			margin-top: var(--s-sm);
+		}
+
+		> nav {
+			display: inline-flex;
+			justify-content: space-between;
+			align-items: center;
+			height: var(--s-md);
+			margin-top: var(--s-sm);
+			padding: 0 var(--s);
+			border: 1px solid var(--c-br-dk);
+			border-radius: calc(0.5 * var(--s-lg));
+			transition: border-color var(--a-xs);
+
+			@include media("sm") {
+				@include absolute(auto, 0, 0);
+				margin: 0;
+			}
+
+			> button{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: calc(var(--s-sm) * 1.5);
+				height: calc(var(--s-sm) * 1.5);
+				background-color: var(--c-white);
+				border-radius: 50%;
+				transition: background-color var(--a-xs);
+
+				&:hover {
+					background-color: var(--c-black);
+				}
+
+				&:disabled {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+
+				> svg {
+					width: var(--s-icon-md);
+					height: var(--s-icon-md);
+					fill: var(--c-black);
+					transition: fill var(--a-xs);
+				}
+
+				&:hover > svg {
+					fill: var(--c-white);
+				}
+			}
+
+			> span {
+				@include font("eyebrow");
+				margin: 0 var(--s-sm);
+			}
+		}
+	}
+
+	> ul {
+		margin-top: var(--s-md);
+
+		&:empty {
+			display: none;
+
+			+ p {
+				display: block;
+			}
+		}
+
+		> li {
+			border-bottom: 1px solid var(--c-br-dk);
+		}
+	}
+
+	&.is-loading > ul {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	> p {
+		@include font("body", "lg");
+		display: none;
+		margin-top: var(--s-md);
+	}
+}

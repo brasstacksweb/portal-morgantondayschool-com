@@ -1,2 +1,161 @@
-(()=>{function k(t,o,n=window){let e=new CustomEvent(t,{detail:o});n.dispatchEvent(e)}function S(t,o,n=window){n.addEventListener(t,o)}function h({container:t=document.body,classMap:o={},actions:n={},cb:e=null}){let r={emit:k,on:S};function a(s=null){s!==null&&h({container:s,classMap:o,actions:n,cb:e})}Object.entries(o).forEach(([s,c])=>{t.querySelectorAll(`[data-comp-name="${s}"]`).forEach(i=>{c(i,{...JSON.parse(i.getAttribute("data-comp-params")),actions:n,events:r,refresh:a})})}),e&&e({events:r,refresh:a})}var m=h;var D=t=>{let o=t.getDay(),n=t.getDate()-o;return new Date(t.setDate(n))};function u(t,{prevWeek:o,nextWeek:n,loadingClass:e="is-loading"}){let r=t.querySelector("div > nav > span"),[a,s]=t.querySelectorAll("div > nav > button"),c=t.firstElementChild;function i(f){c.classList.add(e),a.disabled=!0,s.disabled=!0,fetch(`/json/reminders-listing?${new URLSearchParams({week:f})}`,{headers:{Accept:"application/json"}}).then(l=>l.json().then(d=>({status:l.status,...d}))).then(({status:l,markup:d="",prevWeek:b="",nextWeek:w=""})=>{if(l!==200)return;let y=D(new Date(f));c.classList.remove(e),a.disabled=!1,s.disabled=!1,o=b,n=w,r.textContent=`Week of ${y.toLocaleDateString()}`,c.querySelector("ul").outerHTML=d.trim()})}a.onclick=()=>{i(o)},s.onclick=()=>{i(n)}}var E={"home-dashboard":u},p={lockScroll:"lock-scroll",unlockScroll:"unlock-scroll",openModal:"open-modal",closeModal:"close-modal",loadModal:"load-modal",showFieldError:"show-field-error"};function v(){function t({events:o}){if(document.body.addEventListener("click",e=>{let r=e.target.closest("a");if(!!r){if(r.matches('[href="#"]')){e.preventDefault();let a=document.querySelector(r.href);a&&a.scrollIntoView({behavior:"smooth"})}if(r.matches('[href*="youtube.com"]')){e.preventDefault();let a=r.href.split("v=")[1];fetch(`/json/youtube-video?${new URLSearchParams({videoId:a})}`,{headers:{Accept:"application/json"}}).then(s=>s.json().then(c=>({status:s.status,...c}))).then(({status:s,markup:c=""})=>{switch(s){case 500:break;case 400:break;case 200:default:o.emit(p.loadModal,{markup:c})}})}}}),window.location.hash){let e=document.querySelector(window.location.hash);e&&e.scrollIntoView({behavior:"smooth"})}let n=new IntersectionObserver(e=>{e.forEach(({target:r,isIntersecting:a})=>{a?r.play():r.pause()})},{threshold:.1});Array.from(document.querySelectorAll("video")).filter(e=>e.hasAttribute("playsinline")).forEach(e=>{n.observe(e)})}m({classMap:E,actions:p,cb:t})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",v):v();})();
+(() => {
+  // src/scripts/components.js
+  function emit(handle, payload, target = window) {
+    const event = new CustomEvent(handle, { detail: payload });
+    target.dispatchEvent(event);
+  }
+  function on(handle, cb, target = window) {
+    target.addEventListener(handle, cb);
+  }
+  function pop({
+    container = document.body,
+    classMap: classMap2 = {},
+    actions: actions2 = {},
+    cb = null
+  }) {
+    const events = { emit, on };
+    function refresh(c = null) {
+      if (c === null) {
+        return;
+      }
+      pop({ container: c, classMap: classMap2, actions: actions2, cb });
+    }
+    Object.entries(classMap2).forEach(([name, component]) => {
+      container.querySelectorAll(`[data-comp-name="${name}"]`).forEach((node) => {
+        component(node, {
+          ...JSON.parse(node.getAttribute("data-comp-params")),
+          actions: actions2,
+          events,
+          refresh
+        });
+      });
+    });
+    if (cb) {
+      cb({ events, refresh });
+    }
+  }
+  var components_default = pop;
+
+  // src/scripts/components/text-list.js
+  function HomeDashboard(el, {
+    prevParam,
+    nextParam,
+    endpoint,
+    paramName,
+    loadingClass = "is-loading"
+  }) {
+    const current = el.querySelector("header > nav > span");
+    const [
+      prev,
+      next
+    ] = el.querySelectorAll("header > nav > button");
+    function page(param) {
+      el.classList.add(loadingClass);
+      prev.disabled = true;
+      next.disabled = true;
+      fetch(`${endpoint}?${new URLSearchParams({
+        [paramName]: param
+      })}`, {
+        headers: { Accept: "application/json" }
+      }).then((res) => res.json().then((json) => ({
+        status: res.status,
+        ...json
+      }))).then(({
+        status,
+        markup = "",
+        prevParam: p = "",
+        nextParam: n = "",
+        current: c = ""
+      }) => {
+        if (status !== 200)
+          return;
+        el.classList.remove(loadingClass);
+        prev.disabled = false;
+        next.disabled = false;
+        prevParam = p;
+        nextParam = n;
+        current.textContent = c;
+        el.querySelector("ul").outerHTML = markup.trim();
+      });
+    }
+    prev.onclick = () => {
+      page(prevParam);
+    };
+    next.onclick = () => {
+      page(nextParam);
+    };
+  }
+
+  // src/scripts/index.js
+  var classMap = {
+    "text-list": HomeDashboard
+  };
+  var actions = {
+    lockScroll: "lock-scroll",
+    unlockScroll: "unlock-scroll",
+    showFieldError: "show-field-error"
+  };
+  function handleClicks() {
+    document.body.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if (!link)
+        return;
+      if (link.matches('[href="#"]')) {
+        e.preventDefault();
+        const target = document.querySelector(link.href);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  }
+  function handleVideos() {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) {
+          target.play();
+        } else {
+          target.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+    Array.from(document.querySelectorAll("video")).filter((v) => v.hasAttribute("playsinline")).forEach((v) => {
+      videoObserver.observe(v);
+    });
+  }
+  function handleModals() {
+    const loadModal = (string) => {
+      const dialog = document.querySelector("body > dialog");
+      dialog.querySelector("section").innerHTML = string;
+      dialog.showModal();
+    };
+    document.querySelector("body > dialog > button").onclick = ({ currentTarget }) => {
+      currentTarget.parentElement.close();
+    };
+    document.querySelectorAll("img[data-bigable]").forEach((image) => {
+      image.onclick = () => {
+        loadModal(`<img src="${image.src}" alt="${image.alt}" />`);
+      };
+    });
+  }
+  function handleDOMConentLoaded() {
+    function cb() {
+      handleClicks();
+      handleVideos();
+      handleModals();
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+    components_default({ classMap, actions, cb });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", handleDOMConentLoaded);
+  } else {
+    handleDOMConentLoaded();
+  }
+})();
 //# sourceMappingURL=index.js.map
