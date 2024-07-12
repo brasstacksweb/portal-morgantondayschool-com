@@ -372,7 +372,8 @@ details summary {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start; }
+  align-items: flex-start;
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .accordion-list {
       padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
@@ -924,7 +925,8 @@ details summary {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-top: var(--s-md);
-  padding-bottom: var(--s-md); }
+  padding-bottom: var(--s-md);
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .card-list {
       padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
@@ -1816,7 +1818,13 @@ details summary {
 .gallery {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - var(--w-xl))));
-  margin: var(--s-lg) auto; }
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md);
+  background-color: var(--bg-color); }
+  @media (min-width: 768px) {
+    .gallery {
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
   .gallery > header {
     margin-bottom: var(--s-md); }
     @media (min-width: 768px) {
@@ -2303,7 +2311,8 @@ details summary {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .media-split {
       padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
@@ -2765,7 +2774,8 @@ details summary {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-top: var(--s-md);
-  padding-bottom: var(--s-md); }
+  padding-bottom: var(--s-md);
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .text-list {
       padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));

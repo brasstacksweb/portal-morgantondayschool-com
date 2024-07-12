@@ -7,6 +7,7 @@ $handle: "media-split";
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
+	background-color: var(--bg-color);
 
 	@include media("sm") {
 		@include pad(var(--s-lg), var(--w-xl));

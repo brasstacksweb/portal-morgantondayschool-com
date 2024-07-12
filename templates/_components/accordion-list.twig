@@ -23,10 +23,10 @@
 {% import '_icons' as icons %}
 
 <div class="
-	{{ handle }}
-	{{ handle }}--accordion-position-{{ accordionPosition }}
-	{{ handle }}--background-color-{{ backgroundColor }}
-">
+		{{ handle }}
+		{{ handle }}--accordion-position-{{ accordionPosition }}
+	"
+	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
 		<h2>{{ heading }}</h2>
 		{% if body is not empty %}

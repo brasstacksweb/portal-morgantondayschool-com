@@ -20,7 +20,7 @@
 {# Markup #}
 <div
 	class="{{ handle }} {{ handle }}--background-color-{{ backgroundColor }}"
-	style="--span: {{ { '2': 6, '3': 4, '4': 3 }[gridSize] }}">
+	style="--span: {{ { '2': 6, '3': 4, '4': 3 }[gridSize] }}; --bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
 		<h2>{{ heading }}</h2>
 		{% if body is not empty %}

@@ -4,17 +4,19 @@
  # @param {object[]} posts
  # |_@param {string} url
  # |_@param {string} caption
+ # @param {string} backgroundColor
  #}
 
 {# Params #}
 {% set heading = heading ?? '' %}
 {% set posts = posts ?? [] %}
+{% set backgroundColor = backgroundColor ?? '' %}
 
 {# Variables #}
 {% set handle = 'gallery' %}
 
 {# Markup #}
-<div class="{{ handle }}">
+<div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
 		<h2>{{ heading }}</h2>
 	</header>

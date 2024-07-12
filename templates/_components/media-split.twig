@@ -25,11 +25,11 @@
 
 {# Markup #}
 <div class="
-	{{ handle }}
-	{{ handle }}--alignment-{{ alignment }}
-	{{ handle }}--media-position-{{ mediaPosition }}
-	{{ handle }}--background-color-{{ backgroundColor }}
-">
+		{{ handle }}
+		{{ handle }}--alignment-{{ alignment }}
+		{{ handle }}--media-position-{{ mediaPosition }}
+	"
+	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	{% if image %}
 		{{ image.render({ type: 'figure' }) }}
 	{% endif %}

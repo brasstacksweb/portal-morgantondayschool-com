@@ -2,7 +2,12 @@ $handle: "gallery";
 
 .#{$handle} {
 	@include pad(var(--s-sm), var(--w-xl));
-	margin: var(--s-lg) auto;
+	@include space(var(--s-md));
+	background-color: var(--bg-color);
+
+	@include media("sm") {
+		@include space(var(--s-lg));
+	}
 
 	> header {
 		margin-bottom: var(--s-md);

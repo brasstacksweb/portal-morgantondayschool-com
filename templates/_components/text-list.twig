@@ -40,7 +40,8 @@
 {% import '_icons' as icons %}
 
 <div
-	class="{{ handle }} {{ handle }}--background-color-{{ backgroundColor }}"
+	class="{{ handle }}"
+	style="--bg-color: var(--c-{{ backgroundColor }}-lt)"
 	{% if paginate %}
 		data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}"
 	{% endif %}
