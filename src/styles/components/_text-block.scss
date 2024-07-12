@@ -22,16 +22,17 @@ $handle: "text-block";
 
 		> div {
 			display: flex;
-			margin-top : var(--s-sm);
 
 			@include media ($max: "xs") {
 				flex-direction: column;
 				align-items: flex-start;
+				margin-top : var(--s-sm);
 			}
 
 			@include media("sm") {
 				// justify-content: flex-end;
 				align-items: center;
+				margin-top : var(--s-md);
 			}
 
 			> *:not(:first-child) {
@@ -40,7 +41,7 @@ $handle: "text-block";
 				}
 
 				@include media("sm") {
-					margin-left: var(--s-sm);
+					margin-left: var(--s-md);
 				}
 			}
 

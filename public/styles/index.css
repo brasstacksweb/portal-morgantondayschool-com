@@ -2512,21 +2512,22 @@ details summary {
       line-height: 1.1em;
       letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px)); }
     .text-block > header > div {
-      display: flex;
-      margin-top: var(--s-sm); }
+      display: flex; }
       @media (max-width: 767px) {
         .text-block > header > div {
           flex-direction: column;
-          align-items: flex-start; } }
+          align-items: flex-start;
+          margin-top: var(--s-sm); } }
       @media (min-width: 768px) {
         .text-block > header > div {
-          align-items: center; } }
+          align-items: center;
+          margin-top: var(--s-md); } }
       @media (max-width: 767px) {
         .text-block > header > div > *:not(:first-child) {
           margin-top: var(--s-sm); } }
       @media (min-width: 768px) {
         .text-block > header > div > *:not(:first-child) {
-          margin-left: var(--s-sm); } }
+          margin-left: var(--s-md); } }
       .text-block > header > div > h4 {
         font-family: system-ui;
         font-weight: 600;
