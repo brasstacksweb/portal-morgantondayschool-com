@@ -1,4 +1,4 @@
-$handle: "text-cta";
+$handle: "cta";
 
 .#{$handle} {
 	position: relative;
@@ -22,13 +22,13 @@ $handle: "text-cta";
 	&--type-primary:not(#{$handle}--invert) {
 		background-color: var(--c-black);
 		color: var(--c-white);
-		border: 1px solid var(--c-white);
+		border: 1px solid var(--c-black);
 	}
 
 	&--type-primary.#{$handle}--invert {
 		background-color: var(--c-white);
 		color: var(--c-black);
-		border: 1px solid var(--c-black);
+		border: 1px solid var(--c-white);
 	}
 
 	&--type-secondary:not(#{$handle}--invert) {

@@ -36,8 +36,12 @@
 		<header>
 			{% include '_components/hero' with {
 				heading: entry.heading,
+				subheading: entry.teacher[0].fullName ?? '',
 				body: entry.overview,
-				avatar: entry.teacher[0] ?? null,
+				person: entry.teacher|map(t => {
+					title: t.fullName,
+					image: t.photo ?? null,
+				})[0] ?? null,
 				ctas: [create({
 					class: 'craft\\elements\\Entry',
 					typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
@@ -46,6 +50,7 @@
 					anchor: 'resources',
 				})],
 				image: entry.heroImage[0] ?? null,
+				backgroundColor: entry.color.value,
 			} only %}
 		</header>
 
@@ -72,7 +77,7 @@
 			{% include '_components/accordion-list' with {
 				heading: 'Curriculum Updates',
 				accordions: accordions,
-				backgroundColor: 'violet',
+				backgroundColor: 'blue',
 			} only %}
 		</section>
 
@@ -82,7 +87,6 @@
 			{% include '_components/gallery' with {
 				heading: 'In the Classroom',
 				posts: entry.posts,
-				backgroundColor: 'blue',
 			} only %}
 		</section>
 

@@ -1,6 +1,9 @@
+{% set bigable = bigable ?? false %}
+
 {% include '_components/figure' with {
 	title: asset.title,
 	url: asset.url,
 	fit: 'contain',
 	position: 'center',
+	bigable: bigable,
 } %}

@@ -45,6 +45,17 @@ $handle: "hero";
 			margin-bottom: var(--s-xs);
 		}
 
+		> h3 {
+			display: flex;
+			align-items: center;
+			margin-top: var(--s-sm);
+
+			> em {
+				@include round;
+				margin-right: var(--s-xs);
+			}
+		}
+
 		> div {
 			@include richText("sm");
 			margin-top: var(--s-sm);

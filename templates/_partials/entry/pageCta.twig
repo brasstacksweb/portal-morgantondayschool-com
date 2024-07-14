@@ -13,7 +13,7 @@
 	{% if content is not empty %}
 		{{ content }}
 	{% else %}
-		{% include '_components/text-cta' with {
+		{% include '_components/cta' with {
 			title: entry.title,
 			type: type,
 			size: size,

@@ -40,6 +40,15 @@
 	height: 100%;
 }
 
+@mixin round($size: var(--s-md)) {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+}
+
 @mixin lineOverflow($height, $lines) {
 	display: -webkit-box; // Allow for overflow ellipsis on max height
 	-webkit-line-clamp: $lines; // number of lines to show

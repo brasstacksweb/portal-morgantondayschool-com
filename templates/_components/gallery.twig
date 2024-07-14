@@ -24,7 +24,7 @@
 		<ul>
 			{% for p in posts %}
 				<li>
-					{{ p.render() }}
+					{{ p.render({ bigable: true }) }}
 				</li>
 			{% endfor %}
 		</ul>

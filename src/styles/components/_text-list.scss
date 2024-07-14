@@ -29,6 +29,7 @@ $handle: "text-list";
 			height: var(--s-md);
 			margin-top: var(--s-sm);
 			padding: 0 var(--s);
+			background-color: var(--c-white);
 			border: 1px solid var(--c-br-dk);
 			border-radius: calc(0.5 * var(--s-lg));
 			transition: border-color var(--a-xs);
@@ -44,7 +45,6 @@ $handle: "text-list";
 				align-items: center;
 				width: calc(var(--s-sm) * 1.5);
 				height: calc(var(--s-sm) * 1.5);
-				background-color: var(--c-white);
 				border-radius: 50%;
 				transition: background-color var(--a-xs);
 

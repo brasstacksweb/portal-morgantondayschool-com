@@ -27,6 +27,14 @@
 
 {% block content %}
 	<article>
+		<header>
+			{% include '_components/hero' with {
+				heading: 'Welcome',
+				subheading: 'Titan Link',
+				body: 'All about MDS school events, activities, and classroom information',
+				backgroundColor: 'yellow',
+			} only %}
+		</header>
 		<section>
 			{% include '_components/text-list' with {
 				heading: 'Upcoming Events',
