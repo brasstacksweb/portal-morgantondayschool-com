@@ -52,7 +52,7 @@ $handle: "accordion-list";
 				cursor: pointer;
 
 				> h3 {
-					@include font("heading", "md");
+					@include font("heading", "sm");
 					display: flex;
 					align-items: center;
 				}

@@ -1,7 +1,7 @@
 $handle: "header";
 
 .#{$handle} {
-	@include pad;
+	@include pad(var(--s-sm));
 	position: fixed;
 	z-index: 10;
 	top: 0;
@@ -9,6 +9,10 @@ $handle: "header";
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+
+	@include media("sm") {
+		@include pad(var(--s-md));
+	}
 
 	&:before {
 		@include fullOverlay;

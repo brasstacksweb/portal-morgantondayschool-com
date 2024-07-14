@@ -9,11 +9,10 @@ $handle: "text-block";
 	> header {
 		display: flex;
 		flex-direction: column;
-		width: calc(40% - var(--s-xs));
+		width: 40%;
 
 		@include media("sm") {
 			justify-content: space-between;
-			width: calc(40% - var(--s-sm));
 		}
 
 		> h3 {
@@ -54,11 +53,10 @@ $handle: "text-block";
 
 	> div {
 		@include richText;
-		width: calc(60% - var(--s-xs));
-		margin-top: var(--s-xs);
+		width: calc(60% - var(--s-sm));
 
 		@include media("sm") {
-			width: calc(60% - var(--s-sm));
+			width: calc(60% - var(--s-lg));
 		}
 	}
 }

@@ -159,11 +159,11 @@ a:focus {
   --s-br-sm: 13px;
   --s-br-md: 27px;
   --s-br-lg: 41px;
-  --s-icon-sm: 10px;
+  --s-icon-sm: 16px;
   --s-icon-md: 20px;
-  --s-icon-lg: 30px;
+  --s-icon-lg: 24px;
   --w: 111px;
-  --w-xs: calc(var(--w) * 2);
+  --w-xs: calc(var(--w) * 3);
   --w-sm: calc(var(--w) * 4);
   --w-md: calc(var(--w) * 5);
   --w-lg: calc(var(--w) * 7);
@@ -186,8 +186,8 @@ a:focus {
   --c-violet-lt: #F0E3FF;
   --c-violet-dk: #BEADFA;
   --c-bg-lt: #FBFBFB;
-  --c-bg-dk: #696969;
-  --c-fg-lt: #AAA;
+  --c-bg-dk: #303030;
+  --c-fg-lt: #F4F4F4;
   --c-fg-md: #666;
   --c-fg-dk: #111;
   --c-br-lt: #AAA;
@@ -444,17 +444,17 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
       .accordion-list > header > div ol {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: decimal; }
         .accordion-list > header > div ol > li {
           margin-left: 1.5em; }
           .accordion-list > header > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .accordion-list > header > div ol > li > ol,
           .accordion-list > header > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -464,12 +464,12 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: disc; }
         .accordion-list > header > div ul > li {
           margin-left: 1.5em; }
           .accordion-list > header > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .accordion-list > header > div ul > li > ol,
           .accordion-list > header > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -479,7 +479,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         min-width: var(--w-md); }
         .accordion-list > header > div table th,
         .accordion-list > header > div table td {
@@ -495,7 +495,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.4em; }
+            line-height: 1.6em; }
         .accordion-list > header > div table td {
           color: var(--c-fg-md); }
       .accordion-list > header > div iframe {
@@ -506,7 +506,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .accordion-list > header > div i,
@@ -544,9 +544,9 @@ details summary {
         .accordion-list > div > details > summary > h3 {
           font-family: system-ui;
           font-weight: 400;
-          font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
+          font-size: clamp(calc(20 * 1px), calc((40 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(40 * 1px));
           line-height: 1.1em;
-          letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
+          letter-spacing: clamp(calc(-0.9 * 1px), calc((-0.9 - -0.5) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.5 * 1px), calc(-0.5 * 1px));
           display: flex;
           align-items: center; }
         .accordion-list > div > details > summary > i {
@@ -606,17 +606,17 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em; }
+          line-height: 1.6em; }
         .accordion-list > div > details > div ol {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           list-style-type: decimal; }
           .accordion-list > div > details > div ol > li {
             margin-left: 1.5em; }
             .accordion-list > div > details > div ol > li:not(:first-child) {
-              margin-top: var(--s-sm); }
+              margin-top: var(--s-xs); }
             .accordion-list > div > details > div ol > li > ol,
             .accordion-list > div > details > div ol > li > ul {
               margin-top: var(--s-sm); }
@@ -626,12 +626,12 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           list-style-type: disc; }
           .accordion-list > div > details > div ul > li {
             margin-left: 1.5em; }
             .accordion-list > div > details > div ul > li:not(:first-child) {
-              margin-top: var(--s-sm); }
+              margin-top: var(--s-xs); }
             .accordion-list > div > details > div ul > li > ol,
             .accordion-list > div > details > div ul > li > ul {
               margin-top: var(--s-sm); }
@@ -641,7 +641,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           min-width: var(--w-md); }
           .accordion-list > div > details > div table th,
           .accordion-list > div > details > div table td {
@@ -657,7 +657,7 @@ details summary {
               font-family: system-ui;
               font-weight: 333;
               font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-              line-height: 1.4em; }
+              line-height: 1.6em; }
           .accordion-list > div > details > div table td {
             color: var(--c-fg-md); }
         .accordion-list > div > details > div iframe {
@@ -668,7 +668,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-            line-height: 1.4em;
+            line-height: 1.6em;
             margin-top: var(--s-xs);
             color: var(--c-fg-md); }
         .accordion-list > div > details > div i,
@@ -802,20 +802,20 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em; }
+      line-height: 1.6em; }
     .card > a > article > header > div ol,
     .card > article > header > div ol {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: decimal; }
       .card > a > article > header > div ol > li,
       .card > article > header > div ol > li {
         margin-left: 1.5em; }
         .card > a > article > header > div ol > li:not(:first-child),
         .card > article > header > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card > a > article > header > div ol > li > ol,
         .card > a > article > header > div ol > li > ul,
         .card > article > header > div ol > li > ol,
@@ -829,14 +829,14 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: disc; }
       .card > a > article > header > div ul > li,
       .card > article > header > div ul > li {
         margin-left: 1.5em; }
         .card > a > article > header > div ul > li:not(:first-child),
         .card > article > header > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card > a > article > header > div ul > li > ol,
         .card > a > article > header > div ul > li > ul,
         .card > article > header > div ul > li > ol,
@@ -850,7 +850,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       min-width: var(--w-md); }
       .card > a > article > header > div table th,
       .card > a > article > header > div table td,
@@ -874,7 +874,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.4em; }
+          line-height: 1.6em; }
       .card > a > article > header > div table td,
       .card > article > header > div table td {
         color: var(--c-fg-md); }
@@ -889,7 +889,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
     .card > a > article > header > div i,
@@ -990,17 +990,17 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.4em; }
+      line-height: 1.6em; }
     .card-list > header > div ol {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: decimal; }
       .card-list > header > div ol > li {
         margin-left: 1.5em; }
         .card-list > header > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card-list > header > div ol > li > ol,
         .card-list > header > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -1010,12 +1010,12 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: disc; }
       .card-list > header > div ul > li {
         margin-left: 1.5em; }
         .card-list > header > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card-list > header > div ul > li > ol,
         .card-list > header > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -1025,7 +1025,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       min-width: var(--w-md); }
       .card-list > header > div table th,
       .card-list > header > div table td {
@@ -1041,7 +1041,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-          line-height: 1.4em; }
+          line-height: 1.6em; }
       .card-list > header > div table td {
         color: var(--c-fg-md); }
     .card-list > header > div iframe {
@@ -1052,7 +1052,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
     .card-list > header > div i,
@@ -1074,13 +1074,15 @@ details summary {
       margin-right: auto;
       border-bottom: double var(--c-br-dk); }
   .card-list > div {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr) var(--s-md);
-    gap: var(--s-md);
     margin-top: var(--s-md); }
+    @media (min-width: 768px) {
+      .card-list > div {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr) var(--s-md); } }
     .card-list > div > * {
-      margin-bottom: var(--s-md);
-      grid-column: span 12; }
+      grid-column: span 12;
+      margin-right: var(--s-md);
+      margin-bottom: var(--s-md); }
       @media (min-width: 768px) {
         .card-list > div > * {
           grid-column: span var(--span); } }
@@ -1102,7 +1104,7 @@ details summary {
     left: 0;
     content: "";
     transform-origin: bottom left;
-    border-width: 0 var(--s-md) var(--s-md) 0;
+    border-width: 0 var(--s-sm) var(--s-sm) 0;
     border-style: solid;
     border-color: var(--c-bg-lt) var(--color-dk);
     transition: transform var(--a-xs); }
@@ -1111,34 +1113,14 @@ details summary {
   .class-card > article > a > h3 {
     font-family: system-ui;
     font-weight: 400;
-    font-size: clamp(calc(50 * 1px), calc((84 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(84 * 1px));
+    font-size: clamp(calc(36 * 1px), calc((54 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(54 * 1px));
     line-height: 1.1em;
-    letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px));
+    letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px));
     transform-origin: bottom right;
     margin: auto 0 0;
     color: var(--c-black); }
   .class-card > article > a:hover > h3 {
     text-decoration: underline; }
-  .class-card > article > a > h4 {
-    order: -1;
-    display: flex;
-    align-items: center;
-    margin: 0 auto auto 0; }
-    .class-card > article > a > h4 > img {
-      width: var(--s-icon-lg);
-      height: var(--s-icon-lg);
-      margin-right: var(--s-xs);
-      border-radius: 50%;
-      object-fit: cover; }
-    .class-card > article > a > h4 > svg {
-      opacity: 0;
-      width: var(--s-icon-md);
-      height: var(--s-icon-md);
-      fill: var(--c-black);
-      transition: opacity var(--a-xs), transform var(--a-xs); }
-  .class-card > article > a:hover > h4 > svg {
-    opacity: 1;
-    transform: translateX(var(--s-xs)); }
 
 .class-listing {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
@@ -1172,10 +1154,7 @@ details summary {
           grid-column: span 4; } }
       @media (min-width: 992px) {
         .class-listing > ul > li {
-          grid-column: span 3; } }
-      @media (min-width: 768px) {
-        .class-listing > ul > li:nth-child(1), .class-listing > ul > li:nth-child(2), .class-listing > ul > li:nth-child(3) {
-          grid-column: span 4; } }
+          grid-column: span 2; } }
 
 .color-split {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
@@ -1318,17 +1297,17 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em; }
+      line-height: 1.6em; }
     .color-split > div ol {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: decimal; }
       .color-split > div ol > li {
         margin-left: 1.5em; }
         .color-split > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .color-split > div ol > li > ol,
         .color-split > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -1338,12 +1317,12 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: disc; }
       .color-split > div ul > li {
         margin-left: 1.5em; }
         .color-split > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .color-split > div ul > li > ol,
         .color-split > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -1353,7 +1332,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       min-width: var(--w-md); }
       .color-split > div table th,
       .color-split > div table td {
@@ -1369,7 +1348,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-          line-height: 1.4em; }
+          line-height: 1.6em; }
       .color-split > div table td {
         color: var(--c-fg-md); }
     .color-split > div iframe {
@@ -1380,7 +1359,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
     .color-split > div i,
@@ -1427,7 +1406,8 @@ details summary {
       border-bottom-right-radius: var(--s-br-lg); } }
 
 .figure > figure {
-  display: block; }
+  display: block;
+  width: 100%; }
   .figure > figure > div {
     position: relative;
     overflow: hidden; }
@@ -1448,6 +1428,82 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     padding: var(--s-xs); }
+
+.footer {
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: var(--c-bg-dk);
+  color: var(--c-fg-lt);
+  border-top: 1px solid var(--c-br-lt); }
+  @media (min-width: 768px) {
+    .footer {
+      padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-xl); } }
+  .footer > address {
+    font-family: system-ui;
+    font-weight: 333;
+    font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
+    line-height: 1.6em;
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    @media (min-width: 992px) {
+      .footer > address {
+        width: var(--w-xs); } }
+    .footer > address > *:not(:first-child) {
+      margin-top: var(--s-sm); }
+    .footer > address > ul {
+      display: flex; }
+      .footer > address > ul > li {
+        margin-right: var(--s-sm); }
+        .footer > address > ul > li > a {
+          display: block;
+          width: var(--s-icon-lg);
+          height: var(--s-icon-lg); }
+          .footer > address > ul > li > a > svg {
+            fill: var(--c-br-dk); }
+  .footer > nav {
+    width: 100%; }
+    @media (max-width: 991px) {
+      .footer > nav {
+        margin-top: var(--s-md); } }
+    @media (min-width: 992px) {
+      .footer > nav {
+        width: calc(100% - var(--w-xs) - var(--s-md)); } }
+    @media (min-width: 768px) {
+      .footer > nav > ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; } }
+    .footer > nav > ul > li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: var(--s-sm); }
+      @media (min-width: 768px) {
+        .footer > nav > ul > li {
+          margin-right: var(--s-sm); } }
+      .footer > nav > ul > li > h3 {
+        font-family: system-ui;
+        font-weight: 600;
+        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        font-stretch: condensed;
+        line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
+        text-transform: uppercase; }
+      .footer > nav > ul > li > a {
+        font-family: system-ui;
+        font-weight: 444;
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
+        line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px));
+        margin-top: var(--s-xs); }
 
 .form > form {
   display: flex;
@@ -1511,17 +1567,17 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em; }
+    line-height: 1.6em; }
   .form--invert > div ol {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     list-style-type: decimal; }
     .form--invert > div ol > li {
       margin-left: 1.5em; }
       .form--invert > div ol > li:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-xs); }
       .form--invert > div ol > li > ol,
       .form--invert > div ol > li > ul {
         margin-top: var(--s-sm); }
@@ -1531,12 +1587,12 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     list-style-type: disc; }
     .form--invert > div ul > li {
       margin-left: 1.5em; }
       .form--invert > div ul > li:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-xs); }
       .form--invert > div ul > li > ol,
       .form--invert > div ul > li > ul {
         margin-top: var(--s-sm); }
@@ -1546,7 +1602,7 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     min-width: var(--w-md); }
     .form--invert > div table th,
     .form--invert > div table td {
@@ -1562,7 +1618,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
     .form--invert > div table td {
       color: var(--c-fg-md); }
   .form--invert > div iframe {
@@ -1573,7 +1629,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       margin-top: var(--s-xs);
       color: var(--c-white); }
   .form--invert > div i,
@@ -1646,17 +1702,17 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em; }
+    line-height: 1.6em; }
   .form:not(.form--invert) > div ol {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     list-style-type: decimal; }
     .form:not(.form--invert) > div ol > li {
       margin-left: 1.5em; }
       .form:not(.form--invert) > div ol > li:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-xs); }
       .form:not(.form--invert) > div ol > li > ol,
       .form:not(.form--invert) > div ol > li > ul {
         margin-top: var(--s-sm); }
@@ -1666,12 +1722,12 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     list-style-type: disc; }
     .form:not(.form--invert) > div ul > li {
       margin-left: 1.5em; }
       .form:not(.form--invert) > div ul > li:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-xs); }
       .form:not(.form--invert) > div ul > li > ol,
       .form:not(.form--invert) > div ul > li > ul {
         margin-top: var(--s-sm); }
@@ -1681,7 +1737,7 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     min-width: var(--w-md); }
     .form:not(.form--invert) > div table th,
     .form:not(.form--invert) > div table td {
@@ -1697,7 +1753,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
     .form:not(.form--invert) > div table td {
       color: var(--c-fg-md); }
   .form:not(.form--invert) > div iframe {
@@ -1708,7 +1764,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       margin-top: var(--s-xs);
       color: var(--c-fg-md); }
   .form:not(.form--invert) > div i,
@@ -1756,7 +1812,7 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     display: block;
     width: 100%;
     padding: var(--s-sm);
@@ -1858,8 +1914,8 @@ details summary {
           width: calc((100% / 4) - var(--s-sm)); } }
 
 .header {
-  padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   position: fixed;
   z-index: 10;
   top: 0;
@@ -1867,6 +1923,10 @@ details summary {
   justify-content: space-between;
   align-items: center;
   width: 100%; }
+  @media (min-width: 768px) {
+    .header {
+      padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+      padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px)))); } }
   .header:before {
     position: absolute;
     top: 0;
@@ -1966,19 +2026,19 @@ details summary {
 .hero {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-top: var(--s-sm) 0;
-  padding-bottom: var(--s-sm) 0;
-  position: relative;
+  padding-top: var(--s-sm);
+  padding-bottom: var(--s-md);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start; }
+  align-items: flex-start;
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .hero {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
       padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
-      padding-top: var(--s-lg);
-      padding-bottom: 0; } }
+      padding-top: var(--s-md);
+      padding-bottom: var(--s-md); } }
   .hero > div {
     position: relative;
     display: flex;
@@ -2060,17 +2120,17 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
       .hero > div > div ol {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: decimal; }
         .hero > div > div ol > li {
           margin-left: 1.5em; }
           .hero > div > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .hero > div > div ol > li > ol,
           .hero > div > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2080,12 +2140,12 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: disc; }
         .hero > div > div ul > li {
           margin-left: 1.5em; }
           .hero > div > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .hero > div > div ul > li > ol,
           .hero > div > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2095,7 +2155,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         min-width: var(--w-md); }
         .hero > div > div table th,
         .hero > div > div table td {
@@ -2111,7 +2171,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.4em; }
+            line-height: 1.6em; }
         .hero > div > div table td {
           color: var(--c-fg-md); }
       .hero > div > div iframe {
@@ -2122,7 +2182,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .hero > div > div i,
@@ -2219,17 +2279,17 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
       .intro > header > div ol {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: decimal; }
         .intro > header > div ol > li {
           margin-left: 1.5em; }
           .intro > header > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .intro > header > div ol > li > ol,
           .intro > header > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2239,12 +2299,12 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: disc; }
         .intro > header > div ul > li {
           margin-left: 1.5em; }
           .intro > header > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .intro > header > div ul > li > ol,
           .intro > header > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2254,7 +2314,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         min-width: var(--w-md); }
         .intro > header > div table th,
         .intro > header > div table td {
@@ -2270,7 +2330,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.4em; }
+            line-height: 1.6em; }
         .intro > header > div table td {
           color: var(--c-fg-md); }
       .intro > header > div iframe {
@@ -2281,7 +2341,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .intro > header > div i,
@@ -2332,10 +2392,12 @@ details summary {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%; }
+    width: 100%;
+    margin-top: var(--s-sm); }
     @media (min-width: 768px) {
       .media-split > header {
-        width: calc(40% - var(--s-md)); } }
+        width: calc(40% - var(--s-md));
+        margin: 0; } }
     .media-split > header > h2 {
       font-family: system-ui;
       font-weight: 400;
@@ -2402,17 +2464,17 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
       .media-split > header > div ol {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: decimal; }
         .media-split > header > div ol > li {
           margin-left: 1.5em; }
           .media-split > header > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .media-split > header > div ol > li > ol,
           .media-split > header > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2422,12 +2484,12 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: disc; }
         .media-split > header > div ul > li {
           margin-left: 1.5em; }
           .media-split > header > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .media-split > header > div ul > li > ol,
           .media-split > header > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2437,7 +2499,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         min-width: var(--w-md); }
         .media-split > header > div table th,
         .media-split > header > div table td {
@@ -2453,7 +2515,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-            line-height: 1.4em; }
+            line-height: 1.6em; }
         .media-split > header > div table td {
           color: var(--c-fg-md); }
       .media-split > header > div iframe {
@@ -2464,7 +2526,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .media-split > header > div i,
@@ -2500,11 +2562,10 @@ details summary {
   .text-block > header {
     display: flex;
     flex-direction: column;
-    width: calc(40% - var(--s-xs)); }
+    width: 40%; }
     @media (min-width: 768px) {
       .text-block > header {
-        justify-content: space-between;
-        width: calc(40% - var(--s-sm)); } }
+        justify-content: space-between; } }
     .text-block > header > h3 {
       font-family: system-ui;
       font-weight: 400;
@@ -2537,8 +2598,7 @@ details summary {
         text-transform: uppercase; }
   .text-block > div {
     color: var(--c-fg-dk);
-    width: calc(60% - var(--s-xs));
-    margin-top: var(--s-xs); }
+    width: calc(60% - var(--s-sm)); }
     .text-block > div:has(table) {
       overflow-x: auto; }
     .text-block > div > * {
@@ -2587,17 +2647,17 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em; }
+      line-height: 1.6em; }
     .text-block > div ol {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: decimal; }
       .text-block > div ol > li {
         margin-left: 1.5em; }
         .text-block > div ol > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .text-block > div ol > li > ol,
         .text-block > div ol > li > ul {
           margin-top: var(--s-sm); }
@@ -2607,12 +2667,12 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       list-style-type: disc; }
       .text-block > div ul > li {
         margin-left: 1.5em; }
         .text-block > div ul > li:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .text-block > div ul > li > ol,
         .text-block > div ul > li > ul {
           margin-top: var(--s-sm); }
@@ -2622,7 +2682,7 @@ details summary {
       font-family: system-ui;
       font-weight: 333;
       font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.4em;
+      line-height: 1.6em;
       min-width: var(--w-md); }
       .text-block > div table th,
       .text-block > div table td {
@@ -2638,7 +2698,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-          line-height: 1.4em; }
+          line-height: 1.6em; }
       .text-block > div table td {
         color: var(--c-fg-md); }
     .text-block > div iframe {
@@ -2649,7 +2709,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         margin-top: var(--s-xs);
         color: var(--c-fg-md); }
     .text-block > div i,
@@ -2672,7 +2732,7 @@ details summary {
       border-bottom: double var(--c-br-dk); }
     @media (min-width: 768px) {
       .text-block > div {
-        width: calc(60% - var(--s-sm)); } }
+        width: calc(60% - var(--s-lg)); } }
 
 .text-cta {
   position: relative;
@@ -2842,17 +2902,17 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em; }
+        line-height: 1.6em; }
       .text-list > header > div ol {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: decimal; }
         .text-list > header > div ol > li {
           margin-left: 1.5em; }
           .text-list > header > div ol > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .text-list > header > div ol > li > ol,
           .text-list > header > div ol > li > ul {
             margin-top: var(--s-sm); }
@@ -2862,12 +2922,12 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         list-style-type: disc; }
         .text-list > header > div ul > li {
           margin-left: 1.5em; }
           .text-list > header > div ul > li:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
           .text-list > header > div ul > li > ol,
           .text-list > header > div ul > li > ul {
             margin-top: var(--s-sm); }
@@ -2877,7 +2937,7 @@ details summary {
         font-family: system-ui;
         font-weight: 333;
         font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.4em;
+        line-height: 1.6em;
         min-width: var(--w-md); }
         .text-list > header > div table th,
         .text-list > header > div table td {
@@ -2893,7 +2953,7 @@ details summary {
             font-family: system-ui;
             font-weight: 333;
             font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-            line-height: 1.4em; }
+            line-height: 1.6em; }
         .text-list > header > div table td {
           color: var(--c-fg-md); }
       .text-list > header > div iframe {
@@ -2904,7 +2964,7 @@ details summary {
           font-family: system-ui;
           font-weight: 333;
           font-size: clamp(calc(12 * 1px), calc((14 - 12) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 12 * 1px), calc(14 * 1px));
-          line-height: 1.4em;
+          line-height: 1.6em;
           margin-top: var(--s-xs);
           color: var(--c-fg-md); }
       .text-list > header > div i,
@@ -2987,6 +3047,6 @@ details summary {
     font-family: system-ui;
     font-weight: 333;
     font-size: clamp(calc(18 * 1px), calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(24 * 1px));
-    line-height: 1.4em;
+    line-height: 1.6em;
     display: none;
     margin-top: var(--s-md); }

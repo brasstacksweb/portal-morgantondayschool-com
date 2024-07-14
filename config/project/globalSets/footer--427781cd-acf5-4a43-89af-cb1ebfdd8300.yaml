@@ -1,0 +1,87 @@
+fieldLayouts:
+  3cb6455c-81ee-4060-9f48-19aeae165b7e:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Logo
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba070175-3443-4170-9781-1a030ca84e30
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 5c5f6ce4-6182-41ef-aa26-eecbddeb59b4 # Phone Number
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a22848e1-09bf-47b1-82b2-6907f118064a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: db8ba95d-1c59-46d4-be6b-f020db568757 # Address
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ecc746c0-933b-4e84-b13e-a4488f20187a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e3999e4e-a947-4d65-8944-1f558463fe8f # Social Links
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7e73886-6ddb-4bff-90b1-2be85d970c9f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 4294bfbd-d338-4975-a4bd-57772d64b3c8 # Link Groups
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3e901f2-3e83-4a6d-a53c-f61c8b70d638
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 38061845-041b-432e-865f-ecb3672f18e3
+        userCondition: null
+handle: footer
+name: Footer
+sortOrder: 2

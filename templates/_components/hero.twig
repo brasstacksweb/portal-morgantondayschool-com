@@ -6,6 +6,7 @@
  # @param {object} avatar
  # @param {object[]} ctas
  # @param {object} image
+ # @param {string} backgroundColor
  #}
 
 {# Params #}
@@ -15,12 +16,13 @@
 {% set avatar = avatar ?? null %}
 {% set ctas = ctas ?? [] %}
 {% set image = image ?? null %}
+{% set backgroundColor = backgroundColor ?? '' %}
 
 {# Variables #}
 {% set handle = 'hero' %}
 
 {# Markup #}
-<div class="{{ handle }}">
+<div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	{% if image %}
 		{{ image.render({ type: 'figure' }) }}
 	{% endif %}

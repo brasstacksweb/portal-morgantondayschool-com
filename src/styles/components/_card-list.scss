@@ -22,14 +22,17 @@ $handle: "card-list";
 	}
 
 	> div {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr) var(--s-md);
-		gap: var(--s-md);
 		margin-top: var(--s-md);
 
+		@include media("sm") {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr) var(--s-md);
+		}
+
 		> * {
-			margin-bottom: var(--s-md);
 			grid-column: span 12;
+			margin-right: var(--s-md);
+			margin-bottom: var(--s-md);
 
 			@include media("sm") {
 				grid-column: span var(--span);

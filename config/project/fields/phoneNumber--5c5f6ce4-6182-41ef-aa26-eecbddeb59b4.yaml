@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: phoneNumber
+instructions: null
+name: 'Phone Number'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: 828-437-6782
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

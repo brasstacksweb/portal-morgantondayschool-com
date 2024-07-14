@@ -1,0 +1,54 @@
+{##
+ # Footer component
+ # @param {object} logo
+ # @param {object[]} socialLinks
+ # @param {Address} address
+ # @param {string} phoneNumber
+ # @param {object[]} linkGroups
+ #}
+
+{# Params #}
+{% set logo = logo ?? null %}
+{% set solialLinks = solialLinks ?? [] %}
+{% set address = address ?? null %}
+{% set phoneNumber = phoneNumber ?? null %}
+{% set linkGroups = linkGroups ?? [] %}
+
+{# Variables #}
+{% set handle = 'footer' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<address>
+		{% if logo %}
+			{{ logo.render() }}
+		{% endif %}
+		{% if socialLinks is not empty %}
+			<ul>
+				{% for l in socialLinks %}
+					<li>
+						{{ l.render() }}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<p>{{ address.addressLine1 }}
+		<br />{{ address.locality }}, {{ address.administrativeArea }}&nbsp;{{ address.postalCode }}
+		</p>
+		<a href="tel:{{ phoneNumber }}" title="Call Us">{{ phoneNumber }}</a>
+	</address>
+	<nav>
+		{% if linkGroups is not empty %}
+			<ul>
+				{% for g in linkGroups %}
+					<li>
+						<h3>{{ g.heading }}</h3>
+						{% for l in g.links %}
+							{{ l.render({ type: 'tertiary' , invert: true}) }}
+						{% endfor %}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</nav>
+</div>

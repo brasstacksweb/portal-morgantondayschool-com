@@ -9,6 +9,17 @@ settings:
       __assoc__:
         -
           - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
           - Red
         -
           - value
@@ -48,7 +59,7 @@ settings:
           - green
         -
           - default
-          - '1'
+          - ''
     -
       __assoc__:
         -

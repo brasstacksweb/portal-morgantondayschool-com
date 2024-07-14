@@ -1,0 +1,80 @@
+color: null
+fieldLayouts:
+  3197a762-8473-4cea-a23e-c895d02ac0e3:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: a93b648f-67d8-42df-a997-82dc0a8e2645
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: heading
+            includeInCards: false
+            instructions: null
+            label: Heading
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9eef592e-1b9e-4196-a8e6-a8cb0af01ce0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: cd8cda62-462c-44a7-90ff-4ab2495badca # Nav Links
+            handle: links
+            includeInCards: false
+            instructions: null
+            label: Links
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1c1482f4-45d2-4ec6-adfc-02b7ae75560a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c73072be-b03f-4ef2-8811-95f7aac5683a
+        userCondition: null
+handle: linkGroup
+hasTitleField: false
+icon: table-list
+name: 'Link Group'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

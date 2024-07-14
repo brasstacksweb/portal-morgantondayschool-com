@@ -24,6 +24,7 @@
 	<article>
 		<a href="{{ class.url }}" title="{{ class.title }}">
 			<h3>{{ class.previewText }}</h3>
+			{#
 			{% if class.teacher %}
 				<h4>
 					{% if class.teacher.photo %}
@@ -31,10 +32,10 @@
 							src="{{ class.teacher.photo.url }}"
 							alt="{{ class.teacher.fullName }} headshot" />
 					{% endif %}
-					{{ class.teacher.fullName }}
 					{{ icons.arrow("right") }}
 				</h4>
 			{% endif %}
+			#}
 		</a>
 	</article>
 </div>

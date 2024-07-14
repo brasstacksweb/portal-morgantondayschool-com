@@ -3,6 +3,7 @@ $handle: "figure";
 .#{$handle} {
 	> figure {
 		display: block;
+		width: 100%;
 
 		> div {
 			position: relative;

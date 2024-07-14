@@ -2,16 +2,16 @@ $handle: "hero";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
-	@include space(var(--s-sm)0);
-	position: relative;
+	@include space(var(--s-sm), var(--s-md));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
+	background-color: var(--bg-color);
 
 	@include media("sm") {
 		@include pad(var(--s-md), var(--w-xl));
-		@include space(var(--s-lg), 0);
+		@include space(var(--s-md));
 	}
 
 	> div {

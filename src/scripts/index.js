@@ -91,6 +91,9 @@ function handleDOMConentLoaded() {
                 target.scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        const header = document.querySelector('.header');
+        document.querySelector(':root').style.setProperty('--h-header', `${header.offsetHeight}px`);
     }
 
     pop({ classMap, actions, cb });

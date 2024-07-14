@@ -32,16 +32,16 @@ $handle: "class-listing";
 			}
 
 			@include media("md") {
-				grid-column: span 3;
+				grid-column: span 2;
 			}
 
-			&:nth-child(1),
-			&:nth-child(2),
-			&:nth-child(3){
-				@include media("sm") {
-					grid-column: span 4;
-				}
-			}
+			// &:nth-child(1),
+			// &:nth-child(2),
+			// &:nth-child(3){
+			// 	@include media("sm") {
+			// 		grid-column: span 4;
+			// 	}
+			// }
 		}
 	}
 }

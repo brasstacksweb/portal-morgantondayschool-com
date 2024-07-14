@@ -1,0 +1,12 @@
+{% import '_icons' as icons %}
+
+<a href="{{ entry.referenceUrl }}" title="{{ entry.title }}" target="_blank" rel="nopener noreferrer">
+	{% switch entry.title|lower %}
+	{% case 'youtube' %}
+		{{ icons.youtube() }}
+	{% case 'instagram' %}
+		{{ icons.instagram() }}
+	{% case 'facebook' %}
+		{{ icons.facebook() }}
+	{% endswitch %}
+</a>

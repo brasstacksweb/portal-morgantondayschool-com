@@ -84,9 +84,20 @@
 		</main>
 
 		{% set footer = craft.globalSets().handle('footer').with([
+			'logo',
+			'socialLinks',
+			'address',
+			'linkGroups.linkGroup:links.pageCta:page',
 		]).one() %}
 		{% if footer %}
 			<footer>
+				{% include '_components/footer' with {
+					logo: footer.logo[0] ?? null,
+					socialLinks: footer.socialLinks.all(),
+					address: footer.address[0] ?? null,
+					phoneNumber: footer.phoneNumber,
+					linkGroups: footer.linkGroups,
+				} only %}
 			</footer>
 		{% endif %}
 

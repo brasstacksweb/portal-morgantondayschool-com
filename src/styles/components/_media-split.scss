@@ -35,9 +35,11 @@ $handle: "media-split";
 		flex-direction: column;
 		align-items: flex-start;
 		width: 100%;
+		margin-top: var(--s-sm);
 
 		@include media("sm") {
 			width: calc(40% - var(--s-md));
+			margin: 0;
 		}
 
 		> h2 {

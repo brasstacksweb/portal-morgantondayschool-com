@@ -1,4 +1,4 @@
-dateModified: 1720811707
+dateModified: 1720837579
 elementSources:
   craft\elements\Entry:
     -
@@ -98,6 +98,7 @@ meta:
     3e79df50-3d4b-4294-875c-158e7a029523: Header # Header
     4d3180d1-ff38-4024-8d50-29f13c7391e6: Classes # Classes
     5a81ee8e-7a65-4713-a91b-b4904e4f5e50: 'Left Right' # Left Right
+    5c5f6ce4-6182-41ef-aa26-eecbddeb59b4: 'Phone Number' # Phone Number
     6f19cee3-1de8-4684-852b-f59cfdf23892: CTA # CTA
     7c331c3a-8fcf-4b9f-ad9e-c937ea0d6e1d: Page # Page
     9cb11a30-840e-4778-ac4e-d560ae4b70ce: Subject # Subject
@@ -122,12 +123,15 @@ meta:
     938bdfab-80e2-4116-9e3d-66d94c36376f: Classes # Classes
     1908e08e-4715-4582-981a-ae20b88e9b7c: Months # Months
     2757b28b-9302-44d3-8dcf-259f2c2fdf24: 'Page CTA' # Page CTA
+    4294bfbd-d338-4975-a4bd-57772d64b3c8: 'Link Groups' # Link Groups
     5482c96e-84ee-4297-9e2b-8ac82e183ec2: Videos # Videos
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
+    9090beeb-6ec5-46f0-a70b-0bbfa6e9c218: 'Link Group' # Link Group
     21845b92-9016-4975-ad69-346de1c7a9a8: Description # Description
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
+    427781cd-acf5-4a43-89af-cb1ebfdd8300: Footer # Footer
     6271783c-fcdd-4d3b-89b1-246b1c93cc0d: Video # Video
     93400719-64ce-46ce-996c-008e37c78a42: 'Color Split' # Color Split
     a3a6b444-805d-4d61-b0b0-4bc547497655: Gallery # Gallery
@@ -135,6 +139,7 @@ meta:
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
     ae3e4e31-15a0-4883-9c22-01637617e803: 'Card List' # Card List
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
+    bd4975e3-a0a8-48e3-9cc0-d595314736a9: 'Social Link' # Social Link
     bf142fa8-b2dd-4970-a630-d5ad5cb11849: CTAs # CTAs
     c48c6bc5-59fc-4be3-b77e-69ec7977c6df: 'Grid Size' # Grid Size
     c56fb994-3459-4417-9f0f-0ce9f4359b70: 'Accordion List' # Accordion List
@@ -143,11 +148,13 @@ meta:
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
     cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links
     ce1d738b-afb4-4eaa-a764-344ef98eb743: 'Text List' # Text List
+    db8ba95d-1c59-46d4-be6b-f020db568757: Address # Address
     dc10bcf2-6231-404f-8016-5f0e146e65a4: Teachers # Teachers
     de580ac3-ebc6-4ebd-af7e-6a39accf69f3: Posts # Posts
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
     e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: Image # Image
+    e3999e4e-a947-4d65-8944-1f558463fe8f: 'Social Links' # Social Links
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog
     fd20c5e5-4c47-4c8c-af5b-ee45e71242b4: 'User Photos' # User Photos

@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: linkGroups
+instructions: null
+name: 'Link Groups'
+searchable: false
+settings:
+  createButtonLabel: null
+  entryTypes:
+    - 9090beeb-6ec5-46f0-a70b-0bbfa6e9c218 # Link Group
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

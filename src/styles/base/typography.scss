@@ -56,16 +56,16 @@
 
 		@if ($size == "lg") {
 			font-size: range(18, 24);
-			line-height: 1.4em;
+			line-height: 1.6em;
 		} @else if ($size == "md") {
 			font-size: range(16, 18);
-			line-height: 1.4em;
+			line-height: 1.6em;
 		} @else if ($size == "sm") {
 			font-size: range(14, 16);
-			line-height: 1.4em;
+			line-height: 1.6em;
 		} @else if ($size == "xs") {
 			font-size: range(12, 14);
-			line-height: 1.4em;
+			line-height: 1.6em;
 		}
 	}
 }
@@ -116,7 +116,7 @@
 		margin-left: 1.5em;
 
 		&:not(:first-child) {
-			margin-top: var(--s-sm);
+			margin-top: var(--s-xs);
 		}
 
 		> ol,
@@ -138,7 +138,7 @@
 		margin-left: 1.5em;
 
 		&:not(:first-child) {
-			margin-top: var(--s-sm);
+			margin-top: var(--s-xs);
 		}
 
 		> ol,
