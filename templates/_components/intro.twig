@@ -3,18 +3,20 @@
  # @param {string} heading
  # @param {string} subheading
  # @param {HTML} body
+ # @param {string} backgroundColor
  #}
 
 {# Params #}
 {% set heading = heading ?? '' %}
 {% set subheading = subheading ?? '' %}
 {% set body = body ?? '' %}
+{% set backgroundColor = backgroundColor ?? '' %}
 
 {# Variables #}
 {% set handle = 'intro' %}
 
 {# Markup #}
-<div class="{{ handle }}">
+<div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
 		<h2>{{ heading }}</h2>
 		{% if subheading is not empty %}

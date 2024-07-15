@@ -2,6 +2,13 @@ $handle: "intro";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
+	@include space(var(--s-sm), var(--s-md));
+	background-color: var(--bg-color);
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
 
 	> header {
 		max-width: var(--w-lg);

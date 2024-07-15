@@ -28,7 +28,7 @@
 			letter-spacing: range(-0.4, -0.75);
 		}
 	} @else if ($type == "eyebrow") {
-		font-weight: 600;
+		font-weight: 700;
 		font-size: range(13, 17);
 		font-stretch: condensed;
 		line-height: range(1.1, 1.4, 1em);
@@ -43,13 +43,13 @@
 
 		@if ($size == "lg") {
 			font-size: range(24, 32);
-			line-height: range(70, 80);
+			line-height: range(60, 70);
 		} @else if ($size == "md") {
 			font-size: range(18, 22);
-			line-height: range(50, 60);
+			line-height: range(40, 50);
 		} @else if ($size == "sm") {
 			font-size: range(16, 18);
-			line-height: range(30, 40);
+			line-height: range(20, 30);
 		}
 	} @else {
 		font-weight: 333;

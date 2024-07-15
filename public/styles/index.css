@@ -1216,7 +1216,7 @@ details summary {
       letter-spacing: clamp(calc(-1.2 * 1px), calc((-1.2 - -0.6) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.6 * 1px), calc(-0.6 * 1px)); }
     .color-split > header > h3 {
       font-family: system-ui;
-      font-weight: 600;
+      font-weight: 700;
       font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -1456,19 +1456,19 @@ details summary {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px));
+    line-height: clamp(calc(20 * 1px), calc((30 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(30 * 1px));
     padding: 0 var(--s-xs); }
   .cta--size-md {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
-    line-height: clamp(calc(50 * 1px), calc((60 - 50) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 50 * 1px), calc(60 * 1px));
+    line-height: clamp(calc(40 * 1px), calc((50 - 40) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 40 * 1px), calc(50 * 1px));
     padding: 0 var(--s-sm); }
   .cta--size-lg {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
-    line-height: clamp(calc(70 * 1px), calc((80 - 70) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 70 * 1px), calc(80 * 1px));
+    line-height: clamp(calc(60 * 1px), calc((70 - 60) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 60 * 1px), calc(70 * 1px));
     padding: 0 var(--s-md); }
   .cta:hover {
     border-radius: 0; }
@@ -1590,7 +1590,7 @@ details summary {
           margin-right: var(--s-sm); } }
       .footer > nav > ul > li > h3 {
         font-family: system-ui;
-        font-weight: 600;
+        font-weight: 700;
         font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -1599,7 +1599,7 @@ details summary {
         font-family: system-ui;
         font-weight: 444;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: clamp(calc(30 * 1px), calc((40 - 30) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 30 * 1px), calc(40 * 1px));
+        line-height: clamp(calc(20 * 1px), calc((30 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(30 * 1px));
         margin-top: var(--s-xs); }
 
 .form > form {
@@ -1887,7 +1887,7 @@ details summary {
   position: relative; }
   .form-field > label {
     font-family: system-ui;
-    font-weight: 600;
+    font-weight: 700;
     font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
     font-stretch: condensed;
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -2159,7 +2159,7 @@ details summary {
       letter-spacing: clamp(calc(-1.8 * 1px), calc((-1.8 - 0) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0 * 1px), calc(0 * 1px)); }
     .hero > div > h2 {
       font-family: system-ui;
-      font-weight: 600;
+      font-weight: 700;
       font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -2317,7 +2317,16 @@ details summary {
 
 .intro {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px)))); }
+  padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+  padding-top: var(--s-sm);
+  padding-bottom: var(--s-md);
+  background-color: var(--bg-color); }
+  @media (min-width: 768px) {
+    .intro {
+      padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-right: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
   .intro > header {
     max-width: var(--w-lg);
     margin: 0 auto; }
@@ -2515,7 +2524,7 @@ details summary {
       letter-spacing: clamp(calc(-1.5 * 1px), calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), calc(-0.7 * 1px)); }
     .media-split > header > h3 {
       font-family: system-ui;
-      font-weight: 600;
+      font-weight: 700;
       font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -2700,7 +2709,7 @@ details summary {
           margin-left: var(--s-md); } }
       .text-block > header > div > h4 {
         font-family: system-ui;
-        font-weight: 600;
+        font-weight: 700;
         font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
@@ -3038,7 +3047,7 @@ details summary {
           fill: var(--c-white); }
       .text-list > header > nav > span {
         font-family: system-ui;
-        font-weight: 600;
+        font-weight: 700;
         font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
