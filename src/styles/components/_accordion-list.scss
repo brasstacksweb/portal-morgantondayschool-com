@@ -15,11 +15,11 @@ $handle: "accordion-list";
 	}
 
 	> header {
-		position: sticky;
-		top: calc(var(--h-header) + var(--s-md));
 		width: 100%;
 
 		@include media("sm") {
+			position: sticky;
+			top: calc(var(--h-header) + var(--s-md));
 			width: calc(40% - var(--s-md));
 		}
 

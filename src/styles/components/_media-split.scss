@@ -2,7 +2,7 @@ $handle: "media-split";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
-	@include space(var(--s-md));
+	@include space(var(--s-sm), var(--s-md));
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
