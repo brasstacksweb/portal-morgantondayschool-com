@@ -10,7 +10,7 @@ $handle: "header";
 	align-items: center;
 	width: 100%;
 
-	@include media("lg") {
+	@include media("sm") {
 		@include pad(var(--s-md));
 	}
 
@@ -34,8 +34,11 @@ $handle: "header";
 		height: var(--h-header);
 		margin-right: var(--s-md);
 		padding: var(--s) var(--s-xs);
-		border-left: 1px solid var(--c-br-dk);
-		border-right: 1px solid var(--c-br-dk);
+
+		&:not(:has(img)) {
+			border-left: 1px solid var(--c-br-dk);
+			border-right: 1px solid var(--c-br-dk);
+		}
 
 		> img {
 			width: auto;
@@ -82,7 +85,7 @@ $handle: "header";
 				}
 
 				@include media("lg") {
-					margin-left: var(--s-sm);
+					margin-left: var(--s-md);
 				}
 			}
 		}

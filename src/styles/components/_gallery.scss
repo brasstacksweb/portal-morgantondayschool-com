@@ -1,11 +1,12 @@
 $handle: "gallery";
 
 .#{$handle} {
-	@include pad(var(--s-sm), var(--w-xl));
+	@include pad(var(--s-sm));
 	@include space(var(--s-md));
 	background-color: var(--bg-color);
 
 	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
 		@include space(var(--s-lg));
 	}
 
