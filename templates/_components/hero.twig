@@ -26,7 +26,7 @@
 {# Markup #}
 <div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	{% if image %}
-		{{ image.render({ type: 'figure' }) }}
+		{{ image.render({ type: 'figure', transform: 'hero' }) }}
 	{% endif %}
 	<div>
 		<h1>{{ heading }}</h1>

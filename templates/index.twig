@@ -10,15 +10,18 @@
 	.with(['activity', 'cta.pageCta:page'])
 	.all() %}
 
-{% set month = date('first day of next month') %}
+{% set month = date('first day of this month')|date('F')|lower %}
 {% set activities = craft.entries.section('activities')
 	.with(['previewImage'])
-	.relatedTo(craft.categories.group('months').slug(month|date('F')|lower).ids())
+	.relatedTo(craft.categories.group('months').slug(month).ids())
+	.orderBy(month ~ 'Priority')
 	.all() %}
 
 {% set classes = craft.entries.section('classes')
-	.with(['teacher'])
+	.with(['featuredPost'])
 	.all() %}
+
+{% set featuredPosts = classes|map(c => c.featuredPost[0] ?? null)|filter|values %}
 
 {% extends '_layouts/html' %}
 
@@ -67,9 +70,16 @@
 		<section id="classes">
 			{% include '_components/class-list' with {
 				classes: classes|map(c => c|merge({
-					teacher: c.teacher[0] ?? null,
 					color: c.color.value,
 				})),
+			} only %}
+		</section>
+
+		<section>
+			{% include '_components/gallery' with {
+				heading: 'Around the School',
+				posts: featuredPosts,
+				backgroundColor: 'blue',
 			} only %}
 		</section>
 	</article>

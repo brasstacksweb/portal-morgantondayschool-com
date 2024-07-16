@@ -74,7 +74,7 @@
 
 		<section>
 			{% include '_components/accordion-list' with {
-				heading: 'Curriculum Updates',
+				heading: 'Curricular Updates',
 				accordions: accordions,
 				backgroundColor: 'blue',
 			} only %}
@@ -86,6 +86,19 @@
 			{% include '_components/gallery' with {
 				heading: 'In the Classroom',
 				posts: entry.posts,
+			} only %}
+		</section>
+
+		<section id="resources">
+			{% set colorsLength = craft.components.colors|length %}
+			{% set colorKey = craft.components.colors|filter(c => c == entry.color.value)|keys|first %}
+			{% set inverseColorKey = (colorKey + (colorsLength / 2)) % colorsLength %}
+
+			{% include '_components/color-split' with {
+				heading: 'Resources',
+				body: entry.resources,
+				backgroundColor: craft.components.colors[inverseColorKey],
+				headingAlignment: 'top',
 			} only %}
 		</section>
 

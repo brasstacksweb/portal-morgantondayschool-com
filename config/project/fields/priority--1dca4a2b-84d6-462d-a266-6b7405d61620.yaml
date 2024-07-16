@@ -1,0 +1,18 @@
+columnSuffix: null
+handle: priority
+instructions: 'Lower rank is more important.'
+name: Priority
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: 100
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

@@ -11,7 +11,7 @@ $handle: "hero";
 
 	@include media("sm") {
 		@include pad(var(--s-md), var(--w-xl));
-		@include space(var(--s-md));
+		@include space(var(--s-lg));
 	}
 
 	> div {

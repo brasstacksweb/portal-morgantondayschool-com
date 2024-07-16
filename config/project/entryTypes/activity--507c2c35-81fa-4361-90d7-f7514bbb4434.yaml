@@ -66,16 +66,16 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c # Datetime
-            handle: startDate
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: date
             includeInCards: false
             instructions: null
-            label: 'Start Date'
+            label: Date
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5e2be956-cb2c-4e6d-b867-36347fa69054
+            uid: 18eceed2-cda1-496b-886b-c3d97628420b
             userCondition: null
             warning: null
             width: 100
@@ -91,6 +91,318 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: fd14b753-25a8-4377-b5c8-33efeddac53e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '144'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: faf7ee77-795d-4f1b-adcf-4bb794d01eef
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: januaryPriority
+            includeInCards: false
+            instructions: null
+            label: 'January Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b15d17ec-1471-47ce-8ba9-d31eaca9f098
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '145'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: 7705c76f-08c5-4d04-bc02-44da4db0a25c
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: februaryPriority
+            includeInCards: false
+            instructions: null
+            label: 'February Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce15da0a-e56d-49dd-9d65-543efa616b8c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '146'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: a9310afa-ede6-477a-97e7-dfe469226ac4
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: marchPriority
+            includeInCards: false
+            instructions: null
+            label: 'March Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b249a22e-f023-4221-9217-7f70f8bfd2f3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '147'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: f80690bc-0e14-4633-9a52-1e829883d426
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: aprilPriority
+            includeInCards: false
+            instructions: null
+            label: 'April Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7d9a918-5627-4ee7-8b6c-5bc818f8c874
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '148'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: fee58814-d8a9-4162-8a59-299ce66d3670
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: mayPriority
+            includeInCards: false
+            instructions: null
+            label: 'May Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c3a427a9-a798-479c-8cfc-3397f73a9a9a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '149'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: ba735500-194c-4ac9-83b2-ecd4b03c7228
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: junePriority
+            includeInCards: false
+            instructions: null
+            label: 'June Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 68f867ce-d1fc-4ad8-b28b-a84006add116
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '150'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: 001801a8-0215-4d81-b1d1-dff38eb6534a
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: julyPriority
+            includeInCards: false
+            instructions: null
+            label: 'July Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 290388d5-50f9-4f0c-ba0f-454d72a252ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '151'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: e18f1588-5e67-40b8-94bd-914ea4188378
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: augustPriority
+            includeInCards: false
+            instructions: null
+            label: 'August Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4dc18534-c29a-40a3-97f9-e0171b94904c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '152'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: 6021a040-6f12-4271-862b-84a6dd9705b3
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: septemberPriority
+            includeInCards: false
+            instructions: null
+            label: 'September Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2346ab9d-b1f1-4fb0-b086-7209b774c4f1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '153'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: ba5d7f10-917a-4e5a-b845-da264538c065
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: octoberPriority
+            includeInCards: false
+            instructions: null
+            label: 'October Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c489a584-5205-4eae-b1fc-ada1cbeb2fd5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '154'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: 494eb317-12d0-4557-8ce8-ea6067cb303a
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: novemberPriority
+            includeInCards: false
+            instructions: null
+            label: 'November Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 28e96a1e-3982-4a56-9dbe-cca96178807c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\RelationalFieldConditionRule
+                  elementId: '155'
+                  fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
+                  layoutElementUid: fd14b753-25a8-4377-b5c8-33efeddac53e
+                  operator: relatedTo
+                  uid: 2fffad89-6b55-4fa0-8038-44f2646cceb2
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
+            handle: decemberPriority
+            includeInCards: false
+            instructions: null
+            label: 'December Priority'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 574bf34c-4a48-46ef-8a01-8b167bea94bd
             userCondition: null
             warning: null
             width: 100

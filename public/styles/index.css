@@ -2134,8 +2134,8 @@ details summary {
     .hero {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
       padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
-      padding-top: var(--s-md);
-      padding-bottom: var(--s-md); } }
+      padding-top: var(--s-lg);
+      padding-bottom: var(--s-lg); } }
   .hero > div {
     position: relative;
     display: flex;
