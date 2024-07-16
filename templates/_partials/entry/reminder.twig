@@ -10,9 +10,13 @@
 	}) %}
 {% endif %}
 
+{% set body %}
+	<p>{{ entry.text }}</p>
+{% endset %}
+
 {% include '_components/text-block' with {
 	heading: entry.title,
 	subheading: entry.date,
-	body: entry.text,
+	body: body,
 	cta: cta,
 } only %}
