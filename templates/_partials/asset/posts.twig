@@ -4,8 +4,8 @@
 {% include '_components/figure' with {
 	title: asset.title,
 	url: transform ? asset.getUrl(transform) : asset.url,
-	fit: asset.fit.value ?? '',
-	position: asset.position.value ?? '',
+	fit: asset.fit.value ?? 'cover',
+	position: asset.position.value ?? 'center',
 	alt: asset.alt,
 	caption: asset.caption,
 	video: asset.video[0] ?? null,

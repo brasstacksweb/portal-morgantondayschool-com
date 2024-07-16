@@ -57,7 +57,7 @@ $handle: "hero";
 		}
 
 		> div {
-			@include richText("sm");
+			@include richText;
 			margin-top: var(--s-sm);
 		}
 

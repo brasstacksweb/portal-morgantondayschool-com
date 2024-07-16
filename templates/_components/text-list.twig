@@ -63,13 +63,13 @@
 			</nav>
 		{% endif %}
 	</header>
-	<ul>
+	<ul>{% if listItems is not empty %}
 		{% for li in listItems %}
 			<li>
 				{{ li.render() }}
 			</li>
 		{% endfor %}
-	</ul>
+	{% endif %}</ul>
 	{% if paginate %}
 		<p>{{ paginate.emptyText }}</p>
 	{% endif %}

@@ -1456,19 +1456,19 @@ details summary {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-    line-height: clamp(calc(20 * 1px), calc((30 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(30 * 1px));
+    line-height: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
     padding: 0 var(--s-xs); }
   .cta--size-md {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(18 * 1px), calc((22 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), calc(22 * 1px));
-    line-height: clamp(calc(40 * 1px), calc((50 - 40) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 40 * 1px), calc(50 * 1px));
+    line-height: clamp(calc(36 * 1px), calc((48 - 36) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 36 * 1px), calc(48 * 1px));
     padding: 0 var(--s-sm); }
   .cta--size-lg {
     font-family: system-ui;
     font-weight: 444;
     font-size: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
-    line-height: clamp(calc(60 * 1px), calc((70 - 60) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 60 * 1px), calc(70 * 1px));
+    line-height: clamp(calc(54 * 1px), calc((72 - 54) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 54 * 1px), calc(72 * 1px));
     padding: 0 var(--s-md); }
   .cta:hover {
     border-radius: 0; }
@@ -1599,7 +1599,7 @@ details summary {
         font-family: system-ui;
         font-weight: 444;
         font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
-        line-height: clamp(calc(20 * 1px), calc((30 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), calc(30 * 1px));
+        line-height: clamp(calc(24 * 1px), calc((32 - 24) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 24 * 1px), calc(32 * 1px));
         margin-top: var(--s-xs); }
 
 .form > form {
@@ -2190,9 +2190,9 @@ details summary {
       .hero > div > div > * {
         max-width: var(--w-lg); }
         .hero > div > div > *:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-md); }
       .hero > div > div > h1:not(:first-child), .hero > div > div > h2:not(:first-child), .hero > div > div > h3:not(:first-child), .hero > div > div > h4:not(:first-child), .hero > div > div > h5:not(:first-child), .hero > div > div > h6:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-md); }
       .hero > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2232,12 +2232,12 @@ details summary {
       .hero > div > div > p {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.6em; }
       .hero > div > div ol {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.6em;
         list-style-type: decimal; }
         .hero > div > div ol > li {
@@ -2252,7 +2252,7 @@ details summary {
       .hero > div > div ul {
         font-family: system-ui;
         font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
         line-height: 1.6em;
         list-style-type: disc; }
         .hero > div > div ul > li {
@@ -2283,7 +2283,7 @@ details summary {
           .hero > div > div table td > li {
             font-family: system-ui;
             font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+            font-size: clamp(calc(16 * 1px), calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), calc(18 * 1px));
             line-height: 1.6em; }
         .hero > div > div table td {
           color: var(--c-fg-md); }

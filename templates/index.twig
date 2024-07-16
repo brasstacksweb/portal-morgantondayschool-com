@@ -6,9 +6,13 @@
 {% set week = date('sunday last week') %}
 {% set prevWeek = week|date_modify('-1 week')|atom %}
 {% set nextWeek = week|date_modify('+1 week')|atom %}
-
 {% set reminders = craft.entries.section('reminders')
 	.with(['activity', 'cta.pageCta:page'])
+	.postDate([
+		'and',
+		'>= ' ~ week|date_modify('sunday last week')|atom,
+		'< ' ~ week|date_modify('saturday this week')|atom,
+	])
 	.all() %}
 
 {% set month = date('first day of this month')|date('F')|lower %}
@@ -39,6 +43,7 @@
 				backgroundColor: 'yellow',
 			} only %}
 		</header>
+
 		<section>
 			{% include '_components/text-list' with {
 				heading: entry.remindersHeading,

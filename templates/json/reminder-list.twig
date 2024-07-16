@@ -12,7 +12,6 @@
 {% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
 	.with(['activity', 'cta'])
-	.anyStatus()
 	.postDate([
 		'and',
 		'>= ' ~ week|date_modify('sunday last week')|atom,
