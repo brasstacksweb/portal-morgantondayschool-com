@@ -1,9 +1,8 @@
-{% set bigable = bigable ?? false %}
+{% set transform = transform ?? '' %}
 
 {% include '_components/figure' with {
 	title: asset.title,
-	url: asset.url,
+	url: transform ? asset.getUrl(transform) : asset.url,
 	fit: 'contain',
 	position: 'center',
-	bigable: bigable,
 } %}

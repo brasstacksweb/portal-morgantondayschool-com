@@ -1,0 +1,11 @@
+fill: null
+format: null
+handle: mediaSplit
+height: null
+interlace: none
+mode: fit
+name: 'Media Split'
+position: center-center
+quality: null
+upscale: true
+width: 1000

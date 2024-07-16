@@ -1,4 +1,4 @@
-dateModified: 1721007034
+dateModified: 1721139618
 elementSources:
   craft\elements\Entry:
     -
@@ -107,7 +107,9 @@ meta:
     17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c: Datetime # Datetime
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School
     27b3396e-b5a4-4d09-8403-237a05d2ffdd: 'Text Block' # Text Block
+    28e9e266-d304-477c-a066-02bf188ac66e: Gallery # Gallery
     36aa60ca-9dcf-435a-88fb-80d286f8cde5: 'Media Split' # Media Split
+    48fc66c2-3c58-4c80-882a-0316b20b4e22: 'Media Split' # Media Split
     87c7eb6f-29f4-4836-8740-ee6965ccb886: Posts # Posts
     88e145c4-1350-4e7c-bb88-a9a9233ebaf2: Announcement # Announcement
     96a1a8e5-308a-4f2e-b084-6b353e026e23: Images # Images
@@ -116,6 +118,7 @@ meta:
     507c2c35-81fa-4361-90d7-f7514bbb4434: Activity # Activity
     613dcfc9-5442-4f47-8d88-b634483e0d47: 'Subject Updates' # Subject Updates
     666a2d7b-63a0-4256-acdd-fd5c0af0714f: Subjects # Subjects
+    690c5d17-922a-451f-8b80-5090f22a5a47: Avatar # Avatar
     731fd8e2-ca50-4fbb-b8b7-3a27ef8bf902: Card # Card
     812fd012-9cc4-4c3c-bf03-845a6340a1f5: 'Morganton Day School' # Morganton Day School
     886f28e9-c88b-48e4-9f01-f841e4637ee9: Cards # Cards
@@ -132,6 +135,7 @@ meta:
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
     427781cd-acf5-4a43-89af-cb1ebfdd8300: Footer # Footer
+    4733975f-7c80-40a9-9ecb-2bdf0924d1c0: Hero # Hero
     6271783c-fcdd-4d3b-89b1-246b1c93cc0d: Video # Video
     93400719-64ce-46ce-996c-008e37c78a42: 'Color Split' # Color Split
     a3a6b444-805d-4d61-b0b0-4bc547497655: Gallery # Gallery
@@ -155,8 +159,10 @@ meta:
     e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: Image # Image
     e3999e4e-a947-4d65-8944-1f558463fe8f: 'Social Links' # Social Links
+    e5038e81-a8e1-4d28-a69e-4057923a0c2b: Card # Card
     e14121b9-4e8c-49a4-afb6-d3a822d3b8ad: Reminders # Reminders
     ee745466-fccc-4f6b-90ba-7a293f18eb0c: Blog # Blog
+    fcd65e93-0dfb-4636-860c-598ead22b35c: Lightbox # Lightbox
     fd20c5e5-4c47-4c8c-af5b-ee45e71242b4: 'User Photos' # User Photos
     fda357e6-6234-4a8c-843e-7c973f47e463: 'Simple Plus' # Simple Plus
 plugins:

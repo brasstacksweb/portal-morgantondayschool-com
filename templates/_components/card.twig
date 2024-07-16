@@ -20,7 +20,7 @@
 	{% set content %}
 		<article>
 			{% if image %}
-				{{ image.render({ type: 'figure' }) }}
+				{{ image.render({ type: 'figure', transform: 'card' }) }}
 			{% endif %}
 			<header>
 				<h3>{{ heading }}</h3>

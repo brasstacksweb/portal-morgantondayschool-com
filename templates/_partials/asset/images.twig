@@ -1,9 +1,10 @@
 {% set type = type ?? '' %}
+{% set transform = transform ?? '' %}
 
 {% switch type %}
 {% case 'background' %}
 	{% include '_components/background-image' with {
-		url: asset.url,
+		url: transform ? asset.getUrl(transform) : asset.url,
 		fit: asset.fit.value ?? '',
 		position: asset.position.value ?? '',
 		video: asset.video[0] ?? null,
@@ -12,7 +13,7 @@
 {% case 'figure' %}
 	{% include '_components/figure' with {
 		title: asset.title,
-		url: asset.url,
+		url: transform ? asset.getUrl(transform) : asset.url,
 		fit: asset.fit.value ?? '',
 		position: asset.position.value ?? '',
 		alt: asset.alt,
@@ -21,6 +22,6 @@
 	} only %}
 {% default %}
 	<img
-		src="{{ asset.url }}"
+		src="{{ transform ? asset.getUrl(transform) : asset.url }}"
 		alt="{{ asset.caption ?? asset.alt ?? asset.title }}" />
 {% endswitch %}

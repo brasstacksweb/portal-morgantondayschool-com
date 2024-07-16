@@ -1,9 +1,13 @@
+{% set transform = transform ?? '' %}
+{% set bigUrl = bigUrl ?? '' %}
+
 {% include '_components/figure' with {
 	title: asset.title,
-	url: asset.url,
+	url: transform ? asset.getUrl(transform) : asset.url,
 	fit: asset.fit.value ?? '',
 	position: asset.position.value ?? '',
 	alt: asset.alt,
 	caption: asset.caption,
 	video: asset.video[0] ?? null,
+	bigUrl: bigUrl,
 } %}

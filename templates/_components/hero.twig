@@ -37,7 +37,7 @@
 		{% endif %}
 		{% if person %}
 			<h3>
-				<em>{{ person.image.render() }}</em>
+				<em>{{ person.image.render({ transform: 'avatar' }) }}</em>
 				<span>{{ person.title }}</span>
 			</h3>
 		{% endif%}

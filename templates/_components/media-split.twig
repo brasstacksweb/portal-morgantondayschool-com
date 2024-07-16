@@ -31,7 +31,7 @@
 	"
 	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	{% if image %}
-		{{ image.render({ type: 'figure' }) }}
+		{{ image.render({ type: 'figure', transform: 'mediaSplit' }) }}
 	{% endif %}
 	<header>
 		<h2>{{ heading }}</h2>

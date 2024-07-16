@@ -70,9 +70,9 @@ function handleModals() {
         dialog.showModal();
     };
     document.querySelector('body > dialog > button').onclick = ({ currentTarget }) => { currentTarget.parentElement.close(); };
-    document.querySelectorAll('img[data-bigable]').forEach(image => {
+    document.querySelectorAll('img[data-big-url]').forEach(image => {
         image.onclick = () => {
-            loadModal(`<img src="${image.src}" alt="${image.alt}" />`);
+            loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`);
         };
     });
 }

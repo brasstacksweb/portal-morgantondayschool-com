@@ -7,7 +7,7 @@
  # @param {string} alt
  # @param {string} caption
  # @param {object} video
- # @param {bool} bigable
+ # @param {string} bigUrl
  #}
 
 {# Params #}
@@ -18,7 +18,7 @@
 {% set alt = alt ?? '' %}
 {% set caption = caption ?? '' %}
 {% set video = video ?? null %}
-{% set bigable = bigable ?? false %}
+{% set bigUrl = bigUrl ?? '' %}
 
 {# Variables #}
 {% set handle = 'figure' %}
@@ -28,8 +28,8 @@
 	<figure>
 		<div>
 			<img
-				{% if bigable %}
-					data-bigable="true"
+				{% if bigUrl is not empty %}
+					data-big-url="{{ bigUrl }}"
 				{% endif %}
 				src="{{ url }}"
 				alt="{{ caption ?? alt ?? title }}"

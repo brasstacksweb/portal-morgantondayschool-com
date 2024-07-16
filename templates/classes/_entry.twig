@@ -36,7 +36,6 @@
 		<header>
 			{% include '_components/hero' with {
 				heading: entry.heading,
-				subheading: entry.teacher[0].fullName ?? '',
 				body: entry.overview,
 				person: entry.teacher|map(t => {
 					title: t.fullName,
