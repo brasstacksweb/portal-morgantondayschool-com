@@ -14,9 +14,11 @@
 	.with(['activity', 'cta'])
 	.postDate([
 		'and',
-		'>= ' ~ week|date_modify('sunday last week')|atom,
-		'< ' ~ week|date_modify('saturday this week')|atom,
+		'>= ' ~ week|date_modify('sunday this week')|atom,
+		'< ' ~ week|date_modify('saturday next week')|atom,
 	])
+	.orderBy('postDate ASC')
+	.anyStatus()
 	.all() %}
 
 {% set markup %}

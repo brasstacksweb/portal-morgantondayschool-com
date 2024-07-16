@@ -23,18 +23,23 @@ const actions = {
 // Event handler functions
 function handleDOMConentLoaded() {
     function cb() {
+        // Set header height CSS variable
+        const header = document.querySelector('.header');
+        document.querySelector(':root').style.setProperty('--h-header', `${header.offsetHeight}px`);
+
+        // Smooth scroll anchors
         document.body.addEventListener('click', e => {
             const link = e.target.closest('a');
 
             if (!link) return;
 
-            // Anchors
-            if (link.matches('[href="#"]')) {
+            if (link.href.includes('#') && link.target !== '_blank') {
                 e.preventDefault();
 
-                const target = document.querySelector(link.href);
+                const target = document.getElementById(link.href.split('#')[1]);
 
                 if (target) {
+                    header.querySelector('[type="checkbox"]#nav-toggle').checked = false;
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             }
@@ -54,6 +59,7 @@ function handleDOMConentLoaded() {
             .filter(v => v.hasAttribute('playsinline'))
             .forEach(v => { videoObserver.observe(v); });
 
+        // Load bigable images in lightbox
         const loadModal = string => {
             const dialog = document.querySelector('body > dialog');
 
@@ -64,17 +70,6 @@ function handleDOMConentLoaded() {
         document.querySelectorAll('img[data-big-url]').forEach(image => {
             image.onclick = () => { loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`); };
         });
-
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        const header = document.querySelector('.header');
-        document.querySelector(':root').style.setProperty('--h-header', `${header.offsetHeight}px`);
     }
 
     pop({ classMap, actions, cb });

@@ -10,16 +10,17 @@
 	.with(['activity', 'cta.pageCta:page'])
 	.postDate([
 		'and',
-		'>= ' ~ week|date_modify('sunday last week')|atom,
-		'< ' ~ week|date_modify('saturday this week')|atom,
+		'>= ' ~ week|date_modify('sunday this week')|atom,
+		'< ' ~ week|date_modify('saturday next week')|atom,
 	])
+	.orderBy('postDate ASC')
 	.all() %}
 
-{% set month = date('first day of this month')|date('F')|lower %}
+{% set month = date('first day of this month') %}
 {% set activities = craft.entries.section('activities')
 	.with(['previewImage'])
-	.relatedTo(craft.categories.group('months').slug(month).ids())
-	.orderBy(month ~ 'Priority')
+	.relatedTo(craft.categories.group('months').slug(month|date('F')|lower).ids())
+	.orderBy(month|date('F')|lower ~ 'Priority')
 	.all() %}
 
 {% set classes = craft.entries.section('classes')
