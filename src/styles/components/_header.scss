@@ -33,9 +33,9 @@ $handle: "header";
 		flex-shrink: 0;
 		height: var(--h-header);
 		margin-right: var(--s-md);
-		padding: var(--s) var(--s-xs);
 
 		&:not(:has(img)) {
+			padding: var(--s) var(--s-xs);
 			border-left: 1px solid var(--c-br-dk);
 			border-right: 1px solid var(--c-br-dk);
 		}
@@ -43,7 +43,7 @@ $handle: "header";
 		> img {
 			width: auto;
 			height: 100%;
-			padding: var(--s) 0;
+			padding: var(--s-xs) 0;
 		}
 	}
 

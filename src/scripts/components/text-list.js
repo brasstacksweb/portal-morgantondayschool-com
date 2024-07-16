@@ -12,6 +12,7 @@ export default function HomeDashboard(el, {
     ] = el.querySelectorAll('header > nav > button');
 
     function page(param) {
+        el.scrollIntoView();
         el.classList.add(loadingClass);
         prev.disabled = true;
         next.disabled = true;

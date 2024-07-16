@@ -156,9 +156,9 @@ a:focus {
   --s-md: calc(var(--s) * 8);
   --s-lg: calc(var(--s) * 16);
   --s-xl: calc(var(--s) * 32);
-  --s-br-sm: 13px;
-  --s-br-md: 27px;
-  --s-br-lg: 41px;
+  --s-br-sm: 11px;
+  --s-br-md: 22px;
+  --s-br-lg: 33px;
   --s-icon-sm: 16px;
   --s-icon-md: 20px;
   --s-icon-lg: 24px;
@@ -2047,15 +2047,15 @@ details summary {
     align-items: center;
     flex-shrink: 0;
     height: var(--h-header);
-    margin-right: var(--s-md);
-    padding: var(--s) var(--s-xs); }
+    margin-right: var(--s-md); }
     .header > a:not(:has(img)) {
+      padding: var(--s) var(--s-xs);
       border-left: 1px solid var(--c-br-dk);
       border-right: 1px solid var(--c-br-dk); }
     .header > a > img {
       width: auto;
       height: 100%;
-      padding: var(--s) 0; }
+      padding: var(--s-xs) 0; }
   .header > nav {
     z-index: 10;
     width: 100%; }
@@ -2860,7 +2860,8 @@ details summary {
   padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
   padding-top: var(--s-md);
   padding-bottom: var(--s-md);
-  background-color: var(--bg-color); }
+  background-color: var(--bg-color);
+  scroll-margin-top: var(--h-header); }
   @media (min-width: 768px) {
     .text-list {
       padding-left: max(var(--s-lg), calc(0.5 * (100% - var(--w-xl))));

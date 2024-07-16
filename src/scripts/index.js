@@ -34,11 +34,10 @@ function handleDOMConentLoaded() {
             if (!link) return;
 
             if (link.href.includes('#') && link.target !== '_blank') {
-                e.preventDefault();
-
                 const target = document.getElementById(link.href.split('#')[1]);
 
                 if (target) {
+                    e.preventDefault();
                     header.querySelector('[type="checkbox"]#nav-toggle').checked = false;
                     target.scrollIntoView({ behavior: 'smooth' });
                 }

@@ -4,6 +4,7 @@ $handle: "text-list";
 	@include pad(var(--s-sm));
 	@include space(var(--s-md));
 	background-color: var(--bg-color);
+	scroll-margin-top: var(--h-header);
 
 	@include media("sm") {
 		@include pad(var(--s-lg), var(--w-xl));
