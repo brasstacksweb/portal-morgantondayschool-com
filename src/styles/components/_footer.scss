@@ -8,7 +8,6 @@ $handle: "footer";
 	justify-content: space-between;
 	background-color: var(--c-bg-dk);
 	color: var(--c-fg-lt);
-	border-top: 1px solid var(--c-br-lt);
 
 	@include media("sm") {
 		@include pad(var(--s-md), var(--w-xl));
@@ -39,10 +38,6 @@ $handle: "footer";
 					display: block;
 					width: var(--s-icon-lg);
 					height: var(--s-icon-lg);
-
-					> svg {
-						fill: var(--c-br-dk);
-					}
 				}
 			}
 		}

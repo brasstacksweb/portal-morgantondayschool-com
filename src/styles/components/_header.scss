@@ -107,22 +107,28 @@ $handle: "header";
 		margin: auto 0 auto auto;
 
 		@include media($max: "md") {
-			display: block;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 		}
 
 		> i {
-			@include absolute;
-			left: 0;
-			right: 0;
-			border-bottom: 2px solid var(--c-black);
+			display: block;
+			height: 2px;
+			background-color: var(--c-black);
+			transition: transform var(--a-xs);
+		}
+	}
 
-			&:first-child {
-				top: 0;
-			}
+	> #nav-toggle:checked ~ label {
+		justify-content: center;
 
-			&:last-child {
-				bottom: 0;
-			}
+		> i:first-child {
+			transform: rotate(-45deg) translate(0, 1px);
+		}
+
+		> i:last-child {
+			transform: rotate(45deg) translate(0, -1px);
 		}
 	}
 }

@@ -190,7 +190,6 @@ a:focus {
   --c-fg-lt: #F4F4F4;
   --c-fg-md: #666;
   --c-fg-dk: #111;
-  --c-br-lt: #AAA;
   --c-br-dk: #333;
   --a-s-xs: 160ms;
   --a-s-sm: 240ms;
@@ -1535,8 +1534,7 @@ details summary {
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: var(--c-bg-dk);
-  color: var(--c-fg-lt);
-  border-top: 1px solid var(--c-br-lt); }
+  color: var(--c-fg-lt); }
   @media (min-width: 768px) {
     .footer {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
@@ -1564,8 +1562,6 @@ details summary {
           display: block;
           width: var(--s-icon-lg);
           height: var(--s-icon-lg); }
-          .footer > address > ul > li > a > svg {
-            fill: var(--c-br-dk); }
   .footer > nav {
     width: 100%; }
     @media (max-width: 991px) {
@@ -2112,20 +2108,20 @@ details summary {
     margin: auto 0 auto auto; }
     @media (max-width: 1279px) {
       .header > label {
-        display: block; } }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; } }
     .header > label > i {
-      position: absolute;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      left: 0;
-      right: 0;
-      border-bottom: 2px solid var(--c-black); }
-      .header > label > i:first-child {
-        top: 0; }
-      .header > label > i:last-child {
-        bottom: 0; }
+      display: block;
+      height: 2px;
+      background-color: var(--c-black);
+      transition: transform var(--a-xs); }
+  .header > #nav-toggle:checked ~ label {
+    justify-content: center; }
+    .header > #nav-toggle:checked ~ label > i:first-child {
+      transform: rotate(-45deg) translate(0, 1px); }
+    .header > #nav-toggle:checked ~ label > i:last-child {
+      transform: rotate(45deg) translate(0, -1px); }
 
 .hero {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
