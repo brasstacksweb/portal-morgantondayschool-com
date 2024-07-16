@@ -16,7 +16,12 @@
 
 <div class="{{ handle }}">
 	<input type="checkbox" id="nav-toggle" style="display: none" />
-	<a href="{{ siteUrl }}" title="Home">TITAN<br />LINK</a>
+	<a href="{{ siteUrl }}" title="Home">
+		{% if logo %}
+			{{ logo.render() }}
+		{% else %}
+			TITAN<br />LINK</a>
+		{% endif %}
 	<nav>
 		<ul>
 			{% for l in navLinks %}

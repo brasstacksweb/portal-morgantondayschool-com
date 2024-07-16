@@ -36,6 +36,11 @@ $handle: "header";
 		padding: var(--s) var(--s-xs);
 		border-left: 1px solid var(--c-br-dk);
 		border-right: 1px solid var(--c-br-dk);
+
+		> img {
+			width: auto;
+			height: 100%;
+		}
 	}
 
 	// Links
