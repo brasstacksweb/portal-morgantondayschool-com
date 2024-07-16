@@ -1,0 +1,155 @@
+color: null
+fieldLayouts:
+  fad32c79-9db6-4cb3-8e9c-216cab84ebc6:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bdbc5cbb-0756-4b49-877a-ba5545f9d43e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: heroHeading
+            includeInCards: false
+            instructions: null
+            label: 'Hero Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8857b74-a357-45e2-8587-01fb14412407
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: heroBody
+            includeInCards: false
+            instructions: null
+            label: 'Hero Body'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a2e42dc-9d9d-4b5e-bd0a-d959222009cd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: remindersHeading
+            includeInCards: false
+            instructions: null
+            label: 'Reminders Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 441528a3-4eec-4957-b373-3f9a4e0cdc77
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: activitiesHeading
+            includeInCards: false
+            instructions: null
+            label: 'Activities Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dab03d36-d2e2-4ee8-bb4e-d3fc70175df0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: activitiesBody
+            includeInCards: false
+            instructions: null
+            label: 'Activities Body'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54a7d511-eb17-4934-8765-9dc33922a480
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: classesHeading
+            includeInCards: false
+            instructions: null
+            label: 'Classes Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ddc98697-12d7-4f7f-ade2-5d98ad59f3de
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: galleryHeading
+            includeInCards: false
+            instructions: null
+            label: 'Gallery Heading'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fe9bcc91-b471-468b-83a4-946b2dbe39de
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ed37d5d7-d245-452c-9f13-fb69c8c1d9b0
+        userCondition: null
+handle: homepage
+hasTitleField: false
+icon: house
+name: Homepage
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heroHeading}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,8 +1,18 @@
+{% set type = type ?? '' %}
 {% set transform = transform ?? '' %}
 
-{% include '_components/figure' with {
-	title: asset.title,
-	url: transform ? asset.getUrl(transform) : asset.url,
-	fit: 'contain',
-	position: 'center',
-} %}
+
+{% switch type %}
+{% case 'figure' %}
+	{% include '_components/figure' with {
+		title: asset.title,
+		url: transform ? asset.getUrl(transform) : asset.url,
+		fit: 'contain',
+		position: 'center',
+	} %}
+{% default %}
+	<img
+		src="{{ transform ? asset.getUrl(transform) : asset.url }}"
+		alt="{{ asset.caption ?? asset.alt ?? asset.title }}"
+		style="object-fix: contain; object-position: center" />
+{% endswitch %}

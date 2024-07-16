@@ -20,69 +20,50 @@ const actions = {
     showFieldError: 'show-field-error',
 };
 
-function handleClicks() {
-    document.body.addEventListener('click', e => {
-        const link = e.target.closest('a');
-
-        if (!link) return;
-
-        // Anchors
-        if (link.matches('[href="#"]')) {
-            e.preventDefault();
-
-            const target = document.querySelector(link.href);
-
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Videos
-        // if (link.matches('[href*="youtube.com"]')) {
-        //     e.preventDefault();
-
-        //     const videoId = link.href.split('v=')[1];
-        // }
-    });
-}
-
-function handleVideos() {
-    // Only play videos when they are in view for scroll performance
-    const videoObserver = new IntersectionObserver(entries => {
-        entries.forEach(({ target, isIntersecting }) => {
-            if (isIntersecting) {
-                target.play();
-            } else {
-                target.pause();
-            }
-        });
-    }, { threshold: 0.1 });
-    Array.from(document.querySelectorAll('video'))
-        .filter(v => v.hasAttribute('playsinline'))
-        .forEach(v => { videoObserver.observe(v); });
-}
-
-function handleModals() {
-    const loadModal = string => {
-        const dialog = document.querySelector('body > dialog');
-
-        dialog.querySelector('section').innerHTML = string;
-        dialog.showModal();
-    };
-    document.querySelector('body > dialog > button').onclick = ({ currentTarget }) => { currentTarget.parentElement.close(); };
-    document.querySelectorAll('img[data-big-url]').forEach(image => {
-        image.onclick = () => {
-            loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`);
-        };
-    });
-}
-
 // Event handler functions
 function handleDOMConentLoaded() {
     function cb() {
-        handleClicks();
-        handleVideos();
-        handleModals();
+        document.body.addEventListener('click', e => {
+            const link = e.target.closest('a');
+
+            if (!link) return;
+
+            // Anchors
+            if (link.matches('[href="#"]')) {
+                e.preventDefault();
+
+                const target = document.querySelector(link.href);
+
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+        // Only play videos when they are in view for scroll performance
+        const videoObserver = new IntersectionObserver(entries => {
+            entries.forEach(({ target, isIntersecting }) => {
+                if (isIntersecting) {
+                    target.play();
+                } else {
+                    target.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+        Array.from(document.querySelectorAll('video'))
+            .filter(v => v.hasAttribute('playsinline'))
+            .forEach(v => { videoObserver.observe(v); });
+
+        const loadModal = string => {
+            const dialog = document.querySelector('body > dialog');
+
+            dialog.querySelector('section').innerHTML = string;
+            dialog.showModal();
+        };
+        document.querySelector('body > dialog > button').onclick = ({ currentTarget }) => { currentTarget.parentElement.close(); };
+        document.querySelectorAll('img[data-big-url]').forEach(image => {
+            image.onclick = () => { loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`); };
+        });
 
         if (window.location.hash) {
             const target = document.querySelector(window.location.hash);

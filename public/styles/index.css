@@ -2020,7 +2020,7 @@ details summary {
   justify-content: space-between;
   align-items: center;
   width: 100%; }
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     .header {
       padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
       padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px)))); } }
@@ -2055,11 +2055,12 @@ details summary {
     border-right: 1px solid var(--c-br-dk); }
     .header > a > img {
       width: auto;
-      height: 100%; }
+      height: 100%;
+      padding: var(--s) 0; }
   .header > nav {
     z-index: 10;
     width: 100%; }
-    @media (max-width: 767px) {
+    @media (max-width: 1279px) {
       .header > nav {
         position: absolute;
         top: calc(var(--h-header) + 1px);
@@ -2078,20 +2079,20 @@ details summary {
         pointer-event: none; } }
     .header > nav > ul {
       display: flex; }
-      @media (max-width: 767px) {
+      @media (max-width: 1279px) {
         .header > nav > ul {
           padding-top: var(--s-md);
           padding-bottom: var(--s-md);
           flex-direction: column;
           align-items: flex-start; } }
-      @media (min-width: 768px) {
+      @media (min-width: 1280px) {
         .header > nav > ul {
           justify-content: flex-start;
           align-items: center; } }
-      @media (max-width: 767px) {
+      @media (max-width: 1279px) {
         .header > nav > ul > li:not(:first-child) {
           margin-top: var(--s-sm); } }
-      @media (min-width: 768px) {
+      @media (min-width: 1280px) {
         .header > nav > ul > li:not(:first-child) {
           margin-left: var(--s-sm); } }
   .header > #nav-toggle:checked ~ nav {
@@ -2106,7 +2107,7 @@ details summary {
     width: var(--s-md);
     height: var(--s-sm);
     margin: auto 0 auto auto; }
-    @media (max-width: 767px) {
+    @media (max-width: 1279px) {
       .header > label {
         display: block; } }
     .header > label > i {

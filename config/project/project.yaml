@@ -1,4 +1,4 @@
-dateModified: 1721141892
+dateModified: 1721152668
 elementSources:
   craft\elements\Category:
     -
@@ -26,6 +26,9 @@ elementSources:
         - postDate
         - expiryDate
         - link
+      type: native
+    -
+      key: singles
       type: native
     -
       defaultSort:
@@ -151,6 +154,7 @@ meta:
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
     88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
     427781cd-acf5-4a43-89af-cb1ebfdd8300: Footer # Footer
+    692746dc-95bf-4f00-927a-fcd1fb01cf87: Homepage # Homepage
     4733975f-7c80-40a9-9ecb-2bdf0924d1c0: Hero # Hero
     6271783c-fcdd-4d3b-89b1-246b1c93cc0d: Video # Video
     93400719-64ce-46ce-996c-008e37c78a42: 'Color Split' # Color Split
@@ -166,6 +170,7 @@ meta:
     c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d: 'Activity Modules' # Activity Modules
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
+    cceee7ec-12bf-4a50-8b29-d871bd33ae04: Homepage # Homepage
     cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links
     ce1d738b-afb4-4eaa-a764-344ef98eb743: 'Text List' # Text List
     db8ba95d-1c59-46d4-be6b-f020db568757: Address # Address
@@ -194,7 +199,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: 'Morganton Day School'
+  name: 'Titan Link'
   retryDuration: null
   schemaVersion: 5.0.0.21
   timeZone: America/New_York

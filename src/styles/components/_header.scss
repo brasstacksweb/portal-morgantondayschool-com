@@ -10,7 +10,7 @@ $handle: "header";
 	align-items: center;
 	width: 100%;
 
-	@include media("sm") {
+	@include media("lg") {
 		@include pad(var(--s-md));
 	}
 
@@ -40,6 +40,7 @@ $handle: "header";
 		> img {
 			width: auto;
 			height: 100%;
+			padding: var(--s) 0;
 		}
 	}
 
@@ -48,7 +49,7 @@ $handle: "header";
 		z-index: 10;
 		width: 100%;
 
-		@include media($max: "xs") {
+		@include media($max: "md") {
 			@include absolute(calc(var(--h-header) + 1px), 0, auto, 0);
 			@include pad(var(--s-sm));
 			z-index: 9;
@@ -64,23 +65,23 @@ $handle: "header";
 		> ul {
 			display: flex;
 
-			@include media($max: "xs") {
+			@include media($max: "md") {
 				@include space(var(--s-md));
 				flex-direction: column;
 				align-items: flex-start;
 			}
 
-			@include media("sm") {
+			@include media("lg") {
 				justify-content: flex-start;
 				align-items: center;
 			}
 
 			> li:not(:first-child) {
-				@include media($max: "xs") {
+				@include media($max: "md") {
 					margin-top: var(--s-sm);
 				}
 
-				@include media("sm") {
+				@include media("lg") {
 					margin-left: var(--s-sm);
 				}
 			}
@@ -102,7 +103,7 @@ $handle: "header";
 		height: var(--s-sm);
 		margin: auto 0 auto auto;
 
-		@include media($max: "xs") {
+		@include media($max: "md") {
 			display: block;
 		}
 
