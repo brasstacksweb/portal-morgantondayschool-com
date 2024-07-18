@@ -6,7 +6,7 @@ $handle: "header";
 	z-index: 10;
 	top: 0;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
 
@@ -24,7 +24,7 @@ $handle: "header";
 	}
 
 	// Titan Link Logo
-	> a {
+	> a:first-of-type {
 		@include font("logo");
 		position: relative;
 		z-index: 10;
@@ -54,7 +54,8 @@ $handle: "header";
 
 		@include media($max: "md") {
 			@include absolute(calc(var(--h-header) + 1px), 0, auto, 0);
-			@include pad(var(--s-sm));
+			@include pad(var(--s-md));
+			@include space(var(--s-sm), var(--s-md));
 			z-index: 9;
 			opacity: 0;
 			transform: translateY(-100%);
@@ -65,12 +66,15 @@ $handle: "header";
 			pointer-event: none;
 		}
 
+		@include media($max: "xs") {
+			@include pad(var(--s-sm));
+		}
+
 		> ul {
 			display: flex;
 
 			@include media($max: "md") {
-				@include space(var(--s-md));
-				flex-direction: column;
+				flex-wrap: wrap;
 				align-items: flex-start;
 			}
 
@@ -79,14 +83,39 @@ $handle: "header";
 				align-items: center;
 			}
 
-			> li:not(:first-child) {
+			> li {
 				@include media($max: "md") {
+					width: 25%;
 					margin-top: var(--s-sm);
 				}
 
-				@include media("lg") {
-					margin-left: var(--s-md);
+				@include media($max: "sm") {
+					width: 50%;
 				}
+
+				@include media($max: "xs") {
+					width: 100%;
+				}
+
+				&:not(:first-child) {
+					@include media("lg") {
+						margin-left: var(--s-md);
+					}
+				}
+
+				> a {
+					display: inline-block;
+				}
+			}
+		}
+
+		+ a {
+			position: relative;
+			z-index: 10;
+			margin: auto 0 auto auto;
+
+			+ label {
+				margin: auto 0 auto var(--s-md);;
 			}
 		}
 	}

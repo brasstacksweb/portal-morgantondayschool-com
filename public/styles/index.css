@@ -400,9 +400,9 @@ details summary {
       .accordion-list > header > div > * {
         max-width: var(--w-lg); }
         .accordion-list > header > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
+          margin-top: var(--s-sm); }
       .accordion-list > header > div > h1:not(:first-child), .accordion-list > header > div > h2:not(:first-child), .accordion-list > header > div > h3:not(:first-child), .accordion-list > header > div > h4:not(:first-child), .accordion-list > header > div > h5:not(:first-child), .accordion-list > header > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
       .accordion-list > header > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -517,10 +517,11 @@ details summary {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .accordion-list > header > div a {
-        color: var(--c-black); }
+        color: var(--c-black);
+        text-decoration: underline; }
         .accordion-list > header > div a:hover {
           color: var(--c-green);
-          text-decoration: underline; }
+          text-decoration-thickness: 2px; }
       .accordion-list > header > div hr {
         max-width: var(--w-xs);
         margin-left: auto;
@@ -562,9 +563,9 @@ details summary {
         .accordion-list > div > details > div > * {
           max-width: var(--w-lg); }
           .accordion-list > div > details > div > *:not(:first-child) {
-            margin-top: var(--s-sm); }
+            margin-top: var(--s-xs); }
         .accordion-list > div > details > div > h1:not(:first-child), .accordion-list > div > details > div > h2:not(:first-child), .accordion-list > div > details > div > h3:not(:first-child), .accordion-list > div > details > div > h4:not(:first-child), .accordion-list > div > details > div > h5:not(:first-child), .accordion-list > div > details > div > h6:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .accordion-list > div > details > div > h1 {
           font-family: system-ui;
           font-weight: 400;
@@ -618,7 +619,7 @@ details summary {
               margin-top: var(--s-xs); }
             .accordion-list > div > details > div ol > li > ol,
             .accordion-list > div > details > div ol > li > ul {
-              margin-top: var(--s-sm); }
+              margin-top: var(--s-xs); }
             .accordion-list > div > details > div ol > li > ul {
               list-style-type: circle; }
         .accordion-list > div > details > div ul {
@@ -633,7 +634,7 @@ details summary {
               margin-top: var(--s-xs); }
             .accordion-list > div > details > div ul > li > ol,
             .accordion-list > div > details > div ul > li > ul {
-              margin-top: var(--s-sm); }
+              margin-top: var(--s-xs); }
             .accordion-list > div > details > div ul > li > ul {
               list-style-type: circle; }
         .accordion-list > div > details > div table {
@@ -648,7 +649,7 @@ details summary {
             border: 1px solid vaR(--c-br-lt); }
             .accordion-list > div > details > div table th > *:not(:first-child),
             .accordion-list > div > details > div table td > *:not(:first-child) {
-              margin-top: var(--s-sm); }
+              margin-top: var(--s-xs); }
             .accordion-list > div > details > div table th > ul,
             .accordion-list > div > details > div table th > li,
             .accordion-list > div > details > div table td > ul,
@@ -679,10 +680,11 @@ details summary {
           font-weight: bold;
           letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
         .accordion-list > div > details > div a {
-          color: var(--c-black); }
+          color: var(--c-black);
+          text-decoration: underline; }
           .accordion-list > div > details > div a:hover {
             color: var(--c-green);
-            text-decoration: underline; }
+            text-decoration-thickness: 2px; }
         .accordion-list > div > details > div hr {
           max-width: var(--w-xs);
           margin-left: auto;
@@ -745,7 +747,7 @@ details summary {
       max-width: var(--w-lg); }
       .card > a > article > header > div > *:not(:first-child),
       .card > article > header > div > *:not(:first-child) {
-        margin-top: var(--s-sm); }
+        margin-top: var(--s-xs); }
     .card > a > article > header > div > h1:not(:first-child), .card > a > article > header > div > h2:not(:first-child), .card > a > article > header > div > h3:not(:first-child), .card > a > article > header > div > h4:not(:first-child), .card > a > article > header > div > h5:not(:first-child), .card > a > article > header > div > h6:not(:first-child),
     .card > article > header > div > h1:not(:first-child),
     .card > article > header > div > h2:not(:first-child),
@@ -753,7 +755,7 @@ details summary {
     .card > article > header > div > h4:not(:first-child),
     .card > article > header > div > h5:not(:first-child),
     .card > article > header > div > h6:not(:first-child) {
-      margin-top: var(--s-sm); }
+      margin-top: var(--s-xs); }
     .card > a > article > header > div > h1,
     .card > article > header > div > h1 {
       font-family: system-ui;
@@ -819,7 +821,7 @@ details summary {
         .card > a > article > header > div ol > li > ul,
         .card > article > header > div ol > li > ol,
         .card > article > header > div ol > li > ul {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card > a > article > header > div ol > li > ul,
         .card > article > header > div ol > li > ul {
           list-style-type: circle; }
@@ -840,7 +842,7 @@ details summary {
         .card > a > article > header > div ul > li > ul,
         .card > article > header > div ul > li > ol,
         .card > article > header > div ul > li > ul {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card > a > article > header > div ul > li > ul,
         .card > article > header > div ul > li > ul {
           list-style-type: circle; }
@@ -861,7 +863,7 @@ details summary {
         .card > a > article > header > div table td > *:not(:first-child),
         .card > article > header > div table th > *:not(:first-child),
         .card > article > header > div table td > *:not(:first-child) {
-          margin-top: var(--s-sm); }
+          margin-top: var(--s-xs); }
         .card > a > article > header > div table th > ul,
         .card > a > article > header > div table th > li,
         .card > a > article > header > div table td > ul,
@@ -905,11 +907,12 @@ details summary {
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     .card > a > article > header > div a,
     .card > article > header > div a {
-      color: var(--c-black); }
+      color: var(--c-black);
+      text-decoration: underline; }
       .card > a > article > header > div a:hover,
       .card > article > header > div a:hover {
         color: var(--c-green);
-        text-decoration: underline; }
+        text-decoration-thickness: 2px; }
     .card > a > article > header > div hr,
     .card > article > header > div hr {
       max-width: var(--w-xs);
@@ -946,9 +949,9 @@ details summary {
     .card-list > header > div > * {
       max-width: var(--w-lg); }
       .card-list > header > div > *:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
     .card-list > header > div > h1:not(:first-child), .card-list > header > div > h2:not(:first-child), .card-list > header > div > h3:not(:first-child), .card-list > header > div > h4:not(:first-child), .card-list > header > div > h5:not(:first-child), .card-list > header > div > h6:not(:first-child) {
-      margin-top: var(--s-md); }
+      margin-top: var(--s-sm); }
     .card-list > header > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -1063,10 +1066,11 @@ details summary {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     .card-list > header > div a {
-      color: var(--c-black); }
+      color: var(--c-black);
+      text-decoration: underline; }
       .card-list > header > div a:hover {
         color: var(--c-green);
-        text-decoration: underline; }
+        text-decoration-thickness: 2px; }
     .card-list > header > div hr {
       max-width: var(--w-xs);
       margin-left: auto;
@@ -1216,7 +1220,7 @@ details summary {
     .color-split > header > h3 {
       font-family: system-ui;
       font-weight: 700;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+      font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
       text-transform: uppercase;
@@ -1253,9 +1257,9 @@ details summary {
     .color-split > div > * {
       max-width: var(--w-lg); }
       .color-split > div > *:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
     .color-split > div > h1:not(:first-child), .color-split > div > h2:not(:first-child), .color-split > div > h3:not(:first-child), .color-split > div > h4:not(:first-child), .color-split > div > h5:not(:first-child), .color-split > div > h6:not(:first-child) {
-      margin-top: var(--s-md); }
+      margin-top: var(--s-sm); }
     .color-split > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -1370,10 +1374,11 @@ details summary {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     .color-split > div a {
-      color: var(--c-black); }
+      color: var(--c-black);
+      text-decoration: underline; }
       .color-split > div a:hover {
         color: var(--c-green);
-        text-decoration: underline; }
+        text-decoration-thickness: 2px; }
     .color-split > div hr {
       max-width: var(--w-xs);
       margin-left: auto;
@@ -1548,6 +1553,7 @@ details summary {
     line-height: 1.6em;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     width: 100%; }
     @media (min-width: 992px) {
       .footer > address {
@@ -1587,7 +1593,7 @@ details summary {
       .footer > nav > ul > li > h3 {
         font-family: system-ui;
         font-weight: 700;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
         text-transform: uppercase; }
@@ -1617,9 +1623,9 @@ details summary {
   .form--invert > div > * {
     max-width: var(--w-lg); }
     .form--invert > div > *:not(:first-child) {
-      margin-top: var(--s-md); }
+      margin-top: var(--s-sm); }
   .form--invert > div > h1:not(:first-child), .form--invert > div > h2:not(:first-child), .form--invert > div > h3:not(:first-child), .form--invert > div > h4:not(:first-child), .form--invert > div > h5:not(:first-child), .form--invert > div > h6:not(:first-child) {
-    margin-top: var(--s-md); }
+    margin-top: var(--s-sm); }
   .form--invert > div > h1 {
     font-family: system-ui;
     font-weight: 400;
@@ -1734,10 +1740,11 @@ details summary {
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form--invert > div a {
-    color: var(--c-white); }
+    color: var(--c-white);
+    text-decoration: underline; }
     .form--invert > div a:hover {
       color: var(--c-gold-lt);
-      text-decoration: underline; }
+      text-decoration-thickness: 2px; }
   .form--invert > div hr {
     max-width: var(--w-xs);
     margin-left: auto;
@@ -1752,9 +1759,9 @@ details summary {
   .form:not(.form--invert) > div > * {
     max-width: var(--w-lg); }
     .form:not(.form--invert) > div > *:not(:first-child) {
-      margin-top: var(--s-md); }
+      margin-top: var(--s-sm); }
   .form:not(.form--invert) > div > h1:not(:first-child), .form:not(.form--invert) > div > h2:not(:first-child), .form:not(.form--invert) > div > h3:not(:first-child), .form:not(.form--invert) > div > h4:not(:first-child), .form:not(.form--invert) > div > h5:not(:first-child), .form:not(.form--invert) > div > h6:not(:first-child) {
-    margin-top: var(--s-md); }
+    margin-top: var(--s-sm); }
   .form:not(.form--invert) > div > h1 {
     font-family: system-ui;
     font-weight: 400;
@@ -1869,10 +1876,11 @@ details summary {
     font-weight: bold;
     letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
   .form:not(.form--invert) > div a {
-    color: var(--c-black); }
+    color: var(--c-black);
+    text-decoration: underline; }
     .form:not(.form--invert) > div a:hover {
       color: var(--c-green);
-      text-decoration: underline; }
+      text-decoration-thickness: 2px; }
   .form:not(.form--invert) > div hr {
     max-width: var(--w-xs);
     margin-left: auto;
@@ -1884,7 +1892,7 @@ details summary {
   .form-field > label {
     font-family: system-ui;
     font-weight: 700;
-    font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+    font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
     font-stretch: condensed;
     line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
     text-transform: uppercase;
@@ -2015,7 +2023,7 @@ details summary {
   z-index: 10;
   top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%; }
   @media (min-width: 768px) {
@@ -2035,7 +2043,7 @@ details summary {
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--c-br-dk);
     backdrop-filter: blur(var(--s-xs)); }
-  .header > a {
+  .header > a:first-of-type {
     font-family: system-ui;
     font-weight: 500;
     font-size: 40px;
@@ -2048,11 +2056,11 @@ details summary {
     flex-shrink: 0;
     height: var(--h-header);
     margin-right: var(--s-md); }
-    .header > a:not(:has(img)) {
+    .header > a:first-of-type:not(:has(img)) {
       padding: var(--s) var(--s-xs);
       border-left: 1px solid var(--c-br-dk);
       border-right: 1px solid var(--c-br-dk); }
-    .header > a > img {
+    .header > a:first-of-type > img {
       width: auto;
       height: 100%;
       padding: var(--s-xs) 0; }
@@ -2066,8 +2074,10 @@ details summary {
         right: 0;
         bottom: auto;
         left: 0;
-        padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
-        padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+        padding-left: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+        padding-right: max(var(--s-md), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+        padding-top: var(--s-sm);
+        padding-bottom: var(--s-md);
         z-index: 9;
         opacity: 0;
         transform: translateY(-100%);
@@ -2076,24 +2086,41 @@ details summary {
         backdrop-filter: blur(var(--s-xs));
         transition: transform var(--a-sm);
         pointer-event: none; } }
+    @media (max-width: 767px) {
+      .header > nav {
+        padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
+        padding-right: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px)))); } }
     .header > nav > ul {
       display: flex; }
       @media (max-width: 1279px) {
         .header > nav > ul {
-          padding-top: var(--s-md);
-          padding-bottom: var(--s-md);
-          flex-direction: column;
+          flex-wrap: wrap;
           align-items: flex-start; } }
       @media (min-width: 1280px) {
         .header > nav > ul {
           justify-content: flex-start;
           align-items: center; } }
       @media (max-width: 1279px) {
-        .header > nav > ul > li:not(:first-child) {
+        .header > nav > ul > li {
+          width: 25%;
           margin-top: var(--s-sm); } }
+      @media (max-width: 991px) {
+        .header > nav > ul > li {
+          width: 50%; } }
+      @media (max-width: 767px) {
+        .header > nav > ul > li {
+          width: 100%; } }
       @media (min-width: 1280px) {
         .header > nav > ul > li:not(:first-child) {
           margin-left: var(--s-md); } }
+      .header > nav > ul > li > a {
+        display: inline-block; }
+    .header > nav + a {
+      position: relative;
+      z-index: 10;
+      margin: auto 0 auto auto; }
+      .header > nav + a + label {
+        margin: auto 0 auto var(--s-md); }
   .header > #nav-toggle:checked ~ nav {
     opacity: 1;
     transform: translateY(0);
@@ -2139,6 +2166,8 @@ details summary {
       padding-right: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));
       padding-top: var(--s-lg);
       padding-bottom: var(--s-lg); } }
+  .hero--type-narrow > div {
+    width: 100% !important; }
   .hero > div {
     position: relative;
     display: flex;
@@ -2163,12 +2192,11 @@ details summary {
     .hero > div > h2 {
       font-family: system-ui;
       font-weight: 700;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+      font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
       text-transform: uppercase;
-      order: -1;
-      margin-bottom: var(--s-xs); }
+      margin-top: var(--s-sm); }
     .hero > div > h3 {
       display: flex;
       align-items: center;
@@ -2183,15 +2211,16 @@ details summary {
         margin-right: var(--s-xs); }
     .hero > div > div {
       color: var(--c-fg-dk);
-      margin-top: var(--s-sm); }
+      margin-top: var(--s-sm);
+      text-wrap: balance; }
       .hero > div > div:has(table) {
         overflow-x: auto; }
       .hero > div > div > * {
         max-width: var(--w-lg); }
         .hero > div > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
+          margin-top: var(--s-sm); }
       .hero > div > div > h1:not(:first-child), .hero > div > div > h2:not(:first-child), .hero > div > div > h3:not(:first-child), .hero > div > div > h4:not(:first-child), .hero > div > div > h5:not(:first-child), .hero > div > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
       .hero > div > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2306,10 +2335,11 @@ details summary {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .hero > div > div a {
-        color: var(--c-black); }
+        color: var(--c-black);
+        text-decoration: underline; }
         .hero > div > div a:hover {
           color: var(--c-green);
-          text-decoration: underline; }
+          text-decoration-thickness: 2px; }
       .hero > div > div hr {
         max-width: var(--w-xs);
         margin-left: auto;
@@ -2358,9 +2388,9 @@ details summary {
       .intro > header > div > * {
         max-width: var(--w-lg); }
         .intro > header > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
+          margin-top: var(--s-sm); }
       .intro > header > div > h1:not(:first-child), .intro > header > div > h2:not(:first-child), .intro > header > div > h3:not(:first-child), .intro > header > div > h4:not(:first-child), .intro > header > div > h5:not(:first-child), .intro > header > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
       .intro > header > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2475,10 +2505,11 @@ details summary {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .intro > header > div a {
-        color: var(--c-black); }
+        color: var(--c-black);
+        text-decoration: underline; }
         .intro > header > div a:hover {
           color: var(--c-green);
-          text-decoration: underline; }
+          text-decoration-thickness: 2px; }
       .intro > header > div hr {
         max-width: var(--w-xs);
         margin-left: auto;
@@ -2529,12 +2560,11 @@ details summary {
     .media-split > header > h3 {
       font-family: system-ui;
       font-weight: 700;
-      font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+      font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
       font-stretch: condensed;
       line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
       text-transform: uppercase;
-      order: -1;
-      margin-bottom: var(--s-xs); }
+      margin-bottom: var(--s-sm); }
     .media-split > header > div {
       color: var(--c-fg-dk);
       margin-top: var(--s-sm); }
@@ -2543,9 +2573,9 @@ details summary {
       .media-split > header > div > * {
         max-width: var(--w-lg); }
         .media-split > header > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
+          margin-top: var(--s-sm); }
       .media-split > header > div > h1:not(:first-child), .media-split > header > div > h2:not(:first-child), .media-split > header > div > h3:not(:first-child), .media-split > header > div > h4:not(:first-child), .media-split > header > div > h5:not(:first-child), .media-split > header > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
       .media-split > header > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -2660,10 +2690,11 @@ details summary {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .media-split > header > div a {
-        color: var(--c-black); }
+        color: var(--c-black);
+        text-decoration: underline; }
         .media-split > header > div a:hover {
           color: var(--c-green);
-          text-decoration: underline; }
+          text-decoration-thickness: 2px; }
       .media-split > header > div hr {
         max-width: var(--w-xs);
         margin-left: auto;
@@ -2715,7 +2746,7 @@ details summary {
       .text-block > header > div > h4 {
         font-family: system-ui;
         font-weight: 700;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
         text-transform: uppercase;
@@ -2728,9 +2759,9 @@ details summary {
     .text-block > div > * {
       max-width: var(--w-lg); }
       .text-block > div > *:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
     .text-block > div > h1:not(:first-child), .text-block > div > h2:not(:first-child), .text-block > div > h3:not(:first-child), .text-block > div > h4:not(:first-child), .text-block > div > h5:not(:first-child), .text-block > div > h6:not(:first-child) {
-      margin-top: var(--s-md); }
+      margin-top: var(--s-sm); }
     .text-block > div > h1 {
       font-family: system-ui;
       font-weight: 400;
@@ -2845,10 +2876,11 @@ details summary {
       font-weight: bold;
       letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
     .text-block > div a {
-      color: var(--c-black); }
+      color: var(--c-black);
+      text-decoration: underline; }
       .text-block > div a:hover {
         color: var(--c-green);
-        text-decoration: underline; }
+        text-decoration-thickness: 2px; }
     .text-block > div hr {
       max-width: var(--w-xs);
       margin-left: auto;
@@ -2887,9 +2919,9 @@ details summary {
       .text-list > header > div > * {
         max-width: var(--w-lg); }
         .text-list > header > div > *:not(:first-child) {
-          margin-top: var(--s-md); }
+          margin-top: var(--s-sm); }
       .text-list > header > div > h1:not(:first-child), .text-list > header > div > h2:not(:first-child), .text-list > header > div > h3:not(:first-child), .text-list > header > div > h4:not(:first-child), .text-list > header > div > h5:not(:first-child), .text-list > header > div > h6:not(:first-child) {
-        margin-top: var(--s-md); }
+        margin-top: var(--s-sm); }
       .text-list > header > div > h1 {
         font-family: system-ui;
         font-weight: 400;
@@ -3004,10 +3036,11 @@ details summary {
         font-weight: bold;
         letter-spacing: clamp(calc(0.3 * 1px), calc((0.5 - 0.3) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 0.3 * 1px), calc(0.5 * 1px)); }
       .text-list > header > div a {
-        color: var(--c-black); }
+        color: var(--c-black);
+        text-decoration: underline; }
         .text-list > header > div a:hover {
           color: var(--c-green);
-          text-decoration: underline; }
+          text-decoration-thickness: 2px; }
       .text-list > header > div hr {
         max-width: var(--w-xs);
         margin-left: auto;
@@ -3055,7 +3088,7 @@ details summary {
       .text-list > header > nav > span {
         font-family: system-ui;
         font-weight: 700;
-        font-size: clamp(calc(13 * 1px), calc((17 - 13) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 13 * 1px), calc(17 * 1px));
+        font-size: clamp(calc(15 * 1px), calc((19 - 15) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 15 * 1px), calc(19 * 1px));
         font-stretch: condensed;
         line-height: clamp(calc(1.1 * 1em), calc((1.4 - 1.1) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1em) + 1.1 * 1em), calc(1.4 * 1em));
         text-transform: uppercase;

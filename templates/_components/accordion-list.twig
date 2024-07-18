@@ -35,7 +35,7 @@
 	</header>
 	<div>
 		{% for a in accordions %}
-			<details>
+			<details {% if loop.first %}open{% endif %}>
 				<summary>
 					<h3>{{ a.heading }}</h3>
 					<i>{{ icons.chevron('down') }}</i>

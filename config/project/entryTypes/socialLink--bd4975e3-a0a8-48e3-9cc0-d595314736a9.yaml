@@ -33,7 +33,7 @@ fieldLayouts:
             uid: 60057be1-f55e-4964-a975-cce4c3cf9e39
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             fieldUid: a4fa5523-8cdd-400d-8f0e-50b8bd7c2802 # Reference URL
@@ -48,7 +48,7 @@ fieldLayouts:
             uid: 6b819318-c233-4de2-93d0-1e481f47590a
             userCondition: null
             warning: null
-            width: 75
+            width: 50
         name: Content
         uid: 7cd34f61-a44f-42fe-a540-b3b02b95e78b
         userCondition: null

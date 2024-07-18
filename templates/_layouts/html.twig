@@ -69,12 +69,14 @@
 		{% set header = craft.globalSets().handle('header').with([
 			'logo',
 			'navLinks.pageCta:page',
+			'cta.pageCta:page',
 		]).one() %}
 		{% if header %}
 			<header>
 				{% include '_components/header' with {
 					logo: header.logo[0] ?? null,
 					navLinks: header.navLinks,
+					cta: header.cta ?? null,
 				} only %}
 			</header>
 		{% endif %}
@@ -85,8 +87,9 @@
 
 		{% set footer = craft.globalSets().handle('footer').with([
 			'logo',
-			'socialLinks',
 			'address',
+			'socialLinks',
+			'cta.pageCta:page',
 			'linkGroups.linkGroup:links.pageCta:page',
 		]).one() %}
 		{% if footer %}
@@ -96,6 +99,7 @@
 					socialLinks: footer.socialLinks.all(),
 					address: footer.address[0] ?? null,
 					phoneNumber: footer.phoneNumber,
+					cta: footer.cta ?? null,
 					linkGroups: footer.linkGroups,
 				} only %}
 			</footer>

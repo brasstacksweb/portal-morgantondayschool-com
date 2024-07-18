@@ -1,12 +1,14 @@
 {##
  # Header component
- # @param {Asset} logo
- # @param {Entry[]} navLinks
+ # @param {object} logo
+ # @param {object[]} navLinks
+ # @param {object} cta
  #}
 
 {# Params #}
 {% set logo = logo ?? null %}
 {% set navLinks = navLinks ?? [] %}
+{% set cta = cta ?? null %}
 
 {# Variables #}
 {% set handle = 'header' %}
@@ -32,6 +34,9 @@
 			{% endfor %}
 		</ul>
 	</nav>
+	{% if cta %}
+		{{ cta.render() }}
+	{% endif %}
 	<label for="nav-toggle">
 		<i aria-hidden="true"></i>
 		<i aria-hidden="true"></i>

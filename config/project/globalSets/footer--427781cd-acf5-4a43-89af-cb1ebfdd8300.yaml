@@ -51,6 +51,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: 6f19cee3-1de8-4684-852b-f59cfdf23892 # CTA
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9b6d276e-66a8-49df-8c40-e7b36daea39a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: e3999e4e-a947-4d65-8944-1f558463fe8f # Social Links
             handle: null
             includeInCards: false
@@ -63,7 +78,7 @@ fieldLayouts:
             uid: a7e73886-6ddb-4bff-90b1-2be85d970c9f
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
             fieldUid: 4294bfbd-d338-4975-a4bd-57772d64b3c8 # Link Groups

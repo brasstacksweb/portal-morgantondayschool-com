@@ -28,6 +28,7 @@
 {# Markup #}
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
 {% set metaDescription = entry.overview|striptags[:160] %}
+{% set metaNoIndex = true %}
 
 {% extends '_layouts/html' %}
 

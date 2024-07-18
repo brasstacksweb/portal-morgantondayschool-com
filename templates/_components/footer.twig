@@ -4,6 +4,7 @@
  # @param {object[]} socialLinks
  # @param {Address} address
  # @param {string} phoneNumber
+ # @param {object} cta
  # @param {object[]} linkGroups
  #}
 
@@ -12,6 +13,7 @@
 {% set solialLinks = solialLinks ?? [] %}
 {% set address = address ?? null %}
 {% set phoneNumber = phoneNumber ?? null %}
+{% set cta = cta ?? null %}
 {% set linkGroups = linkGroups ?? [] %}
 
 {# Variables #}
@@ -36,6 +38,9 @@
 		<br />{{ address.locality }}, {{ address.administrativeArea }}&nbsp;{{ address.postalCode }}
 		</p>
 		<a href="tel:{{ phoneNumber }}" title="Call Us">{{ phoneNumber }}</a>
+		{% if cta %}
+			{{ cta.render({ invert: true }) }}
+		{% endif %}
 	</address>
 	<nav>
 		{% if linkGroups is not empty %}

@@ -19,7 +19,7 @@ previewTargets:
         - '1'
 propagationMethod: all
 siteSettings:
-  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School
+  812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School Titan Link Parent Portal
     enabledByDefault: true
     hasUrls: true
     template: index.twig

@@ -48,8 +48,7 @@ $handle: "media-split";
 
 		> h3 {
 			@include font("eyebrow");
-			order: -1;
-			margin-bottom: var(--s-xs);
+			margin-bottom: var(--s-sm);
 		}
 
 		> div {

@@ -31,17 +31,18 @@
 
 {% extends '_layouts/html' %}
 
-{% set metaTitle = 'MDS Titan Link' %}
-{% set metaDescription = 'MDS Titan Link' %}
+{% set metaTitle = 'Morganton Day School Titan Link Parent Portal' %}
+{% set metaDescription = entry.heroBody %}
+{% set metaNoIndex = true %}
 
 {% block content %}
 	<article>
 		<header>
 			{% include '_components/hero' with {
 				heading: entry.heroHeading,
-				subheading: 'Titan Link',
 				body: entry.heroBody,
 				backgroundColor: 'yellow',
+				type: 'narrow',
 			} only %}
 		</header>
 

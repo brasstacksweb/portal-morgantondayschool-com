@@ -48,7 +48,22 @@ fieldLayouts:
             uid: b8857b74-a357-45e2-8587-01fb14412407
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: heroImage
+            includeInCards: false
+            instructions: null
+            label: 'Hero Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ff602451-4a9c-4286-9186-9052779dedef
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview

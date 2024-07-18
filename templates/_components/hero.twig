@@ -9,6 +9,7 @@
  # @param {object[]} ctas
  # @param {object} image
  # @param {string} backgroundColor
+ # @param {string} type <default*, narrow>
  #}
 
 {# Params #}
@@ -19,13 +20,16 @@
 {% set ctas = ctas ?? [] %}
 {% set image = image ?? null %}
 {% set backgroundColor = backgroundColor ?? '' %}
+{% set type = type ?? 'default' %}
 
 {# Variables #}
 {% set handle = 'hero' %}
 
 {# Markup #}
-<div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
-	{% if image %}
+<div
+	class="{{ handle }} {{ handle }}--type-{{ type }}"
+	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
+	{% if image and type != 'narrow' %}
 		{{ image.render({ type: 'figure', transform: 'hero' }) }}
 	{% endif %}
 	<div>
