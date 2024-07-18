@@ -14,8 +14,19 @@ $handle: "hero";
 		@include space(var(--s-lg));
 	}
 
+	// Equal top/bottom spacing if no image present
+	// &:not(:has(> div:nth-child(2))) {
+	// 	@include media($max: "xs") {
+	// 		padding-top: var(--s-md);
+	// 	}
+	// }
+
 	&--type-narrow > div {
 		width: 100% !important;
+
+		> div {
+			text-wrap: balance;
+		}
 	}
 
 	> div {
@@ -62,7 +73,6 @@ $handle: "hero";
 		> div {
 			@include richText;
 			margin-top: var(--s-sm);
-			text-wrap: balance;
 		}
 
 		> nav {

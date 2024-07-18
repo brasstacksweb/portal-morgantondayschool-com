@@ -2171,6 +2171,8 @@ details summary {
       padding-bottom: var(--s-lg); } }
   .hero--type-narrow > div {
     width: 100% !important; }
+    .hero--type-narrow > div > div {
+      text-wrap: balance; }
   .hero > div {
     position: relative;
     display: flex;
@@ -2214,8 +2216,7 @@ details summary {
         margin-right: var(--s-xs); }
     .hero > div > div {
       color: var(--c-fg-dk);
-      margin-top: var(--s-sm);
-      text-wrap: balance; }
+      margin-top: var(--s-sm); }
       .hero > div > div:has(table) {
         overflow-x: auto; }
       .hero > div > div > * {
