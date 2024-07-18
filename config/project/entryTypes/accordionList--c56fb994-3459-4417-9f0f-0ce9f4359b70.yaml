@@ -67,10 +67,10 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 5a81ee8e-7a65-4713-a91b-b4904e4f5e50 # Left Right
-            handle: accordionsPosition
+            handle: accordionPosition
             includeInCards: false
             instructions: null
-            label: 'Accordions Position'
+            label: 'Accordion Position'
             providesThumbs: false
             required: false
             tip: null

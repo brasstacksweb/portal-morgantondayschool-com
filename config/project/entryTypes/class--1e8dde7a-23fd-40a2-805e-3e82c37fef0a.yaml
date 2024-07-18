@@ -31,7 +31,15 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: f3f3b1c8-ae51-4d8b-8e09-e3402ee07273
-            userCondition: null
+            userCondition:
+              class: craft\elements\conditions\users\UserCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\users\AdminConditionRule
+                  uid: 04f3ca3b-0e06-4fde-ad71-dfa11fc3bfdf
+                  value: true
+              elementType: craft\elements\User
+              fieldContext: global
             warning: null
             width: 50
           -
@@ -46,7 +54,15 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 50bf35d0-1143-423b-9ce2-5f2f52e28bc8
-            userCondition: null
+            userCondition:
+              class: craft\elements\conditions\users\UserCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\users\AdminConditionRule
+                  uid: 8c2d627e-ef9c-436c-b115-a9cd78dc8960
+                  value: true
+              elementType: craft\elements\User
+              fieldContext: global
             warning: null
             width: 50
           -
@@ -61,7 +77,15 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 9126775d-7612-4b5e-b46a-008af12b8bae
-            userCondition: null
+            userCondition:
+              class: craft\elements\conditions\users\UserCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\users\AdminConditionRule
+                  uid: 05e37340-861a-4455-a2b9-723ea897fbe9
+                  value: true
+              elementType: craft\elements\User
+              fieldContext: global
             warning: null
             width: 50
           -
@@ -76,7 +100,15 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 67b9fbeb-efba-4963-b624-2d02ab6ba52c
-            userCondition: null
+            userCondition:
+              class: craft\elements\conditions\users\UserCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\users\AdminConditionRule
+                  uid: 83fc7eb2-557f-430b-8b76-e203d20eb6c4
+                  value: true
+              elementType: craft\elements\User
+              fieldContext: global
             warning: null
             width: 50
           -

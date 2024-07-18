@@ -20,6 +20,7 @@ $handle: "intro";
 
 		> h2 {
 			@include font("heading", "lg");
+			text-wrap: balance;
 		}
 
 		> h3 {

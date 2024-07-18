@@ -29,7 +29,7 @@ $handle: "text-block";
 			}
 
 			@include media("sm") {
-				// justify-content: flex-end;
+				justify-content: flex-end;
 				align-items: center;
 				margin-top : var(--s-md);
 			}
@@ -46,7 +46,7 @@ $handle: "text-block";
 
 			> h4 {
 				@include font("eyebrow");
-				// margin: 0 auto 0 0;
+				margin: 0 auto 0 0;
 			}
 		}
 	}

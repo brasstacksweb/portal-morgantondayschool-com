@@ -1,3 +1,27 @@
 description: ''
 handle: teachers
 name: Teachers
+permissions:
+  - accesscp
+  - 'createentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  - 'createentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
+  - 'deleteentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  - 'deleteentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
+  - 'saveassets:5482c96e-84ee-4297-9e2b-8ac82e183ec2' # Videos
+  - 'saveassets:96a1a8e5-308a-4f2e-b084-6b353e026e23' # Images
+  - 'saveassets:de580ac3-ebc6-4ebd-af7e-6a39accf69f3' # Posts
+  - 'saveassets:fd20c5e5-4c47-4c8c-af5b-ee45e71242b4' # User Photos
+  - 'saveentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  - 'saveentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
+  - 'viewassets:5482c96e-84ee-4297-9e2b-8ac82e183ec2' # Videos
+  - 'viewassets:96a1a8e5-308a-4f2e-b084-6b353e026e23' # Images
+  - 'viewassets:de580ac3-ebc6-4ebd-af7e-6a39accf69f3' # Posts
+  - 'viewassets:fd20c5e5-4c47-4c8c-af5b-ee45e71242b4' # User Photos
+  - 'viewcategories:666a2d7b-63a0-4256-acdd-fd5c0af0714f' # Subjects
+  - 'viewentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  - 'viewentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
+  - 'viewpeerassets:5482c96e-84ee-4297-9e2b-8ac82e183ec2' # Videos
+  - 'viewpeerassets:96a1a8e5-308a-4f2e-b084-6b353e026e23' # Images
+  - 'viewpeerassets:de580ac3-ebc6-4ebd-af7e-6a39accf69f3' # Posts
+  - 'viewpeerentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
+  - 'viewpeerentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
