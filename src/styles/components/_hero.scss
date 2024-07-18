@@ -76,7 +76,14 @@ $handle: "hero";
 		}
 
 		> nav {
+			display: flex;
+			flex-wrap: wrap;
 			margin-top: var(--s-sm);
+
+			> *:not(:last-child) {
+				margin-bottom: var(--s-xs);
+				margin-right: var(--s-xs);
+			}
 		}
 	}
 }

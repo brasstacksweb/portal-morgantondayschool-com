@@ -2350,7 +2350,12 @@ details summary {
         margin-right: auto;
         border-bottom: double var(--c-br-dk); }
     .hero > div > nav {
+      display: flex;
+      flex-wrap: wrap;
       margin-top: var(--s-sm); }
+      .hero > div > nav > *:not(:last-child) {
+        margin-bottom: var(--s-xs);
+        margin-right: var(--s-xs); }
 
 .intro {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));

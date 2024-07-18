@@ -6,7 +6,7 @@
 {# Params #}
 {% set entry = craft.entries.id(entry.id).with([
 	'heroImage',
-	'cta.pageCta:page',
+	'ctas.pageCta:page',
 	'activityModules.accordionList:accordions.textBlock:cta.pageCta:page',
 	'activityModules.cardList:cards.card:image',
 	'activityModules.cardList:cards.card:cta.pageCta:page',
@@ -30,7 +30,7 @@
 				heading: entry.heading,
 				subheading: entry.date,
 				body: entry.overview,
-				ctas: entry.cta,
+				ctas: entry.ctas,
 				backgroundColor: 'violet',
 			} only %}
 		</header>
