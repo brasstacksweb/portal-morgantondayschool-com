@@ -31,6 +31,10 @@ $handle: "intro";
 		> div {
 			@include richText("lg");
 			margin-top: var(--s-md);
+
+			@include media("sm") {
+				text-wrap: balance;
+			}
 		}
 	}
 }

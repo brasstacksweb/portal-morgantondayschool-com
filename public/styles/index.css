@@ -2519,6 +2519,9 @@ details summary {
         margin-left: auto;
         margin-right: auto;
         border-bottom: double var(--c-br-dk); }
+      @media (min-width: 768px) {
+        .intro > header > div {
+          text-wrap: balance; } }
 
 .media-split {
   padding-left: max(var(--s-sm), calc(0.5 * (100% - calc(var(--p-max) * 1px))));
