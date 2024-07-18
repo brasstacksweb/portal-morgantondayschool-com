@@ -50,7 +50,8 @@ class SitemapController extends Controller
 
         foreach ($sections as $section) {
             switch ($section->handle) {
-                case 'pages':
+                case 'activities':
+                case 'classes':
                     $pages = $query->section($section)->all();
 
                     foreach ($pages as $page) {

@@ -99,7 +99,7 @@ $handle: "header";
 
 				&:not(:first-child) {
 					@include media("lg") {
-						margin-left: var(--s-md);
+						margin-left: calc(1.5 * var(--s-sm));
 					}
 				}
 
@@ -115,7 +115,11 @@ $handle: "header";
 			margin: auto 0 auto auto;
 
 			+ label {
-				margin: auto 0 auto var(--s-md);;
+				margin: auto 0 auto var(--s-sm);;
+
+				@include media("sm") {
+					margin-left: var(--s-md);
+				}
 			}
 		}
 	}

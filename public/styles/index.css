@@ -2112,7 +2112,7 @@ details summary {
           width: 100%; } }
       @media (min-width: 1280px) {
         .header > nav > ul > li:not(:first-child) {
-          margin-left: var(--s-md); } }
+          margin-left: calc(1.5 * var(--s-sm)); } }
       .header > nav > ul > li > a {
         display: inline-block; }
     .header > nav + a {
@@ -2120,7 +2120,10 @@ details summary {
       z-index: 10;
       margin: auto 0 auto auto; }
       .header > nav + a + label {
-        margin: auto 0 auto var(--s-md); }
+        margin: auto 0 auto var(--s-sm); }
+        @media (min-width: 768px) {
+          .header > nav + a + label {
+            margin-left: var(--s-md); } }
   .header > #nav-toggle:checked ~ nav {
     opacity: 1;
     transform: translateY(0);
