@@ -21,10 +21,8 @@
 	.relatedTo([entry])
 	.with(['subject'])
 	.all() %}
-{% set updatesBySubject = craft.categories.group('subjects').all()|map(s => [
-	s.title,
-	subjectUpdates|filter(u => s.id in u.subject|map(ss => ss.id)),
-]) %}
+{% set updatesBySubject = subjectUpdates
+	|group(u => u.subject[0].title) %}
 {% set teacher = entry.teacher[0] ?? null %}
 
 {# Markup #}
@@ -64,14 +62,13 @@
 		</section>
 
 		{% set accordions = [] %}
-		{% for update in updatesBySubject %}
+		{% for subject, updates in updatesBySubject %}
 			{% set body %}
-				{{ (update|last|map(u => u.details)|join('<hr />')
-					?: "<p>No #{update|first} updates for this week</p>")|raw }}
+				{{ updates|map(u => u.details)|join('<hr />')|raw }}
 			{% endset %}
 
 			{% set accordions = accordions|merge([{
-				heading: update|first,
+				heading: subject,
 				body: body,
 			}]) %}
 		{% endfor %}

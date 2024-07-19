@@ -33,7 +33,22 @@ fieldLayouts:
             uid: 31d72d11-defd-493d-b820-48b6d180afda
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: highlight
+            includeInCards: false
+            instructions: null
+            label: Highlight
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06d5def6-9b88-4403-b613-227ef1a814e1
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
