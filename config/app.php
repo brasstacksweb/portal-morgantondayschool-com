@@ -64,7 +64,7 @@ return [
                     'except' => [\yii\web\HttpException::class.':404'],
                     'message' => [
                         'to' => ['trevor@brasstacksweb.com'],
-                        'subject' => 'portal.morgantondayschool.comError',
+                        'subject' => 'portal.morgantondayschool.com Error',
                     ],
                 ],
             ],
