@@ -38,5 +38,5 @@
 	markup: markup|spaceless,
 	prevParam: prevWeek,
 	nextParam: nextWeek,
-	current: 'Week of ' ~ week|date('m/d/Y'),
+	current: "Week of <em>#{week|date('m/d/Y')}</em>",
 }|json_encode|raw }}

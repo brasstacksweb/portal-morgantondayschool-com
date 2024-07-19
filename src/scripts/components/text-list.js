@@ -11,8 +11,9 @@ export default function HomeDashboard(el, {
         next,
     ] = el.querySelectorAll('header > nav > button');
 
-    function page(param) {
-        el.scrollIntoView();
+    function page(param, dir = 0) {
+        // el.scrollIntoView();
+        el.setAttribute('data-dir', dir);
         el.classList.add(loadingClass);
         prev.disabled = true;
         next.disabled = true;
@@ -40,11 +41,11 @@ export default function HomeDashboard(el, {
                 next.disabled = false;
                 prevParam = p;
                 nextParam = n;
-                current.textContent = c;
+                current.innerHTML = c;
                 el.querySelector('ul').outerHTML = markup.trim();
             });
     }
 
-    prev.onclick = () => { page(prevParam); };
-    next.onclick = () => { page(nextParam); };
+    prev.onclick = () => { page(prevParam, -1); };
+    next.onclick = () => { page(nextParam, 1); };
 }

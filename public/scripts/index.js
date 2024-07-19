@@ -1,2 +1,150 @@
-(()=>{function g(o,n,r=window){let l=new CustomEvent(o,{detail:n});r.dispatchEvent(l)}function k(o,n,r=window){r.addEventListener(o,n)}function h({container:o=document.body,classMap:n={},actions:r={},cb:l=null}){let e={emit:g,on:k};function t(c=null){c!==null&&h({container:c,classMap:n,actions:r,cb:l})}Object.entries(n).forEach(([c,s])=>{o.querySelectorAll(`[data-comp-name="${c}"]`).forEach(a=>{s(a,{...JSON.parse(a.getAttribute("data-comp-params")),actions:r,events:e,refresh:t})})}),l&&l({events:e,refresh:t})}var m=h;function u(o,{prevParam:n,nextParam:r,endpoint:l,paramName:e,loadingClass:t="is-loading"}){let c=o.querySelector("header > nav > span"),[s,a]=o.querySelectorAll("header > nav > button");function f(y){o.scrollIntoView(),o.classList.add(t),s.disabled=!0,a.disabled=!0,fetch(`${l}?${new URLSearchParams({[e]:y})}`,{headers:{Accept:"application/json"}}).then(i=>i.json().then(d=>({status:i.status,...d}))).then(({status:i,markup:d="",prevParam:b="",nextParam:v="",current:S=""})=>{i===200&&(o.classList.remove(t),s.disabled=!1,a.disabled=!1,n=b,r=v,c.textContent=S,o.querySelector("ul").outerHTML=d.trim())})}s.onclick=()=>{f(n)},a.onclick=()=>{f(r)}}var E={"text-list":u},q={lockScroll:"lock-scroll",unlockScroll:"unlock-scroll",showFieldError:"show-field-error"};function p(){function o(){let n=document.querySelector(".header");document.querySelector(":root").style.setProperty("--h-header",`${n.offsetHeight}px`),document.body.addEventListener("click",e=>{let t=e.target.closest("a");if(!!t&&t.href.includes("#")&&t.target!=="_blank"){let c=document.getElementById(t.href.split("#")[1]);c&&(e.preventDefault(),n.querySelector('[type="checkbox"]#nav-toggle').checked=!1,c.scrollIntoView({behavior:"smooth"}))}});let r=new IntersectionObserver(e=>{e.forEach(({target:t,isIntersecting:c})=>{c?t.play():t.pause()})},{threshold:.1});Array.from(document.querySelectorAll("video")).filter(e=>e.hasAttribute("playsinline")).forEach(e=>{r.observe(e)});let l=e=>{let t=document.querySelector("body > dialog");t.querySelector("section").innerHTML=e,t.showModal()};document.querySelector("body > dialog > button").onclick=({currentTarget:e})=>{e.parentElement.close()},document.querySelectorAll("img[data-big-url]").forEach(e=>{e.onclick=()=>{l(`<img src="${e.dataset.bigUrl}" alt="${e.alt}" />`)}})}m({classMap:E,actions:q,cb:o})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",p):p();})();
+(() => {
+  // src/scripts/components.js
+  function emit(handle, payload, target = window) {
+    const event = new CustomEvent(handle, { detail: payload });
+    target.dispatchEvent(event);
+  }
+  function on(handle, cb, target = window) {
+    target.addEventListener(handle, cb);
+  }
+  function pop({
+    container = document.body,
+    classMap: classMap2 = {},
+    actions: actions2 = {},
+    cb = null
+  }) {
+    const events = { emit, on };
+    function refresh(c = null) {
+      if (c === null) {
+        return;
+      }
+      pop({ container: c, classMap: classMap2, actions: actions2, cb });
+    }
+    Object.entries(classMap2).forEach(([name, component]) => {
+      container.querySelectorAll(`[data-comp-name="${name}"]`).forEach((node) => {
+        component(node, {
+          ...JSON.parse(node.getAttribute("data-comp-params")),
+          actions: actions2,
+          events,
+          refresh
+        });
+      });
+    });
+    if (cb) {
+      cb({ events, refresh });
+    }
+  }
+  var components_default = pop;
+
+  // src/scripts/components/text-list.js
+  function HomeDashboard(el, {
+    prevParam,
+    nextParam,
+    endpoint,
+    paramName,
+    loadingClass = "is-loading"
+  }) {
+    const current = el.querySelector("header > nav > span");
+    const [
+      prev,
+      next
+    ] = el.querySelectorAll("header > nav > button");
+    function page(param, dir = 0) {
+      el.setAttribute("data-dir", dir);
+      el.classList.add(loadingClass);
+      prev.disabled = true;
+      next.disabled = true;
+      fetch(`${endpoint}?${new URLSearchParams({
+        [paramName]: param
+      })}`, {
+        headers: { Accept: "application/json" }
+      }).then((res) => res.json().then((json) => ({
+        status: res.status,
+        ...json
+      }))).then(({
+        status,
+        markup = "",
+        prevParam: p = "",
+        nextParam: n = "",
+        current: c = ""
+      }) => {
+        if (status !== 200)
+          return;
+        el.classList.remove(loadingClass);
+        prev.disabled = false;
+        next.disabled = false;
+        prevParam = p;
+        nextParam = n;
+        current.innerHTML = c;
+        el.querySelector("ul").outerHTML = markup.trim();
+      });
+    }
+    prev.onclick = () => {
+      page(prevParam, -1);
+    };
+    next.onclick = () => {
+      page(nextParam, 1);
+    };
+  }
+
+  // src/scripts/index.js
+  var classMap = {
+    "text-list": HomeDashboard
+  };
+  var actions = {
+    lockScroll: "lock-scroll",
+    unlockScroll: "unlock-scroll",
+    showFieldError: "show-field-error"
+  };
+  function handleDOMConentLoaded() {
+    function cb() {
+      const header = document.querySelector(".header");
+      document.querySelector(":root").style.setProperty("--h-header", `${header.offsetHeight}px`);
+      document.body.addEventListener("click", (e) => {
+        const link = e.target.closest("a");
+        if (!link)
+          return;
+        if (link.href.includes("#") && link.target !== "_blank") {
+          const target = document.getElementById(link.href.split("#")[1]);
+          if (target) {
+            e.preventDefault();
+            header.querySelector('[type="checkbox"]#nav-toggle').checked = false;
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (isIntersecting) {
+            target.play();
+          } else {
+            target.pause();
+          }
+        });
+      }, { threshold: 0.1 });
+      Array.from(document.querySelectorAll("video")).filter((v) => v.hasAttribute("playsinline")).forEach((v) => {
+        videoObserver.observe(v);
+      });
+      const loadModal = (string) => {
+        const dialog = document.querySelector("body > dialog");
+        dialog.querySelector("section").innerHTML = string;
+        dialog.showModal();
+      };
+      document.querySelector("body > dialog > button").onclick = ({ currentTarget }) => {
+        currentTarget.parentElement.close();
+      };
+      document.querySelectorAll("img[data-big-url]").forEach((image) => {
+        image.onclick = () => {
+          loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`);
+        };
+      });
+    }
+    components_default({ classMap, actions, cb });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", handleDOMConentLoaded);
+  } else {
+    handleDOMConentLoaded();
+  }
+})();
 //# sourceMappingURL=index.js.map
