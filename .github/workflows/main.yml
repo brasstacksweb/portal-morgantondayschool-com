@@ -27,7 +27,7 @@ jobs:
         uses: milanmk/actions-file-deployer@master
         with:
           remote-protocol: "sftp"
-          remote-host: ${{ secrets.HOST }}
-          remote-user: ${{ secrets.USER }}
+          remote-host: ${{ variables.HOST }}
+          remote-user: ${{ variables.USER }}
           remote-password: ${{ secrets.PASS }}
-          remote-path: ${{ secrets.PATH }}
+          remote-path: ${{ variables.PATH }}
