@@ -31,3 +31,4 @@ jobs:
           remote-user: ${{ vars.USER }}
           remote-password: ${{ secrets.PASS }}
           remote-path: ${{ vars.PATH }}
+          sync: "full"
