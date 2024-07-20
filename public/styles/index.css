@@ -2162,8 +2162,7 @@ details summary {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: var(--bg-color);
-  background-color: red; }
+  background-color: var(--bg-color); }
   @media (min-width: 768px) {
     .hero {
       padding-left: max(var(--s-md), calc(0.5 * (100% - var(--w-xl))));

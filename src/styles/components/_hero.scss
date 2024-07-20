@@ -8,7 +8,6 @@ $handle: "hero";
 	justify-content: space-between;
 	align-items: flex-start;
 	background-color: var(--bg-color);
-	background-color: red;
 
 	@include media("sm") {
 		@include pad(var(--s-md), var(--w-xl));
