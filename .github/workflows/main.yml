@@ -13,8 +13,8 @@ on:
         default: "delta"
 
 jobs:
-  deploy-master:
-    name: "main branch"
+  deploy-main:
+    name: "Deploy Files"
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -37,4 +37,4 @@ jobs:
           host: ${{ vars.HOST }}
           username: ${{ vars.USER }}
           password: ${{ secrets.PASS }}
-          script: composer install && php craft up
+          script: cd ${{ vars.PATH }} composer install && php craft up
