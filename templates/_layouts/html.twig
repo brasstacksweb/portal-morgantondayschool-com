@@ -15,6 +15,12 @@
 ]).one() %}
 {% set meta = metaGlobal.meta[0] ?? null %}
 
+{# Variables #}
+{% set stylesFile = '/' ~ getenv('STYLES_FILE')
+	|replace('.css', '.' ~ (getenv('STYLES_CACHE_HASH') ?: 'empty') ~ '.css') %}
+{% set scriptsFile = '/' ~ getenv('SCRIPTS_FILE')
+	|replace('.css', '.' ~ (getenv('SCRIPTS_CACHE_HASH') ?: 'empty') ~ '.css') %}
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -54,7 +60,7 @@
 		<meta name="msapplication-TileColor" content="#FFC40D">
 		<meta name="theme-color" content="#FFFFFF">
 
-		<link rel="stylesheet" href="/styles/index.{{ getenv('STYLES_CACHE_HASH') ?: 'empty' }}.css" />
+		<link rel="stylesheet" href="{{ stylesFile }}" />
 
 		{% if getenv('CRAFT_ENVIRONMENT') != 'development' %}
 			{# TODO: GTM Head #}
@@ -118,6 +124,6 @@
 				});
 			</script>
 		{% endif %}
-		<script src="/scripts/index.{{ getenv('SCRIPTS_CACHE_HASH') ?: 'empty' }}.js" defer></script>
+		<script src="{{ scriptsFile }}" defer></script>
 	</body>
 </html>
