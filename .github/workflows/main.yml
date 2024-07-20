@@ -31,4 +31,10 @@ jobs:
           remote-user: ${{ vars.USER }}
           remote-password: ${{ secrets.PASS }}
           remote-path: ${{ vars.PATH }}
-          ftp-post-sync-commands: "composer install && php craft up"
+      - name: "Post Deploy Script"
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.HOST }}
+          username: ${{ vars.USER }}
+          password: ${{ secrets.PASS }}
+          script: composer install && php craft up
