@@ -13,6 +13,10 @@ $handle: "figure";
 				width: 100%;
 				filter: saturate(150%);
 				background-color: var(--c-black);
+
+				&[data-big-url] {
+					cursor: zoom-in;
+				}
 			}
 
 			> video {

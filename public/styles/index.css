@@ -1516,6 +1516,8 @@ details summary {
       width: 100%;
       filter: saturate(150%);
       background-color: var(--c-black); }
+      .figure > figure > div > img[data-big-url] {
+        cursor: zoom-in; }
     .figure > figure > div > video {
       position: absolute;
       top: -1px;
