@@ -67,7 +67,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 88315e38-3bc8-4c3e-b756-311a3e6f8105 # Teacher
+            fieldUid: 88315e38-3bc8-4c3e-b756-311a3e6f8105 # Teachers
             handle: null
             includeInCards: false
             instructions: null

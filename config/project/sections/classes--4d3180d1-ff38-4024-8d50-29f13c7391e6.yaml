@@ -3,7 +3,7 @@ enableVersioning: true
 entryTypes:
   - 1e8dde7a-23fd-40a2-805e-3e82c37fef0a # Class
 handle: classes
-maxAuthors: 1
+maxAuthors: 2
 name: Classes
 previewTargets:
   -

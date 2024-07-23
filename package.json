@@ -13,6 +13,7 @@
 	"author": "brasstacksweb",
 	"license": "ISC",
 	"devDependencies": {
+		"concurrently": "^8.2.2",
 		"esbuild": "^0.12.20",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"node-sass": "^8.0.0",

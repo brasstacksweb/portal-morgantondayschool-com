@@ -3,9 +3,6 @@
  # @param {object} class
  # |_@param {string} title
  # |_@param {string} url
- # |_@param {object} teacher
- #   |_@param {string} fullName
- #   |_@param {object} image
  # |_@param {string} color
  #}
 
@@ -24,18 +21,6 @@
 	<article>
 		<a href="{{ class.url }}" title="{{ class.title }}">
 			<h3>{{ class.previewText }}</h3>
-			{#
-			{% if class.teacher %}
-				<h4>
-					{% if class.teacher.photo %}
-						<img
-							src="{{ class.teacher.photo.url }}"
-							alt="{{ class.teacher.fullName }} headshot" />
-					{% endif %}
-					{{ icons.arrow("right") }}
-				</h4>
-			{% endif %}
-			#}
 		</a>
 	</article>
 </div>

@@ -1,4 +1,4 @@
-dateModified: 1721416168
+dateModified: 1721696436
 elementSources:
   craft\elements\Category:
     -
@@ -67,7 +67,7 @@ elementSources:
       key: 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
       tableAttributes:
         - 'field:e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15' # Color
-        - 'field:88315e38-3bc8-4c3e-b756-311a3e6f8105' # Teacher
+        - 'field:88315e38-3bc8-4c3e-b756-311a3e6f8105' # Teachers
         - 'fieldInstance:036d8768-582a-4443-aabc-511acedb2d73'
         - link
       type: native
@@ -155,7 +155,7 @@ meta:
     21845b92-9016-4975-ad69-346de1c7a9a8: Description # Description
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
-    88315e38-3bc8-4c3e-b756-311a3e6f8105: Teacher # Teacher
+    88315e38-3bc8-4c3e-b756-311a3e6f8105: Teachers # Teachers
     427781cd-acf5-4a43-89af-cb1ebfdd8300: Footer # Footer
     692746dc-95bf-4f00-927a-fcd1fb01cf87: Homepage # Homepage
     4733975f-7c80-40a9-9ecb-2bdf0924d1c0: Hero # Hero

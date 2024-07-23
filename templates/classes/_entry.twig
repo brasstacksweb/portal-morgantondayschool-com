@@ -5,7 +5,7 @@
 
 {# Params #}
 {% set entry = craft.entries.id(entry.id).with([
-	'teacher.photo',
+	'teachers.photo',
 	'heroImage',
 	'announcements',
 	'posts',
@@ -23,7 +23,6 @@
 	.all() %}
 {% set updatesBySubject = subjectUpdates
 	|group(u => u.subject[0].title) %}
-{% set teacher = entry.teacher[0] ?? null %}
 
 {# Markup #}
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
@@ -38,10 +37,10 @@
 			{% include '_components/hero' with {
 				heading: entry.heading,
 				body: entry.overview,
-				person: entry.teacher|map(t => {
+				people: entry.teachers|map(t => {
 					title: t.fullName,
 					image: t.photo ?? null,
-				})[0] ?? null,
+				}),
 				ctas: [create({
 					class: 'craft\\elements\\Entry',
 					typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
@@ -103,22 +102,23 @@
 			} only %}
 		</section>
 
-		{% if teacher %}
+		{% for t in entry.teachers %}
 			<section>
 				{% include '_components/media-split' with {
-					heading: teacher.fullName,
-					body: teacher.bio,
-					image: teacher.photo,
+					heading: t.fullName,
+					body: t.bio,
+					image: t.photo,
 					alignment: 'top',
+					mediaPosition: loop.index % 2 == 0 ? 'right' : 'left',
 					cta: create({
 						class: 'craft\\elements\\Entry',
 						typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
 						title: 'Email Me',
-						referenceUrl: 'mailto:' ~ teacher.email,
+						referenceUrl: 'mailto:' ~ t.email,
 					}),
 				} only %}
 			</section>
-		{% endif %}
+		{% endfor %}
 
 		<footer id="resources">
 		</footer>

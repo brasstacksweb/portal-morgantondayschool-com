@@ -3,7 +3,7 @@
  # @param {string} heading
  # @param {string} subheading
  # @param {HTML} body
- # @param {object} person
+ # @param {object[]} people
  # |_@param {string} title
  # |_@param {object} image
  # @param {object[]} ctas
@@ -16,7 +16,7 @@
 {% set heading = heading ?? '' %}
 {% set subheading = subheading ?? '' %}
 {% set body = body ?? '' %}
-{% set person = person ?? null %}
+{% set people = people ?? null %}
 {% set ctas = ctas ?? [] %}
 {% set image = image ?? null %}
 {% set backgroundColor = backgroundColor ?? '' %}
@@ -39,12 +39,12 @@
 				{{ subheading }}
 			</h2>
 		{% endif %}
-		{% if person %}
+		{% for p in people %}
 			<h3>
-				<em>{{ person.image.render({ transform: 'avatar' }) }}</em>
-				<span>{{ person.title }}</span>
+				<em>{{ p.image.render({ transform: 'avatar' }) }}</em>
+				<span>{{ p.title }}</span>
 			</h3>
-		{% endif%}
+		{% endfor %}
 		{% if body is not empty %}
 			<div>{{ body }}</div>
 		{% endif %}

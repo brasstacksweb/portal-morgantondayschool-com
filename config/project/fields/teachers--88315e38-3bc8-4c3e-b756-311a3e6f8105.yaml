@@ -1,18 +1,18 @@
 columnSuffix: null
-handle: teacher
+handle: teachers
 instructions: null
-name: Teacher
+name: Teachers
 searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
   localizeRelations: false
   maintainHierarchy: false
-  maxRelations: 1
+  maxRelations: 2
   minRelations: null
   selectionLabel: 'Add a teacher'
   showCardsInGrid: false
-  showSiteMenu: false
+  showSiteMenu: true
   sources:
     - 'group:dc10bcf2-6231-404f-8016-5f0e146e65a4' # Teachers
   targetSiteId: null
