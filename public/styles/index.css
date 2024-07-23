@@ -225,24 +225,13 @@ body {
 main > article {
   padding-top: var(--h-header); }
 
-body > dialog {
-  display: none;
-  flex-direction: column;
+dialog {
+  max-width: none;
+  max-height: none;
+  margin: 0;
   padding: 0;
-  border: 0; }
-  body > dialog[open] {
-    display: flex; }
-  body > dialog > button {
-    position: absolute;
-    top: var(--s-xs);
-    right: var(--s-xs);
-    flex-shrink: 0;
-    width: var(--s-md);
-    height: var(--s-md);
-    background-color: var(--c-black);
-    color: var(--c-white);
-    border-radius: 50%;
-    font-size: var(--s-sm); }
+  border: 0;
+  background: none; }
 
 [id] {
   scroll-margin-top: var(--h-header); }
@@ -2719,6 +2708,43 @@ details summary {
   @media (min-width: 768px) {
     .media-split--media-position-right > header {
       order: -1; } }
+
+.modal {
+  background: red; }
+  .modal > dialog {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65); }
+    .modal > dialog[open] {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .modal > dialog > button {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      width: var(--s-md);
+      height: var(--s-md);
+      border-radius: 50%;
+      position: absolute;
+      top: var(--s-sm);
+      right: var(--s-sm);
+      bottom: auto;
+      left: auto;
+      flex-shrink: 0;
+      background-color: var(--c-black);
+      color: var(--c-white); }
+      @media (min-width: 768px) {
+        .modal > dialog > button {
+          right: vaR(--s-md); } }
+    .modal > dialog > section {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .modal > dialog > section img {
+        max-width: calc(100vw - (2 * var(--s-sm)));
+        max-height: calc(100vh - (2 * var(--s-sm))); }
 
 .text-block {
   padding-top: var(--s-sm);

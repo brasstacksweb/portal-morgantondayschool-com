@@ -111,29 +111,13 @@ main > article {
 	padding-top: var(--h-header);
 }
 
-body > dialog {
-	display: none;
-	flex-direction: column;
+dialog {
+	max-width: none;
+	max-height: none;
+	margin: 0;
 	padding: 0;
 	border: 0;
-
-	&[open] {
-		display: flex;
-	}
-
-	> button {
-		position: absolute;
-		top: var(--s-xs);
-		right: var(--s-xs);
-		flex-shrink: 0;
-		width: var(--s-md);
-		height: var(--s-md);
-		background-color: var(--c-black);
-		color: var(--c-white);
-		border-radius: 50%;
-		font-size: var(--s-sm);
-
-	}
+	background: none;
 }
 
 [id] {
@@ -148,10 +132,6 @@ a {
 		height: 0;
 		line-height: 0;
 	}
-}
-
-h1, h2, h3, h4, h5, h6, p, figcaption {
-	// cursor: text;
 }
 
 sub {

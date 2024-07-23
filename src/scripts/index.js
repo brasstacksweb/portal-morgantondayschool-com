@@ -4,12 +4,14 @@ import pop from './components';
 // Components
 // import Form from './components/form';
 // import FormField from './components/form-field';
+import Modal from './components/modal';
 import TextList from './components/text-list';
 
 // Define map of component handles to component classes
 const classMap = {
     // form: Form,
     // 'form-field': FormField,
+    modal: Modal,
     'text-list': TextList,
 };
 
@@ -17,12 +19,15 @@ const classMap = {
 const actions = {
     lockScroll: 'lock-scroll',
     unlockScroll: 'unlock-scroll',
+    openModal: 'open-modal',
+    closeModal: 'close-modal',
+    loadModal: 'load-modal',
     showFieldError: 'show-field-error',
 };
 
 // Event handler functions
 function handleDOMConentLoaded() {
-    function cb() {
+    function cb({ events }) {
         // Set header height CSS variable
         const header = document.querySelector('.header');
         document.querySelector(':root').style.setProperty('--h-header', `${header.offsetHeight}px`);
@@ -59,15 +64,12 @@ function handleDOMConentLoaded() {
             .forEach(v => { videoObserver.observe(v); });
 
         // Load bigable images in lightbox
-        const loadModal = string => {
-            const dialog = document.querySelector('body > dialog');
-
-            dialog.querySelector('section').innerHTML = string;
-            dialog.showModal();
-        };
-        document.querySelector('body > dialog > button').onclick = ({ currentTarget }) => { currentTarget.parentElement.close(); };
         document.querySelectorAll('img[data-big-url]').forEach(image => {
-            image.onclick = () => { loadModal(`<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`); };
+            image.onclick = () => {
+                const markup = `<img src="${image.dataset.bigUrl}" alt="${image.alt}" />`;
+
+                events.emit(actions.loadModal, { markup });
+            };
         });
     }
 
