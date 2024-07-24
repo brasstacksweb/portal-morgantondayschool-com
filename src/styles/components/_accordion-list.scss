@@ -71,6 +71,12 @@ $handle: "accordion-list";
 			> div {
 				@include richText("sm");
 				padding-bottom: var(--s-sm);
+
+				img {
+					max-width: var(--w-xs);
+					max-height: var(--w-xs);
+					width: auto;
+				}
 			}
 		}
 	}

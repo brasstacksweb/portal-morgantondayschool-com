@@ -239,8 +239,6 @@
 	}
 
 	figure {
-		max-width: var(--w-xs);
-
 		> figcaption {
 			@include font("body", "sm");
 			padding: var(--s-xs);

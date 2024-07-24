@@ -488,15 +488,13 @@ details summary {
           color: var(--c-fg-md); }
       .accordion-list > header > div iframe {
         max-width: 100%; }
-      .accordion-list > header > div figure {
-        max-width: var(--w-xs); }
-        .accordion-list > header > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.6em;
-          padding: var(--s-xs);
-          color: var(--c-fg-md); }
+      .accordion-list > header > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.6em;
+        padding: var(--s-xs);
+        color: var(--c-fg-md); }
       .accordion-list > header > div i,
       .accordion-list > header > div em {
         font-style: italic;
@@ -651,15 +649,13 @@ details summary {
             color: var(--c-fg-md); }
         .accordion-list > div > details > div iframe {
           max-width: 100%; }
-        .accordion-list > div > details > div figure {
-          max-width: var(--w-xs); }
-          .accordion-list > div > details > div figure > figcaption {
-            font-family: system-ui;
-            font-weight: 333;
-            font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-            line-height: 1.6em;
-            padding: var(--s-xs);
-            color: var(--c-fg-md); }
+        .accordion-list > div > details > div figure > figcaption {
+          font-family: system-ui;
+          font-weight: 333;
+          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+          line-height: 1.6em;
+          padding: var(--s-xs);
+          color: var(--c-fg-md); }
         .accordion-list > div > details > div i,
         .accordion-list > div > details > div em {
           font-style: italic;
@@ -679,6 +675,10 @@ details summary {
           margin-left: auto;
           margin-right: auto;
           border-bottom: double var(--c-br-dk); }
+        .accordion-list > div > details > div img {
+          max-width: var(--w-xs);
+          max-height: var(--w-xs);
+          width: auto; }
   @media (min-width: 768px) {
     .accordion-list--accordion-position-left > div {
       order: -1; } }
@@ -871,17 +871,14 @@ details summary {
     .card > a > article > header > div iframe,
     .card > article > header > div iframe {
       max-width: 100%; }
-    .card > a > article > header > div figure,
-    .card > article > header > div figure {
-      max-width: var(--w-xs); }
-      .card > a > article > header > div figure > figcaption,
-      .card > article > header > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.6em;
-        padding: var(--s-xs);
-        color: var(--c-fg-md); }
+    .card > a > article > header > div figure > figcaption,
+    .card > article > header > div figure > figcaption {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.6em;
+      padding: var(--s-xs);
+      color: var(--c-fg-md); }
     .card > a > article > header > div i,
     .card > a > article > header > div em,
     .card > article > header > div i,
@@ -1037,15 +1034,13 @@ details summary {
         color: var(--c-fg-md); }
     .card-list > header > div iframe {
       max-width: 100%; }
-    .card-list > header > div figure {
-      max-width: var(--w-xs); }
-      .card-list > header > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.6em;
-        padding: var(--s-xs);
-        color: var(--c-fg-md); }
+    .card-list > header > div figure > figcaption {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.6em;
+      padding: var(--s-xs);
+      color: var(--c-fg-md); }
     .card-list > header > div i,
     .card-list > header > div em {
       font-style: italic;
@@ -1345,15 +1340,13 @@ details summary {
         color: var(--c-fg-md); }
     .color-split > div iframe {
       max-width: 100%; }
-    .color-split > div figure {
-      max-width: var(--w-xs); }
-      .color-split > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.6em;
-        padding: var(--s-xs);
-        color: var(--c-fg-md); }
+    .color-split > div figure > figcaption {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.6em;
+      padding: var(--s-xs);
+      color: var(--c-fg-md); }
     .color-split > div i,
     .color-split > div em {
       font-style: italic;
@@ -1714,15 +1707,13 @@ details summary {
       color: var(--c-fg-md); }
   .form--invert > div iframe {
     max-width: 100%; }
-  .form--invert > div figure {
-    max-width: var(--w-xs); }
-    .form--invert > div figure > figcaption {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.6em;
-      padding: var(--s-xs);
-      color: var(--c-white); }
+  .form--invert > div figure > figcaption {
+    font-family: system-ui;
+    font-weight: 333;
+    font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+    line-height: 1.6em;
+    padding: var(--s-xs);
+    color: var(--c-white); }
   .form--invert > div i,
   .form--invert > div em {
     font-style: italic;
@@ -1850,15 +1841,13 @@ details summary {
       color: var(--c-fg-md); }
   .form:not(.form--invert) > div iframe {
     max-width: 100%; }
-  .form:not(.form--invert) > div figure {
-    max-width: var(--w-xs); }
-    .form:not(.form--invert) > div figure > figcaption {
-      font-family: system-ui;
-      font-weight: 333;
-      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-      line-height: 1.6em;
-      padding: var(--s-xs);
-      color: var(--c-fg-md); }
+  .form:not(.form--invert) > div figure > figcaption {
+    font-family: system-ui;
+    font-weight: 333;
+    font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+    line-height: 1.6em;
+    padding: var(--s-xs);
+    color: var(--c-fg-md); }
   .form:not(.form--invert) > div i,
   .form:not(.form--invert) > div em {
     font-style: italic;
@@ -2313,15 +2302,13 @@ details summary {
           color: var(--c-fg-md); }
       .hero > div > div iframe {
         max-width: 100%; }
-      .hero > div > div figure {
-        max-width: var(--w-xs); }
-        .hero > div > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.6em;
-          padding: var(--s-xs);
-          color: var(--c-fg-md); }
+      .hero > div > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.6em;
+        padding: var(--s-xs);
+        color: var(--c-fg-md); }
       .hero > div > div i,
       .hero > div > div em {
         font-style: italic;
@@ -2488,15 +2475,13 @@ details summary {
           color: var(--c-fg-md); }
       .intro > header > div iframe {
         max-width: 100%; }
-      .intro > header > div figure {
-        max-width: var(--w-xs); }
-        .intro > header > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.6em;
-          padding: var(--s-xs);
-          color: var(--c-fg-md); }
+      .intro > header > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.6em;
+        padding: var(--s-xs);
+        color: var(--c-fg-md); }
       .intro > header > div i,
       .intro > header > div em {
         font-style: italic;
@@ -2676,15 +2661,13 @@ details summary {
           color: var(--c-fg-md); }
       .media-split > header > div iframe {
         max-width: 100%; }
-      .media-split > header > div figure {
-        max-width: var(--w-xs); }
-        .media-split > header > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.6em;
-          padding: var(--s-xs);
-          color: var(--c-fg-md); }
+      .media-split > header > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.6em;
+        padding: var(--s-xs);
+        color: var(--c-fg-md); }
       .media-split > header > div i,
       .media-split > header > div em {
         font-style: italic;
@@ -2899,15 +2882,13 @@ details summary {
         color: var(--c-fg-md); }
     .text-block > div iframe {
       max-width: 100%; }
-    .text-block > div figure {
-      max-width: var(--w-xs); }
-      .text-block > div figure > figcaption {
-        font-family: system-ui;
-        font-weight: 333;
-        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-        line-height: 1.6em;
-        padding: var(--s-xs);
-        color: var(--c-fg-md); }
+    .text-block > div figure > figcaption {
+      font-family: system-ui;
+      font-weight: 333;
+      font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+      line-height: 1.6em;
+      padding: var(--s-xs);
+      color: var(--c-fg-md); }
     .text-block > div i,
     .text-block > div em {
       font-style: italic;
@@ -3087,15 +3068,13 @@ details summary {
           color: var(--c-fg-md); }
       .text-list > header > div iframe {
         max-width: 100%; }
-      .text-list > header > div figure {
-        max-width: var(--w-xs); }
-        .text-list > header > div figure > figcaption {
-          font-family: system-ui;
-          font-weight: 333;
-          font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
-          line-height: 1.6em;
-          padding: var(--s-xs);
-          color: var(--c-fg-md); }
+      .text-list > header > div figure > figcaption {
+        font-family: system-ui;
+        font-weight: 333;
+        font-size: clamp(calc(14 * 1px), calc((16 - 14) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 14 * 1px), calc(16 * 1px));
+        line-height: 1.6em;
+        padding: var(--s-xs);
+        color: var(--c-fg-md); }
       .text-list > header > div i,
       .text-list > header > div em {
         font-style: italic;
