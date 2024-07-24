@@ -12,6 +12,7 @@ settings:
     - 1e6dc74f-eb75-4216-9fff-e9ca1d82313c # Intro
     - 36aa60ca-9dcf-435a-88fb-80d286f8cde5 # Media Split
     - 904d4a16-ab49-40f5-9519-53c814f59997 # Text List
+    - a3a6b444-805d-4d61-b0b0-4bc547497655 # Gallery
   includeTableView: false
   maxEntries: null
   minEntries: null
