@@ -20,8 +20,3 @@ permissions:
   - 'viewcategories:666a2d7b-63a0-4256-acdd-fd5c0af0714f' # Subjects
   - 'viewentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
   - 'viewentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
-  - 'viewpeerassets:5482c96e-84ee-4297-9e2b-8ac82e183ec2' # Videos
-  - 'viewpeerassets:96a1a8e5-308a-4f2e-b084-6b353e026e23' # Images
-  - 'viewpeerassets:de580ac3-ebc6-4ebd-af7e-6a39accf69f3' # Posts
-  - 'viewpeerentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
-  - 'viewpeerentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
