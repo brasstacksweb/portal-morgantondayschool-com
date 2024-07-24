@@ -239,11 +239,11 @@
 	}
 
 	figure {
-		margin: var(--s-lg) 0;
+		max-width: var(--w-xs);
 
 		> figcaption {
-			@include font("body", "xs");
-			margin-top: var(--s-xs);
+			@include font("body", "sm");
+			padding: var(--s-xs);
 			color: if($invert, var(--c-white), var(--c-fg-md));
 		}
 	}

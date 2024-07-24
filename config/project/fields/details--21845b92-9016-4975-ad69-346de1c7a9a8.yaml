@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: description
+handle: details
 instructions: null
-name: Description
+name: Details
 searchable: false
 settings:
   availableTransforms: ''

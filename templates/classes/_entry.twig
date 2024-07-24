@@ -5,18 +5,20 @@
 
 {# Params #}
 {% set entry = craft.entries.id(entry.id).with([
-	'teachers.photo',
+	'authors.photo',
 	'heroImage',
 	'announcements',
 	'posts',
 ]).one() %}
 
 {# Variables #}
-{% set subjectUpdates = craft.entries.section('subjectUpdates')
-	.relatedTo([entry])
-	.postDate('>= ' ~ now|date_modify("-6 days")|atom)
-	.with(['subject'])
-	.all() %}
+{#
+ # {% set subjectUpdates = craft.entries.section('subjectUpdates')
+ # 	.relatedTo([entry])
+ # 	.postDate('>= ' ~ now|date_modify("-6 days")|atom)
+ # 	.with(['subject'])
+ # 	.all() %}
+ #}
 {% set subjectUpdates = craft.entries.section('subjectUpdates')
 	.relatedTo([entry])
 	.with(['subject'])
@@ -37,9 +39,9 @@
 			{% include '_components/hero' with {
 				heading: entry.heading,
 				body: entry.overview,
-				people: entry.teachers|map(t => {
-					title: t.fullName,
-					image: t.photo ?? null,
+				people: entry.authors|map(a => {
+					title: a.fullName,
+					image: a.photo ?? null,
 				}),
 				ctas: [create({
 					class: 'craft\\elements\\Entry',
@@ -63,7 +65,15 @@
 		{% set accordions = [] %}
 		{% for subject, updates in updatesBySubject %}
 			{% set body %}
-				{{ updates|map(u => u.details)|join('<hr />')|raw }}
+				{% for u in updates %}
+					{% if not loop.first %}
+						<hr />
+					{% endif %}
+					{% if u.image %}
+						{{ u.image.render({ type: 'figure', transform: 'card' }) }}
+					{% endif %}
+					{{ u.details }}
+				{% endfor %}
 			{% endset %}
 
 			{% set accordions = accordions|merge([{
@@ -80,14 +90,14 @@
 			} only %}
 		</section>
 
-		{# TODO: Promo #}
-
-		<section>
-			{% include '_components/gallery' with {
-				heading: 'In the Classroom',
-				posts: entry.posts,
-			} only %}
-		</section>
+		{% if entry.posts is not empty %}
+			<section>
+				{% include '_components/gallery' with {
+					heading: 'In the Classroom',
+					posts: entry.posts,
+				} only %}
+			</section>
+		{% endif %}
 
 		<section id="resources">
 			{% set colorsLength = craft.components.colors|length %}
@@ -102,19 +112,19 @@
 			} only %}
 		</section>
 
-		{% for t in entry.teachers %}
+		{% for a in entry.authors %}
 			<section>
 				{% include '_components/media-split' with {
-					heading: t.fullName,
-					body: t.bio,
-					image: t.photo,
+					heading: a.fullName,
+					body: a.bio,
+					image: a.photo,
 					alignment: 'top',
 					mediaPosition: loop.index % 2 == 0 ? 'right' : 'left',
 					cta: create({
 						class: 'craft\\elements\\Entry',
 						typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
 						title: 'Email Me',
-						referenceUrl: 'mailto:' ~ t.email,
+						referenceUrl: 'mailto:' ~ a.email,
 					}),
 				} only %}
 			</section>

@@ -1,4 +1,4 @@
-dateModified: 1721839173
+dateModified: 1721846069
 elementSources:
   craft\elements\Category:
     -
@@ -66,9 +66,9 @@ elementSources:
       disabled: false
       key: 'section:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
       tableAttributes:
-        - 'field:e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15' # Color
-        - 'field:88315e38-3bc8-4c3e-b756-311a3e6f8105' # Teachers
+        - authors
         - 'fieldInstance:036d8768-582a-4443-aabc-511acedb2d73'
+        - 'field:e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15' # Color
         - link
       type: native
     -
@@ -80,11 +80,9 @@ elementSources:
       tableAttributes:
         - 'field:9cb11a30-840e-4778-ac4e-d560ae4b70ce' # Subject
         - 'field:938bdfab-80e2-4116-9e3d-66d94c36376f' # Classes
-        - postDate
         - authors
-      type: native
-    -
-      key: 'section:478d6f7d-a53b-42eb-a9ce-671857c743a3'
+        - postDate
+        - expiryDate
       type: native
 email:
   fromEmail: trevor@brasstacksweb.com
@@ -152,10 +150,9 @@ meta:
     5482c96e-84ee-4297-9e2b-8ac82e183ec2: Videos # Videos
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
     9090beeb-6ec5-46f0-a70b-0bbfa6e9c218: 'Link Group' # Link Group
-    21845b92-9016-4975-ad69-346de1c7a9a8: Description # Description
+    21845b92-9016-4975-ad69-346de1c7a9a8: Details # Details
     46092a2d-3811-4600-a2d4-856c6ce5b8cd: 'External CTA' # External CTA
     56004d8a-9fa9-41c8-b0db-eb75c8b2e22d: Default # Default
-    88315e38-3bc8-4c3e-b756-311a3e6f8105: Teachers # Teachers
     427781cd-acf5-4a43-89af-cb1ebfdd8300: Footer # Footer
     692746dc-95bf-4f00-927a-fcd1fb01cf87: Homepage # Homepage
     4733975f-7c80-40a9-9ecb-2bdf0924d1c0: Hero # Hero

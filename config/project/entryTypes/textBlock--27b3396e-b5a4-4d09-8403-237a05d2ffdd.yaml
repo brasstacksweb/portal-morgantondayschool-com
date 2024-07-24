@@ -66,7 +66,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Description
+            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
             handle: body
             includeInCards: false
             instructions: null

@@ -64,30 +64,7 @@ fieldLayouts:
               elementType: craft\elements\User
               fieldContext: global
             warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 88315e38-3bc8-4c3e-b756-311a3e6f8105 # Teachers
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 9126775d-7612-4b5e-b46a-008af12b8bae
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 05e37340-861a-4455-a2b9-723ea897fbe9
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 50
+            width: 25
           -
             elementCondition: null
             fieldUid: e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15 # Color
@@ -110,7 +87,7 @@ fieldLayouts:
               elementType: craft\elements\User
               fieldContext: global
             warning: null
-            width: 50
+            width: 25
           -
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
@@ -158,7 +135,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
             handle: resources
             includeInCards: false
             instructions: null
@@ -167,7 +144,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 33587af7-789f-4e32-9b05-6eb19bb2e724
+            uid: 4bae1435-4c4e-4157-91cc-ae70c3302452
             userCondition: null
             warning: null
             width: 100

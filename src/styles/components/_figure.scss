@@ -12,7 +12,6 @@ $handle: "figure";
 			> img {
 				width: 100%;
 				filter: saturate(150%);
-				background-color: var(--c-black);
 
 				&[data-big-url] {
 					cursor: zoom-in;
@@ -28,7 +27,7 @@ $handle: "figure";
 		}
 
 		> figcaption {
-			@include font("body", -1);
+			@include font("body", "sm");
 			padding: var(--s-xs);
 		}
 	}
