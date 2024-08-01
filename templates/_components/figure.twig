@@ -8,6 +8,7 @@
  # @param {string} caption
  # @param {object} video
  # @param {string} bigUrl
+ # @param {bool} eagerLoad
  #}
 
 {# Params #}
@@ -19,6 +20,7 @@
 {% set caption = caption ?? '' %}
 {% set video = video ?? null %}
 {% set bigUrl = bigUrl ?? '' %}
+{% set eagerLoad = eagerLoad ?? false %}
 
 {# Variables #}
 {% set handle = 'figure' %}
@@ -33,11 +35,13 @@
 				{% endif %}
 				src="{{ url }}"
 				alt="{{ caption ?? alt ?? title }}"
+				{% if not eagerLoad %}
+					loading="lazy"
+				{% endif %}
 				style="
 					object-size: {{ fit }};
 					object-position: {{ position }}
-				"
-				loading="lazy" />
+				"/>
 			{% if video %}
 				<video
 					style="

@@ -1,3 +1,5 @@
+{% set eagerLoad = eagerLoad ?? false %}
+
 {% include '_components/card' with {
 	image: entry.previewImage[0] ?? null,
 	heading: entry.title,
@@ -8,4 +10,5 @@
 		title: 'View Activity',
 		page: [entry.id],
 	}),
+	eagerLoad: eagerLoad,
 } only %}

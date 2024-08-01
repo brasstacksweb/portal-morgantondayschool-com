@@ -1,5 +1,6 @@
 {% set type = type ?? '' %}
 {% set transform = transform ?? '' %}
+{% set eagerLoad = eagerLoad ?? false %}
 
 {% switch type %}
 {% case 'background' %}
@@ -19,6 +20,7 @@
 		alt: asset.alt,
 		caption: asset.caption,
 		video: asset.video[0] ?? null,
+		eagerLoad: eagerLoad,
 	} only %}
 {% default %}
 	<img

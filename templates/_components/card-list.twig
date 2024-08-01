@@ -5,6 +5,7 @@
  # @param {object[]} cards
  # @param {string} gridSize <2, 3*, 4>
  # @param {string} backgroundColor
+ # @param {bool} eagerLoad
  #}
 
 {# Params #}
@@ -13,6 +14,7 @@
 {% set cards = cards ?? [] %}
 {% set gridSize = gridSize ?? '3' %}
 {% set backgroundColor = backgroundColor ?? '' %}
+{% set eagerLoad = eagerLoad ?? false %}
 
 {# Variables #}
 {% set handle = 'card-list' %}
@@ -29,7 +31,7 @@
 	</header>
 	<div>
 		{% for c in cards %}
-			{{ c.render() }}
+			{{ c.render({ eagerLoad: eagerLoad }) }}
 		{% endfor %}
 	</div>
 </div>
