@@ -15,6 +15,9 @@
 ]).one() %}
 {% set meta = metaGlobal.meta[0] ?? null %}
 
+{# DO NOT INDEX #}
+{% set metaNoIndex = true %}
+
 {# Variables #}
 {% set stylesFile = '/' ~ getenv('STYLES_FILE')
 	|replace('.css', '.' ~ (getenv('STYLES_CACHE_HASH') ?: 'empty') ~ '.css') %}
@@ -72,44 +75,48 @@
 			{# TODO: GTM Body #}
 		{% endif %}
 
-		{% set header = craft.globalSets().handle('header').with([
-			'logo',
-			'navLinks.pageCta:page',
-			'cta.pageCta:page',
-		]).one() %}
-		{% if header %}
-			<header>
-				{% include '_components/header' with {
-					logo: header.logo[0] ?? null,
-					navLinks: header.navLinks,
-					cta: header.cta ?? null,
-				} only %}
-			</header>
-		{% endif %}
+		{% cache globally %}
+			{% set header = craft.globalSets().handle('header').with([
+				'logo',
+				'navLinks.pageCta:page',
+				'cta.pageCta:page',
+			]).one() %}
+			{% if header %}
+				<header>
+					{% include '_components/header' with {
+						logo: header.logo[0] ?? null,
+						navLinks: header.navLinks,
+						cta: header.cta ?? null,
+					} only %}
+				</header>
+			{% endif %}
+		{% endcache %}
 
 		<main>
 			{% block content %}{% endblock %}
 		</main>
 
-		{% set footer = craft.globalSets().handle('footer').with([
-			'logo',
-			'address',
-			'socialLinks',
-			'cta.pageCta:page',
-			'linkGroups.linkGroup:links.pageCta:page',
-		]).one() %}
-		{% if footer %}
-			<footer>
-				{% include '_components/footer' with {
-					logo: footer.logo[0] ?? null,
-					socialLinks: footer.socialLinks.all(),
-					address: footer.address[0] ?? null,
-					phoneNumber: footer.phoneNumber,
-					cta: footer.cta ?? null,
-					linkGroups: footer.linkGroups,
-				} only %}
-			</footer>
-		{% endif %}
+		{% cache globally %}
+			{% set footer = craft.globalSets().handle('footer').with([
+				'logo',
+				'address',
+				'socialLinks',
+				'cta.pageCta:page',
+				'linkGroups.linkGroup:links.pageCta:page',
+			]).one() %}
+			{% if footer %}
+				<footer>
+					{% include '_components/footer' with {
+						logo: footer.logo[0] ?? null,
+						socialLinks: footer.socialLinks.all(),
+						address: footer.address[0] ?? null,
+						phoneNumber: footer.phoneNumber,
+						cta: footer.cta ?? null,
+						linkGroups: footer.linkGroups,
+					} only %}
+				</footer>
+			{% endif %}
+		{% endcache %}
 
 		{% include '_components/modal' only %}
 

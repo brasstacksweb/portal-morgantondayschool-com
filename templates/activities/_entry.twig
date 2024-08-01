@@ -23,20 +23,22 @@
 {% extends '_layouts/html' %}
 
 {% block content %}
-	<article>
-		<header>
-			{% include '_components/hero' with {
-				image: entry.heroImage[0] ?? null,
-				heading: entry.heading,
-				subheading: entry.date,
-				body: entry.overview,
-				ctas: entry.ctas,
-				backgroundColor: 'violet',
-			} only %}
-		</header>
+	{% cache %}
+		<article>
+			<header>
+				{% include '_components/hero' with {
+					image: entry.heroImage[0] ?? null,
+					heading: entry.heading,
+					subheading: entry.date,
+					body: entry.overview,
+					ctas: entry.ctas,
+					backgroundColor: 'violet',
+				} only %}
+			</header>
 
-		{% for m in entry.activityModules %}
-			{{ m.render() }}
-		{% endfor %}
-	</article>
+			{% for m in entry.activityModules %}
+				{{ m.render() }}
+			{% endfor %}
+		</article>
+	{% endcache %}
 {% endblock %}

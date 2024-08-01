@@ -36,57 +36,59 @@
 {% set metaNoIndex = true %}
 
 {% block content %}
-	<article>
-		<header>
-			{% include '_components/hero' with {
-				heading: entry.heroHeading,
-				body: entry.heroBody,
-				backgroundColor: 'yellow',
-				type: 'narrow',
-			} only %}
-		</header>
+	{% cache %}
+		<article>
+			<header>
+				{% include '_components/hero' with {
+					heading: entry.heroHeading,
+					body: entry.heroBody,
+					backgroundColor: 'yellow',
+					type: 'narrow',
+				} only %}
+			</header>
 
-		<section>
-			{% include '_components/text-list' with {
-				heading: entry.remindersHeading,
-				listItems: reminders,
-				paginate: {
-					prevParam: prevWeek,
-					nextParam: nextWeek,
-					current: 'Week of ' ~ week|date('m/d/Y'),
-					endpoint: '/json/reminder-list',
-					paramName: 'week',
-					emptyText: 'No reminders for this week.',
-				},
-			} only %}
-		</section>
+			<section>
+				{% include '_components/text-list' with {
+					heading: entry.remindersHeading,
+					listItems: reminders,
+					paginate: {
+						prevParam: prevWeek,
+						nextParam: nextWeek,
+						current: 'Week of ' ~ week|date('m/d/Y'),
+						endpoint: '/json/reminder-list',
+						paramName: 'week',
+						emptyText: 'No reminders for this week.',
+					},
+				} only %}
+			</section>
 
-		<section>
-			{% include '_components/card-list' with {
-				heading: entry.activitiesHeading,
-				body: entry.activitiesBody,
-				cards: activities,
-				gridSize: '2',
-				backgroundColor: 'violet',
-				eagerLoad: true,
-			} only %}
-		</section>
+			<section>
+				{% include '_components/card-list' with {
+					heading: entry.activitiesHeading,
+					body: entry.activitiesBody,
+					cards: activities,
+					gridSize: '2',
+					backgroundColor: 'violet',
+					eagerLoad: true,
+				} only %}
+			</section>
 
-		<section id="classes">
-			{% include '_components/class-list' with {
-				heading: entry.classesHeading,
-				classes: classes|map(c => c|merge({
-					color: c.color.value,
-				})),
-			} only %}
-		</section>
+			<section id="classes">
+				{% include '_components/class-list' with {
+					heading: entry.classesHeading,
+					classes: classes|map(c => c|merge({
+						color: c.color.value,
+					})),
+				} only %}
+			</section>
 
-		<section>
-			{% include '_components/gallery' with {
-				heading: entry.galleryHeading,
-				posts: featuredPosts,
-				backgroundColor: 'blue',
-			} only %}
-		</section>
-	</article>
+			<section>
+				{% include '_components/gallery' with {
+					heading: entry.galleryHeading,
+					posts: featuredPosts,
+					backgroundColor: 'blue',
+				} only %}
+			</section>
+		</article>
+	{% endcache %}
 {% endblock %}
