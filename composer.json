@@ -3,7 +3,7 @@
   "prefer-stable": true,
   "require": {
     "craftcms/ckeditor": "4.1.0",
-    "craftcms/cms": "5.2.8",
+    "craftcms/cms": "5.3.0",
     "craftcms/postmark": "^3.1.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
