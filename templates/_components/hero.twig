@@ -41,7 +41,9 @@
 		{% endif %}
 		{% for p in people %}
 			<h3>
-				<em>{{ p.image.render({ transform: 'avatar' }) }}</em>
+				{% if p.image %}
+					<em>{{ p.image.render({ transform: 'avatar' }) }}</em>
+				{% endif %}
 				<span>{{ p.title }}</span>
 			</h3>
 		{% endfor %}
