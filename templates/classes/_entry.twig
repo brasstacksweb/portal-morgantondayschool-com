@@ -34,105 +34,103 @@
 {% extends '_layouts/html' %}
 
 {% block content %}
-	{% cache %}
-		<article>
-			<header>
-				{% include '_components/hero' with {
-					heading: entry.heading,
-					body: entry.overview,
-					people: entry.authors|map(a => {
-						title: a.fullName,
-						image: a.photo ?? null,
-					}),
-					ctas: [create({
+	<article>
+		<header>
+			{% include '_components/hero' with {
+				heading: entry.heading,
+				body: entry.overview,
+				people: entry.authors|map(a => {
+					title: a.fullName,
+					image: a.photo ?? null,
+				}),
+				ctas: [create({
+					class: 'craft\\elements\\Entry',
+					typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+					title: 'View Resources',
+					page: [entry.id],
+					anchor: 'resources',
+				})],
+				image: entry.heroImage[0] ?? null,
+				backgroundColor: entry.color.value,
+			} only %}
+		</header>
+
+		<section>
+			{% include '_components/text-list' with {
+				heading: 'Class Announcements',
+				listItems: entry.announcements,
+			} only %}
+		</section>
+
+		{% set accordions = [] %}
+		{% for subject, updates in updatesBySubject %}
+			{% set body %}
+				{% for u in updates %}
+					{% if not loop.first %}
+						<hr />
+					{% endif %}
+					{% if u.image %}
+						{{ u.image.render({ type: 'figure', transform: 'card' }) }}
+					{% endif %}
+					{{ u.details }}
+				{% endfor %}
+			{% endset %}
+
+			{% set accordions = accordions|merge([{
+				heading: subject,
+				body: body,
+			}]) %}
+		{% endfor %}
+
+		<section>
+			{% include '_components/accordion-list' with {
+				heading: 'Curricular Updates',
+				accordions: accordions,
+				backgroundColor: 'blue',
+			} only %}
+		</section>
+
+		{% if entry.posts is not empty %}
+			<section>
+				{% include '_components/gallery' with {
+					heading: 'In the Classroom',
+					posts: entry.posts,
+				} only %}
+			</section>
+		{% endif %}
+
+		<section id="resources">
+			{% set colorsLength = craft.components.colors|length %}
+			{% set colorKey = craft.components.colors|filter(c => c == entry.color.value)|keys|first %}
+			{% set inverseColorKey = (colorKey + (colorsLength / 2)) % colorsLength %}
+
+			{% include '_components/color-split' with {
+				heading: 'Resources',
+				body: entry.resources,
+				backgroundColor: craft.components.colors[inverseColorKey],
+				headingAlignment: 'top',
+			} only %}
+		</section>
+
+		{% for a in entry.authors %}
+			<section>
+				{% include '_components/media-split' with {
+					heading: a.fullName,
+					body: a.bio,
+					image: a.photo,
+					alignment: 'top',
+					mediaPosition: loop.index % 2 == 0 ? 'right' : 'left',
+					cta: create({
 						class: 'craft\\elements\\Entry',
-						typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
-						title: 'View Resources',
-						page: [entry.id],
-						anchor: 'resources',
-					})],
-					image: entry.heroImage[0] ?? null,
-					backgroundColor: entry.color.value,
-				} only %}
-			</header>
-
-			<section>
-				{% include '_components/text-list' with {
-					heading: 'Class Announcements',
-					listItems: entry.announcements,
+						typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
+						title: 'Email Me',
+						referenceUrl: 'mailto:' ~ a.email,
+					}),
 				} only %}
 			</section>
+		{% endfor %}
 
-			{% set accordions = [] %}
-			{% for subject, updates in updatesBySubject %}
-				{% set body %}
-					{% for u in updates %}
-						{% if not loop.first %}
-							<hr />
-						{% endif %}
-						{% if u.image %}
-							{{ u.image.render({ type: 'figure', transform: 'card' }) }}
-						{% endif %}
-						{{ u.details }}
-					{% endfor %}
-				{% endset %}
-
-				{% set accordions = accordions|merge([{
-					heading: subject,
-					body: body,
-				}]) %}
-			{% endfor %}
-
-			<section>
-				{% include '_components/accordion-list' with {
-					heading: 'Curricular Updates',
-					accordions: accordions,
-					backgroundColor: 'blue',
-				} only %}
-			</section>
-
-			{% if entry.posts is not empty %}
-				<section>
-					{% include '_components/gallery' with {
-						heading: 'In the Classroom',
-						posts: entry.posts,
-					} only %}
-				</section>
-			{% endif %}
-
-			<section id="resources">
-				{% set colorsLength = craft.components.colors|length %}
-				{% set colorKey = craft.components.colors|filter(c => c == entry.color.value)|keys|first %}
-				{% set inverseColorKey = (colorKey + (colorsLength / 2)) % colorsLength %}
-
-				{% include '_components/color-split' with {
-					heading: 'Resources',
-					body: entry.resources,
-					backgroundColor: craft.components.colors[inverseColorKey],
-					headingAlignment: 'top',
-				} only %}
-			</section>
-
-			{% for a in entry.authors %}
-				<section>
-					{% include '_components/media-split' with {
-						heading: a.fullName,
-						body: a.bio,
-						image: a.photo,
-						alignment: 'top',
-						mediaPosition: loop.index % 2 == 0 ? 'right' : 'left',
-						cta: create({
-							class: 'craft\\elements\\Entry',
-							typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
-							title: 'Email Me',
-							referenceUrl: 'mailto:' ~ a.email,
-						}),
-					} only %}
-				</section>
-			{% endfor %}
-
-			<footer id="resources">
-			</footer>
-		</article>
-	{% endcache %}
+		<footer id="resources">
+		</footer>
+	</article>
 {% endblock %}
