@@ -8,6 +8,7 @@ $handle: "figure";
 		> div {
 			position: relative;
 			overflow: hidden;
+			box-shadow: 2px 2px var(--s-xs) rgba(0, 0, 0, 0.35);
 
 			> img {
 				width: 100%;
