@@ -1,4 +1,4 @@
-dateModified: 1722966377
+dateModified: 1723051708
 elementSources:
   craft\elements\Category:
     -
@@ -94,6 +94,13 @@ email:
     token: $POSTMARK_API_KEY
   transportType: craftcms\postmark\Adapter
 fs:
+  documents:
+    hasUrls: true
+    name: Documents
+    settings:
+      path: '@assetBasePath/documents'
+    type: craft\fs\Local
+    url: '@assetBaseUrl/documents'
   images:
     hasUrls: true
     name: Images
@@ -116,6 +123,7 @@ meta:
     1e8dde7a-23fd-40a2-805e-3e82c37fef0a: Class # Class
     2d6cc29e-95ec-4121-a242-f74b9a1053a6: Activities # Activities
     2efcdd43-3927-46bc-aab7-7d1576e97e29: Announcements # Announcements
+    3a74ea9c-9563-433e-8206-163caff6f1a2: Documents # Documents
     3e79df50-3d4b-4294-875c-158e7a029523: Header # Header
     4d3180d1-ff38-4024-8d50-29f13c7391e6: Classes # Classes
     5a81ee8e-7a65-4713-a91b-b4904e4f5e50: 'Left Right' # Left Right

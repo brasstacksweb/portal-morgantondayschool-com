@@ -5,7 +5,8 @@ name: Overview
 searchable: false
 settings:
   availableTransforms: ''
-  availableVolumes: ''
+  availableVolumes:
+    - 3a74ea9c-9563-433e-8206-163caff6f1a2 # Documents
   ckeConfig: 462b813e-6582-4566-946a-0979bf81f1ca # Simple
   createButtonLabel: null
   defaultTransform: null

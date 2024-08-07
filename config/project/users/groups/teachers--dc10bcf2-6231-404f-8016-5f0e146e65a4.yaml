@@ -3,7 +3,6 @@ handle: teachers
 name: Teachers
 permissions:
   - accesscp
-  - 'createentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
   - 'createentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
   - 'deleteentries:4d3180d1-ff38-4024-8d50-29f13c7391e6' # Classes
   - 'deleteentries:613dcfc9-5442-4f47-8d88-b634483e0d47' # Subject Updates
