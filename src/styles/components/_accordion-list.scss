@@ -72,7 +72,7 @@ $handle: "accordion-list";
 				@include richText("sm");
 				padding-bottom: var(--s-sm);
 
-				img {
+				.figure {
 					max-width: var(--w-xs);
 					max-height: var(--w-xs);
 					width: auto;
