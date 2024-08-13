@@ -1,0 +1,23 @@
+$handle: "install-banner";
+
+.#{$handle} {
+	@include absolute(auto, 0, var(--s-xs), 0);
+	position: fixed;
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	&.is-active {
+		@include media($max: "xs") {
+			display: flex;
+		}
+	}
+
+	> button {
+		@include font("link", "md");
+		padding: 0 var(--s-sm);
+		background: var(--c-white);;
+		border-radius: var(--s-br-sm);
+		box-shadow: 2px 2px var(--s-xs) rgba(0, 0, 0, 0.35);
+	}
+}

@@ -4,6 +4,7 @@ import pop from './components';
 // Components
 // import Form from './components/form';
 // import FormField from './components/form-field';
+import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
 import TextList from './components/text-list';
 
@@ -11,6 +12,7 @@ import TextList from './components/text-list';
 const classMap = {
     // form: Form,
     // 'form-field': FormField,
+    'install-banner': InstallBanner,
     modal: Modal,
     'text-list': TextList,
 };

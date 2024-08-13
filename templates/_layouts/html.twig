@@ -61,7 +61,7 @@
 		<link rel="manifest" href="/site.webmanifest">
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#BEADFA">
 		<meta name="msapplication-TileColor" content="#FFC40D">
-		<meta name="theme-color" content="#FFFFFF">
+		<meta name="theme-color" content="#1A4D24">
 
 		<link rel="stylesheet" href="{{ stylesFile }}" />
 
@@ -119,6 +119,7 @@
 		{% endcache %}
 
 		{% include '_components/modal' only %}
+		{% include '_components/install-banner' only %}
 
 		{% if loadForm %}
 			<script src="https://www.google.com/recaptcha/api.js?render={{ getenv('RECAPTCHA_SITE_KEY') }}"></script>
