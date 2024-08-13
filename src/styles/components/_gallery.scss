@@ -16,6 +16,7 @@ $handle: "gallery";
 		@include media("sm") {
 			display: flex;
 			justify-content: center;
+			text-align: center;
 		}
 
 		> h2 {
