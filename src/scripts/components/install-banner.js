@@ -20,6 +20,4 @@ export default function InstallBanner(el, {
         deferredPrompt = null;
         el.classList.remove(activeClass);
     };
-
-    el.classList.add(activeClass);
 }
