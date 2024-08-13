@@ -11,6 +11,10 @@ $handle: "install-banner";
 		@include media($max: "xs") {
 			display: flex;
 		}
+
+		@media (display-mode: standalone) {
+			display: none !important;
+		}
 	}
 
 	> button {
