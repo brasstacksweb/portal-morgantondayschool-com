@@ -7,12 +7,6 @@ $handle: "text-block";
 	flex-wrap: wrap;
 	justify-content: space-between;
 
-	&:has(> header > div > a) {
-		@include media($max: "xs") {
-			padding-bottom: calc(var(--s-md) + var(--s-sm));
-		}
-	}
-
 	> header {
 		display: flex;
 		flex-direction: column;
@@ -65,7 +59,7 @@ $handle: "text-block";
 
 			> a {
 				@include media($max: "xs") {
-					@include absolute(auto, 0, var(--s-sm));
+					display: none;
 				}
 			}
 		}
@@ -77,6 +71,17 @@ $handle: "text-block";
 
 		@include media("sm") {
 			width: calc(60% - var(--s-lg));
+		}
+	}
+
+	> footer {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin-top: var(--s-sm);
+
+		@include media("sm") {
+			display: none;
 		}
 	}
 }

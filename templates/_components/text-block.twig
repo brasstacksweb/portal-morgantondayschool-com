@@ -32,4 +32,12 @@
 		</div>
 	</header>
 	<div>{{ body }}</div>
+	{% if cta %}
+		<footer aria-hidden="true">
+			{{ cta.render({
+				type: 'secondary',
+				size: 'sm',
+			}) }}
+		</footer>
+	{% endif %}
 </div>
