@@ -43,6 +43,7 @@ $handle: "header";
 		> img {
 			width: auto;
 			height: 100%;
+			max-height: var(--s-lg);
 			padding: var(--s-xs) 0;
 		}
 	}
