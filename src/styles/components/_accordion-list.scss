@@ -76,6 +76,10 @@ $handle: "accordion-list";
 					max-width: var(--w-xs);
 					max-height: var(--w-xs);
 					width: auto;
+
+					+ p {
+						margin-top: var(--s-sm);
+					}
 				}
 			}
 		}
