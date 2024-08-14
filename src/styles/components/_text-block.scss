@@ -2,44 +2,54 @@ $handle: "text-block";
 
 .#{$handle} {
 	@include space(var(--s-sm));
+	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 
+	&:has(> header > div > a) {
+		@include media($max: "xs") {
+			padding-bottom: calc(var(--s-md) + var(--s-sm));
+		}
+	}
+
 	> header {
 		display: flex;
 		flex-direction: column;
-		width: 40%;
+		width: 100%;
 
 		@include media("sm") {
 			justify-content: space-between;
+			width: 40%;
 		}
 
 		> h3 {
 			@include font("heading", "sm");
+
+			@include media ($max: "sm") {
+				margin-bottom : var(--s-sm);
+			}
+
+			@include media("md") {
+				margin-bottom : var(--s-md);
+			}
 		}
 
 		> div {
 			display: flex;
 
-			@include media ($max: "xs") {
+			@include media ($max: "sm") {
 				flex-direction: column;
 				align-items: flex-start;
-				margin-top : var(--s-sm);
 			}
 
-			@include media("sm") {
+			@include media("md") {
 				justify-content: flex-end;
-				align-items: center;
-				margin-top : var(--s-md);
+				align-items: flex-end;
 			}
 
 			> *:not(:first-child) {
-				@include media ($max: "xs") {
-					margin-top: var(--s-sm);
-				}
-
-				@include media("sm") {
+				@include media("md") {
 					margin-left: var(--s-md);
 				}
 			}
@@ -47,13 +57,23 @@ $handle: "text-block";
 			> h4 {
 				@include font("eyebrow");
 				margin: 0 auto 0 0;
+
+				@include media ($max: "sm") {
+					margin-bottom : var(--s-sm);
+				}
+			}
+
+			> a {
+				@include media($max: "xs") {
+					@include absolute(auto, 0, var(--s-sm));
+				}
 			}
 		}
 	}
 
 	> div {
 		@include richText;
-		width: calc(60% - var(--s-sm));
+		width: 100%;
 
 		@include media("sm") {
 			width: calc(60% - var(--s-lg));
