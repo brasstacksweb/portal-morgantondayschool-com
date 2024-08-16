@@ -18,5 +18,6 @@ $handle: "details";
 	> div {
 		@include richText;
 		margin-top: var(--s-md);
+		text-wrap: balance;
 	}
 }
