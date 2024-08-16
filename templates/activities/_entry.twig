@@ -4,16 +4,19 @@
  #}
 
 {# Params #}
-{% set entry = craft.entries.id(entry.id).with([
-	'heroImage',
-	'ctas.pageCta:page',
-	'activityModules.accordionList:accordions.textBlock:cta.pageCta:page',
-	'activityModules.cardList:cards.card:image',
-	'activityModules.cardList:cards.card:cta.pageCta:page',
-	'activityModules.mediaSplit:image',
-	'activityModules.mediaSplit:cta.pageCta:page',
-	'activityModules.textList:textlist.textBlock:cta.pageCta:page',
-]).one() %}
+{% set heroImage = entry.heroImage.one() %}
+{% set ctas = entry.ctas.with([
+	'pageCta:page',
+]).all() %}
+{% set activityModules = entry.activityModules.with([
+	'accordionList:accordions.textBlock:cta.pageCta:page',
+	'cardList:cards.card:image',
+	'cardList:cards.card:cta.pageCta:page',
+	'media:image',
+	'mediaSplit:image',
+	'mediaSplit:cta.pageCta:page',
+	'textList:textlist.textBlock:cta.pageCta:page',
+]).all() %}
 
 {# Markup #}
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
@@ -23,20 +26,20 @@
 {% extends '_layouts/html' %}
 
 {% block content %}
-	{% cache %}
+	{% cache if not devMode %}
 		<article>
 			<header>
 				{% include '_components/hero' with {
-					image: entry.heroImage[0] ?? null,
+					image: heroImage,
 					heading: entry.heading,
 					subheading: entry.date,
 					body: entry.overview,
-					ctas: entry.ctas,
+					ctas: ctas,
 					backgroundColor: 'violet',
 				} only %}
 			</header>
 
-			{% for m in entry.activityModules %}
+			{% for m in activityModules %}
 				{{ m.render() }}
 			{% endfor %}
 		</article>

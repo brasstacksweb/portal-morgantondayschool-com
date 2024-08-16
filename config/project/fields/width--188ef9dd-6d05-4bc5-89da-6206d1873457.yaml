@@ -1,0 +1,43 @@
+columnSuffix: null
+handle: width
+instructions: null
+name: Width
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Wide
+        -
+          - value
+          - wide
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Narrow
+        -
+          - value
+          - narrow
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Full
+        -
+          - value
+          - full
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

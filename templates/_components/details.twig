@@ -1,0 +1,23 @@
+{##
+ # Details component
+ # @param {string} heading
+ # @param {HTML} body
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set subheading = subheading ?? '' %}
+{% set body = body ?? '' %}
+
+{# Variables #}
+{% set handle = 'details' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% if body is not empty %}
+		<div>{{ body }}</div>
+	{% endif %}
+</div>

@@ -39,7 +39,7 @@ class SitemapController extends Controller
      */
     public function actionTest(): Response
     {
-        $sections = Craft::$app->getSections()->getAllSections();
+        $sections = Craft::$app->getEntries()->getAllSections();
         $query = Entry::find();
         $client = Craft::createGuzzleClient();
 

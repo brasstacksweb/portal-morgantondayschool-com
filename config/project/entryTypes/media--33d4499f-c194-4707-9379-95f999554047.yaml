@@ -1,7 +1,6 @@
-altTranslationKeyFormat: null
-altTranslationMethod: none
+color: null
 fieldLayouts:
-  6d60bb05-b55b-4a9a-9cdb-d324a533afa1:
+  366d7087-9667-4a1c-af38-1515706bed90:
     tabs:
       -
         elementCondition: null
@@ -11,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2024-08-16T00:26:07+00:00'
+            dateAdded: '2024-08-16T00:26:44+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,57 +30,31 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\assets\AssetTitleField
-            uid: b1714819-e93e-4766-a879-099a569c807a
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bf1d94e2-c28f-4837-84d6-1133d8622a99
             userCondition: null
             warning: null
             width: 100
           -
-            attribute: alt
-            class: null
-            cols: null
-            dateAdded: '2024-08-16T00:26:07+00:00'
-            disabled: false
-            elementCondition: null
-            id: null
-            includeInCards: false
-            instructions: null
-            label: null
-            name: null
-            orientation: null
-            placeholder: null
-            providesThumbs: false
-            readonly: false
-            requirable: true
-            required: false
-            rows: null
-            tip: null
-            title: null
-            type: craft\fieldlayoutelements\assets\AltField
-            uid: 36de0182-0ab8-4e52-8be9-06d8b9624837
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2024-08-16T00:26:07+00:00'
+            dateAdded: '2024-08-16T00:29:02+00:00'
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
-            handle: caption
+            handle: heading
             includeInCards: false
             instructions: null
-            label: Caption
+            label: Heading
             providesThumbs: false
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 0d259755-08d8-45f2-ad36-aff458e1a9a5
+            uid: 127eaea2-011b-4751-82d7-3ec9a6d1e331
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-08-16T00:26:07+00:00'
+            dateAdded: '2024-08-16T00:29:02+00:00'
             elementCondition: null
-            fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: null
             includeInCards: false
             instructions: null
@@ -90,14 +63,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2867a4dd-f593-456c-a8d1-05e5fd7af683
+            uid: c484629b-bb48-4f4c-ab9c-bdb83743513f
             userCondition: null
             warning: null
             width: 50
           -
-            dateAdded: '2024-08-16T00:27:21+00:00'
+            dateAdded: '2024-08-16T00:30:14+00:00'
             elementCondition: null
-            fieldUid: c859912b-a038-4328-8bd9-ab4a1bfc9b00 # Enlargable
+            fieldUid: 188ef9dd-6d05-4bc5-89da-6206d1873457 # Width
             handle: null
             includeInCards: false
             instructions: null
@@ -106,19 +79,21 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ea1b0347-da30-4692-a112-6a68e5d6180b
+            uid: bf4e00b9-ccf9-4b63-a26b-3802682e8f81
             userCondition: null
             warning: null
             width: 50
         name: Content
-        uid: 4591475f-508e-4e5a-bf8f-074ff81032d6
+        uid: 2ce26a3b-2e25-498b-8715-af219a9cb2d7
         userCondition: null
-fs: images
-handle: images
-name: Images
-sortOrder: 1
-subpath: general
+handle: media
+hasTitleField: false
+icon: image
+name: Media
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{heading}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-transformFs: ''
-transformSubpath: ''

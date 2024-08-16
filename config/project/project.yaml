@@ -1,4 +1,4 @@
-dateModified: 1723051708
+dateModified: 1723769940
 elementSources:
   craft\elements\Category:
     -
@@ -137,11 +137,13 @@ meta:
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School
     27b3396e-b5a4-4d09-8403-237a05d2ffdd: 'Text Block' # Text Block
     28e9e266-d304-477c-a066-02bf188ac66e: Gallery # Gallery
+    33d4499f-c194-4707-9379-95f999554047: Media # Media
     36aa60ca-9dcf-435a-88fb-80d286f8cde5: 'Media Split' # Media Split
     48fc66c2-3c58-4c80-882a-0316b20b4e22: 'Media Split' # Media Split
     87c7eb6f-29f4-4836-8740-ee6965ccb886: Posts # Posts
     88e145c4-1350-4e7c-bb88-a9a9233ebaf2: Announcement # Announcement
     96a1a8e5-308a-4f2e-b084-6b353e026e23: Images # Images
+    188ef9dd-6d05-4bc5-89da-6206d1873457: Width # Width
     462b813e-6582-4566-946a-0979bf81f1ca: Simple # Simple
     507c2c35-81fa-4361-90d7-f7514bbb4434: Activity # Activity
     613dcfc9-5442-4f47-8d88-b634483e0d47: 'Subject Updates' # Subject Updates
@@ -173,10 +175,12 @@ meta:
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
     bd4975e3-a0a8-48e3-9cc0-d595314736a9: 'Social Link' # Social Link
     bf142fa8-b2dd-4970-a630-d5ad5cb11849: CTAs # CTAs
+    c13c9ee1-41d3-49e5-9f04-77c5bba41e80: Details # Details
     c48c6bc5-59fc-4be3-b77e-69ec7977c6df: 'Grid Size' # Grid Size
     c56fb994-3459-4417-9f0f-0ce9f4359b70: 'Accordion List' # Accordion List
     c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d: 'Activity Modules' # Activity Modules
     c105124b-b3d5-43c9-9079-0cd2196e25d3: Page # Page
+    c859912b-a038-4328-8bd9-ab4a1bfc9b00: Enlargable # Enlargable
     cbf5afdd-99f1-4d21-a978-952e00f4212b: 'Subject Update' # Subject Update
     cceee7ec-12bf-4a50-8b29-d871bd33ae04: Homepage # Homepage
     cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links

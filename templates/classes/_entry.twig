@@ -4,21 +4,11 @@
  #}
 
 {# Params #}
-{% set entry = craft.entries.id(entry.id).with([
-	'authors.photo',
-	'heroImage',
-	'announcements',
-	'posts',
-]).one() %}
+{% set heroImage = entry.heroImage.one() %}
+{% set announcements = entry.announcements.all() %}
+{% set posts = entry.posts.all() %}
 
 {# Variables #}
-{#
- # {% set subjectUpdates = craft.entries.section('subjectUpdates')
- # 	.relatedTo([entry])
- # 	.postDate('>= ' ~ now|date_modify("-6 days")|atom)
- # 	.with(['subject'])
- # 	.all() %}
- #}
 {% set subjectUpdates = craft.entries.section('subjectUpdates')
 	.relatedTo([entry])
 	.with(['subject'])
@@ -50,7 +40,7 @@
 					page: [entry.id],
 					anchor: 'resources',
 				})],
-				image: entry.heroImage[0] ?? null,
+				image: heroImage,
 				backgroundColor: entry.color.value,
 			} only %}
 		</header>
@@ -58,7 +48,7 @@
 		<section>
 			{% include '_components/text-list' with {
 				heading: 'Class Announcements',
-				listItems: entry.announcements,
+				listItems: announcements,
 			} only %}
 		</section>
 
@@ -90,11 +80,11 @@
 			} only %}
 		</section>
 
-		{% if entry.posts is not empty %}
+		{% if posts is not empty %}
 			<section>
 				{% include '_components/gallery' with {
 					heading: 'In the Classroom',
-					posts: entry.posts,
+					posts: posts,
 				} only %}
 			</section>
 		{% endif %}

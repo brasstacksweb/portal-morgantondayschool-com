@@ -1,0 +1,22 @@
+$handle: "details";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm), var(--s-md));
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	> header {
+		> h2 {
+			@include font("heading", "lg");
+		}
+	}
+
+	> div {
+		@include richText;
+		margin-top: var(--s-md);
+	}
+}

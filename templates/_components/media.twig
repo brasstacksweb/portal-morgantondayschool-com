@@ -1,0 +1,28 @@
+{##
+ # Media component
+ # @param {string} heading
+ # @param {object} image
+ # @param {string} width <wide*, narrow, full>
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set image = image ?? null %}
+{% set width = width ?? 'wide' %}
+
+{# Variables #}
+{% set handle = 'media' %}
+
+{# Markup #}
+<div class="{{ handle }} {{ handle }}--width-{{ width }}">
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% if image %}
+		{{ image.render({
+			type: 'figure',
+			transform: 'lightbox',
+			bigUrl: image.enlargable ? image.getUrl('lightbox') : '',
+		}) }}
+	{% endif %}
+</div>

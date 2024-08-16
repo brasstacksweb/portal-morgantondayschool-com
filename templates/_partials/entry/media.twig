@@ -1,0 +1,7 @@
+<section>
+	{% include '_components/media' with {
+		heading: entry.heading,
+		image: entry.image[0] ?? null,
+		width: entry.width.value,
+	} only %}
+</section>
