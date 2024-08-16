@@ -12,12 +12,12 @@ $handle: "details";
 	> header {
 		> h2 {
 			@include font("heading", "lg");
+			text-wrap: balance;
 		}
 	}
 
 	> div {
 		@include richText;
 		margin-top: var(--s-md);
-		text-wrap: balance;
 	}
 }
