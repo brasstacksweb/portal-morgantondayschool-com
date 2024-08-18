@@ -3,7 +3,8 @@
  # @param {Entry} entry
  #}
 
-{% set week = date('sunday last week') %}
+{# If today is Sunday, use today, otherwise start at last sunday #}
+{% set week = date()|date('w') == '0' ? date() : date('last sunday') %}
 {% set prevWeek = week|date_modify('-1 week')|atom %}
 {% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
@@ -36,7 +37,7 @@
 {% set metaNoIndex = true %}
 
 {% block content %}
-	{% cache %}
+	{% cache if not devMode %}
 		<article>
 			<header>
 				{% include '_components/hero' with {

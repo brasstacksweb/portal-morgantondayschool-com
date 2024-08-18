@@ -11,7 +11,7 @@
 {% set prevWeek = week|date_modify('-1 week')|atom %}
 {% set nextWeek = week|date_modify('+1 week')|atom %}
 {% set reminders = craft.entries.section('reminders')
-	.with(['activity', 'cta'])
+	.with(['activity', 'cta.pageCta:page'])
 	.postDate([
 		'and',
 		'>= ' ~ week|date_modify('sunday this week')|atom,
