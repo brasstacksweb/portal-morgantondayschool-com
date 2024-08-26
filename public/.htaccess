@@ -235,6 +235,7 @@ AddType application/x-shockwave-flash       swf
 # ------------------------------------------------------------
 <IfModule mod_rewrite.c>
     # Custom 301 Redirects
+    RewriteRule ^classes/eigth-grade /classes/eighth-grade [R=301,QSA,L]
 </IfModule>
 
 # ------------------------------------------------------------------------------
