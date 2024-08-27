@@ -73,9 +73,15 @@ $handle: "accordion-list";
 				padding-bottom: var(--s-sm);
 
 				.figure {
-					max-width: var(--w-xs);
-					max-height: var(--w-xs);
-					width: auto;
+					> figure > div {
+						box-shadow: none;
+
+						> img {
+							max-width: var(--w-xs);
+							max-height: var(--w-xs);
+							width: auto;
+						}
+					}
 
 					+ p {
 						margin-top: var(--s-sm);

@@ -262,8 +262,7 @@
 
 	hr {
 		max-width: var(--w-xs);
-		margin-left: auto;
-		margin-right: auto;
+		margin: var(--s-md) auto !important;
 		border-bottom: double var(--c-br-dk);
 	}
 }
