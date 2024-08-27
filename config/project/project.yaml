@@ -1,4 +1,4 @@
-dateModified: 1723769940
+dateModified: 1724779450
 elementSources:
   craft\elements\Category:
     -
@@ -69,6 +69,7 @@ elementSources:
         - authors
         - 'fieldInstance:036d8768-582a-4443-aabc-511acedb2d73'
         - 'field:e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15' # Color
+        - dateUpdated
         - link
       type: native
     -
