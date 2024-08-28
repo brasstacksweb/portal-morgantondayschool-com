@@ -9,12 +9,14 @@
 {% set posts = entry.posts.all() %}
 
 {# Variables #}
-{% set subjectUpdates = craft.entries.section('subjectUpdates')
+{% set updates = craft.entries.section('subjectUpdates')
 	.relatedTo([entry])
 	.with(['subject'])
 	.all() %}
-{% set updatesBySubject = subjectUpdates
-	|group(u => u.subject[0].title) %}
+{% set subjects = craft.categories.group('subjects').all() %}
+{% set updatesBySubject = subjects
+	|map(s => updates|where(u => u.subject[0].id == s.id))
+	|filter %}
 
 {# Markup #}
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
@@ -53,7 +55,9 @@
 		</section>
 
 		{% set accordions = [] %}
-		{% for subject, updates in updatesBySubject %}
+		{% for updates in updatesBySubject %}
+			{% set subject = updates|first.subject[0].title %}
+
 			{% set body %}
 				{% for u in updates %}
 					{% if not loop.first %}
