@@ -1,0 +1,47 @@
+{% requireAdmin %}
+
+{% set teachers = craft.users.group('teachers').all() %}
+
+{% extends '_layouts/html' %}
+
+{% block content %}
+	<article style="
+		max-width: var(--w-xl);
+		margin: var(--s-lg) auto;
+		padding-top: var(--h-header);
+	">
+		<section>
+			<ul>
+				{% for t in teachers %}
+					{% set updates = craft.entries
+						.authorId(t.id)
+						.dateUpdated('>= ' ~ now|date_modify('-1 week')|atom)
+						.orderBy('dateUpdated DESC')
+						.all() %}
+
+					<li style="margin-bottom: var(--s-md);">
+						<h2 style="font-size: 2em; font-weight: 600;">{{ t.fullName }}</h2>
+						{% if updates is empty %}
+							<p style="
+								margin-top: var(--s-sm);
+								font-size: 1.5em;
+								color: var(--c-red-dk);
+							">No updates this week</p>
+						{% else %}
+							<h3 style="margin-top: var(--s-xs); font-size: 1.5em;">Updates</h3>
+							<ul>
+								{% for u in updates %}
+									<li style="margin-top: var(--s-xs);">
+										<p>
+											{{ u.type.name }} – <strong style="font-weight: 600;">{{ u.title }}</strong>
+											on <em style="font-style: italic;">{{ u.dateUpdated|date('F j, Y g:i a') }}</em>
+										</p>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+				{% endfor %}
+			</ul>
+		</section>
+	</article>
+{% endblock %}
