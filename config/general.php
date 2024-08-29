@@ -32,5 +32,6 @@ return GeneralConfig::create()
         '@assetBaseUrl' => '/'.App::env('ASSETS_DIR'),
         '@webroot' => dirname(__DIR__) . '/public',
     ])
+    ->loginPath('admin')
     ->pageTrigger('?page')
 ;
