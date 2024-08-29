@@ -1,4 +1,4 @@
-{% requireAdmin %}
+{% requirePermission 'administrateUsers' %}
 
 {% set teachers = craft.users.group('teachers').all() %}
 
