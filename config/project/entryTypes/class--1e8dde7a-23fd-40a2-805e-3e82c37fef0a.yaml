@@ -205,7 +205,16 @@ fieldLayouts:
             width: 25
           -
             dateAdded: '2024-09-24T13:24:54+00:00'
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\SlugConditionRule
+                  operator: '='
+                  uid: 79efa246-82ca-4d6e-bb38-ae2c55eadea1
+                  value: third-grade
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
             handle: featuredVideo
             includeInCards: false
@@ -216,20 +225,7 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: aec60e3d-8550-443c-898a-6448ec3fc020
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\EmailConditionRule
-                  operator: '='
-                  uid: 57b3197a-8951-4c1b-a31a-1bbb4265bd25
-                  value: jholt@morgantondayschool.com
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 4a6dcfcb-67fd-4f75-af30-3092f6cc2d44
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
+            userCondition: null
             warning: null
             width: 100
         name: Content
