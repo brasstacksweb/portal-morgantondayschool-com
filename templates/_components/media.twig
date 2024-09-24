@@ -15,9 +15,11 @@
 
 {# Markup #}
 <div class="{{ handle }} {{ handle }}--width-{{ width }}">
-	<header>
-		<h2>{{ heading }}</h2>
-	</header>
+	{% if heading is not empty %}
+		<header>
+			<h2>{{ heading }}</h2>
+		</header>
+	{% endif %}
 	{% if image %}
 		{{ image.render({
 			type: 'figure',

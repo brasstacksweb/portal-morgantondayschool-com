@@ -1,11 +1,13 @@
 {##
  # Class entry
  # @param {Entry} entry
+ # @global {GlobalSet} classes
  #}
 
 {# Params #}
 {% set heroImage = entry.heroImage.one() %}
 {% set announcements = entry.announcements.all() %}
+{% set featuredVideo = entry.featuredVideo.one() %}
 {% set posts = entry.posts.all() %}
 
 {# Variables #}
@@ -47,7 +49,7 @@
 			} only %}
 		</header>
 
-		<section>
+		<section id="class-announcements">
 			{% include '_components/text-list' with {
 				heading: 'Class Announcements',
 				listItems: announcements,
@@ -76,7 +78,7 @@
 			}]) %}
 		{% endfor %}
 
-		<section>
+		<section id="curricular-updates">
 			{% include '_components/accordion-list' with {
 				heading: 'Curricular Updates',
 				accordions: accordions,
@@ -84,8 +86,14 @@
 			} only %}
 		</section>
 
+		{% if featuredVideo %}
+			<section id="featured-video">
+				{% include '_components/media' with { image: featuredVideo } only %}
+			</section>
+		{% endif %}
+
 		{% if posts is not empty %}
-			<section>
+			<section id="posts">
 				{% include '_components/gallery' with {
 					heading: 'In the Classroom',
 					posts: posts,
@@ -107,7 +115,7 @@
 		</section>
 
 		{% for a in entry.authors %}
-			<section>
+			<section id="teachers">
 				{% include '_components/media-split' with {
 					heading: a.fullName,
 					body: a.bio,
@@ -124,7 +132,17 @@
 			</section>
 		{% endfor %}
 
-		<footer id="resources">
+		<footer>
+			{% include '_components/intro' with {
+				heading: classes.staffHeading ?? '',
+				body: classes.staffOverview ?? '',
+				cta: create({
+					class: 'craft\\elements\\Entry',
+					typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
+					title: 'View Our Staff',
+					referenceUrl: 'https://www.morgantondayschool.com/faculty-staff',
+				}),
+			} only %}
 		</footer>
 	</article>
 {% endblock %}

@@ -10,6 +10,7 @@
 
 use craft\config\GeneralConfig;
 use craft\helpers\App;
+use craft\helpers\ConfigHelper;
 
 return GeneralConfig::create()
     // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
@@ -34,4 +35,5 @@ return GeneralConfig::create()
     ])
     ->loginPath('admin')
     ->pageTrigger('?page')
+    ->maxUploadFileSize(ConfigHelper::sizeInBytes('250M'))
 ;

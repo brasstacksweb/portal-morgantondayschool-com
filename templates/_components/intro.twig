@@ -3,6 +3,7 @@
  # @param {string} heading
  # @param {string} subheading
  # @param {HTML} body
+ # @param {object} cta
  # @param {string} backgroundColor
  #}
 
@@ -10,6 +11,7 @@
 {% set heading = heading ?? '' %}
 {% set subheading = subheading ?? '' %}
 {% set body = body ?? '' %}
+{% set cta = cta ?? null %}
 {% set backgroundColor = backgroundColor ?? '' %}
 
 {# Variables #}
@@ -18,12 +20,19 @@
 {# Markup #}
 <div class="{{ handle }}" style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
-		<h2>{{ heading }}</h2>
+		{% if heading is not empty %}
+			<h2>{{ heading }}</h2>
+		{% endif %}
 		{% if subheading is not empty %}
 			<h3>{{ subheading }}</h3>
 		{% endif %}
 		{% if body is not empty %}
 			<div>{{ body }}</div>
+		{% endif %}
+		{% if cta %}
+			<nav>
+				{{ cta.render({ type: 'secondary' }) }}
+			</nav>
 		{% endif %}
 	</header>
 </div>

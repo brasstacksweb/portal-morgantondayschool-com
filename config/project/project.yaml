@@ -1,4 +1,4 @@
-dateModified: 1724779450
+dateModified: 1727185588
 elementSources:
   craft\elements\Category:
     -
@@ -133,6 +133,7 @@ meta:
     7c331c3a-8fcf-4b9f-ad9e-c937ea0d6e1d: Page # Page
     9cb11a30-840e-4778-ac4e-d560ae4b70ce: Subject # Subject
     9d9dfbb2-88b3-4274-9762-69c856f6b518: 'Preview Image' # Preview Image
+    12ddf32e-8d50-4490-b55c-4fa32474cd8b: Classes # Classes
     13cb83d3-ff25-4a72-a806-0c270db265e4: Hero # Hero
     17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c: Datetime # Datetime
     019d8137-088c-4f8f-9662-d26ddd7f2fb7: 'Morganton Day School' # Morganton Day School

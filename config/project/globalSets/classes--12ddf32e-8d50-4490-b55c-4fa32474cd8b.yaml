@@ -1,0 +1,44 @@
+fieldLayouts:
+  45ec3402-18d1-40fa-810b-6765e6b49447:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-09-24T13:45:20+00:00'
+            elementCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: staffHeading
+            includeInCards: false
+            instructions: null
+            label: Heading
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7a6ae200-db7e-4084-b525-dfdf018679f7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-24T13:45:20+00:00'
+            elementCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: staffOverview
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ee27549-cec1-46c5-a437-47ba2d12af1b
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Staff Callout'
+        uid: 33d8f304-729a-4204-8e09-24d3a89cd5f4
+        userCondition: null
+handle: classes
+name: Classes
+sortOrder: 3

@@ -36,5 +36,11 @@ $handle: "intro";
 				text-wrap: balance;
 			}
 		}
+
+		> nav {
+			display: flex;
+			justify-content: center;
+			margin-top: var(--s-sm);
+		}
 	}
 }
