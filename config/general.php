@@ -35,5 +35,5 @@ return GeneralConfig::create()
     ])
     ->loginPath('admin')
     ->pageTrigger('?page')
-    ->maxUploadFileSize(ConfigHelper::sizeInBytes('500M'))
+    ->maxUploadFileSize(ConfigHelper::sizeInBytes('512M'))
 ;
