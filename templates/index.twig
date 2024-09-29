@@ -39,6 +39,19 @@
 {% block content %}
 	{% cache if not devMode %}
 		<article>
+			<p style="
+				display:flex;
+				justify-content:center;
+				align-items:center;
+				padding:var(--s-sm);
+				background-color:var(--c-red-dk);
+				color:var(--c-white);
+				font-size: 1.5em;
+				font-weight: 600;
+				line-height: 1.5em;
+			">
+				Morganton Day School is closed Monday, September 30th through Friday, October 4th.
+			</p>
 			<header>
 				{% include '_components/hero' with {
 					heading: entry.heroHeading,

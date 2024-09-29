@@ -75,7 +75,7 @@
 			{# TODO: GTM Body #}
 		{% endif %}
 
-		{% cache globally %}
+		{% cache globally if not devMode %}
 			{% set header = craft.globalSets().handle('header').with([
 				'logo',
 				'navLinks.pageCta:page',
@@ -96,7 +96,7 @@
 			{% block content %}{% endblock %}
 		</main>
 
-		{% cache globally %}
+		{% cache globally if not devMode %}
 			{% set footer = craft.globalSets().handle('footer').with([
 				'logo',
 				'address',
