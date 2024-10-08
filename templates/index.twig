@@ -39,6 +39,7 @@
 {% block content %}
 	{% cache if not devMode %}
 		<article>
+			{#
 			<p style="
 				display:flex;
 				justify-content:center;
@@ -52,6 +53,7 @@
 			">
 				Morganton Day School is closed Monday, September 30th through Monday, October 7th.
 			</p>
+			#}
 			<header>
 				{% include '_components/hero' with {
 					heading: entry.heroHeading,
