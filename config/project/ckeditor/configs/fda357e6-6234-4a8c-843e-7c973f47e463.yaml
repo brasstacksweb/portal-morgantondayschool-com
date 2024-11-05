@@ -12,6 +12,7 @@ options:
 toolbar:
   - bold
   - italic
+  - underline
   - link
   - subscript
   - superscript
