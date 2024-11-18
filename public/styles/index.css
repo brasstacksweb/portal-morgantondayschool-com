@@ -2174,17 +2174,6 @@ details summary {
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid var(--c-br-dk);
     backdrop-filter: blur(var(--s-xs)); }
-  .header:has(p) {
-    padding-top: var(--s-md); }
-  .header > p {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: 0;
-    height: var(--s-md);
-    display: flex;
-    justify-content: center; }
   .header > a:first-of-type {
     font-family: system-ui;
     font-weight: 500;
@@ -3146,6 +3135,10 @@ details summary {
     @media (min-width: 768px) {
       .text-block > div {
         width: calc(60% - var(--s-lg)); } }
+    .text-block > div em.highlight {
+      background-color: var(--c-yellow-lt);
+      font-style: normal;
+      font-weight: 600; }
   .text-block > footer {
     display: flex;
     justify-content: flex-end;

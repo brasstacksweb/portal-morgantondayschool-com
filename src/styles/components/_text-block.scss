@@ -72,6 +72,12 @@ $handle: "text-block";
 		@include media("sm") {
 			width: calc(60% - var(--s-lg));
 		}
+
+		em.highlight {
+			background-color: var(--c-yellow-lt);
+			font-style: normal;
+			font-weight: 600;
+		}
 	}
 
 	> footer {

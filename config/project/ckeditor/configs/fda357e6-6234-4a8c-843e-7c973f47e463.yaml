@@ -1,3 +1,4 @@
+css: ".ck-content em.highlight {\r\n    background: rgba(255, 255, 0, 0.5);\r\n    font-style: normal;\r\n    font-weight: 600;\r\n}"
 headingLevels: false
 name: 'Simple Plus'
 options:
@@ -9,6 +10,13 @@ options:
           target: _blank
         label: 'Open in new tab'
         mode: manual
+  style:
+    definitions:
+      -
+        classes:
+          - highlight
+        element: em
+        name: Highlight
 toolbar:
   - bold
   - italic
@@ -18,3 +26,4 @@ toolbar:
   - superscript
   - bulletedList
   - numberedList
+  - style
