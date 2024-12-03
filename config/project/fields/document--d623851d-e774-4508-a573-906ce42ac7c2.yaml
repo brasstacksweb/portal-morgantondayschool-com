@@ -1,0 +1,41 @@
+columnSuffix: null
+handle: document
+instructions: null
+name: Document
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - compressed
+    - excel
+    - pdf
+    - powerpoint
+    - text
+    - word
+  branchLimit: null
+  defaultUploadLocationSource: 'volume:3a74ea9c-9563-433e-8206-163caff6f1a2' # Documents
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:96a1a8e5-308a-4f2e-b084-6b353e026e23' # Images
+  restrictedLocationSubpath: null
+  selectionLabel: 'Add a document'
+  showCardsInGrid: false
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources:
+    - 'volume:3a74ea9c-9563-433e-8206-163caff6f1a2' # Documents
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

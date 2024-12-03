@@ -1,8 +1,8 @@
 color: null
 fieldLayouts:
-  bf82bdc1-c8a3-4a8a-ad58-01954dca069f:
+  43ad935a-4ef5-4a20-870f-bada560e7f69:
     cardView:
-      - 'layoutElement:dcb6e6dc-e1e0-4010-829c-334f78055deb'
+      - 'layoutElement:481bedf3-aa5d-4c39-a5a8-8c46991ac2e1'
     tabs:
       -
         elementCondition: null
@@ -12,7 +12,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2024-12-03T01:20:36+00:00'
+            dateAdded: '2024-12-03T01:18:48+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -33,14 +33,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: df72c4e5-81a8-41c2-bea3-f667306fbad6
+            uid: b2550555-deb3-4f7e-b654-8d42418ca8aa
             userCondition: null
             warning: null
             width: 50
           -
-            dateAdded: '2024-12-03T01:20:36+00:00'
+            dateAdded: '2024-12-03T01:26:43+00:00'
             elementCondition: null
-            fieldUid: a4fa5523-8cdd-400d-8f0e-50b8bd7c2802 # Reference URL
+            fieldUid: d623851d-e774-4508-a573-906ce42ac7c2 # Document
             handle: null
             includeInCards: true
             instructions: null
@@ -49,17 +49,17 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: dcb6e6dc-e1e0-4010-829c-334f78055deb
+            uid: 481bedf3-aa5d-4c39-a5a8-8c46991ac2e1
             userCondition: null
             warning: null
             width: 50
         name: Content
-        uid: ebf924e5-4ff8-4e14-a6d1-f586e6b4fd06
+        uid: c5c6f1d9-930a-46f3-86a2-17bd512b83c1
         userCondition: null
-handle: externalCta
+handle: downloadCta
 hasTitleField: true
-icon: arrow-up-right-from-square
-name: 'External CTA'
+icon: arrow-down
+name: 'Download CTA'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

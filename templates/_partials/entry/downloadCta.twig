@@ -2,7 +2,9 @@
 {% set size = size ?? 'md' %}
 {% set invert = invert ?? false %}
 
-<a href="{{ entry.referenceUrl }}" target="_blank" rel="noopener noreferrer" title="{{ entry.title }}">
+{% set url = entry.document[0].url ?? siteUrl %}
+
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer" title="{{ entry.title }}">
 	{% include '_components/cta' with {
 		title: entry.title,
 		type: type,
