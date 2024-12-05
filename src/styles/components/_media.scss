@@ -43,5 +43,7 @@ $handle: "media";
 
 	video {
 		width: 100%;
+		max-height: calc(100vh - var(--h-header) - var(--s-md));
+		background-color: black;
 	}
 }
