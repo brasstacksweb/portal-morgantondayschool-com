@@ -69,22 +69,36 @@ $handle: "accordion-list";
 			}
 
 			> div {
-				@include richText("sm");
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
 				padding-bottom: var(--s-sm);
 
-				.figure {
-					> figure > div {
-						box-shadow: none;
+				> div {
+					@include richText("sm");
 
-						> img {
-							max-width: var(--w-xs);
-							max-height: var(--w-xs);
-							width: auto;
+					.figure {
+						> figure > div {
+							box-shadow: none;
+
+							> img {
+								max-width: var(--w-xs);
+								max-height: var(--w-xs);
+								width: auto;
+							}
+						}
+
+						+ p {
+							margin-top: var(--s-sm);
 						}
 					}
+				}
 
-					+ p {
-						margin-top: var(--s-sm);
+				> nav {
+					margin-top: var(--s-sm);
+
+					> a {
+						text-decoration: none;
 					}
 				}
 			}

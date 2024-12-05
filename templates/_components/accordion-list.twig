@@ -40,7 +40,17 @@
 					<h3>{{ a.heading }}</h3>
 					<i>{{ icons.chevron('down') }}</i>
 				</summary>
-				<div>{{ a.body }}</div>
+				<div>
+					<div>{{ a.body }}</div>
+					{% if a.cta %}
+						<nav>
+							{{ a.cta.render({
+								type: 'secondary',
+								size: 'sm',
+							}) }}
+						</nav>
+					{% endif %}
+				</div>
 			</details>
 		{% endfor %}
 	</div>
