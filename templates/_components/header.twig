@@ -29,7 +29,21 @@
 		<ul>
 			{% for l in navLinks %}
 				<li>
-					{{ l.render({ type: 'tertiary', size: 'sm' }) }}
+					{% switch l.type.handle %}
+						{% case 'dropdown' %}
+							<input type="checkbox" id="{{ l.title|kebab }}" style="display:none;" />
+							<label for="{{ l.title|kebab }}">
+								{{ l.title }}
+								{{ icons.chevron }}
+							</label>
+							<ul>
+								{% for ll in l.navLinks %}
+									<li>{{ ll.render({ type: 'tertiary', size: 'sm' }) }}</li>
+								{% endfor %}
+							</ul>
+						{% default %}
+							{{ l.render({ type: 'tertiary', size: 'sm' }) }}
+					{% endswitch %}
 				</li>
 			{% endfor %}
 		</ul>

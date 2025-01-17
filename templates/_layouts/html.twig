@@ -79,6 +79,7 @@
 			{% set header = craft.globalSets().handle('header').with([
 				'logo',
 				'navLinks.pageCta:page',
+				'navLinks.dropdown:navLinks.pageCta:page',
 				'cta.pageCta:page',
 			]).one() %}
 			{% if header %}

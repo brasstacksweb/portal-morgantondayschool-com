@@ -42,7 +42,7 @@
 				</summary>
 				<div>
 					<div>{{ a.body }}</div>
-					{% if a.cta %}
+					{% if a.cta ?? null %}
 						<nav>
 							{{ a.cta.render({
 								type: 'secondary',

@@ -85,6 +85,8 @@ $handle: "header";
 			}
 
 			> li {
+				position: relative;
+
 				@include media($max: "md") {
 					width: 25%;
 					margin-top: var(--s-sm);
@@ -106,6 +108,86 @@ $handle: "header";
 
 				> a {
 					display: inline-block;
+				}
+
+				> label {
+					@include font("link", "sm");
+					display: flex;
+					align-items: center;
+
+					> svg {
+						width: var(--s-icon-md);
+						height: var(--s-icon-md);
+						margin-left: var(--s-xs);
+						fill: var(--c-black);
+						transition: transform var(--a-sm);
+					}
+				}
+
+				> [type="checkbox"]:checked ~ label {
+					@include media($max: "md") {
+						text-decoration: line-through;
+
+						> svg {
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				&:hover > label {
+					@include media("lg") {
+						text-decoration: line-through;
+
+						> svg {
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				> ul {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					border: 1px solid var(--c-black);
+
+					@include media($max: "md") {
+						display: none;
+						margin: var(--s-xs) auto;
+						padding: var(--s-xs);
+					}
+
+					@include media("lg") {
+						position: absolute;
+						transform: translateY(calc(-1 * var(--s)));
+						opacity: 0;
+						min-width: var(--w);
+						padding: var(--s-sm);
+						background-color: var(--c-white);
+						transition: opacity var(--a-sm), transform var(--a-sm);
+						pointer-events: none;
+					}
+
+					> li {
+						@include font("link", "sm");
+
+						&:not(:first-child) {
+							margin-top: var(--s-xs);
+						}
+					}
+				}
+
+				> [type="checkbox"]:checked ~ ul {
+					@include media($max: "md") {
+						display: flex;
+					}
+				}
+
+				&:hover > ul {
+					@include media("lg") {
+						opacity: 1;
+						transform: translateY(0);
+						pointer-events: auto;
+					}
 				}
 			}
 		}

@@ -102,6 +102,7 @@
 @mixin link($invert: false) {
 	color: if($invert, var(--c-white), var(--c-black));
 	text-decoration: underline;
+	word-wrap: break-word;
 
 	&:hover {
 		color: if($invert, var(--c-gold-lt), var(--c-green));
