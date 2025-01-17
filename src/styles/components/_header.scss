@@ -76,6 +76,7 @@ $handle: "header";
 
 			@include media($max: "md") {
 				flex-wrap: wrap;
+				justify-content: space-between;
 				align-items: flex-start;
 			}
 
@@ -88,12 +89,12 @@ $handle: "header";
 				position: relative;
 
 				@include media($max: "md") {
-					width: 25%;
+					width: calc(25% - var(--s-xs));
 					margin-top: var(--s-sm);
 				}
 
 				@include media($max: "sm") {
-					width: 50%;
+					width: calc(50% - var(--s-xs));
 				}
 
 				@include media($max: "xs") {
@@ -152,7 +153,7 @@ $handle: "header";
 
 					@include media($max: "md") {
 						display: none;
-						margin: var(--s-xs) auto;
+						margin-top: var(--s-xs);
 						padding: var(--s-xs);
 					}
 
