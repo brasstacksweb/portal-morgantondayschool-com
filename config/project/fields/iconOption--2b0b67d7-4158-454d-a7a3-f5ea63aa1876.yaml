@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: iconOption
+instructions: null
+name: Icon
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Facebook
+        -
+          - value
+          - facebook
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Globe
+        -
+          - value
+          - globe
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

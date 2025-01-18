@@ -5,8 +5,10 @@ name: 'Social Links'
 searchable: false
 settings:
   createButtonLabel: null
+  defaultIndexViewMode: cards
   entryTypes:
     - bd4975e3-a0a8-48e3-9cc0-d595314736a9 # Social Link
+    - 223f2732-4610-4c45-82d2-bad80619614a # Icon Link
   includeTableView: false
   maxEntries: null
   minEntries: null

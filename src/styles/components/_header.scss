@@ -19,8 +19,8 @@ $handle: "header";
 		content: "";
 		z-index: 10;
 		background-color: rgba(255, 255, 255, 0.8);
-		border-bottom: 1px solid var(--c-br-dk);
 		backdrop-filter: blur(var(--s-xs));
+		border-bottom: 1px solid var(--c-br-dk);
 	}
 
 	// Titan Link Logo
@@ -69,6 +69,7 @@ $handle: "header";
 
 		@include media($max: "xs") {
 			@include pad(var(--s-sm));
+			padding-top: var(--s-md);
 		}
 
 		> ul {
@@ -147,9 +148,11 @@ $handle: "header";
 
 				> ul {
 					display: flex;
+					box-shadow: 2px 2px var(--s-xs) rgba(0, 0, 0, 0.35);
 					flex-direction: column;
 					align-items: flex-start;
 					border: 1px solid var(--c-black);
+					transition: opacity var(--a-sm), transform var(--a-sm), box-shadow var(--a-md);
 
 					@include media($max: "md") {
 						display: none;
@@ -164,8 +167,11 @@ $handle: "header";
 						min-width: var(--w);
 						padding: var(--s-sm);
 						background-color: var(--c-white);
-						transition: opacity var(--a-sm), transform var(--a-sm);
 						pointer-events: none;
+					}
+
+					&:hover {
+						box-shadow: calc(var(--s-xs) * 0.5) var(--s-xs) var(--s-xs) rgba(44, 44, 44, 0.5)
 					}
 
 					> li {
@@ -193,16 +199,53 @@ $handle: "header";
 			}
 		}
 
-		+ a {
+		~ aside {
 			position: relative;
 			z-index: 10;
-			margin: auto 0 auto auto;
+			display: flex;
+			margin: auto var(--s-sm) auto auto;
+
+			@include media($max: "xs") {
+				@include absolute(calc(var(--h-header) + calc(1.5 * var(--s-xs))), auto, auto, var(--s-sm));
+				opacity: 0;
+				transform: translateX(calc(-1 * var(--s-md)));
+				pointer-events: none;
+			}
+
+			> a {
+				&:not(:first-child) {
+					margin-left: var(--s-xs);
+				}
+
+				> svg {
+					width: var(--s-icon-lg);
+					height: var(--s-icon-lg);
+					fill: var(--c-black);
+
+					&:not(:first-child) {
+						margin-left: var(--s-xs);
+					}
+				}
+			}
+		}
+
+		~ a {
+			position: relative;
+			z-index: 10;
+			margin: auto 0 auto 0;
+
+			@include media($max: "xs") {
+				@include absolute(calc(var(--h-header) + var(--s-xs)), var(--s-sm));
+				opacity: 0;
+				transform: translateX(var(--s-md));
+				pointer-events: none;
+			}
 
 			+ label {
-				margin: auto 0 auto var(--s-sm);;
+				margin: auto 0 auto auto;
 
 				@include media("sm") {
-					margin-left: var(--s-md);
+					margin-left: var(--s-sm);
 				}
 			}
 		}
@@ -212,6 +255,16 @@ $handle: "header";
 		opacity: 1;
 		transform: translateY(0);
 		pointer-event: auto;
+
+		~ aside,
+		~ a {
+			@include media($max: "xs") {
+				opacity: 1;
+				transform: translateX(0);
+				pointer-events: auto;
+				transition: opacity var(--a-md), transform var(--a-md);
+			}
+		}
 	}
 
 	> label {

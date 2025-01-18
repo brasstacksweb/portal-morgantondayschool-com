@@ -1,0 +1,10 @@
+{% import '_icons' as icons %}
+
+<a href="{{ entry.referenceUrl }}" title="{{ entry.title }}" target="_blank" rel="nopener noreferrer">
+	{% switch entry.iconOption.value %}
+	{% case 'globe' %}
+		{{ icons.globe() }}
+	{% case 'facebook' %}
+		{{ icons.facebook() }}
+	{% endswitch %}
+</a>

@@ -137,3 +137,20 @@
 		<path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
 	</svg>
 {% endmacro %}
+
+{% macro globe() %}
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+		<!-- Main circle -->
+		<circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="1.5"/>
+		<!-- Longitude lines (vertical ellipses) -->
+		<ellipse cx="50" cy="50" rx="12" ry="45" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="24" ry="45" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="36" ry="45" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="44" ry="45" fill="none" stroke="black" stroke-width="1.5"/>
+		<!-- Latitude lines (horizontal ellipses) -->
+		<ellipse cx="50" cy="50" rx="45" ry="12" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="45" ry="24" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="45" ry="36" fill="none" stroke="black" stroke-width="1.5"/>
+		<ellipse cx="50" cy="50" rx="45" ry="44" fill="none" stroke="black" stroke-width="1.5"/>
+	</svg>
+{% endmacro %}

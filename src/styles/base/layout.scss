@@ -59,7 +59,7 @@
 }
 
 @mixin shadow($s: var(--s-xs)) {
-	box-shadow: calc($s * 0.5) $s $s rgba(44, 44, 44, 0.5);
+	box-shadow: calc(#{$s} * 0.5) $s $s rgba(44, 44, 44, 0.5);
 }
 
 @mixin gridLines($cols, $color: var(--c-black)) {

@@ -2,12 +2,14 @@
  # Header component
  # @param {object} logo
  # @param {object[]} navLinks
+ # @param {object[]} iconLinks
  # @param {object} cta
  #}
 
 {# Params #}
 {% set logo = logo ?? null %}
 {% set navLinks = navLinks ?? [] %}
+{% set iconLinks = iconLinks ?? [] %}
 {% set cta = cta ?? null %}
 
 {# Variables #}
@@ -48,6 +50,13 @@
 			{% endfor %}
 		</ul>
 	</nav>
+	{% if iconLinks is not empty %}
+		<aside>
+			{% for l in iconLinks %}
+				{{ l.render() }}
+			{% endfor %}
+		</aside>
+	{% endif %}
 	{% if cta %}
 		{{ cta.render() }}
 	{% endif %}

@@ -80,6 +80,7 @@
 				'logo',
 				'navLinks.pageCta:page',
 				'navLinks.dropdown:navLinks.pageCta:page',
+				'iconLinks',
 				'cta.pageCta:page',
 			]).one() %}
 			{% if header %}
@@ -87,6 +88,7 @@
 					{% include '_components/header' with {
 						logo: header.logo[0] ?? null,
 						navLinks: header.navLinks,
+						iconLinks: header.iconLinks,
 						cta: header.cta ?? null,
 					} only %}
 				</header>

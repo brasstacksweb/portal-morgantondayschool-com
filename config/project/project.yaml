@@ -1,4 +1,4 @@
-dateModified: 1737081593
+dateModified: 1737140337
 elementSources:
   craft\elements\Category:
     -
@@ -122,6 +122,7 @@ meta:
     1dca4a2b-84d6-462d-a266-6b7405d61620: Priority # Priority
     1e6dc74f-eb75-4216-9fff-e9ca1d82313c: Intro # Intro
     1e8dde7a-23fd-40a2-805e-3e82c37fef0a: Class # Class
+    2b0b67d7-4158-454d-a7a3-f5ea63aa1876: Icon # Icon
     2d6cc29e-95ec-4121-a242-f74b9a1053a6: Activities # Activities
     2efcdd43-3927-46bc-aab7-7d1576e97e29: Announcements # Announcements
     3a74ea9c-9563-433e-8206-163caff6f1a2: Documents # Documents
@@ -146,6 +147,7 @@ meta:
     88e145c4-1350-4e7c-bb88-a9a9233ebaf2: Announcement # Announcement
     96a1a8e5-308a-4f2e-b084-6b353e026e23: Images # Images
     188ef9dd-6d05-4bc5-89da-6206d1873457: Width # Width
+    223f2732-4610-4c45-82d2-bad80619614a: 'Icon Link' # Icon Link
     462b813e-6582-4566-946a-0979bf81f1ca: Simple # Simple
     507c2c35-81fa-4361-90d7-f7514bbb4434: Activity # Activity
     613dcfc9-5442-4f47-8d88-b634483e0d47: 'Subject Updates' # Subject Updates
