@@ -1,4 +1,4 @@
-dateModified: 1737140337
+dateModified: 1737725413
 elementSources:
   craft\elements\Category:
     -
@@ -116,6 +116,10 @@ fs:
       path: '@assetBasePath/videos'
     type: craft\fs\Local
     url: '@assetBaseUrl/videos'
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
 meta:
   __names__:
     1aafc3c1-b10e-4134-b462-61acf0f69dcf: Months # Months

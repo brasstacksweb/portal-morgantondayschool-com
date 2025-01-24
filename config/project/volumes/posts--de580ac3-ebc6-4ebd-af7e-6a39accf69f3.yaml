@@ -11,6 +11,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2025-01-24T08:29:13-05:00'
             disabled: false
             elementCondition: null
             id: null
@@ -36,6 +37,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-01-24T08:29:13-05:00'
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: caption
@@ -51,6 +53,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-01-24T08:29:13-05:00'
             elementCondition: null
             fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
             handle: null

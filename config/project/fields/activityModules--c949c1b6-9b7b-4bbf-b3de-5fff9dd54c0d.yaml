@@ -5,6 +5,7 @@ name: 'Activity Modules'
 searchable: false
 settings:
   createButtonLabel: 'New Module'
+  defaultIndexViewMode: cards
   entryTypes:
     - c56fb994-3459-4417-9f0f-0ce9f4359b70 # Accordion List
     - ae3e4e31-15a0-4883-9c22-01637617e803 # Card List

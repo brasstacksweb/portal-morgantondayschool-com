@@ -12,11 +12,11 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - urlFormat
-        - '{url}'
-      -
         - refresh
         - '1'
+      -
+        - urlFormat
+        - '{url}'
 propagationMethod: all
 siteSettings:
   812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School Titan Link Parent Portal

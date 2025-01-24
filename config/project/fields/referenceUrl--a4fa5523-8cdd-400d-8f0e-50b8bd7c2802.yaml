@@ -5,8 +5,10 @@ name: 'Reference URL'
 searchable: false
 settings:
   maxLength: 500
+  showLabelField: false
+  showTargetField: false
   types:
     - url
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Url
+type: craft\fields\Link

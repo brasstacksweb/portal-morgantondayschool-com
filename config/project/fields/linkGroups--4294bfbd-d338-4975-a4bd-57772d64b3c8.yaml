@@ -5,6 +5,7 @@ name: 'Link Groups'
 searchable: false
 settings:
   createButtonLabel: null
+  defaultIndexViewMode: cards
   entryTypes:
     - 9090beeb-6ec5-46f0-a70b-0bbfa6e9c218 # Link Group
   includeTableView: false

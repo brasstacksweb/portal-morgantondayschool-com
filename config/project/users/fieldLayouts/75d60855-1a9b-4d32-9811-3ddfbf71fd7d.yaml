@@ -7,6 +7,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
+        dateAdded: '2025-01-24T08:29:13-05:00'
         disabled: false
         elementCondition: null
         id: null
@@ -37,6 +38,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
+        dateAdded: '2025-01-24T08:29:13-05:00'
         disabled: false
         elementCondition: null
         id: null
@@ -63,6 +65,7 @@ tabs:
         warning: null
         width: 100
       -
+        dateAdded: '2025-01-24T08:29:13-05:00'
         elementCondition: null
         id: null
         includeInCards: false
@@ -82,6 +85,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
+        dateAdded: '2025-01-24T08:29:13-05:00'
         disabled: false
         elementCondition: null
         id: null
@@ -106,6 +110,7 @@ tabs:
         userCondition: null
         width: 100
       -
+        dateAdded: '2025-01-24T08:29:13-05:00'
         elementCondition: null
         fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
         handle: bio

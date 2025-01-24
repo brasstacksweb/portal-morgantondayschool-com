@@ -5,6 +5,7 @@ name: 'Text List'
 searchable: false
 settings:
   createButtonLabel: 'New Item'
+  defaultIndexViewMode: cards
   entryTypes:
     - 27b3396e-b5a4-4d09-8403-237a05d2ffdd # Text Block
   includeTableView: false
