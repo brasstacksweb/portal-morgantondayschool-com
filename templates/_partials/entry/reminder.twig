@@ -5,6 +5,7 @@
 	{% set cta = create({
 		class: 'craft\\elements\\Entry',
 		typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+		fieldId: 6,
 		title: 'Learn More',
 		page: [activity.id],
 	}) %}
