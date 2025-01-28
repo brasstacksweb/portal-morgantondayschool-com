@@ -58,6 +58,7 @@ return [
             'targets' => [
                 [
                     'enabled' => !App::env('CRAFT_DEV_MODE'),
+                    'enabled' => false,
                     'class' => \yii\log\EmailTarget::class,
                     'levels' => [\Psr\Log\LogLevel::ERROR],
                     'logVars' => ['_SERVER.REQUEST_URI'],
