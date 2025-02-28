@@ -14,6 +14,22 @@ $handle: "footer";
 		@include space(var(--s-lg), var(--s-xl));
 	}
 
+	> header {
+		width: 100%;
+		margin-bottom: var(--s-sm);
+
+		@include media("sm") {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+
+		> h3 {
+			@include font("heading", "md");
+			text-wrap: balance;
+		}
+	}
+
 	> ul {
 		display: grid;
 		gap: var(--s-sm);
