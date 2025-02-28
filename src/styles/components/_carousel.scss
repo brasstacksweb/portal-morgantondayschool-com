@@ -1,0 +1,100 @@
+$handle: "carousel";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-md));
+	background-color: var(--bg-color);
+
+	@include media("sm") {
+		@include pad(var(--s-lg), var(--w-xl));
+		@include space(var(--s-lg));
+	}
+
+	> header {
+		margin-bottom: var(--s-md);
+
+		@include media("sm") {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+
+		> h2 {
+			@include font("heading", "lg");
+			max-width: var(--w-md);
+			text-wrap: balance;
+		}
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		> ul {
+			position: relative;
+			overflow-x: auto;
+			display: flex;
+			align-items: flex-end;
+			gap: var(--s-sm);
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+
+			/* Hide scrollbar but keep functionality */
+			scrollbar-width: none; /* Firefox */
+			-ms-overflow-style: none; /* IE and Edge */
+			&:-webkit-scrollbar {
+				display: none;
+			}
+
+			> li {
+				flex: 0 0 auto;
+				width: 80%;
+				scroll-snap-align: start;
+
+				@include media("sm") {
+					width: 40%;
+				}
+
+				@include media("md") {
+					width: 30%;
+				}
+			}
+		}
+
+		> nav {
+			display: flex;
+			gap: var(--s-sm);
+			margin: var(--s-sm) 0 0 auto;
+
+			> button{
+				@include round;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: var(--c-white);
+				transition: background-color var(--a-xs);
+
+				&:hover {
+					background-color: var(--c-black);
+				}
+
+				&:disabled {
+					opacity: 0.5;
+					pointer-events: none;
+				}
+
+				> svg {
+					width: var(--s-icon-md);
+					height: var(--s-icon-md);
+					fill: var(--c-black);
+					transition: fill var(--a-xs);
+				}
+
+				&:hover > svg {
+					fill: var(--c-white);
+				}
+			}
+		}
+	}
+}

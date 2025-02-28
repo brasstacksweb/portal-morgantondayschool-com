@@ -74,12 +74,10 @@ $handle: "text-list";
 			}
 
 			> button{
+				@include round(calc(var(--s-sm) * 1.5));
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				width: calc(var(--s-sm) * 1.5);
-				height: calc(var(--s-sm) * 1.5);
-				border-radius: 50%;
 				transition: background-color var(--a-xs);
 
 				&:hover {

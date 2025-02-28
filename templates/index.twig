@@ -99,9 +99,9 @@
 			</section>
 
 			<section>
-				{% include '_components/gallery' with {
+				{% include '_components/carousel' with {
 					heading: entry.galleryHeading,
-					posts: featuredPosts,
+					items: featuredPosts,
 					backgroundColor: 'blue',
 				} only %}
 			</section>

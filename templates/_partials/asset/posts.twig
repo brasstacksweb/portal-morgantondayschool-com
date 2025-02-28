@@ -1,5 +1,6 @@
 {% set transform = transform ?? '' %}
 {% set bigUrl = bigUrl ?? '' %}
+{% set eagerLoad = eagerLoad ?? false %}
 
 {% include '_components/figure' with {
 	title: asset.title,
@@ -10,4 +11,5 @@
 	caption: asset.caption,
 	video: asset.video[0] ?? null,
 	bigUrl: bigUrl,
-} %}
+	eagerLoad: eagerLoad,
+} only %}

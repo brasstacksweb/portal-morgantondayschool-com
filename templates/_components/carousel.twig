@@ -1,0 +1,45 @@
+{##
+ # Carousel component
+ # @param {string} heading
+ # @param {object[]} items
+ # @param {string} backgroundColor
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set items = items ?? [] %}
+{% set backgroundColor = backgroundColor ?? '' %}
+
+{# Variables #}
+{% set handle = 'carousel' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<div
+	class="{{ handle }}"
+	data-comp-name="{{ handle }}"
+	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
+	<header>
+		<h2>{{ heading }}</h2>
+	</header>
+	{% if items is not empty %}
+		<div>
+			<ul>
+				{% for p in items %}
+					<li>
+						{{ p.render({ transform: 'gallery', bigUrl: p.getUrl('lightbox'), eagerLoad: true }) }}
+					</li>
+				{% endfor %}
+			</ul>
+			<nav>
+				<button type="button">
+					{{ icons.chevron("left") }}
+				</button>
+				<button type="button">
+					{{ icons.chevron("right") }}
+				</button>
+			</nav>
+		</div>
+	{% endif %}
+</div>
