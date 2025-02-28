@@ -17,19 +17,16 @@ $handle: "footer";
 	> ul {
 		display: grid;
 		gap: var(--s-sm);
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
+		place-items: center;
+		place-content: center;
 		width: 100%;
 		margin-bottom: var(--s-md);
 		padding: var(--s-sm);
 		background-color: var(--c-white);
 
 		@include media("sm") {
-			grid-template-columns: repeat(5, 1fr);
 			margin-bottom: var(--s-lg);
-		}
-
-		@include media("md") {
-			grid-template-columns: repeat(6, 1fr);
 		}
 
 		> li {
@@ -43,6 +40,12 @@ $handle: "footer";
 				aspect-ratio: 1 / 1;
 				object-fit: contain;
 				object-position: center;
+				filter: grayscale(1);
+				transition: filter var(--a-sm);
+
+				&:hover {
+					filter: none;
+				}
 			}
 		}
 	}
