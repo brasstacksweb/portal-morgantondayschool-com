@@ -94,6 +94,14 @@ $handle: "carousel";
 				&:hover > svg {
 					fill: var(--c-white);
 				}
+
+				&:first-child {
+					transform: translateX(-2px);
+				}
+
+				&:last-child {
+					transform: translateX(2px);
+				}
 			}
 		}
 	}
