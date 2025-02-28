@@ -44,12 +44,6 @@ $handle: "footer";
 				aspect-ratio: 1 / 1;
 				object-fit: contain;
 				object-position: center;
-				filter: grayscale(1);
-				transition: filter var(--a-sm);
-
-				&:hover {
-					filter: none;
-				}
 			}
 		}
 	}
