@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: sponsors
+instructions: null
+name: Sponsors
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - d3507f07-2f1c-4813-9e1b-d04b3d30d5a8 # Sponsor
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: true
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

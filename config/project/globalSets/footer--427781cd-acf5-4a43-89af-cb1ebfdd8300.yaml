@@ -5,7 +5,23 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-02-28T00:47:13+00:00'
+            elementCondition: null
+            fieldUid: 0faa58bb-385f-41b6-98f2-e88ad0e47f16 # Sponsors
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 950ce67b-fc26-4d48-8827-560cdbc46c2c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: null
@@ -19,9 +35,9 @@ fieldLayouts:
             uid: ba070175-3443-4170-9781-1a030ca84e30
             userCondition: null
             warning: null
-            width: 50
+            width: 25
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: 5c5f6ce4-6182-41ef-aa26-eecbddeb59b4 # Phone Number
             handle: null
@@ -37,7 +53,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: db8ba95d-1c59-46d4-be6b-f020db568757 # Address
             handle: null
@@ -53,7 +69,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: 6f19cee3-1de8-4684-852b-f59cfdf23892 # CTA
             handle: null
@@ -69,7 +85,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: e3999e4e-a947-4d65-8944-1f558463fe8f # Social Links
             handle: null
@@ -85,7 +101,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
             elementCondition: null
             fieldUid: 4294bfbd-d338-4975-a4bd-57772d64b3c8 # Link Groups
             handle: null

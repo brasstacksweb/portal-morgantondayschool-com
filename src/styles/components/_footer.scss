@@ -14,6 +14,39 @@ $handle: "footer";
 		@include space(var(--s-lg), var(--s-xl));
 	}
 
+	> ul {
+		display: grid;
+		gap: var(--s-sm);
+		grid-template-columns: repeat(4, 1fr);
+		width: 100%;
+		margin-bottom: var(--s-md);
+		padding: var(--s-sm);
+		background-color: var(--c-white);
+
+		@include media("sm") {
+			grid-template-columns: repeat(5, 1fr);
+			margin-bottom: var(--s-lg);
+		}
+
+		@include media("md") {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		> li {
+			> a {
+				display: block;
+				height: 100%;
+			}
+
+			img {
+				height: 100%;
+				aspect-ratio: 1 / 1;
+				object-fit: contain;
+				object-position: center;
+			}
+		}
+	}
+
 	> address {
 		@include font("body", "lg");
 		display: flex;

@@ -101,6 +101,7 @@
 
 		{% cache globally if not devMode %}
 			{% set footer = craft.globalSets().handle('footer').with([
+				'sponsors',
 				'logo',
 				'address',
 				'socialLinks',
@@ -110,6 +111,7 @@
 			{% if footer %}
 				<footer>
 					{% include '_components/footer' with {
+						sponsors: craft.app.request.pathInfo == '' ? footer.sponsors : [],
 						logo: footer.logo[0] ?? null,
 						socialLinks: footer.socialLinks.all(),
 						address: footer.address[0] ?? null,

@@ -1,4 +1,4 @@
-dateModified: 1737725506
+dateModified: 1740704375
 elementSources:
   craft\elements\Category:
     -
@@ -122,6 +122,7 @@ graphql:
     expiryDate: null
 meta:
   __names__:
+    0faa58bb-385f-41b6-98f2-e88ad0e47f16: Sponsors # Sponsors
     1aafc3c1-b10e-4134-b462-61acf0f69dcf: Months # Months
     1dca4a2b-84d6-462d-a266-6b7405d61620: Priority # Priority
     1e6dc74f-eb75-4216-9fff-e9ca1d82313c: Intro # Intro
@@ -194,6 +195,7 @@ meta:
     cceee7ec-12bf-4a50-8b29-d871bd33ae04: Homepage # Homepage
     cd8cda62-462c-44a7-90ff-4ab2495badca: 'Nav Links' # Nav Links
     ce1d738b-afb4-4eaa-a764-344ef98eb743: 'Text List' # Text List
+    d3507f07-2f1c-4813-9e1b-d04b3d30d5a8: Sponsor # Sponsor
     d623851d-e774-4508-a573-906ce42ac7c2: Document # Document
     db8ba95d-1c59-46d4-be6b-f020db568757: Address # Address
     db45bc6e-7a0e-47b7-88c9-78aae299fcb9: Dropdown # Dropdown

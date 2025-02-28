@@ -1,0 +1,7 @@
+{% if entry.websiteUrl is not empty %}
+	<a href="{{ entry.websiteUrl }}" title="{{ entry.title }}" target="_blank">
+		{{ entry.logo.render() }}
+	</a>
+{% else %}
+	{{ entry.logo.render() }}
+{% endif %}

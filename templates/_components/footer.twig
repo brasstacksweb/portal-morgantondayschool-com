@@ -1,5 +1,6 @@
 {##
  # Footer component
+ # @param {object[]} sponsors
  # @param {object} logo
  # @param {object[]} socialLinks
  # @param {Address} address
@@ -9,8 +10,9 @@
  #}
 
 {# Params #}
+{% set sponsors = sponsors ?? [] %}
 {% set logo = logo ?? null %}
-{% set solialLinks = solialLinks ?? [] %}
+{% set socialLinks = socialLinks ?? [] %}
 {% set address = address ?? null %}
 {% set phoneNumber = phoneNumber ?? null %}
 {% set cta = cta ?? null %}
@@ -21,6 +23,15 @@
 
 {# Markup #}
 <div class="{{ handle }}">
+	{% if sponsors is not empty %}
+		<ul>
+			{% for s in sponsors %}
+				<li>
+					{{ s.render() }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 	<address>
 		{% if logo %}
 			{{ logo.render() }}

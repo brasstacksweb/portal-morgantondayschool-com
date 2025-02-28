@@ -1,0 +1,86 @@
+color: null
+fieldLayouts:
+  a7c1b962-bb35-479a-8824-13816f3bc0e1:
+    cardView:
+      - 'layoutElement:2368905b-4dfa-482d-b4cc-acfacaa1bc2a'
+      - 'layoutElement:34ea28bd-792e-46da-b6d2-d1f004ef3bd6'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-28T00:43:01+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 671caf2a-21dc-402e-b91c-258d7f3d6138
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-02-28T00:45:57+00:00'
+            elementCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: logo
+            includeInCards: true
+            instructions: null
+            label: Logo
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2368905b-4dfa-482d-b4cc-acfacaa1bc2a
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-02-28T00:45:57+00:00'
+            elementCondition: null
+            fieldUid: a4fa5523-8cdd-400d-8f0e-50b8bd7c2802 # Reference URL
+            handle: websiteUrl
+            includeInCards: true
+            instructions: null
+            label: 'Website URL'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 34ea28bd-792e-46da-b6d2-d1f004ef3bd6
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: cc6697e4-057e-4f2a-b298-14af80c64eca
+        userCondition: null
+handle: sponsor
+hasTitleField: true
+icon: rocket-launch
+name: Sponsor
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
