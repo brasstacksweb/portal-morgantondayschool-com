@@ -29,6 +29,10 @@ $handle: "footer";
 			margin-bottom: var(--s-lg);
 		}
 
+		@include media("md") {
+			gap: var(--s-md);
+		}
+
 		> li {
 			> a {
 				display: block;
