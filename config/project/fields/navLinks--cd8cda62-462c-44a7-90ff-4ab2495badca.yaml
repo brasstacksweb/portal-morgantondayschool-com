@@ -7,9 +7,26 @@ settings:
   createButtonLabel: 'New Link'
   defaultIndexViewMode: cards
   entryTypes:
-    - 2757b28b-9302-44d3-8dcf-259f2c2fdf24 # Page CTA
-    - 46092a2d-3811-4600-a2d4-856c6ce5b8cd # External CTA
-    - db45bc6e-7a0e-47b7-88c9-78aae299fcb9 # Dropdown
+    -
+      __assoc__:
+        -
+          - uid
+          - 2757b28b-9302-44d3-8dcf-259f2c2fdf24 # Page CTA
+    -
+      __assoc__:
+        -
+          - uid
+          - 46092a2d-3811-4600-a2d4-856c6ce5b8cd # External CTA
+    -
+      __assoc__:
+        -
+          - uid
+          - b30722f5-7310-4beb-97b6-8ee18535bd41 # Download CTA
+    -
+      __assoc__:
+        -
+          - uid
+          - db45bc6e-7a0e-47b7-88c9-78aae299fcb9 # Dropdown
   includeTableView: false
   maxEntries: null
   minEntries: null
