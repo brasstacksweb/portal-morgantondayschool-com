@@ -40,6 +40,7 @@
 				ctas: [create({
 					class: 'craft\\elements\\Entry',
 					typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+					fieldId: 6,
 					title: 'View Resources',
 					page: [entry.id],
 					anchor: 'resources',
@@ -125,6 +126,7 @@
 					cta: create({
 						class: 'craft\\elements\\Entry',
 						typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
+						fieldId: 6,
 						title: 'Email Me',
 						referenceUrl: 'mailto:' ~ a.email,
 					}),
@@ -139,6 +141,7 @@
 				cta: create({
 					class: 'craft\\elements\\Entry',
 					typeId: craft.app.entries.getEntryTypeByHandle('externalCta').id,
+					fieldId: 6,
 					title: 'Meet Our Staff',
 					referenceUrl: 'https://www.morgantondayschool.com/faculty-staff',
 				}),
