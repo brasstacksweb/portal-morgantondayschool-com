@@ -250,6 +250,12 @@
 	i,
 	em {
 		@include italic;
+
+		&.highlight {
+			background-color: var(--c-yellow-lt);
+			font-style: normal;
+			font-weight: 600;
+		}
 	}
 
 	b,
