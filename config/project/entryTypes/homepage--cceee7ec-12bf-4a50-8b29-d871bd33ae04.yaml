@@ -6,37 +6,25 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
-            dateAdded: '2025-01-24T08:29:13-05:00'
-            disabled: false
+            dateAdded: '2025-05-30T12:42:38+00:00'
+            editCondition: null
             elementCondition: null
-            id: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: banner
             includeInCards: false
-            inputType: null
             instructions: null
-            label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
+            label: Banner
             providesThumbs: false
-            readonly: false
-            required: true
-            size: null
-            step: null
+            required: false
             tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: bdbc5cbb-0756-4b49-877a-ba5545f9d43e
+            type: craft\fieldlayoutelements\CustomField
+            uid: c3c1bf4c-28f6-47cb-a7a8-964ddfaedbb2
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: heroHeading
@@ -52,7 +40,8 @@ fieldLayouts:
             warning: null
             width: 75
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: heroImage
@@ -68,7 +57,8 @@ fieldLayouts:
             warning: null
             width: 25
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
             handle: heroBody
@@ -84,7 +74,25 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-05-30T12:41:03+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: bf142fa8-b2dd-4970-a630-d5ad5cb11849 # CTAs
+            handle: heroCtas
+            includeInCards: false
+            instructions: null
+            label: 'Hero CTAs'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: df0d7d05-24a6-4987-80a0-33d021c3f3ea
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: remindersHeading
@@ -100,7 +108,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: activitiesHeading
@@ -116,7 +125,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
             handle: activitiesBody
@@ -132,7 +142,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: classesHeading
@@ -148,7 +159,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-24T08:29:13-05:00'
+            dateAdded: '2025-01-24T13:29:13+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: galleryHeading

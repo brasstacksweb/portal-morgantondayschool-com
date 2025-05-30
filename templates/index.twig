@@ -36,28 +36,33 @@
 {% set metaDescription = entry.heroBody %}
 {% set metaNoIndex = true %}
 
+{% css %}
+	.home-banner {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		padding:var(--s-sm);
+		background-color:var(--c-red-dk);
+		color:var(--c-white);
+		font-size: 1.5em;
+		font-weight: 600;
+		line-height: 1.5em;
+		text-align: center;
+		text-wrap: balance;
+	}
+{% endcss %}
+
 {% block content %}
 	{% cache if not devMode %}
 		<article>
-			{#
-			<p style="
-				display:flex;
-				justify-content:center;
-				align-items:center;
-				padding:var(--s-sm);
-				background-color:var(--c-red-dk);
-				color:var(--c-white);
-				font-size: 1.5em;
-				font-weight: 600;
-				line-height: 1.5em;
-			">
-				Morganton Day School is closed Monday, September 30th through Monday, October 7th.
-			</p>
-			#}
+			{% if entry.banner is not empty %}
+				<p class="home-banner">{{ entry.banner }}</p>
+			{% endif %}
 			<header>
 				{% include '_components/hero' with {
 					heading: entry.heroHeading,
 					body: entry.heroBody,
+					ctas: entry.heroCtas,
 					backgroundColor: 'yellow',
 					type: 'narrow',
 				} only %}

@@ -1,7 +1,8 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - cceee7ec-12bf-4a50-8b29-d871bd33ae04 # Homepage
+  -
+    uid: cceee7ec-12bf-4a50-8b29-d871bd33ae04 # Homepage
 handle: homepage
 maxAuthors: 1
 name: Homepage
@@ -12,11 +13,11 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - refresh
-        - '1'
-      -
         - urlFormat
         - '{url}'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   812fd012-9cc4-4c3c-bf03-845a6340a1f5: # Morganton Day School Titan Link Parent Portal
