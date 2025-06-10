@@ -1,4 +1,4 @@
-dateModified: 1748608958
+dateModified: 1749516592
 elementSources:
   craft\elements\Category:
     -
@@ -216,6 +216,33 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  craft-basic-auth:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      conditions:
+        -
+          __assoc__:
+            0:
+              - enabled
+              - true
+            1:
+              - realm
+              - 'MDS Titan Link'
+            2:
+              - environments
+              -
+                - dev
+            4:
+              - username
+              - MDS
+            5:
+              - password
+              - $BASIC_AUTH_PASSWORD
+            8:
+              - customFailureMessage
+              - 'Authentication required'
   postmark:
     edition: standard
     enabled: true

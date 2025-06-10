@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "958a85b2577dfbb62df140a74d87c370",
+    "content-hash": "8020c0d7076a7dfa6bec319084537723",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -43,6 +43,52 @@
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "time": "2022-12-07T17:46:57+00:00"
+        },
+        {
+            "name": "brasstacksweb/craft-basic-auth",
+            "version": "v2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/119615b0b82234ae20d0d470c68d61605ca90e38",
+                "reference": "119615b0b82234ae20d0d470c68d61605ca90e38",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": "^8.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "craft-basic-auth",
+                "name": "Basic Auth",
+                "developer": "Brass Tacks Web",
+                "developerUrl": "https://www.brasstacksweb.com",
+                "documentationUrl": "https://github.com/brasstacksweb/craft-basic-auth",
+                "class": "brasstacksweb\\craftbasicauth\\BasicAuth"
+            },
+            "autoload": {
+                "psr-4": {
+                    "brasstacksweb\\craftbasicauth\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Brass Tacks Web",
+                    "homepage": "https://www.brasstacksweb.com"
+                }
+            ],
+            "description": "A Craft CMS plugin to configure HTTP Basic Authentication for your site.",
+            "support": {
+                "email": "help@brasstacksweb.com",
+                "issues": "https://github.com/brasstacksweb/craft-basic-auth/issues?state=open",
+                "source": "https://github.com/brasstacksweb/craft-basic-auth",
+                "docs": "https://github.com/brasstacksweb/craft-basic-auth",
+                "rss": "https://github.com/brasstacksweb/craft-basic-auth/releases.atom"
+            },
+            "time": "2025-06-10T00:37:06+00:00"
         },
         {
             "name": "brick/math",
@@ -7680,11 +7726,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.2"
     },
