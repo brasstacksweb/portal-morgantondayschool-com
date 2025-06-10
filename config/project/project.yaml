@@ -1,4 +1,4 @@
-dateModified: 1749516592
+dateModified: 1749519537
 elementSources:
   craft\elements\Category:
     -
@@ -219,7 +219,7 @@ plugins:
   craft-basic-auth:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 2.0.1
     settings:
       conditions:
         -

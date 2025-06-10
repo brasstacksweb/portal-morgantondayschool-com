@@ -46,11 +46,11 @@
         },
         {
             "name": "brasstacksweb/craft-basic-auth",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/119615b0b82234ae20d0d470c68d61605ca90e38",
-                "reference": "119615b0b82234ae20d0d470c68d61605ca90e38",
+                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/b26e8ecd0e1a6e6f4ebce966f4a79ce7c59f2beb",
+                "reference": "b26e8ecd0e1a6e6f4ebce966f4a79ce7c59f2beb",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "docs": "https://github.com/brasstacksweb/craft-basic-auth",
                 "rss": "https://github.com/brasstacksweb/craft-basic-auth/releases.atom"
             },
-            "time": "2025-06-10T00:37:06+00:00"
+            "time": "2025-06-10T01:37:22+00:00"
         },
         {
             "name": "brick/math",
