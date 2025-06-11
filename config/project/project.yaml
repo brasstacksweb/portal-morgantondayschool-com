@@ -1,4 +1,4 @@
-dateModified: 1749519537
+dateModified: 1749646634
 elementSources:
   craft\elements\Category:
     -
@@ -219,7 +219,8 @@ plugins:
   craft-basic-auth:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.1
+    licenseKey: TM1CSD7NTT9Z6RPTIIGZIMMY
+    schemaVersion: 2.0.5
     settings:
       conditions:
         -
@@ -242,7 +243,7 @@ plugins:
               - $BASIC_AUTH_PASSWORD
             8:
               - customFailureMessage
-              - 'Authentication required'
+              - ''
   postmark:
     edition: standard
     enabled: true

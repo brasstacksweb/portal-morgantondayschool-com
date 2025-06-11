@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8020c0d7076a7dfa6bec319084537723",
+    "content-hash": "b0dcc34dd42935180c55ad3034e7d8a0",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -46,11 +46,11 @@
         },
         {
             "name": "brasstacksweb/craft-basic-auth",
-            "version": "v2.0.1",
+            "version": "v2.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/b26e8ecd0e1a6e6f4ebce966f4a79ce7c59f2beb",
-                "reference": "b26e8ecd0e1a6e6f4ebce966f4a79ce7c59f2beb",
+                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/593651c7f1a7cf674b31ce5381da5605fd34335e",
+                "reference": "593651c7f1a7cf674b31ce5381da5605fd34335e",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "docs": "https://github.com/brasstacksweb/craft-basic-auth",
                 "rss": "https://github.com/brasstacksweb/craft-basic-auth/releases.atom"
             },
-            "time": "2025-06-10T01:37:22+00:00"
+            "time": "2025-06-11T12:52:34+00:00"
         },
         {
             "name": "brick/math",
@@ -2205,16 +2205,16 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v4.7.0",
+            "version": "v4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "af048f0206d3b39b8fad9de6a230cedf765365fa"
+                "reference": "1a23f0e1b22e2c59ed5ed70cfbe4cbe696be9348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/af048f0206d3b39b8fad9de6a230cedf765365fa",
-                "reference": "af048f0206d3b39b8fad9de6a230cedf765365fa",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/1a23f0e1b22e2c59ed5ed70cfbe4cbe696be9348",
+                "reference": "1a23f0e1b22e2c59ed5ed70cfbe4cbe696be9348",
                 "shasum": ""
             },
             "require": {
@@ -2289,9 +2289,9 @@
             ],
             "support": {
                 "issues": "https://github.com/moneyphp/money/issues",
-                "source": "https://github.com/moneyphp/money/tree/v4.7.0"
+                "source": "https://github.com/moneyphp/money/tree/v4.7.1"
             },
-            "time": "2025-04-03T08:26:36+00:00"
+            "time": "2025-06-06T07:12:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7726,11 +7726,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.2"
     },
