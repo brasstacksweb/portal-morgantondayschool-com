@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0dcc34dd42935180c55ad3034e7d8a0",
+    "content-hash": "018ea57db8fdc9ad4f107ccacc2f0e6a",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -46,11 +46,11 @@
         },
         {
             "name": "brasstacksweb/craft-basic-auth",
-            "version": "v2.0.5",
+            "version": "v2.0.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/593651c7f1a7cf674b31ce5381da5605fd34335e",
-                "reference": "593651c7f1a7cf674b31ce5381da5605fd34335e",
+                "url": "https://api.github.com/repos/brasstacksweb/craft-basic-auth/zipball/be96dba1e21bb8a8c037e95ec205fc6231b27128",
+                "reference": "be96dba1e21bb8a8c037e95ec205fc6231b27128",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "docs": "https://github.com/brasstacksweb/craft-basic-auth",
                 "rss": "https://github.com/brasstacksweb/craft-basic-auth/releases.atom"
             },
-            "time": "2025-06-11T12:52:34+00:00"
+            "time": "2025-06-11T13:23:55+00:00"
         },
         {
             "name": "brick/math",

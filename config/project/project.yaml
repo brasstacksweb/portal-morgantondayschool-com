@@ -1,4 +1,4 @@
-dateModified: 1749646634
+dateModified: 1749648666
 elementSources:
   craft\elements\Category:
     -
@@ -219,8 +219,8 @@ plugins:
   craft-basic-auth:
     edition: standard
     enabled: true
-    licenseKey: CKK7ABSSIFW2U8O489P9ZQCU
-    schemaVersion: 2.0.5
+    licenseKey: 9F4QQ12FV7GBJ1A5AIXL39B9
+    schemaVersion: 2.0.6
     settings:
       conditions:
         -
