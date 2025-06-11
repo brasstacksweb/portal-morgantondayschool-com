@@ -219,7 +219,7 @@ plugins:
   craft-basic-auth:
     edition: standard
     enabled: true
-    licenseKey: ZS4EHSNLT3B2QD0TU0EM4837
+    licenseKey: CKK7ABSSIFW2U8O489P9ZQCU
     schemaVersion: 2.0.5
     settings:
       conditions:
