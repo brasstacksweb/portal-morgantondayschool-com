@@ -1,4 +1,4 @@
-dateModified: 1749648666
+dateModified: 1750251409
 elementSources:
   craft\elements\Category:
     -
@@ -220,7 +220,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 9F4QQ12FV7GBJ1A5AIXL39B9
-    schemaVersion: 2.0.6
+    schemaVersion: 2.0.7
     settings:
       conditions:
         -

@@ -2,7 +2,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "brasstacksweb/craft-basic-auth": "v2.0.6",
+    "brasstacksweb/craft-basic-auth": "v2.0.7",
     "craftcms/ckeditor": "4.9.0",
     "craftcms/cms": "5.7.10",
     "craftcms/postmark": "^3.1.0",
