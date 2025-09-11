@@ -44,11 +44,18 @@
 		padding:var(--s-sm);
 		background-color:var(--c-red-dk);
 		color:var(--c-white);
-		font-size: 1.5em;
-		font-weight: 600;
-		line-height: 1.5em;
-		text-align: center;
-		text-wrap: balance;
+
+		> p {
+			font-size: 1.5em;
+			font-weight: 600;
+			line-height: 1.5em;
+			text-align: center;
+			text-wrap: balance;
+
+			> a {
+				text-decoration: underline;
+			}
+		}
 	}
 {% endcss %}
 
@@ -56,7 +63,7 @@
 	{% cache if not devMode %}
 		<article>
 			{% if entry.banner is not empty %}
-				<p class="home-banner">{{ entry.banner }}</p>
+				<div class="home-banner">{{ entry.banner }}</div>
 			{% endif %}
 			<header>
 				{% include '_components/hero' with {
