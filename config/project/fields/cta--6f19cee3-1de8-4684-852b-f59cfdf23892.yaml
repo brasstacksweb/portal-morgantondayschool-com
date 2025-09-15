@@ -6,9 +6,32 @@ searchable: false
 settings:
   createButtonLabel: 'New CTA'
   defaultIndexViewMode: cards
+  enableVersioning: false
   entryTypes:
-    - 2757b28b-9302-44d3-8dcf-259f2c2fdf24 # Page CTA
-    - 46092a2d-3811-4600-a2d4-856c6ce5b8cd # External CTA
+    -
+      __assoc__:
+        -
+          - uid
+          - 2757b28b-9302-44d3-8dcf-259f2c2fdf24 # Page CTA
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 46092a2d-3811-4600-a2d4-856c6ce5b8cd # External CTA
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - b30722f5-7310-4beb-97b6-8ee18535bd41 # Download CTA
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: 1
   minEntries: null

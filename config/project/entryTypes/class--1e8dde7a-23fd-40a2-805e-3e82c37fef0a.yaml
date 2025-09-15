@@ -1,6 +1,8 @@
 color: null
+description: null
 fieldLayouts:
   bd3eee68-7d5a-4b58-9edb-d572fc2ab7a3:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -45,6 +47,7 @@ fieldLayouts:
             width: 50
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: previewText
@@ -69,6 +72,7 @@ fieldLayouts:
             width: 25
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15 # Color
             handle: null
@@ -93,6 +97,7 @@ fieldLayouts:
             width: 25
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: heading
@@ -109,6 +114,7 @@ fieldLayouts:
             width: 50
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: heroImage
@@ -125,6 +131,7 @@ fieldLayouts:
             width: 50
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
             handle: null
@@ -141,6 +148,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
             handle: resources
@@ -157,6 +165,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 2efcdd43-3927-46bc-aab7-7d1576e97e29 # Announcements
             handle: null
@@ -172,7 +181,34 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-15T13:41:06+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\SlugConditionRule
+                  operator: '='
+                  uid: eebc27c7-3551-4fcc-b5c1-576dcfc9328d
+                  value: third-grade
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 886f28e9-c88b-48e4-9f01-f841e4637ee9 # Cards
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e629d0b5-4c5f-4325-ba27-c1d899247bad
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 87c7eb6f-29f4-4836-8740-ee6965ccb886 # Posts
             handle: null
@@ -189,6 +225,7 @@ fieldLayouts:
             width: 75
           -
             dateAdded: '2024-09-24T13:22:50+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: f2609bcc-2cf8-4ae9-92f2-27cb50c45b11 # Post
             handle: featuredPost
@@ -205,6 +242,7 @@ fieldLayouts:
             width: 25
           -
             dateAdded: '2024-09-24T13:24:54+00:00'
+            editCondition: null
             elementCondition:
               class: craft\elements\conditions\entries\EntryCondition
               conditionRules:

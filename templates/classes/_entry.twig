@@ -7,6 +7,7 @@
 {# Params #}
 {% set heroImage = entry.heroImage.one() %}
 {% set announcements = entry.announcements.all() %}
+{% set cards = entry.cards.with(['image']).all() %}
 {% set featuredVideo = entry.featuredVideo.one() %}
 {% set posts = entry.posts.all() %}
 
@@ -86,6 +87,16 @@
 				backgroundColor: 'blue',
 			} only %}
 		</section>
+
+		{% if cards is not empty %}
+			<section id="class-cards">
+				{% include '_components/card-list' with {
+					heading: 'Featured Materials',
+					cards: cards,
+					gridSize: '2',
+				} only %}
+			</section>
+		{% endif %}
 
 		{% if featuredVideo %}
 			<section id="featured-video">
