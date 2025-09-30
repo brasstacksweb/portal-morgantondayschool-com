@@ -1,12 +1,17 @@
+{% set content = content ?? '' %}
 {% set type = type ?? 'primary' %}
 {% set size = size ?? 'md' %}
 {% set invert = invert ?? false %}
 
 <a href="{{ entry.referenceUrl }}" target="_blank" rel="noopener noreferrer" title="{{ entry.title }}">
-	{% include '_components/cta' with {
-		title: entry.title,
-		type: type,
-		size: size,
-		invert: invert,
-	} only %}
+	{% if content is not empty %}
+		{{ content }}
+	{% else %}
+		{% include '_components/cta' with {
+			title: entry.title,;
+			type: type,;
+			size: size,;
+			invert: invert,
+		} only %}
+	{% endif %}
 </a>
