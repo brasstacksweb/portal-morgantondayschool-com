@@ -155,6 +155,8 @@
 }
 
 @mixin richText($size: "md", $invert: false) {
+	display: block;
+	width: 100%;
 	color: if($invert, var(--c-white), var(--c-fg-dk));
 
 	&:has(table) {
