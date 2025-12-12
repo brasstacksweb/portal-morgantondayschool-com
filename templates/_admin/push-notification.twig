@@ -7,26 +7,29 @@
 
 {% js %}
 function handlePushNotification(button) {
-    const entryId = button.getAttribute('data-entry-id');
+	const entryId = button.getAttribute('data-entry-id');
 
-    if (!entryId) {
-        Craft.cp.displayError('Entry must be saved first.');
-        return;
-    }
+	if (!entryId) {
+		Craft.cp.displayError('Entry must be saved first.');
 
-    button.disabled = true;
+		return;
+	}
 
-    // Make AJAX request to your custom action
-    Craft.sendActionRequest('POST', '{{ actionUrl }}', {
-        data: {
-            entryId: entryId
-        }
-    })
-    .then(response => {
-        Craft.cp.displayNotice(response.data.message || 'Action completed successfully');
-    })
-    .catch(error => {
-        Craft.cp.displayError(error.response?.data?.message || 'An error occurred');
-    })
+	if (!window.confirm('Are you sure you want to publish a notification? This will send a push notification to all subscribers.')) {
+		return;
+	}
+
+	button.disabled = true;
+
+	// Make AJAX request to your custom action
+	Craft.sendActionRequest('POST', '{{ actionUrl }}', {
+		data: { entryId: entryId }
+	})
+	.then(response => {
+		Craft.cp.displayNotice(response.data.message || 'Action completed successfully');
+	})
+	.catch(error => {
+		Craft.cp.displayError(error.response?.data?.message || 'An error occurred');
+	})
 }
 {% endjs %}
