@@ -1,6 +1,5 @@
 import { actions, events } from './events';
 
-// Components
 import Form from './components/form';
 import FormField from './components/form-field';
 import Carousel from './components/carousel';
@@ -11,8 +10,8 @@ import TextList from './components/text-list';
 // import NotificationBadge from './components/notification-badge';
 // import UpdatesList from './components/updates-list';
 
-// Event handler functions
 function handleDOMConentLoaded() {
+    // Register custom elements
     customElements.define('tl-carousel', Carousel);
     customElements.define('tl-form', Form);
     customElements.define('tl-form-field', FormField);
