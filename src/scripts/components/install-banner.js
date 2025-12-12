@@ -1,23 +1,25 @@
-export default function InstallBanner(el, {
-    activeClass = 'is-active',
-}) {
-    const trigger = el.querySelector('button');
+export default class InstallBanner extends HTMLElement {
+    constructor() {
+        super();
+        const { activeClass = 'is-active' } = this.dataset;
+        const trigger = this.querySelector('button');
 
-    let deferredPrompt;
+        let deferredPrompt;
 
-    window.addEventListener('beforeinstallprompt', e => {
-        e.preventDefault();
-        deferredPrompt = e;
-        el.classList.add(activeClass);
-    });
-    window.addEventListener('appinstalled', () => {
-        deferredPrompt = null;
-        el.classList.remove(activeClass);
-    });
-    trigger.onclick = async () => {
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-        el.classList.remove(activeClass);
-    };
+        window.addEventListener('beforeinstallprompt', e => {
+            e.preventDefault();
+            deferredPrompt = e;
+            this.classList.add(activeClass);
+        });
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            this.classList.remove(activeClass);
+        });
+        trigger.onclick = async () => {
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+            this.classList.remove(activeClass);
+        };
+    }
 }

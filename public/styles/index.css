@@ -1412,6 +1412,7 @@ details summary::-webkit-details-marker {
   padding-right: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
   padding-top: var(--s-md);
   padding-bottom: var(--s-md);
+  display: block;
   background-color: var(--bg-color);
 }
 @media (min-width: 768px) {
@@ -2432,6 +2433,9 @@ details summary::-webkit-details-marker {
   margin-top: var(--s-xs);
 }
 
+.form {
+  display: block;
+}
 .form > p {
   font-family: system-ui;
   font-weight: 333;
@@ -2814,6 +2818,7 @@ details summary::-webkit-details-marker {
 
 .form-field {
   position: relative;
+  display: block;
 }
 .form-field > label {
   font-family: system-ui;
@@ -4120,6 +4125,7 @@ details summary::-webkit-details-marker {
 }
 
 .modal {
+  display: block;
   background: red;
 }
 .modal > dialog {
@@ -4474,6 +4480,7 @@ details summary::-webkit-details-marker {
   padding-right: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
   padding-top: var(--s-md);
   padding-bottom: var(--s-md);
+  display: block;
   background-color: var(--bg-color);
   scroll-margin-top: var(--h-header);
 }

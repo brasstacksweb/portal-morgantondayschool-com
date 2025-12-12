@@ -1,64 +1,67 @@
-export default function Form(el, {
-    siteKey,
-    redirectPath,
-    actions,
-    events,
-}) {
-    const errorMessage = el.querySelector('p');
-    const form = el.querySelector('form');
-    const submit = form.querySelector('[type="submit"]');
-    const successMessage = el.querySelector('form + div');
+import { actions, events } from '../events';
 
-    submit.removeAttribute('disabled');
+export default class Form extends HTMLElement {
+    constructor() {
+        super();
 
-    form.onsubmit = async e => {
-        e.preventDefault();
+        const { siteKey = '', redirectPath = '' } = this.dataset;
 
-        submit.setAttribute('disabled', 'true');
+        const errorMessage = this.querySelector('p');
+        const form = this.querySelector('form');
+        const submit = form.querySelector('[type="submit"]');
+        const successMessage = this.querySelector('form + div');
 
-        const body = new FormData(form);
-        const token = await grecaptcha.enterprise.execute(siteKey, { action: 'submit' }); // eslint-disable-line no-undef
-
-        body.append('token', token);
-
-        const res = await fetch('/', {
-            method: 'POST',
-            headers: { Accept: 'application/json' },
-            body,
-        });
-        const { message = '', errors = {} } = await res.json();
-
-        // Reset all errrors to empty
-        errorMessage.textContent = '';
-        Array.from(body.keys()).map(name => name.replace('[]', '')).forEach(name => {
-            events.emit(actions.showFieldError, { name, errors: [] });
-        });
         submit.removeAttribute('disabled');
 
-        switch (res.status) {
-        case 500:
-            window.alert(message); // eslint-disable-line no-alert
+        form.onsubmit = async e => {
+            e.preventDefault();
 
-            break;
-        case 400:
-            errorMessage.textContent = message;
-            Object.entries(errors).forEach(([name, errs]) => {
-                events.emit(actions.showFieldError, { name, errors: errs });
+            submit.setAttribute('disabled', 'true');
+
+            const body = new FormData(form);
+            const token = await grecaptcha.enterprise.execute(siteKey, { action: 'submit' }); // eslint-disable-line no-undef
+
+            body.append('token', token);
+
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: { Accept: 'application/json' },
+                body,
             });
+            const { message = '', errors = {} } = await res.json();
 
-            break;
-        case 200:
-        default:
-            if (redirectPath) {
-                window.location.href = redirectPath;
+            // Reset all errrors to empty
+            errorMessage.textContent = '';
+            Array.from(body.keys()).map(name => name.replace('[]', '')).forEach(name => {
+                events.emit(actions.showFieldError, { name, errors: [] });
+            });
+            submit.removeAttribute('disabled');
 
-                return;
+            switch (res.status) {
+            case 500:
+                window.alert(message); // eslint-disable-line no-alert
+
+                break;
+            case 400:
+                errorMessage.textContent = message;
+                Object.entries(errors).forEach(([name, errs]) => {
+                    events.emit(actions.showFieldError, { name, errors: errs });
+                });
+
+                break;
+            case 200:
+            default:
+                if (redirectPath) {
+                    window.location.href = redirectPath;
+
+                    return;
+                }
+
+                form.remove();
+                successMessage.style.display = 'block';
+                el.parentElement.style.scrollMarginTop = 'var(--h-header)';
+                el.parentElement.scrollIntoView({ behavior: 'smooth' });
             }
-
-            form.remove();
-            successMessage.style.display = 'block';
-            el.parentElement.style.scrollMarginTop = 'var(--h-header)';
-            el.parentElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+        };
+    }
 }

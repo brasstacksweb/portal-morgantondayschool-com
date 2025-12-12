@@ -1,3 +1,5 @@
+import { actions, events } from '../events';
+
 const toggleVisibility = (el, name, visible) => {
     if (visible) {
         el.querySelectorAll(`[name="${name}"]`).forEach(f => f.setAttribute('required', 'true'));
@@ -11,35 +13,39 @@ const toggleVisibility = (el, name, visible) => {
     }
 };
 
-export default function FormField(el, {
-    name,
-    errorClass,
-    conditionalName,
-    conditionalValue,
-    actions,
-    events,
-}) {
-    const error = el.querySelector('p');
+export default class FormField extends HTMLElement {
+    constructor(el) {
+        super();
 
-    events.on(actions.showFieldError, ({ detail }) => {
-        if (detail.name !== name) return;
+        const {
+            name,
+            errorClass,
+            conditionalName,
+            conditionalValue,
+        } = this.dataset;
 
-        el.classList.toggle(errorClass, detail.errors.length > 0);
-        error.textContent = detail.errors.join(', ');
-    });
+        const error = this.querySelector('p');
 
-    // Initalize conditional formatting
-    if (conditionalName && conditionalValue) {
-        const form = el.closest('form');
-        const targets = form.querySelectorAll(`[name="${conditionalName}"]`);
-        const formData = new FormData(form);
+        events.on(actions.showFieldError, ({ detail }) => {
+            if (detail.name !== name) return;
 
-        targets.forEach(target => {
-            target.addEventListener('change', e => {
-                toggleVisibility(el, name, e.currentTarget.value === conditionalValue);
-            });
+            this.classList.toggle(errorClass, detail.errors.length > 0);
+            error.textContent = detail.errors.join(', ');
         });
 
-        toggleVisibility(el, name, formData.get(conditionalName) === conditionalValue);
+        // Initalize conditional formatting
+        if (conditionalName && conditionalValue) {
+            const form = this.closest('form');
+            const targets = form.querySelectorAll(`[name="${conditionalName}"]`);
+            const formData = new FormData(form);
+
+            targets.forEach(target => {
+                target.addEventListener('change', e => {
+                    toggleVisibility(el, name, e.currentTarget.value === conditionalValue);
+                });
+            });
+
+            toggleVisibility(el, name, formData.get(conditionalName) === conditionalValue);
+        }
     }
 }

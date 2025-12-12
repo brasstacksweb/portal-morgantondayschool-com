@@ -27,23 +27,17 @@
 {# Variables #}
 {% set handle = 'text-list' %}
 
-{% set params = paginate
-	? {
-		prevParam: paginate.prevParam,
-		nextParam: paginate.nextParam,
-		endpoint: paginate.endpoint,
-		paramName: paginate.paramName,
-	}
-	: null %}
-
 {# Markup #}
 {% import '_icons' as icons %}
 
-<div
+<tl-text-list
 	class="{{ handle }}"
 	style="--bg-color: var(--c-{{ backgroundColor }}-lt)"
 	{% if paginate %}
-		data-comp-name="{{ handle }}" data-comp-params="{{ params|json_encode }}"
+		data-prev-param="{{ paginate.prevParam }}"
+		data-next-param="{{ paginate.nextParam }}"
+		data-endpoint="{{ paginate.endpoint }}"
+		data-param-name="{{ paginate.paramName }}"
 	{% endif %}
 	>
 	<header>
@@ -73,4 +67,4 @@
 	{% if paginate %}
 		<p>{{ paginate.emptyText }}</p>
 	{% endif %}
-</div>
+</tl-text-list>

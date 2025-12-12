@@ -12,18 +12,14 @@
 
 {# Variables #}
 {% set handle = 'form' %}
+{% set siteKey = getenv('RECAPTCHA_SITE_KEY') %}
 {% set redirectPath = form.getRedirectPath() %}
 
-{% set params = {
-	siteKey: getenv('RECAPTCHA_SITE_KEY'),
-	redirectPath: redirectPath,
-} %}
-
 {# Markup #}
-<div
+<tl-form
 	class="{{ handle }} {{ invert ? handle ~ '--invert' }}"
-	data-comp-name="{{ handle }}"
-	data-comp-params="{{ params|json_encode }}">
+	data-site-key="{{ siteKey }}"
+	data-redirect-path="{{ redirectPath }}">
 	<p></p>
 	<form method="post" {% if devMode %}novalidate{% endif %}>
 		{{ csrfInput() }}
@@ -57,4 +53,4 @@
 	<div style="display: none">
 		{{ successMessage }}
 	</div>
-</div>
+</tl-form>

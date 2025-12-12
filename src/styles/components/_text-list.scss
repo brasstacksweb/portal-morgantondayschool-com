@@ -39,6 +39,7 @@ $handle: "text-list";
 .#{$handle} {
 	@include pad(var(--s-sm));
 	@include space(var(--s-md));
+	display: block;
 	background-color: var(--bg-color);
 	scroll-margin-top: var(--h-header);
 

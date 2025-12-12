@@ -26,24 +26,19 @@
 	{% set required = true %}
 {% endif %}
 
-{% set params = {
-	name: name,
-	errorClass: errorClass,
-	conditionalName: conditionalName,
-	conditionalValue: conditionalValue,
-} %}
-
 {# Markup #}
 {% import '_icons' as icons %}
 
-<div class="
+<tl-form-field class="
 		{{ handle }}
 		{{ handle }}--type-{{ type }}
 		{{ required ? handle ~ '--required' }}
 		{{ invert ? handle ~ '--invert' }}
 	"
-	data-comp-name="{{ handle }}"
-	data-comp-params="{{ params|json_encode }}"
+	data-name="{{ name }}"
+	data-error-class="{{ errorClass }}"
+	data-conditional-name="{{ conditionalName }}"
+	data-conditional-value="{{ conditionalValue }}"
 	>
 	<label for="{{ id }}">{{ label }}</label>
 
@@ -108,4 +103,4 @@
 	{% endswitch %}
 
 	<p>{{ form.getErrors(name)|join(', ') }}</p>
-</div>
+</tl-form-field>

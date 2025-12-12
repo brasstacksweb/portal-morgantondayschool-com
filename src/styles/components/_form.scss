@@ -5,6 +5,8 @@
 $handle: "form";
 
 .#{$handle} {
+	display: block;
+
 	> p {
 		@include font("body", "lg");
 		color: var(--c-red-dk);

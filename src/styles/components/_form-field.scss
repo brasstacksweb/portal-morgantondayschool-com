@@ -5,6 +5,7 @@ $handle: "form-field";
 
 .#{$handle} {
 	position: relative;
+	display: block;
 
 	> label {
 		@include font("eyebrow", -1);

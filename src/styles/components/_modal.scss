@@ -4,6 +4,7 @@
 $handle: "modal";
 
 .#{$handle} {
+	display: block;
 	background: red;
 
 	> dialog {

@@ -16,9 +16,8 @@
 {# Markup #}
 {% import '_icons' as icons %}
 
-<div
+<tl-carousel
 	class="{{ handle }}"
-	data-comp-name="{{ handle }}"
 	style="--bg-color: var(--c-{{ backgroundColor }}-lt)">
 	<header>
 		<h2>{{ heading }}</h2>
@@ -42,4 +41,4 @@
 			</nav>
 		</div>
 	{% endif %}
-</div>
+</tl-carousel>
