@@ -1,3 +1,7 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
 $handle: "media-split";
 
 .#{$handle} {

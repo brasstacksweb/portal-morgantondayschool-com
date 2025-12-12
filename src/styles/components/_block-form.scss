@@ -1,0 +1,43 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "block-form";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm));
+
+	@include media("sm") {
+		@include pad(var(--s-md));
+		@include space(var(--s-lg));
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: var(--w-md);
+		margin: 0 auto;
+		padding: var(--s-md);
+		border: 1px solid var(--c-black);
+
+		> h1 {
+			@include font("heading", "lg");
+			text-align: center;
+
+			+ p {
+				@include font("body", "md");
+				margin-top: var(--s-sm);
+				margin-bottom: var(--s-md);
+				text-align: center;
+				text-wrap: balance;
+			}
+		}
+	}
+
+	&--has-error > div > p {
+		@include font("body", "lg");
+		color: var(--c-red-dk);
+	}
+}

@@ -3,12 +3,10 @@
  # @global {GlobalSet} header
  # @global {GlobalSet} footer
  # @param {bool} loadForm
- # @param {bool} loadMap
  #}
 
 {# Params #}
 {% set loadForm = loadForm ?? false %}
-{% set loadMap = loadMap ?? false %}
 
 {% set metaGlobal = craft.globalSets().handle('meta').with([
 	'meta.image',
@@ -30,7 +28,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{{ metaTitle ?? meta.pageTitle ?? 'Service Logic' }}</title>
+		<title>{{ metaTitle ?? meta.pageTitle ?? 'Titan Link' }}</title>
 		<meta name="description" content="{{ metaDescription ?? meta.description ?? '' }}">
 		<link rel="home" href="{{ siteUrl }}" />
 		<link rel="canonical" href="{{ metaCanonical ?? siteUrl(craft.app.request.pathInfo) }}" />
@@ -127,15 +125,7 @@
 		{% include '_components/install-banner' only %}
 
 		{% if loadForm %}
-			<script src="https://www.google.com/recaptcha/api.js?render={{ getenv('RECAPTCHA_SITE_KEY') }}"></script>
-		{% endif %}
-		{% if loadMap %}
-			<script>
-				(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-					key: {{ getenv('MAPS_API_KEY')|json_encode|raw }},
-					v: "weekly",
-				});
-			</script>
+			<script src="https://www.google.com/recaptcha/enterprise.js?render={{ getenv('RECAPTCHA_SITE_KEY') }}"></script>
 		{% endif %}
 		<script src="{{ scriptsFile }}" defer></script>
 	</body>

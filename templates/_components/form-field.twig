@@ -68,12 +68,21 @@
 		{% case 'radio' or 'checkbox' %}
 			<fieldset>
 				{% for o in form.getAttributeOptions(name) %}
-					<input
-						type="{{ type }}"
-						id="{{ id }}-{{ o.value }}"
-						name="{{ name  ~ (type == 'checkbox' ? '[]' )}}"
-						value="{{ o.value }}" />
 					<label for="{{ id }}-{{ o.value }}">
+						<input
+							type="{{ type }}"
+							id="{{ id }}-{{ o.value }}"
+							name="{{ name  ~ (type == 'checkbox' ? '[]' )}}"
+							value="{{ o.value }}"
+							{% if type == 'checkbox' and (form[name] is iterable) and (o.value in form[name]) %}
+								checked
+							{% elseif type == 'radio' and o.value == form[name] %}
+								checked
+							{% endif %}
+							{% if required %}
+								required
+							{% endif %}
+							/>
 						{{ o.label }}
 					</label>
 				{% endfor %}

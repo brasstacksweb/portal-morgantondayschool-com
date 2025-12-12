@@ -1,6 +1,6 @@
-allowPublicRegistration: false
+allowPublicRegistration: true
 deactivateByDefault: false
-defaultGroup: ''
+defaultGroup: 55e2d11d-1f0e-4935-9dbf-60e24c2192dc # Parents
 photoSubpath: null
 photoVolumeUid: fd20c5e5-4c47-4c8c-af5b-ee45e71242b4 # User Photos
 require2fa: false

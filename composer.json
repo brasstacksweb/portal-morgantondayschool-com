@@ -9,13 +9,16 @@
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
+    "codeception/codeception": "^5.3",
     "craftcms/generator": "^2.0.0",
+    "phpunit/phpunit": "^10.5",
     "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
     "psr-4": {
       "modules\\components\\": "modules/components/src/",
       "modules\\forms\\": "modules/forms/src/",
+      "modules\\notifications\\": "modules/notifications/src/",
       "modules\\site\\": "modules/site/src/"
     }
   },
@@ -33,7 +36,10 @@
   "scripts": {
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example.dev', '.env');\""
-    ]
+    ],
+    "test": "vendor/bin/phpunit",
+    "test-unit": "vendor/bin/codecept run unit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html tests/_output/coverage"
   },
   "repositories": [
     {

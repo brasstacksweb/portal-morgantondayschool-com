@@ -1,3 +1,6 @@
+@use "../base/layout" as *;
+@use "../base/typography" as *;
+
 $handle: "cta";
 
 .#{$handle} {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Yii Application Config
+ * Yii Application Config.
  *
  * Edit this file at your own risk!
  *
@@ -21,11 +21,19 @@
  */
 
 use craft\helpers\App;
+use modules\components\ComponentsModule;
+use modules\forms\FormsModule;
+use modules\notifications\NotificationsModule;
+use modules\site\SiteModule;
+use Psr\Log\LogLevel;
+use yii\log\EmailTarget;
+use yii\web\HttpException;
 
 $modules = [
-    'components-module' => \modules\components\ComponentsModule::class,
-    'forms-module' => \modules\forms\FormsModule::class,
-    'site-module' => \modules\site\SiteModule::class,
+    'components-module' => ComponentsModule::class,
+    'forms-module' => FormsModule::class,
+    'notifications' => NotificationsModule::class,
+    'site-module' => SiteModule::class,
 ];
 
 return [
@@ -38,10 +46,10 @@ return [
                 [
                     'enabled' => !App::env('CRAFT_DEV_MODE'),
                     'enabled' => false,
-                    'class' => \yii\log\EmailTarget::class,
-                    'levels' => [\Psr\Log\LogLevel::ERROR],
+                    'class' => EmailTarget::class,
+                    'levels' => [LogLevel::ERROR],
                     'logVars' => ['_SERVER.REQUEST_URI'],
-                    'except' => [\yii\web\HttpException::class.':404'],
+                    'except' => [HttpException::class.':404'],
                     'message' => [
                         'to' => ['trevor@brasstacksweb.com'],
                         'subject' => 'portal.morgantondayschool.com Error',

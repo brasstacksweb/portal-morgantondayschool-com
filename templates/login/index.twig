@@ -1,0 +1,24 @@
+{% if not craft.app.getUser().getIsGuest() %}
+	{% redirect 'dashboard' %}
+{% endif %}
+
+{% set error = craft.app.getSession().getFlash('error') %}
+{% set heading = 'Sign In' %}
+{% set body = error ?? 'Enter your email address and we\'ll send you a magic link to sign in.' %}
+
+{% extends '_layouts/html' %}
+
+{% set loadForm = true %}
+
+{% block content %}
+	<article>
+		<section>
+			{% include '_components/block-form' with {
+				heading: heading,
+				body: body,
+				form: create('modules\\notifications\\models\\Login'),
+				hasError: error is not null,
+			} %}
+		</section>
+	</article>
+{% endblock %}

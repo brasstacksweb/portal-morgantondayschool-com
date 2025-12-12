@@ -1,3 +1,7 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
 $handle: "hero";
 
 .#{$handle} {
@@ -13,13 +17,6 @@ $handle: "hero";
 		@include pad(var(--s-md), var(--w-xl));
 		@include space(var(--s-lg));
 	}
-
-	// Equal top/bottom spacing if no image present
-	// &:not(:has(> div:nth-child(2))) {
-	// 	@include media($max: "xs") {
-	// 		padding-top: var(--s-md);
-	// 	}
-	// }
 
 	&--type-narrow > div {
 		width: 100% !important;

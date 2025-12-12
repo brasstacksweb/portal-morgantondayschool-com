@@ -1,0 +1,27 @@
+{##
+ # Block Form  component
+ # @param {string} heading
+ # @param {string} body
+ # @param {modules\components\models\Form} form
+ # @param {bool} hasError
+ #}
+
+{# Params #}
+{% set heading = heading ?? '' %}
+{% set body = body ?? '' %}
+{% set form = form ?? null %}
+{% set hasError = hasError ?? false %}
+
+{# Variables #}
+{% set handle = 'block-form' %}
+
+{# Markup #}
+<div class="{{ handle }} {% if hasError %} {{ handle }}--has-error{% endif %}">
+	<div>
+		<h1>{{ heading }}</h1>
+		{% if body is not empty %}
+			<p>{{ body }}</p>
+		{% endif %}
+		{% include '_components/form' with { form: form } %}
+	</div>
+</div>

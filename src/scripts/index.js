@@ -2,21 +2,28 @@
 import pop from './components';
 
 // Components
-// import Form from './components/form';
-// import FormField from './components/form-field';
+import Form from './components/form';
+import FormField from './components/form-field';
 import Carousel from './components/carousel';
 import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
 import TextList from './components/text-list';
 
+// Registration components
+import NotificationBadge from './components/notification-badge';
+import UpdatesList from './components/updates-list';
+
 // Define map of component handles to component classes
 const classMap = {
     carousel: Carousel,
-    // form: Form,
-    // 'form-field': FormField,
+    form: Form,
+    'form-field': FormField,
     'install-banner': InstallBanner,
     modal: Modal,
     'text-list': TextList,
+    // Registration components
+    NotificationBadge,
+    UpdatesList,
 };
 
 // Define all actions/commands that components pub/sub

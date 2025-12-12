@@ -2,6 +2,7 @@ altTranslationKeyFormat: null
 altTranslationMethod: none
 fieldLayouts:
   6d60bb05-b55b-4a9a-9cdb-d324a533afa1:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -64,6 +65,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2024-08-16T00:26:07+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: caption
@@ -80,6 +82,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2024-08-16T00:26:07+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
             handle: null
@@ -95,21 +98,22 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2024-08-16T00:27:21+00:00'
+            dateAdded: '2025-12-12T01:47:05+00:00'
+            editCondition: null
             elementCondition: null
-            fieldUid: c859912b-a038-4328-8bd9-ab4a1bfc9b00 # Enlargable
-            handle: null
+            fieldUid: 5967eb6a-20df-40e5-801a-48817808934a # Toggle
+            handle: enlargable
             includeInCards: false
             instructions: null
-            label: null
+            label: Enlargable
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ea1b0347-da30-4692-a112-6a68e5d6180b
+            uid: 0fa10d31-cc1e-4e68-965f-074d68ba3aea
             userCondition: null
             warning: null
-            width: 50
+            width: 100
         name: Content
         uid: 4591475f-508e-4e5a-bf8f-074ff81032d6
         userCondition: null

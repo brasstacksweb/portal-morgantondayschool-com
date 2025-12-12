@@ -1,3 +1,7 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
 $handle: "header";
 
 .#{$handle} {
@@ -23,7 +27,6 @@ $handle: "header";
 		border-bottom: 1px solid var(--c-br-dk);
 	}
 
-	// Titan Link Logo
 	> a:first-of-type {
 		@include font("logo");
 		position: relative;
@@ -48,7 +51,6 @@ $handle: "header";
 		}
 	}
 
-	// Links
 	> nav {
 		z-index: 10;
 		width: 100%;

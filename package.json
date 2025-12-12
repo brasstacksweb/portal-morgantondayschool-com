@@ -5,10 +5,10 @@
 	"main": "public/scripts/index.js",
 	"scripts": {
 		"build-scripts": "esbuild src/scripts/index.js --bundle --minify --sourcemap --outfile=public/scripts/index.js",
-		"build-styles": "node-sass --output-style compressed src/styles/index.scss public/styles/index.css",
+		"build-styles": "sass --style compressed src/styles/index.scss public/styles/index.css",
 		"build": "npm run build-scripts && npm run build-styles",
 		"watch-scripts": "esbuild src/scripts/index.js --bundle --watch --sourcemap --outfile=public/scripts/index.js",
-		"watch-styles": "node-sass --watch src/styles/index.scss public/styles/index.css"
+		"watch-styles": "sass --watch src/styles/index.scss public/styles/index.css"
 	},
 	"author": "brasstacksweb",
 	"license": "ISC",
@@ -16,8 +16,8 @@
 		"concurrently": "^8.2.2",
 		"esbuild": "^0.12.20",
 		"eslint-config-airbnb-base": "^15.0.0",
-		"node-sass": "^8.0.0",
-		"stylelint": "^16.6.1",
+		"sass": "^1.96.0",
+		"stylelint": "^16.26.1",
 		"stylelint-order": "^6.0.4"
 	}
 }

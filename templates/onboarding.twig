@@ -1,0 +1,29 @@
+{% if currentUser.hasOnboarded %}
+	{% redirect 'dashboard' %}
+{% endif %}
+
+{% set error = craft.app.getSession().getFlash('error') %}
+{% set heading = 'Welcome' %}
+{% set body = error ?? 'Select your children\'s classes to receive updates.' %}
+
+{% set subscribedClasses = craft.subscriptions.getSubscribedClasses(currentUser.id) %}
+
+{% extends '_layouts/html' %}
+
+{% set loadForm = true %}
+
+{% block content %}
+	<article>
+		<header>
+			{% include '_components/block-form' with {
+				heading: heading,
+				body: body,
+				form: create({
+					class: 'modules\\notifications\\models\\Subscriptions',
+					classes: subscribedClasses|map(c => c.id),
+				}),
+				hasError: error is not null,
+			} %}
+		</header>
+	</article>
+{% endblock %}

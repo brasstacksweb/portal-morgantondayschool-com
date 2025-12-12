@@ -1,3 +1,6 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+
 $handle: "modal";
 
 .#{$handle} {

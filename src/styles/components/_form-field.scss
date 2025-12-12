@@ -1,0 +1,116 @@
+@use "../base/layout" as *;
+@use "../base/typography" as *;
+
+$handle: "form-field";
+
+.#{$handle} {
+	position: relative;
+
+	> label {
+		@include font("eyebrow", -1);
+		display: block;
+		margin-bottom: var(--s-xs);
+	}
+
+	&--required > label {
+		position: relative;
+
+		&:after {
+			content: "*";
+			display: inline-block;
+			margin-left: 3px;
+			color: var(--c-red-dk);;
+		}
+	}
+
+	&--required.#{$handle}--invert > label:after {
+		color: var(--c-red-lt);;
+	}
+
+	> div > select,
+	> textarea,
+	> input {
+		@include font;
+		display: block;
+		width: 100%;
+		padding: var(--s-sm);
+		background-color: var(--c-white);
+		color: var(--c-fg-dk);
+		border: 1px solid var(--c-fg-lt);
+		box-shadow: inset 1px 1px transparent;
+		cursor: pointer;
+		transition: border-color var(--a-sm);
+
+		&:focus,
+		&:active {
+			border-color: var(--c-blue) !important;
+			box-shadow: inset 0 0 2px var(--c-blue) !important;
+		}
+
+		&:placeholder {
+			color: var(--c-fg-lt);
+		}
+	}
+
+	&.has-error > div > select,
+	&.has-error > textarea,
+	&.has-error > input {
+		border-color: var(--c-red-dk);
+		box-shadow: inset 0 0 2px var(--c-red-dk);
+	}
+
+	&--invert.has-error > div > select,
+	&--invert.has-error > textarea,
+	&--invert.has-error > input {
+		border-color: var(--c-red-dk);
+		box-shadow: inset 0 0 2px var(--c-red-dk);
+	}
+
+	> div {
+		position: relative;
+
+		> svg {
+			@include centerer(false, true);
+			right: var(--s-sm);
+			width: var(--s-icon-sm);
+			height: var(--s-icon-sm);
+			fill: var(--c-black);
+			pointer-events: none;
+		}
+	}
+
+	> fieldset {
+		display: block;
+
+		> label {
+			@include font("body", "md");
+			display: block;
+
+			&:not(:first-child) {
+				margin-top: var(--s-xs);
+			}
+		}
+	}
+
+	> p {
+		@include font("body", -1);
+		position: relative;
+		margin-top: var(--s-xs);
+		padding: 0 var(--s-xs);
+		color: var(--c-red-dk);
+
+		&:before {
+			content: "!";
+			margin-right: var(--s-xs);
+			font-weight: bold;
+		}
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	&--invert > p {
+		color: var(--c-red-lt);
+	}
+}

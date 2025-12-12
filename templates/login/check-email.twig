@@ -1,0 +1,19 @@
+{% extends '_layouts/html' %}
+
+{% set heading = 'Check Your Email' %}
+{% set body %}
+	<p>We've sent you a magic link. Click the link in the email to sign in.</p>
+	<p>The link will expire in 15 minutes.</p>
+{% endset %}
+
+{% block content %}
+	<article>
+		<header>
+			{% include '_components/hero' with {
+				heading: heading,
+				body: body,
+				type: 'narrow',
+			} %}
+		</header>
+	</article>
+{% endblock %}

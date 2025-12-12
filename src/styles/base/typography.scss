@@ -1,4 +1,25 @@
+@use "../base/layout" as *;
+
 @charset "utf-8";
+
+@function lerp($y1, $y2, $x1: var(--p-min), $x2: var(--p-max), $mul: 1px) {
+	/* y = mx + b */
+	/* m = (y2 - y1) / (x2 - x1) */
+	/* x = 100vw - x1 */
+	/* b = y1 */
+	@return calc((#{$y2} - #{$y1}) / (#{$x2} - #{$x1}) * (100vw - #{$x1} * #{$mul}) + #{$y1} * #{$mul});
+}
+
+@function range($min, $max, $mul: 1px) {
+	$lbound: if(sass($max - $min < 0): $max; else: $min);
+	$ubound: if(sass($max - $min < 0): $min; else: $max);
+
+	@return clamp(
+		calc(#{$lbound} * #{$mul}),
+		#{lerp($min, $max, $mul: $mul)},
+		calc(#{$ubound} * #{$mul})
+	);
+}
 
 @mixin font($type: "body", $size: "md") {
 	font-family: system-ui;
@@ -100,12 +121,12 @@
 }
 
 @mixin link($invert: false) {
-	color: if($invert, var(--c-white), var(--c-black));
+	color: if(sass($invert): var(--c-white); else: var(--c-black));
 	text-decoration: underline;
 	word-wrap: break-word;
 
 	&:hover {
-		color: if($invert, var(--c-gold-lt), var(--c-green));
+		color: if(sass($invert): var(--c-gold-lt); else: var(--c-green));
 		text-decoration-thickness: 2px;
 	}
 }
@@ -123,7 +144,7 @@
 
 		> ol,
 		> ul {
-			margin-top: if($size == "sm", var(--s-xs), var(--s-sm));
+			margin-top: if(sass($size == "sm"): var(--s-xs); else: var(--s-sm));
 		}
 
 		> ul {
@@ -145,7 +166,7 @@
 
 		> ol,
 		> ul {
-			margin-top: if($size == "sm", var(--s-xs), var(--s-sm));
+			margin-top: if(sass($size == "sm"): var(--s-xs); else: var(--s-sm));
 		}
 
 		> ul {
@@ -157,7 +178,7 @@
 @mixin richText($size: "md", $invert: false) {
 	display: block;
 	width: 100%;
-	color: if($invert, var(--c-white), var(--c-fg-dk));
+	color: if(sass($invert): var(--c-white); else: var(--c-fg-dk));
 
 	&:has(table) {
 		overflow-x: auto;
@@ -167,13 +188,13 @@
 		max-width: var(--w-lg);
 
 		&:not(:first-child) {
-			margin-top: if($size == "sm", var(--s-xs), var(--s-sm));
+			margin-top: if(sass($size == "sm"): var(--s-xs); else: var(--s-sm));
 		}
 	}
 
 	> h1, > h2, > h3, > h4, > h5, > h6 {
 		&:not(:first-child) {
-			margin-top: if($size == "sm", var(--s-xs), var(--s-sm));
+			margin-top: if(sass($size == "sm"): var(--s-xs); else: var(--s-sm)) ;
 		}
 	}
 
@@ -223,7 +244,7 @@
 			border: 1px solid vaR(--c-br-lt);
 
 			> *:not(:first-child) {
-				margin-top: if($size == "sm", var(--s-xs), var(--s-sm));
+				margin-top: if(sass($size == "sm"): var(--s-xs); else: var(--s-sm));
 			}
 
 			> ul,
@@ -245,7 +266,7 @@
 		> figcaption {
 			@include font("body", "sm");
 			padding: var(--s-xs);
-			color: if($invert, var(--c-white), var(--c-fg-md));
+			color: if(sass($invert): var(--c-white); else: var(--c-fg-md));
 		}
 	}
 

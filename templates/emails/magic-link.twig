@@ -1,0 +1,38 @@
+<div
+	style="
+		max-width: 600px;
+		margin: 0 auto;
+		color: #333;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+		line-height: 1.5;
+	">
+	<h2>{{ subject }}</h2>
+
+	{% if isNewUser %}
+		<p>Welcome! Click the button below to complete your registration.</p>
+	{% else %}
+		<p>Click the button below to sign in to your account.</p>
+	{% endif %}
+
+	<div style="margin: 30px 0;">
+		<a href="{{ magicLink }}"
+			style="
+				background: #1A4D24;
+				color: white;
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 5px;
+				display: inline-block;
+				font-weight: bold;
+			">
+			{{ ctaText }}
+		</a>
+	</div>
+
+	<p style="color: #666; font-size: 14px;">
+		This link expires in 15 minutes and can only be used once.
+		<br>
+		If you didn't request this, you can safely ignore this email.
+	</p>
+</div>

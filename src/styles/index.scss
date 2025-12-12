@@ -2,42 +2,32 @@
  * Main Stylesheet
  */
 
-/**
- * Order is important in the base imports
- */
+@use "base/reset";
+@use "base/elements";
 
-@import "base/reset";
-@import "base/elements";
-@import "base/media";
-@import "base/typography";
-@import "base/layout";
-
-/**
- * Order alphabetically
- */
-
-@import "components/accordion-list";
-@import "components/background-image";
-@import "components/card";
-@import "components/card-list";
-@import "components/carousel";
-@import "components/class-card";
-@import "components/class-list";
-@import "components/color-split";
-@import "components/cta";
-@import "components/details";
-// @import "components/expandable-text";
-@import "components/figure";
-@import "components/footer";
-@import "components/form";
-@import "components/form-field";
-@import "components/gallery";
-@import "components/header";
-@import "components/hero";
-@import "components/install-banner";
-@import "components/intro";
-@import "components/media";
-@import "components/media-split";
-@import "components/modal";
-@import "components/text-block";
-@import "components/text-list";
+@use "components/accordion-list";
+@use "components/background-image";
+@use "components/block-form";
+@use "components/card";
+@use "components/card-list";
+@use "components/carousel";
+@use "components/class-card";
+@use "components/class-list";
+@use "components/color-split";
+@use "components/cta";
+@use "components/details";
+/* @use "components/expandable-text"; */
+@use "components/figure";
+@use "components/footer";
+@use "components/form";
+@use "components/form-field";
+@use "components/gallery";
+@use "components/header";
+@use "components/hero";
+@use "components/install-banner";
+@use "components/intro";
+@use "components/media";
+@use "components/media-split";
+@use "components/modal";
+@use "components/text-block";
+@use "components/text-list";

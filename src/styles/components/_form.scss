@@ -1,0 +1,44 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "form";
+
+.#{$handle} {
+	> p {
+		@include font("body", "lg");
+		color: var(--c-red-dk);
+		margin-bottom: var(--s-sm);
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	> form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		> div {
+			width: 100%;
+			margin-bottom: var(--s-md);
+
+			&.half {
+				@include media("sm") {
+					width: calc(50% - var(--s-sm));
+				}
+			}
+		}
+	}
+
+	&--invert > div {
+		@include richText($invert: true);
+		text-align: center;
+	}
+
+	&:not(&--invert) > div {
+		@include richText;
+		text-align: center;
+	}
+}

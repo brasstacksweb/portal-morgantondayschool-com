@@ -1,3 +1,7 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
 $handle: "class-listing";
 
 .#{$handle} {
@@ -34,14 +38,6 @@ $handle: "class-listing";
 			@include media("md") {
 				grid-column: span 2;
 			}
-
-			// &:nth-child(1),
-			// &:nth-child(2),
-			// &:nth-child(3){
-			// 	@include media("sm") {
-			// 		grid-column: span 4;
-			// 	}
-			// }
 		}
 	}
 }

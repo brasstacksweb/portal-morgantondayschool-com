@@ -1,3 +1,5 @@
+@use "../base/typography" as *;
+
 $handle: "avatar";
 
 .#{$handle} {

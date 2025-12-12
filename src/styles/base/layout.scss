@@ -2,10 +2,10 @@
  * Layout mixins
  */
 
-// Weird syntax for native css `max` function instead of sass `max` function
-// https://github.com/webpack-contrib/sass-loader/issues/930#issuecomment-785006897
+/* Weird syntax for native css `max` function instead of sass `max` function */
+/* https://github.com/webpack-contrib/sass-loader/issues/930#issuecomment-785006897 */
 @function pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
-	@return m#{a}x($padding, calc(0.5 * (#{$cont-width} - #{$max-width})));
+	@return max($padding, calc(0.5 * (#{$cont-width} - #{$max-width})));
 }
 
 @mixin pad($padding: var(--s-md), $max-width: calc(var(--p-max) * 1px), $cont-width: 100%) {
@@ -15,7 +15,7 @@
 
 @mixin space($padding: var(--s-md), $bottom: false) {
 	padding-top: $padding;
-	padding-bottom: if($bottom, $bottom, $padding);
+	padding-bottom: if(sass($bottom): $bottom; else: $padding);
 }
 
 @mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
@@ -28,10 +28,12 @@
 
 @mixin centerer($horizontal: true, $vertical: true) {
 	position: absolute;
-	top: if($vertical, 50%, auto);
-	left: if($horizontal, 50%, auto);
-	transform: translate(#{if($horizontal, -50%, 0)},
-	#{if($vertical, -50%, 0)});
+	top: if(sass($vertical): 50%; else: auto);
+	left: if(sass($horizontal): 50%; else: auto);
+	transform: translate(
+		#{if(sass($horizontal): -50%; else: 0)},
+		#{if(sass($vertical): -50%; else: 0)}
+	);
 }
 
 @mixin fullOverlay() {
@@ -50,12 +52,12 @@
 }
 
 @mixin lineOverflow($height, $lines) {
-	display: -webkit-box; // Allow for overflow ellipsis on max height
-	-webkit-line-clamp: $lines; // number of lines to show
+	display: -webkit-box; /* Allow for overflow ellipsis on max height */
+	-webkit-line-clamp: $lines; /* number of lines to show */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	max-height: calc(#{$height} * #{$lines}); // max height of n lines
+	max-height: calc(#{$height} * #{$lines}); /* max height of n lines */
 }
 
 @mixin shadow($s: var(--s-xs)) {

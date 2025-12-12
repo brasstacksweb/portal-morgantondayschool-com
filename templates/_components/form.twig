@@ -1,6 +1,6 @@
 {##
  # Form component
- # @param {modules\forms\models\Form} Form
+ # @param {modules\components\models\Form} Form
  # @param {HTML} successMessage
  # @param {bool} invert
  #}
@@ -12,9 +12,11 @@
 
 {# Variables #}
 {% set handle = 'form' %}
+{% set redirectPath = form.getRedirectPath() %}
 
 {% set params = {
 	siteKey: getenv('RECAPTCHA_SITE_KEY'),
+	redirectPath: redirectPath,
 } %}
 
 {# Markup #}
@@ -22,9 +24,13 @@
 	class="{{ handle }} {{ invert ? handle ~ '--invert' }}"
 	data-comp-name="{{ handle }}"
 	data-comp-params="{{ params|json_encode }}">
+	<p></p>
 	<form method="post" {% if devMode %}novalidate{% endif %}>
 		{{ csrfInput() }}
 		{{ actionInput(form.getActionPath()) }}
+		{% if redirectPath is not empty %}
+			{{ redirectInput(form.getRedirectPath()) }}
+		{% endif %}
 
 		{% for name in form.activeAttributes() %}
 			{% if form.getAttributeType(name) == 'hidden' %}
@@ -42,8 +48,8 @@
 
 		<button type="submit">
 			{% include '_components/cta' with {
-				title: form.actionText,
-				type: 'secondary',
+				title: form.submitText,
+				type: 'primary',
 				invert: invert,
 			} %}
 		</button>
