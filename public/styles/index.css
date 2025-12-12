@@ -201,7 +201,7 @@ a:focus {
   --c-fg-lt: #F4F4F4;
   --c-fg-md: #666;
   --c-fg-dk: #111;
-  /* --c-br-lt: #AAA; */
+  --c-br-lt: #AAA;
   --c-br-dk: #333;
   /* Animation */
   --a-s-xs: 160ms;
@@ -909,6 +909,7 @@ details summary::-webkit-details-marker {
   max-width: var(--w-md);
   margin: 0 auto;
   padding: var(--s-md);
+  background-color: var(--c-white);
   border: 1px solid var(--c-black);
 }
 .block-form > div > h1 {
@@ -2854,7 +2855,7 @@ details summary::-webkit-details-marker {
   padding: var(--s-sm);
   background-color: var(--c-white);
   color: var(--c-fg-dk);
-  border: 1px solid var(--c-fg-lt);
+  border: 1px solid var(--c-br-lt);
   box-shadow: inset 1px 1px transparent;
   cursor: pointer;
   transition: border-color var(--a-sm);
@@ -2864,8 +2865,8 @@ details summary::-webkit-details-marker {
 .form-field > textarea:active,
 .form-field > input:focus,
 .form-field > input:active {
-  border-color: var(--c-blue) !important;
-  box-shadow: inset 0 0 2px var(--c-blue) !important;
+  border-color: var(--c-green-dk) !important;
+  box-shadow: inset 0 0 2px var(--c-green-dk) !important;
 }
 .form-field > div > select:placeholder,
 .form-field > textarea:placeholder,
