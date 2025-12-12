@@ -21,52 +21,44 @@ export default function Form(el, {
 
         body.append('token', token);
 
-        fetch('/', {
+        const res = await fetch('/', {
             method: 'POST',
             headers: { Accept: 'application/json' },
             body,
-        })
-            .then(res => res.json().then(json => ({
-                status: res.status,
-                ...json,
-            })))
-            .then(({
-                status,
-                message = '',
-                errors = {},
-            }) => {
-                // Reset all errrors to empty
-                errorMessage.textContent = '';
-                Array.from(body.keys()).map(name => name.replace('[]', '')).forEach(name => {
-                    events.emit(actions.showFieldError, { name, errors: [] });
-                });
-                submit.removeAttribute('disabled');
+        });
+        const { message = '', errors = {} } = await res.json();
 
-                switch (status) {
-                case 500:
-                    window.alert(message); // eslint-disable-line no-alert
+        // Reset all errrors to empty
+        errorMessage.textContent = '';
+        Array.from(body.keys()).map(name => name.replace('[]', '')).forEach(name => {
+            events.emit(actions.showFieldError, { name, errors: [] });
+        });
+        submit.removeAttribute('disabled');
 
-                    break;
-                case 400:
-                    errorMessage.textContent = message;
-                    Object.entries(errors).forEach(([name, errs]) => {
-                        events.emit(actions.showFieldError, { name, errors: errs });
-                    });
+        switch (res.status) {
+        case 500:
+            window.alert(message); // eslint-disable-line no-alert
 
-                    break;
-                case 200:
-                default:
-                    if (redirectPath) {
-                        window.location.href = redirectPath;
-
-                        return;
-                    }
-
-                    form.remove();
-                    successMessage.style.display = 'block';
-                    el.parentElement.style.scrollMarginTop = 'var(--h-header)';
-                    el.parentElement.scrollIntoView({ behavior: 'smooth' });
-                }
+            break;
+        case 400:
+            errorMessage.textContent = message;
+            Object.entries(errors).forEach(([name, errs]) => {
+                events.emit(actions.showFieldError, { name, errors: errs });
             });
+
+            break;
+        case 200:
+        default:
+            if (redirectPath) {
+                window.location.href = redirectPath;
+
+                return;
+            }
+
+            form.remove();
+            successMessage.style.display = 'block';
+            el.parentElement.style.scrollMarginTop = 'var(--h-header)';
+            el.parentElement.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 }

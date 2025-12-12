@@ -3,10 +3,21 @@
 namespace modules\notifications\services;
 
 use craft\elements\Entry;
+use modules\notifications\models\Subscriptions as SubscriptionsModel;
 use modules\notifications\records\UserClassSubscription;
+use yii\base\Component;
 
-class Subscriptions
+class Subscriptions extends Component
 {
+    public static function newSubscriptions($attrs): Login
+    {
+        $subscriptions = new SubscriptionsModel();
+
+        $subscriptions->setAttributes($attrs);
+
+        return $subscriptions;
+    }
+
     public static function getSubscribedClasses(int $userId): array
     {
         $classIds = UserClassSubscription::find()
@@ -91,8 +102,6 @@ class Subscriptions
             return [];
         }
 
-        return \Craft::$app->getUsers()
-            ->id($userIds)
-            ->all();
+        return User::findAll($userIds);
     }
 }

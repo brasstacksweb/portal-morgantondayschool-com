@@ -2,13 +2,25 @@
 
 namespace modules\notifications\services;
 
+use craft\elements\User;
+use modules\notifications\models\Login;
 use modules\notifications\records\MagicLinkToken;
+use yii\base\Component;
 
-class MagicLinks
+class Auth extends Component
 {
     private const TOKEN_EXPIRY_MINUTES = 15;
 
-    public static function generateToken(string $email): string
+    public static function newLogin($attrs): Login
+    {
+        $login = new Login();
+
+        $login->setAttributes($attrs);
+
+        return $login;
+    }
+
+    public function generateToken(string $email): string
     {
         $token = bin2hex(random_bytes(32));
 
@@ -24,7 +36,7 @@ class MagicLinks
         return $token;
     }
 
-    public static function validateToken(string $token): ?string
+    public function validateToken(string $token): ?string
     {
         $record = MagicLinkToken::find()
             ->where(['token' => $token])
@@ -48,7 +60,7 @@ class MagicLinks
         return $record->email;
     }
 
-    public static function markTokenUsed(string $token): void
+    public function markTokenUsed(string $token): void
     {
         $record = MagicLinkToken::find()
             ->where(['token' => $token])
@@ -60,7 +72,7 @@ class MagicLinks
         }
     }
 
-    public static function cleanupExpiredTokens(): void
+    public function cleanupExpiredTokens(): void
     {
         $now = new \DateTime();
 
@@ -78,7 +90,7 @@ class MagicLinks
         ]);
     }
 
-    public static function sendMagicLinkEmail(string $email, string $token): bool
+    public function sendMagicLinkEmail(string $email, string $token): bool
     {
         $magicLink = \Craft::$app->getRequest()->getHostInfo()."/notifications/auth/verify?token={$token}";
         $isNewUser = !\Craft::$app->getUsers()->getUserByUsernameOrEmail($email);
@@ -99,5 +111,36 @@ class MagicLinks
             ->setSubject($subject)
             ->setHtmlBody($body)
             ->send();
+    }
+
+    public function getOrCreateUser(string $email): ?User
+    {
+        $users = \Craft::$app->getUsers();
+
+        if ($user = $users->getUserByUsernameOrEmail($email)) {
+            return $user;
+        }
+
+        $user = new User();
+        $user->email = $email;
+        $user->username = $email;
+
+        $segments = explode('@', $email);
+        $user->firstName = ucfirst($segments[0]);
+
+        if (!\Craft::$app->getElements()->saveElement($user)) {
+            \Craft::error('Failed to create user: '.implode(', ', $user->getErrorSummary(true)), __METHOD__);
+
+            return null;
+        }
+
+        $users->activateUser($user);
+
+        $parentsGroup = \Craft::$app->getUserGroups()->getGroupByHandle('parents');
+        if ($parentsGroup) {
+            $users->assignUserToGroups($user->id, [$parentsGroup->id]);
+        }
+
+        return $user;
     }
 }

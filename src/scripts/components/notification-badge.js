@@ -2,36 +2,6 @@ export default function NotificationBadge(element, { events, actions }) {
     const badge = element.querySelector('.badge');
     let refreshInterval;
 
-    function init() {
-        fetchUnreadCount();
-        
-        // Refresh every 60 seconds
-        refreshInterval = setInterval(fetchUnreadCount, 60000);
-        
-        // Listen for manual refresh events
-        events.on('notification:refresh', fetchUnreadCount);
-        
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', cleanup);
-    }
-
-    async function fetchUnreadCount() {
-        try {
-            const response = await fetch('/registration/notifications/unread-count', {
-                headers: { 'Accept': 'application/json' }
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
-            const data = await response.json();
-            updateBadge(data.count || 0);
-        } catch (error) {
-            console.error('Failed to fetch unread count:', error);
-        }
-    }
-
     function updateBadge(count) {
         if (count > 0) {
             badge.textContent = count > 99 ? '99+' : count.toString();
@@ -43,11 +13,28 @@ export default function NotificationBadge(element, { events, actions }) {
         }
     }
 
-    function cleanup() {
-        if (refreshInterval) {
-            clearInterval(refreshInterval);
+    async function fetchUnreadCount() {
+        try {
+            const response = await fetch('/registration/notifications/unread-count', {
+                headers: { Accept: 'application/json' },
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            updateBadge(data.count || 0);
+        } catch (error) {
+            console.error('Failed to fetch unread count:', error);
         }
     }
 
-    init();
+    fetchUnreadCount();
+
+    // Refresh every 60 seconds
+    refreshInterval = setInterval(fetchUnreadCount, 60000);
+
+    // Listen for manual refresh events
+    events.on('notification:refresh', fetchUnreadCount);
 }

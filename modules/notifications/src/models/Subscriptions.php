@@ -55,7 +55,7 @@ class Subscriptions extends BaseForm
 
     public function getActionPath(): string
     {
-        return 'notifications/onboarding/save-subscriptions';
+        return 'notifications/subscriptions/save';
     }
 
     public function getRedirectPath(): string

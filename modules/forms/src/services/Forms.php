@@ -2,8 +2,6 @@
 
 namespace modules\forms\services;
 
-use Craft;
-use modules\forms\models\BusinessUnitContact;
 use modules\forms\models\Contact;
 use modules\forms\models\Form;
 
@@ -13,7 +11,7 @@ class Forms
     {
         $f = match ($handle) {
             'contact' => new Contact([
-                'pageUrl' => Craft::$app->getRequest()->absoluteUrl,
+                'pageUrl' => \Craft::$app->getRequest()->absoluteUrl,
             ]),
             default => new Form(),
         };

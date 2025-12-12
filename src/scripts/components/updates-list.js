@@ -1,19 +1,7 @@
 export default function UpdatesList(element, { events, actions }) {
-    const updateItems = element.querySelectorAll('[data-update-id]');
-    let observer;
+    const updates = element.querySelectorAll('[data-update-id]');
 
-    function handleIntersection(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const { updateId } = entry.target.dataset;
-                if (updateId) {
-                    markAsRead(updateId, entry.target);
-                }
-            }
-        });
-    }
-
-    async function markAsRead(updateId, element) {
+    async function markAsRead(updateId, el, observer) {
         try {
             const csrfToken = document.querySelector('[name="CRAFT_CSRF_TOKEN"]');
             if (!csrfToken) {
@@ -28,7 +16,7 @@ export default function UpdatesList(element, { events, actions }) {
                     Accept: 'application/json',
                     'X-CSRF-Token': csrfToken.value,
                 },
-                body: JSON.stringify({ updateId: parseInt(updateId) }),
+                body: JSON.stringify({ updateId: parseInt(updateId, 10) }),
             });
 
             if (!response.ok) {
@@ -39,8 +27,8 @@ export default function UpdatesList(element, { events, actions }) {
 
             if (result.success) {
                 // Mark as read visually
-                element.classList.add('read');
-                observer.unobserve(element);
+                el.classList.add('read');
+                observer.unobserve(el);
 
                 // Trigger badge refresh
                 events.emit('notification:refresh');
@@ -50,27 +38,22 @@ export default function UpdatesList(element, { events, actions }) {
         }
     }
 
-    function cleanup() {
-        if (observer) {
-            observer.disconnect();
-        }
-    }
-
     // Set up intersection observer to mark as read when viewed
-    observer = new IntersectionObserver(
-        handleIntersection,
-        {
-            threshold: 0.5,
-            rootMargin: '0px',
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const { updateId } = entry.target.dataset;
+                    if (updateId) {
+                        markAsRead(updateId, entry.target);
+                    }
+                }
+            });
         },
+        { threshold: 0.5 },
     );
 
-    updateItems.forEach(item => {
-        if (!item.classList.contains('read')) {
-            observer.observe(item);
-        }
-    });
-
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', cleanup);
+    updates
+        .filter(u => !u.classList.contains('read'))
+        .forEach(u => { observer.observe(u); });
 }

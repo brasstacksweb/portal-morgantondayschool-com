@@ -2,10 +2,8 @@
 
 namespace modules\notifications\controllers;
 
-use craft\elements\User;
 use craft\web\Controller;
-use modules\notifications\models\Login;
-use modules\notifications\services\MagicLinks;
+use modules\notifications\NotificationsModule;
 use yii\web\Response;
 
 class AuthController extends Controller
@@ -17,17 +15,16 @@ class AuthController extends Controller
         $this->requirePostRequest();
 
         $request = \Craft::$app->getRequest();
-        $model = new Login();
-
-        $model->setAttributes($request->getBodyParams());
+        $auth = NotificationsModule::getInstance()->get('auth');
+        $model = $auth::newLogin($request->getBodyParams());
 
         if (!$model->validate()) {
             return $this->asModelFailure($model, 'Invalid email address');
         }
 
         try {
-            $token = MagicLinks::generateToken($model->email);
-            $emailSent = MagicLinks::sendMagicLinkEmail($model->email, $token);
+            $token = $auth->generateToken($model->email);
+            $emailSent = $auth->sendMagicLinkEmail($model->email, $token);
 
             if (!$emailSent) {
                 return $this->asFailure('Failed to send email');
@@ -52,7 +49,8 @@ class AuthController extends Controller
             return $this->redirect('/login');
         }
 
-        $email = MagicLinks::validateToken($token);
+        $auth = NotificationsModule::getInstance()->get('auth');
+        $email = $auth->validateToken($token);
 
         if (!$email) {
             \Craft::$app->getSession()->setError('Invalid or expired token');
@@ -60,9 +58,10 @@ class AuthController extends Controller
             return $this->redirect('/login');
         }
 
-        MagicLinks::markTokenUsed($token);
+        $auth->markTokenUsed($token);
 
-        $user = $this->getOrCreateUser($email);
+        $user = $auth->getOrCreateUser($email);
+
         if (!$user) {
             \Craft::$app->getSession()->setError('Failed to create user account');
 
@@ -75,43 +74,12 @@ class AuthController extends Controller
             return $this->redirect('/login');
         }
 
-        $hasOnboarded = $user->getFieldValue('hasOnboarded') ?? false;
+        $hasOnboarded = $user->getFieldValue('hasOnboarded');
 
         if (!$hasOnboarded) {
-            return $this->redirect('/onboarding');
+            return $this->redirect('/subscriptions');
         }
 
-        return $this->redirect('/dashboard');
-    }
-
-    private function getOrCreateUser(string $email): ?User
-    {
-        $users = \Craft::$app->getUsers();
-
-        if ($user = $users->getUserByUsernameOrEmail($email)) {
-            return $user;
-        }
-
-        $user = new User();
-        $user->email = $email;
-        $user->username = $email;
-
-        $segments = explode('@', $email);
-        $user->firstName = ucfirst($segments[0]);
-
-        if (!\Craft::$app->getElements()->saveElement($user)) {
-            \Craft::error('Failed to create user: '.implode(', ', $user->getErrorSummary(true)), __METHOD__);
-
-            return null;
-        }
-
-        $users->activateUser($user);
-
-        $parentsGroup = \Craft::$app->getUserGroups()->getGroupByHandle('parents');
-        if ($parentsGroup) {
-            $users->assignUserToGroups($user->id, [$parentsGroup->id]);
-        }
-
-        return $user;
+        return $this->redirect('/');
     }
 }

@@ -10,8 +10,8 @@ import Modal from './components/modal';
 import TextList from './components/text-list';
 
 // Registration components
-import NotificationBadge from './components/notification-badge';
-import UpdatesList from './components/updates-list';
+// import NotificationBadge from './components/notification-badge';
+// import UpdatesList from './components/updates-list';
 
 // Define map of component handles to component classes
 const classMap = {
@@ -22,8 +22,8 @@ const classMap = {
     modal: Modal,
     'text-list': TextList,
     // Registration components
-    NotificationBadge,
-    UpdatesList,
+    // NotificationBadge,
+    // UpdatesList,
 };
 
 // Define all actions/commands that components pub/sub

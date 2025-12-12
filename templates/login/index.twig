@@ -1,5 +1,5 @@
 {% if not craft.app.getUser().getIsGuest() %}
-	{% redirect 'dashboard' %}
+	{% redirect siteUrl %}
 {% endif %}
 
 {% set error = craft.app.getSession().getFlash('error') %}

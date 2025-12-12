@@ -36,10 +36,7 @@
   "scripts": {
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example.dev', '.env');\""
-    ],
-    "test": "vendor/bin/phpunit",
-    "test-unit": "vendor/bin/codecept run unit",
-    "test-coverage": "vendor/bin/phpunit --coverage-html tests/_output/coverage"
+    ]
   },
   "repositories": [
     {

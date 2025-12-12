@@ -54,45 +54,38 @@
       const body = new FormData(form);
       const token = await grecaptcha.enterprise.execute(siteKey, { action: "submit" });
       body.append("token", token);
-      fetch("/", {
+      const res = await fetch("/", {
         method: "POST",
         headers: { Accept: "application/json" },
         body
-      }).then((res) => res.json().then((json) => ({
-        status: res.status,
-        ...json
-      }))).then(({
-        status,
-        message = "",
-        errors = {}
-      }) => {
-        errorMessage.textContent = "";
-        Array.from(body.keys()).map((name) => name.replace("[]", "")).forEach((name) => {
-          events.emit(actions2.showFieldError, { name, errors: [] });
-        });
-        submit.removeAttribute("disabled");
-        switch (status) {
-          case 500:
-            window.alert(message);
-            break;
-          case 400:
-            errorMessage.textContent = message;
-            Object.entries(errors).forEach(([name, errs]) => {
-              events.emit(actions2.showFieldError, { name, errors: errs });
-            });
-            break;
-          case 200:
-          default:
-            if (redirectPath) {
-              window.location.href = redirectPath;
-              return;
-            }
-            form.remove();
-            successMessage.style.display = "block";
-            el.parentElement.style.scrollMarginTop = "var(--h-header)";
-            el.parentElement.scrollIntoView({ behavior: "smooth" });
-        }
       });
+      const { message = "", errors = {} } = await res.json();
+      errorMessage.textContent = "";
+      Array.from(body.keys()).map((name) => name.replace("[]", "")).forEach((name) => {
+        events.emit(actions2.showFieldError, { name, errors: [] });
+      });
+      submit.removeAttribute("disabled");
+      switch (res.status) {
+        case 500:
+          window.alert(message);
+          break;
+        case 400:
+          errorMessage.textContent = message;
+          Object.entries(errors).forEach(([name, errs]) => {
+            events.emit(actions2.showFieldError, { name, errors: errs });
+          });
+          break;
+        case 200:
+        default:
+          if (redirectPath) {
+            window.location.href = redirectPath;
+            return;
+          }
+          form.remove();
+          successMessage.style.display = "block";
+          el.parentElement.style.scrollMarginTop = "var(--h-header)";
+          el.parentElement.scrollIntoView({ behavior: "smooth" });
+      }
     };
   }
 
@@ -284,108 +277,6 @@
     };
   }
 
-  // src/scripts/components/notification-badge.js
-  function NotificationBadge(element, { events, actions: actions2 }) {
-    const badge = element.querySelector(".badge");
-    let refreshInterval;
-    function init() {
-      fetchUnreadCount();
-      refreshInterval = setInterval(fetchUnreadCount, 6e4);
-      events.on("notification:refresh", fetchUnreadCount);
-      window.addEventListener("beforeunload", cleanup);
-    }
-    async function fetchUnreadCount() {
-      try {
-        const response = await fetch("/registration/notifications/unread-count", {
-          headers: { "Accept": "application/json" }
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        const data = await response.json();
-        updateBadge(data.count || 0);
-      } catch (error) {
-        console.error("Failed to fetch unread count:", error);
-      }
-    }
-    function updateBadge(count) {
-      if (count > 0) {
-        badge.textContent = count > 99 ? "99+" : count.toString();
-        badge.style.display = "inline-block";
-        badge.setAttribute("aria-label", `${count} unread notifications`);
-      } else {
-        badge.style.display = "none";
-        badge.removeAttribute("aria-label");
-      }
-    }
-    function cleanup() {
-      if (refreshInterval) {
-        clearInterval(refreshInterval);
-      }
-    }
-    init();
-  }
-
-  // src/scripts/components/updates-list.js
-  function UpdatesList(element, { events, actions: actions2 }) {
-    const updateItems = element.querySelectorAll("[data-update-id]");
-    let observer;
-    function handleIntersection(entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const { updateId } = entry.target.dataset;
-          if (updateId) {
-            markAsRead(updateId, entry.target);
-          }
-        }
-      });
-    }
-    async function markAsRead(updateId, element2) {
-      try {
-        const csrfToken = document.querySelector('[name="CRAFT_CSRF_TOKEN"]');
-        if (!csrfToken) {
-          console.warn("CSRF token not found");
-          return;
-        }
-        const response = await fetch("/registration/notifications/mark-read", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "X-CSRF-Token": csrfToken.value
-          },
-          body: JSON.stringify({ updateId: parseInt(updateId) })
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        const result = await response.json();
-        if (result.success) {
-          element2.classList.add("read");
-          observer.unobserve(element2);
-          events.emit("notification:refresh");
-        }
-      } catch (error) {
-        console.error("Failed to mark as read:", error);
-      }
-    }
-    function cleanup() {
-      if (observer) {
-        observer.disconnect();
-      }
-    }
-    observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5,
-      rootMargin: "0px"
-    });
-    updateItems.forEach((item) => {
-      if (!item.classList.contains("read")) {
-        observer.observe(item);
-      }
-    });
-    window.addEventListener("beforeunload", cleanup);
-  }
-
   // src/scripts/index.js
   var classMap = {
     carousel: Form2,
@@ -393,9 +284,7 @@
     "form-field": FormField,
     "install-banner": InstallBanner,
     modal: Modal,
-    "text-list": HomeDashboard,
-    NotificationBadge,
-    UpdatesList
+    "text-list": HomeDashboard
   };
   var actions = {
     lockScroll: "lock-scroll",

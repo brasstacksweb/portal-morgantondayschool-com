@@ -205,9 +205,9 @@ public function markAllAsRead(int $userId): bool
 // Get unread count
 SELECT COUNT(*) as unread_count
 FROM {{%entries}} cu
-INNER JOIN {{%user_class_subscriptions}} ucs 
+INNER JOIN {{%user_class_subscriptions}} ucs
   ON cu.id = ucs.classEntryId
-LEFT JOIN {{%user_update_read_status}} urs 
+LEFT JOIN {{%user_update_read_status}} urs
   ON cu.id = urs.updateEntryId AND urs.userId = ucs.userId
 WHERE ucs.userId = :userId
   AND cu.sectionId = :updatesSectionId
@@ -215,16 +215,16 @@ WHERE ucs.userId = :userId
   AND cu.postDate > ucs.dateCreated;
 
 // Get unread updates with details
-SELECT 
+SELECT
   cu.id,
   cu.title,
   cu.postDate,
   c.title as className
 FROM {{%entries}} cu
 INNER JOIN {{%entries}} c ON cu.classId = c.id
-INNER JOIN {{%user_class_subscriptions}} ucs 
+INNER JOIN {{%user_class_subscriptions}} ucs
   ON c.id = ucs.classEntryId
-LEFT JOIN {{%user_update_read_status}} urs 
+LEFT JOIN {{%user_update_read_status}} urs
   ON cu.id = urs.updateEntryId AND urs.userId = ucs.userId
 WHERE ucs.userId = :userId
   AND cu.sectionId = :updatesSectionId
@@ -297,12 +297,12 @@ class OnboardingForm {
 
   init() {
     this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    
+
     // Enable/disable submit based on selection
     this.checkboxes.forEach(cb => {
       cb.addEventListener('change', () => this.updateSubmitButton());
     });
-    
+
     this.updateSubmitButton();
   }
 
@@ -313,7 +313,7 @@ class OnboardingForm {
 
   async handleSubmit(e) {
     e.preventDefault();
-    
+
     const selectedClasses = Array.from(this.checkboxes)
       .filter(cb => cb.checked)
       .map(cb => parseInt(cb.value));
@@ -324,7 +324,7 @@ class OnboardingForm {
     try {
       const response = await fetch('/registration/onboarding/save-subscriptions', {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'X-CSRF-Token': this.form.querySelector('[name="CRAFT_CSRF_TOKEN"]').value
         },
@@ -423,13 +423,13 @@ class UpdatesList {
     try {
       await fetch('/registration/notifications/mark-read', {
         method: 'POST',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'X-CSRF-Token': document.querySelector('[name="CRAFT_CSRF_TOKEN"]').value
         },
         body: JSON.stringify({ updateId: parseInt(updateId) })
       });
-      
+
       // Update badge count
       const badge = document.querySelector('[data-component="NotificationBadge"]');
       if (badge && badge._instance) {
@@ -454,16 +454,16 @@ class UpdatesList {
   <div class="login-container">
     <h1>Sign In</h1>
     <p>Enter your email address and we'll send you a magic link to sign in.</p>
-    
+
     <div data-component="LoginForm">
       <form>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required 
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
             placeholder="your.email@example.com"
           >
         </div>
@@ -501,18 +501,18 @@ class UpdatesList {
   <div class="onboarding-container">
     <h1>Welcome!</h1>
     <p>Select your children's classes to receive updates.</p>
-    
+
     <div data-component="OnboardingForm">
       <form>
         {{ csrfInput() }}
-        
+
         <div class="class-list">
           {% for class in craft.entries.section('classes').all() %}
             <div class="class-item">
               <label>
-                <input 
-                  type="checkbox" 
-                  name="classes[]" 
+                <input
+                  type="checkbox"
+                  name="classes[]"
                   value="{{ class.id }}"
                 >
                 <span class="class-name">{{ class.title }}</span>
@@ -521,7 +521,7 @@ class UpdatesList {
             </div>
           {% endfor %}
         </div>
-        
+
         <button type="submit" disabled>Continue</button>
       </form>
     </div>
@@ -543,9 +543,9 @@ class UpdatesList {
       <span class="badge" style="display: none;">0</span>
     </div>
   </header>
-  
+
   {% set unreadUpdates = craft.registration.getUnreadUpdates(currentUser.id) %}
-  
+
   {% if unreadUpdates|length > 0 %}
     <div class="updates-section">
       <h2>Unread Updates</h2>
@@ -567,7 +567,7 @@ class UpdatesList {
       </div>
     </div>
   {% endif %}
-  
+
   {# Show recent read updates too #}
   {% set recentUpdates = craft.entries
     .section('classUpdates')
@@ -575,7 +575,7 @@ class UpdatesList {
     .limit(20)
     .all()
   %}
-  
+
   <div class="updates-section">
     <h2>Recent Updates</h2>
     {% for update in recentUpdates %}
@@ -605,10 +605,10 @@ public function actionMarkRead()
 {
     $this->requireLogin();
     $updateId = Craft::$app->request->getRequiredBodyParam('updateId');
-    
+
     $success = Module::getInstance()->notificationService
         ->markAsRead(Craft::$app->user->id, $updateId);
-    
+
     return $this->asJson(['success' => $success]);
 }
 
@@ -616,10 +616,10 @@ public function actionMarkRead()
 public function actionMarkAllRead()
 {
     $this->requireLogin();
-    
+
     $success = Module::getInstance()->notificationService
         ->markAllAsRead(Craft::$app->user->id);
-    
+
     return $this->asJson(['success' => $success]);
 }
 ```
@@ -700,7 +700,7 @@ CREATE INDEX idx_push_sub_user ON {{%push_subscriptions}}(userId);
 ```javascript
 self.addEventListener('push', function(event) {
   const data = event.data.json();
-  
+
   const options = {
     body: data.body,
     icon: '/images/notification-icon.png',
@@ -730,17 +730,17 @@ class PushNotificationManager {
   async subscribe() {
     // 1. Register service worker
     const registration = await navigator.serviceWorker.register('/sw.js');
-    
+
     // 2. Request notification permission
     const permission = await Notification.requestPermission();
     if (permission !== 'granted') return;
-    
+
     // 3. Subscribe to push
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: this.urlBase64ToUint8Array(PUBLIC_VAPID_KEY)
     });
-    
+
     // 4. Send to server
     await fetch('/registration/push/subscribe', {
       method: 'POST',
@@ -762,7 +762,7 @@ public function sendPushToUser(int $userId, string $title, string $body, string 
     $subscriptions = PushSubscriptionRecord::find()
         ->where(['userId' => $userId])
         ->all();
-    
+
     // 2. Send to each device
     foreach ($subscriptions as $sub) {
         try {
@@ -788,7 +788,7 @@ private function sendPushNotification($subscription, $title, $body, $url)
     ];
 
     $webPush = new WebPush($auth);
-    
+
     $payload = json_encode([
         'title' => $title,
         'body' => $body,
@@ -818,16 +818,16 @@ Event::on(
     Entry::EVENT_AFTER_SAVE,
     function(ModelEvent $event) {
         $entry = $event->sender;
-        
+
         // Only for new class updates
         if ($entry->sectionId == $updatesSectionId && !$event->isNew) {
             return;
         }
-        
+
         // Get all users subscribed to this class
         $users = Module::getInstance()->subscriptionService
             ->getUsersForClass($entry->classId);
-        
+
         // Send push to each user with push enabled
         foreach ($users as $user) {
             if ($user->pushEnabled) {
