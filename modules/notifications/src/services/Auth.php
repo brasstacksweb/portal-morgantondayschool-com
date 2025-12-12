@@ -98,7 +98,7 @@ class Auth extends Component
             'Welcome! Complete your registration for Titan Link' :
             'Your login link for Titan Link';
         $ctaText = $isNewUser ? 'Complete Registration' : 'Log In';
-        $body = \Craft::$app->getView()->renderTemplate('emails/magic-link', [
+        $body = \Craft::$app->getView()->renderTemplate('_emails/magic-link', [
             'subject' => $subject,
             'isNewUser' => $isNewUser,
             'magicLink' => $magicLink,

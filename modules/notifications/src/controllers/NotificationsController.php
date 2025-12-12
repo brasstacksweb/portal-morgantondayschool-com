@@ -1,21 +1,34 @@
 <?php
 
-namespace modules\registration\controllers;
+namespace modules\notifications\controllers;
 
-use Craft;
 use craft\web\Controller;
-use modules\registration\services\NotificationService;
+use modules\notifications\NotificationsModule;
 use yii\web\Response;
 
 class NotificationsController extends Controller
 {
+    public function actionSend(): Response
+    {
+        $this->requirePostRequest();
+        $this->requireLogin();
+
+        $request = \Craft::$app->getRequest();
+        $entryId = $request->getRequiredBodyParam('entryId');
+
+        // TODO: Send push notification
+
+        return $this->asSuccess('TODO: Actually send notification', ['entryId' => $entryId]);
+    }
+
     public function actionUnreadCount(): Response
     {
         $this->requireLogin();
-        
-        $userId = Craft::$app->getUser()->getId();
-        $count = NotificationService::getUnreadCount($userId);
-        
+
+        $notifications = NotificationsModule::getInstance()->get('notifications');
+        $userId = \Craft::$app->getUser()->getId();
+        $count = $notifications->getUnreadCount($userId);
+
         return $this->asJson(['count' => $count]);
     }
 
@@ -23,17 +36,18 @@ class NotificationsController extends Controller
     {
         $this->requirePostRequest();
         $this->requireLogin();
-        
-        $request = Craft::$app->getRequest();
+
+        $request = \Craft::$app->getRequest();
         $updateId = $request->getRequiredBodyParam('updateId');
-        
+
         if (!is_numeric($updateId)) {
-            return $this->asJson(['success' => false, 'message' => 'Invalid update ID']);
+            return $this->asFailure('Invalid update ID');
         }
-        
-        $userId = Craft::$app->getUser()->getId();
-        $success = NotificationService::markAsRead($userId, (int)$updateId);
-        
+
+        $notifications = NotificationsModule::getInstance()->get('notifications');
+        $userId = \Craft::$app->getUser()->getId();
+        $success = $notifications->markAsRead($userId, (int) $updateId);
+
         return $this->asJson(['success' => $success]);
     }
 
@@ -41,10 +55,11 @@ class NotificationsController extends Controller
     {
         $this->requirePostRequest();
         $this->requireLogin();
-        
-        $userId = Craft::$app->getUser()->getId();
-        $success = NotificationService::markAllAsRead($userId);
-        
+
+        $notifications = NotificationsModule::getInstance()->get('notifications');
+        $userId = \Craft::$app->getUser()->getId();
+        $success = $notifications->markAllAsRead($userId);
+
         return $this->asJson(['success' => $success]);
     }
 }
