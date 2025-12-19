@@ -9,7 +9,7 @@ use yii\base\Component;
 
 class Subscriptions extends Component
 {
-    public static function newSubscriptions($attrs): Login
+    public static function newSubscriptions($attrs): SubscriptionsModel
     {
         $subscriptions = new SubscriptionsModel();
 

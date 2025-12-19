@@ -60,6 +60,6 @@ class Subscriptions extends BaseForm
 
     public function getRedirectPath(): string
     {
-        return 'dashboard';
+        return 'subscriptions';
     }
 }

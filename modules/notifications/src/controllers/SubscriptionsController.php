@@ -37,6 +37,6 @@ class SubscriptionsController extends Controller
             return $this->asFailure('Failed to complete onboarding');
         }
 
-        return $this->asSuccess();
+        return $this->asSuccess('Class selections saved successfully');
     }
 }

@@ -3,8 +3,12 @@
 {% endif %}
 
 {% set error = craft.app.getSession().getFlash('error') %}
+{% set success = craft.app.getSession().getFlash('success') %}
+{% if success %}
+{% dd success %}
+{% endif %}
 {% set heading = 'Welcome' %}
-{% set body = error ?? 'Select your children\'s classes to receive updates.' %}
+{% set body = error ?? success ?? 'Select your children\'s classes to receive updates.' %}
 
 {% set subscribedClasses = craft.subscriptions.getSubscribedClasses(currentUser.id) %}
 
