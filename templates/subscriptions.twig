@@ -4,12 +4,9 @@
 
 {% set error = craft.app.getSession().getFlash('error') %}
 {% set success = craft.app.getSession().getFlash('success') %}
-{% if success %}
-{% dd success %}
-{% endif %}
+
 {% set heading = 'Welcome' %}
 {% set body = error ?? success ?? 'Select your children\'s classes to receive updates.' %}
-
 {% set subscribedClasses = craft.subscriptions.getSubscribedClasses(currentUser.id) %}
 
 {% extends '_layouts/html' %}
@@ -18,8 +15,8 @@
 
 {% block content %}
 	<article>
-		<header>
-			{% include '_components/block-form' with {
+		<section>
+			{% include '_components/subscriptions' with {
 				heading: heading,
 				body: body,
 				form: create({
@@ -27,7 +24,7 @@
 					classes: subscribedClasses|map(c => c.id),
 				}),
 				hasError: error is not null,
-			} %}
-		</header>
+			} only %}
+		</section>
 	</article>
 {% endblock %}

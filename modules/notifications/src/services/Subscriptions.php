@@ -5,6 +5,7 @@ namespace modules\notifications\services;
 use craft\elements\Entry;
 use modules\notifications\models\Subscriptions as SubscriptionsModel;
 use modules\notifications\records\UserClassSubscription;
+use modules\notifications\records\UserPushSubscription;
 use yii\base\Component;
 
 class Subscriptions extends Component
@@ -18,19 +19,19 @@ class Subscriptions extends Component
         return $subscriptions;
     }
 
-    public static function getSubscribedClasses(int $userId): array
-    {
-        $classIds = UserClassSubscription::find()
-            ->select('classEntryId')
-            ->where(['userId' => $userId])
-            ->column();
+    // public static function getSubscribedClasses(int $userId): array
+    // {
+    //     $classIds = UserClassSubscription::find()
+    //         ->select('classEntryId')
+    //         ->where(['userId' => $userId])
+    //         ->column();
 
-        if (empty($classIds)) {
-            return [];
-        }
+    //     if (empty($classIds)) {
+    //         return [];
+    //     }
 
-        return Entry::findAll($classIds);
-    }
+    //     return Entry::findAll($classIds);
+    // }
 
     public static function subscribeToClass(int $userId, int $classEntryId): bool
     {
@@ -91,17 +92,53 @@ class Subscriptions extends Component
         }
     }
 
-    public static function getUsersForClass(int $classEntryId): array
+    public static function getUserIdsForClass(int $classEntryId): array
     {
-        $userIds = UserClassSubscription::find()
+        return UserClassSubscription::find()
             ->select('userId')
             ->where(['classEntryId' => $classEntryId])
             ->column();
+    }
 
-        if (empty($userIds)) {
-            return [];
+    public static function savePushSubscription(int $userId, string $endpoint, string $p256dhKey, string $authKey): bool
+    {
+        $record = UserPushSubscription::find()
+            ->where(['endpoint' => $endpoint])
+            ->one();
+
+        if ($record) {
+            $record->lastUsed = new \DateTime();
+
+            return $record->save();
         }
 
-        return User::findAll($userIds);
+        $record = new UserPushSubscription();
+        $record->userId = $userId;
+        $record->endpoint = $endpoint;
+        $record->p256dhKey = $p256dhKey;
+        $record->authKey = $authKey;
+        $record->lastUsed = new \DateTime();
+
+        return $record->save();
+    }
+
+    public static function removePushSubscription(int $userId, string $endpoint): bool
+    {
+        $record = UserPushSubscription::find()
+            ->where(['userId' => $userId, 'endpoint' => $endpoint])
+            ->one();
+
+        if ($record) {
+            return $record->delete();
+        }
+
+        return true;
+    }
+
+    public static function getPushSubscriptionsForUsers(array $userIds): array
+    {
+        return UserPushSubscription::find()
+            ->where(['userId' => $userIds])
+            ->all();
     }
 }

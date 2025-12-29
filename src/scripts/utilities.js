@@ -33,6 +33,33 @@ export const quickHash = str => {
 };
 /* eslint-enable no-bitwise */
 
+export const arrayBufferToBase64Url = arrayBuffer => {
+    const uint8Array = new Uint8Array(arrayBuffer);
+    let base64String = btoa(String.fromCharCode(...uint8Array));
+    base64String = base64String
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+
+    return base64String;
+};
+
+export const base64ToUint8Array = base64String => {
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding)
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+
+    return outputArray;
+};
+
 export const isIOS = () => ([
     'iPad Simulator',
     'iPhone Simulator',
@@ -43,6 +70,8 @@ export const isIOS = () => ([
 ].includes(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document));
 
 export const isSafari = () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+export const isInStandaloneMode = () => navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
 
 export const loadScript = (src, cb) => {
     const script = document.createElement('script');

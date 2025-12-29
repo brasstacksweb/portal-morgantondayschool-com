@@ -4171,6 +4171,78 @@ details summary::-webkit-details-marker {
   max-height: calc(100vh - 2 * var(--s-sm));
 }
 
+.subscriptions {
+  padding-left: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
+  padding-right: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
+  padding-top: var(--s-sm);
+  padding-bottom: var(--s-sm);
+  display: block;
+}
+@media (min-width: 768px) {
+  .subscriptions {
+    padding-left: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-right: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-top: var(--s-lg);
+    padding-bottom: var(--s-lg);
+  }
+}
+.subscriptions > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--w-md);
+  margin: 0 auto;
+  padding: var(--s-md);
+  background-color: var(--c-white);
+  border: 1px solid var(--c-black);
+}
+.subscriptions > div > h1 {
+  font-family: system-ui;
+  font-weight: 400;
+  font-size: clamp(42 * 1px, calc((70 - 42) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 42 * 1px), 70 * 1px);
+  line-height: 1.1em;
+  letter-spacing: clamp(-1.5 * 1px, calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), -0.7 * 1px);
+  text-align: center;
+}
+.subscriptions > div > h1 + p {
+  font-family: system-ui;
+  font-weight: 333;
+  font-size: clamp(16 * 1px, calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), 18 * 1px);
+  line-height: 1.6em;
+  visibility: hidden;
+  margin-top: var(--s-sm);
+  text-align: center;
+  text-wrap: balance;
+}
+.subscriptions > div > button {
+  visibility: hidden;
+  margin-top: var(--s-md);
+}
+.subscriptions > div > div {
+  display: none;
+  margin-top: var(--s-md);
+}
+.subscriptions > div > div > button {
+  margin-top: var(--s-sm);
+}
+.subscriptions.has-loaded > div > h1 + p,
+.subscriptions.has-loaded > div > button {
+  visibility: visible;
+}
+.subscriptions.is-active > div > button {
+  display: none;
+}
+.subscriptions.is-active > div > div {
+  display: block;
+}
+.subscriptions--has-error > div > p {
+  font-family: system-ui;
+  font-weight: 333;
+  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
+  line-height: 1.6em;
+  color: var(--c-red-dk);
+}
+
 .text-block {
   padding-top: var(--s-sm);
   padding-bottom: var(--s-sm);

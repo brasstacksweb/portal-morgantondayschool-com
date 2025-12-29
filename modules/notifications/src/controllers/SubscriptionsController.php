@@ -8,6 +8,43 @@ use yii\web\Response;
 
 class SubscriptionsController extends Controller
 {
+    public function actionSubscribePush(): Response
+    {
+        $this->requirePostRequest();
+        $this->requireLogin();
+
+        $request = \Craft::$app->getRequest();
+        $subscriptions = NotificationsModule::getInstance()->get('subscriptions');
+        $userId = \Craft::$app->getUser()->getIdentity()->id;
+        $subscription = $request->getBodyParam('subscription');
+        $endpoint = $request->getBodyParam('endpoint');
+        $p256dhKey = $request->getBodyParam('p256dhKey');
+        $authKey = $request->getBodyParam('authKey');
+
+        if (!$subscriptions->savePushSubscription($userId, $endpoint, $p256dhKey, $authKey)) {
+            return $this->asFailure('Failed to save push subscription');
+        }
+
+        return $this->asSuccess('Push subscription saved successfully');
+    }
+
+    public function actionUnsubscribePush(): Response
+    {
+        $this->requirePostRequest();
+        $this->requireLogin();
+
+        $request = \Craft::$app->getRequest();
+        $subscriptions = NotificationsModule::getInstance()->get('subscriptions');
+        $userId = \Craft::$app->getUser()->getIdentity()->id;
+        $endpoint = $request->getBodyParam('endpoint');
+
+        if (!$subscriptions->removePushSubscription($userId, $endpoint)) {
+            return $this->asFailure('Failed to remove push subscription');
+        }
+
+        return $this->asSuccess('Push subscription removed successfully');
+    }
+
     public function actionSave(): Response
     {
         $this->requirePostRequest();

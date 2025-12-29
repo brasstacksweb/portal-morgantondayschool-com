@@ -8,7 +8,7 @@ use modules\components\models\Form as BaseForm;
 class Subscriptions extends BaseForm
 {
     public array $classes = [];
-    public string $submitText = 'Continue';
+    public string $submitText = 'Save Subscriptions';
 
     public function __construct(array $config = [])
     {

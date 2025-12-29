@@ -59,6 +59,36 @@ class m251210_000000_notifications extends Migration
             'classEntryId'
         );
 
+        // User push subscriptions (web push notifications)
+        $this->createTable('{{%user_push_subscriptions}}', [
+            'id' => $this->primaryKey(),
+            'userId' => $this->integer()->notNull(),
+            'endpoint' => $this->string(255)->notNull()->unique(),
+            'p256dhKey' => $this->text()->notNull(),
+            'authKey' => $this->text()->notNull(),
+            'lastUsed' => $this->dateTime()->notNull(),
+            'dateCreated' => $this->dateTime()->notNull(),
+            'dateUpdated' => $this->dateTime()->notNull(),
+            'uid' => $this->uid(),
+        ]);
+
+        // Add foreign keys and indexes
+        $this->addForeignKey(
+            'fk_user_push_subscriptions_userId',
+            '{{%user_push_subscriptions}}',
+            'userId',
+            '{{%users}}',
+            'id',
+            'CASCADE'
+        );
+
+        $this->createIndex(
+            'idx_user_push_subscriptions_userId',
+            '{{%user_push_subscriptions}}',
+            'userId',
+            true
+        );
+
         // Read status tracking (for in-app badges)
         $this->createTable('{{%user_update_read_status}}', [
             'id' => $this->primaryKey(),

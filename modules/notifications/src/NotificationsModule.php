@@ -40,6 +40,8 @@ class NotificationsModule extends Module
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['notifications/auth/send-magic-link'] = 'notifications/auth/send-magic-link';
                 $event->rules['notifications/auth/verify'] = 'notifications/auth/verify';
+                $event->rules['notifications/subscriptions/subscribe-push'] = 'notifications/subscriptions/subscribe-push';
+                $event->rules['notifications/subscriptions/unsubscribe-push'] = 'notifications/subscriptions/unsubscribe-push';
                 $event->rules['notifications/subscriptions/save'] = 'notifications/subscriptions/save';
                 // TODO...
                 // $event->rules['notifications/notifications/unread-count'] = 'notifications/notifications/unread-count';

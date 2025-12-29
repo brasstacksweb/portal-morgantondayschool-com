@@ -5,6 +5,7 @@ import FormField from './components/form-field';
 import Carousel from './components/carousel';
 import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
+import Subscriptions from './components/subscriptions';
 import TextList from './components/text-list';
 // Registration components
 // import NotificationBadge from './components/notification-badge';
@@ -17,6 +18,7 @@ function handleDOMConentLoaded() {
     customElements.define('tl-form-field', FormField);
     customElements.define('tl-install-banner', InstallBanner);
     customElements.define('tl-modal', Modal);
+    customElements.define('tl-subscriptions', Subscriptions);
     customElements.define('tl-text-list', TextList);
 
     // Set header height CSS variable

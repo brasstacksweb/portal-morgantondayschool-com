@@ -1,0 +1,77 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "subscriptions";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm));
+	display: block;
+
+	@include media("sm") {
+		@include pad(var(--s-md));
+		@include space(var(--s-lg));
+	}
+
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: var(--w-md);
+		margin: 0 auto;
+		padding: var(--s-md);
+		background-color: var(--c-white);
+		border: 1px solid var(--c-black);
+
+		> h1 {
+			@include font("heading", "lg");
+			text-align: center;
+
+			+ p {
+				@include font("body", "md");
+				visibility: hidden;
+				margin-top: var(--s-sm);
+				text-align: center;
+				text-wrap: balance;
+			}
+		}
+
+		> button {
+			visibility: hidden;
+			margin-top: var(--s-md);
+		}
+
+		> div {
+			display: none;
+			margin-top: var(--s-md);
+
+			> button {
+				margin-top: var(--s-sm);
+			}
+		}
+	}
+
+	&.has-loaded > div {
+		> h1 + p,
+		> button {
+			visibility: visible;
+		}
+	}
+
+	&.is-active > div {
+		> button {
+			display: none;
+		}
+
+		> div {
+			display: block;
+		}
+	}
+
+	&--has-error > div > p {
+		@include font("body", "lg");
+		color: var(--c-red-dk);
+	}
+}
