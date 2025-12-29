@@ -60,7 +60,7 @@ class NotificationsController extends Controller
     //     $updateId = $request->getRequiredBodyParam('updateId');
 
     //     if (!is_numeric($updateId)) {
-    //         return $this->asFailure('Invalid update ID');
+    //         return $this->asFailure('Invalid update ID.');
     //     }
 
     //     $notifications = NotificationsModule::getInstance()->get('notifications');

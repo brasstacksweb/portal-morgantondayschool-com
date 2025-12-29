@@ -97,6 +97,7 @@ export default class Subscriptions extends HTMLElement {
                 this.classList.add(activeClass);
                 this.scrollIntoView({ behavior: 'smooth' });
             } else {
+                alert(`Failed to save subscription on server. Please try again.${res.statusText} ${await res.text()}`);
                 this.unsubscribe();
 
                 throw new Error('Failed to save subscription');
@@ -133,6 +134,7 @@ export default class Subscriptions extends HTMLElement {
                 localStorage.setItem('unsubscribed', 'true');
                 window.location.reload();
             } else {
+                alert(`Failed to remove subscription from server. Please try again.${res.statusText} ${await res.text()}`);
                 throw new Error('Failed to remove subscription from server');
             }
         } catch (error) {

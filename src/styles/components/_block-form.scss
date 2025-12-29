@@ -26,14 +26,14 @@ $handle: "block-form";
 		> h1 {
 			@include font("heading", "lg");
 			text-align: center;
+		}
 
-			+ p {
-				@include font("body", "md");
-				margin-top: var(--s-sm);
-				margin-bottom: var(--s-md);
-				text-align: center;
-				text-wrap: balance;
-			}
+		> p {
+			@include font("body", "md");
+			margin-top: var(--s-sm);
+			margin-bottom: var(--s-md);
+			text-align: center;
+			text-wrap: balance;
 		}
 	}
 

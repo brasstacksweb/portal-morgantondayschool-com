@@ -19,19 +19,19 @@ class Subscriptions extends Component
         return $subscriptions;
     }
 
-    // public static function getSubscribedClasses(int $userId): array
-    // {
-    //     $classIds = UserClassSubscription::find()
-    //         ->select('classEntryId')
-    //         ->where(['userId' => $userId])
-    //         ->column();
+    public static function getSubscribedClasses(int $userId): array
+    {
+        $classIds = UserClassSubscription::find()
+            ->select('classEntryId')
+            ->where(['userId' => $userId])
+            ->column();
 
-    //     if (empty($classIds)) {
-    //         return [];
-    //     }
+        if (empty($classIds)) {
+            return [];
+        }
 
-    //     return Entry::findAll($classIds);
-    // }
+        return Entry::findAll($classIds);
+    }
 
     public static function subscribeToClass(int $userId, int $classEntryId): bool
     {

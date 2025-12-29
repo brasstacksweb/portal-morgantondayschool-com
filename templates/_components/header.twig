@@ -55,6 +55,9 @@
 			{% for l in iconLinks %}
 				{{ l.render() }}
 			{% endfor %}
+			<a href="/subscriptions" title="Notifications" aria-label="Notifications">
+				{{ icons.bell() }}
+			</a>
 		</aside>
 	{% endif %}
 	{% if cta %}

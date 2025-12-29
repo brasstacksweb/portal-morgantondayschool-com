@@ -28,14 +28,14 @@ $handle: "subscriptions";
 		> h1 {
 			@include font("heading", "lg");
 			text-align: center;
+		}
 
-			+ p {
-				@include font("body", "md");
-				visibility: hidden;
-				margin-top: var(--s-sm);
-				text-align: center;
-				text-wrap: balance;
-			}
+		>  p {
+			@include font("body", "md");
+			visibility: hidden;
+			margin-top: var(--s-sm);
+			text-align: center;
+			text-wrap: balance;
 		}
 
 		> button {
@@ -73,5 +73,10 @@ $handle: "subscriptions";
 	&--has-error > div > p {
 		@include font("body", "lg");
 		color: var(--c-red-dk);
+	}
+
+	&--has-success > div > p {
+		@include font("body", "xl");
+		color: var(--c-indigo-dk);
 	}
 }

@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     protected array|bool|int $allowAnonymous = ['send-magic-link', 'verify'];
 
-    public function actionSendMagicLink(): Response
+    public function actionSendMagicLink(): ?Response
     {
         $this->requirePostRequest();
 
@@ -19,7 +19,7 @@ class AuthController extends Controller
         $model = $auth::newLogin($request->getBodyParams());
 
         if (!$model->validate()) {
-            return $this->asModelFailure($model, 'Invalid email address');
+            return $this->asModelFailure($model, 'Invalid email address.');
         }
 
         try {
@@ -27,14 +27,14 @@ class AuthController extends Controller
             $emailSent = $auth->sendMagicLinkEmail($model->email, $token);
 
             if (!$emailSent) {
-                return $this->asFailure('Failed to send email');
+                return $this->asFailure('Failed to send email.');
             }
 
-            return $this->asSuccess();
+            return $this->asSuccess('Magic link sent successfully.');
         } catch (\Exception $e) {
             \Craft::error("Error sending magic link to {$model->email}: ".$e->getMessage(), __METHOD__);
 
-            return $this->asFailure('An error occurred while processing your request');
+            return $this->asFailure('An error occurred while processing your request.');
         }
     }
 
@@ -44,7 +44,7 @@ class AuthController extends Controller
         $token = $request->getQueryParam('token');
 
         if (!$token) {
-            \Craft::$app->getSession()->setError('Invalid or missing token');
+            \Craft::$app->getSession()->setError('Invalid or missing token.');
 
             return $this->redirect('/login');
         }
@@ -53,7 +53,7 @@ class AuthController extends Controller
         $email = $auth->validateToken($token);
 
         if (!$email) {
-            \Craft::$app->getSession()->setError('Invalid or expired token');
+            \Craft::$app->getSession()->setError('Invalid or expired token.');
 
             return $this->redirect('/login');
         }
@@ -63,13 +63,13 @@ class AuthController extends Controller
         $user = $auth->getOrCreateUser($email);
 
         if (!$user) {
-            \Craft::$app->getSession()->setError('Failed to create user account');
+            \Craft::$app->getSession()->setError('Failed to create user account.');
 
             return $this->redirect('/login');
         }
 
         if (!\Craft::$app->getUser()->login($user)) {
-            \Craft::$app->getSession()->setError('Failed to log in');
+            \Craft::$app->getSession()->setError('Failed to log in.');
 
             return $this->redirect('/login');
         }
@@ -80,6 +80,6 @@ class AuthController extends Controller
             return $this->redirect('/subscriptions');
         }
 
-        return $this->redirect('/');
+        return $this->redirect('/subscriptions');
     }
 }

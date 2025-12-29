@@ -8,7 +8,7 @@ use yii\web\Response;
 
 class SubscriptionsController extends Controller
 {
-    public function actionSubscribePush(): Response
+    public function actionSubscribePush(): ?Response
     {
         $this->requirePostRequest();
         $this->requireLogin();
@@ -22,13 +22,13 @@ class SubscriptionsController extends Controller
         $authKey = $request->getBodyParam('authKey');
 
         if (!$subscriptions->savePushSubscription($userId, $endpoint, $p256dhKey, $authKey)) {
-            return $this->asFailure('Failed to save push subscription');
+            return $this->asFailure('Failed to save push subscription.');
         }
 
-        return $this->asSuccess('Push subscription saved successfully');
+        return $this->asSuccess('Push subscription saved successfully.');
     }
 
-    public function actionUnsubscribePush(): Response
+    public function actionUnsubscribePush(): ?Response
     {
         $this->requirePostRequest();
         $this->requireLogin();
@@ -39,13 +39,13 @@ class SubscriptionsController extends Controller
         $endpoint = $request->getBodyParam('endpoint');
 
         if (!$subscriptions->removePushSubscription($userId, $endpoint)) {
-            return $this->asFailure('Failed to remove push subscription');
+            return $this->asFailure('Failed to remove push subscription.');
         }
 
-        return $this->asSuccess('Push subscription removed successfully');
+        return $this->asSuccess('Push subscription removed successfully.');
     }
 
-    public function actionSave(): Response
+    public function actionSave(): ?Response
     {
         $this->requirePostRequest();
         $this->requireLogin();
@@ -62,18 +62,18 @@ class SubscriptionsController extends Controller
         $subscriptionsSaved = $subscriptions->saveSubscriptions($user->id, $model->classes);
 
         if (!$subscriptionsSaved) {
-            return $this->asFailure('Failed to save class selections');
+            return $this->asFailure('Failed to save class selections.');
         }
 
         $user->setFieldValue('hasOnboarded', true);
         $success = \Craft::$app->getElements()->saveElement($user);
 
         if (!$success) {
-            \Craft::error('Failed to mark onboarding complete for user '.$user->id, __METHOD__);
-
-            return $this->asFailure('Failed to complete onboarding');
+            return $this->asFailure('Failed to save class subscriptions.');
         }
 
-        return $this->asSuccess('Class selections saved successfully');
+        \Craft::$app->getSession()->setSuccess('Your class subscriptions are saved.');
+
+        return $this->asSuccess('Class selections saved successfully.');
     }
 }

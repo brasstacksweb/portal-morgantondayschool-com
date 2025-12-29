@@ -2,8 +2,8 @@
 	{% redirect 'login' %}
 {% endif %}
 
-{% set error = craft.app.getSession().getFlash('error') %}
-{% set success = craft.app.getSession().getFlash('success') %}
+{% set error = craft.app.getSession().getError() %}
+{% set success = craft.app.getSession().getSuccess() %}
 
 {% set heading = 'Welcome' %}
 {% set body = error ?? success ?? 'Select your children\'s classes to receive updates.' %}
@@ -24,6 +24,7 @@
 					classes: subscribedClasses|map(c => c.id),
 				}),
 				hasError: error is not null,
+				hasSuccess: success is not null
 			} only %}
 		</section>
 	</article>

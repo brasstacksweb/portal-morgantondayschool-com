@@ -11,13 +11,18 @@
 {% set body = body ?? '' %}
 {% set form = form ?? null %}
 {% set hasError = hasError ?? false %}
+{% set hasSuccess = hasSuccess ?? false %}
 
 {# Variables #}
 {% set handle = 'subscriptions' %}
 
 {# Markup #}
 <tl-subscriptions
-	class="{{ handle }} {% if hasError %} {{ handle }}--has-error{% endif %}"
+	class="
+		{{ handle }}
+		{% if hasError %} {{ handle }}--has-error{% endif %}
+		{% if hasSuccess %} {{ handle }}--has-success{% endif %}
+	"
 	data-vapid-public-key="{{ getenv('VAPID_PUBLIC_KEY') }}">
 	<form method="post" style="display: none;">
 		{{ actionInput('notifications/subscriptions/subscribe-push') }}

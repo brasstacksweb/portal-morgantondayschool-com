@@ -62,27 +62,27 @@
             }
             form.remove();
             successMessage.style.display = "block";
-            el.parentElement.style.scrollMarginTop = "var(--h-header)";
-            el.parentElement.scrollIntoView({ behavior: "smooth" });
+            this.parentElement.style.scrollMarginTop = "var(--h-header)";
+            this.parentElement.scrollIntoView({ behavior: "smooth" });
         }
       };
     }
   };
 
   // src/scripts/components/form-field.js
-  var toggleVisibility = (el2, name, visible) => {
+  var toggleVisibility = (el, name, visible) => {
     if (visible) {
-      el2.querySelectorAll(`[name="${name}"]`).forEach((f) => f.setAttribute("required", "true"));
-      el2.style.display = "block";
-      el2.parentElement.style.display = "block";
+      el.querySelectorAll(`[name="${name}"]`).forEach((f) => f.setAttribute("required", "true"));
+      el.style.display = "block";
+      el.parentElement.style.display = "block";
     } else {
-      el2.querySelectorAll(`[name="${name}"]`).forEach((f) => f.removeAttribute("required"));
-      el2.style.display = "none";
-      el2.parentElement.style.display = "none";
+      el.querySelectorAll(`[name="${name}"]`).forEach((f) => f.removeAttribute("required"));
+      el.style.display = "none";
+      el.parentElement.style.display = "none";
     }
   };
   var FormField = class extends HTMLElement {
-    constructor(el2) {
+    constructor(el) {
       super();
       const {
         name,
@@ -103,17 +103,17 @@
         const formData = new FormData(form);
         targets.forEach((target) => {
           target.addEventListener("change", (e) => {
-            toggleVisibility(el2, name, e.currentTarget.value === conditionalValue);
+            toggleVisibility(el, name, e.currentTarget.value === conditionalValue);
           });
         });
-        toggleVisibility(el2, name, formData.get(conditionalName) === conditionalValue);
+        toggleVisibility(el, name, formData.get(conditionalName) === conditionalValue);
       }
     }
   };
 
   // src/scripts/components/carousel.js
   var Carousel = class extends HTMLElement {
-    constructor(el2) {
+    constructor(el) {
       super();
       const carousel = this.querySelector("ul");
       const [prev, next] = this.querySelectorAll("ul + nav > button");
@@ -311,6 +311,7 @@
           this.classList.add(activeClass);
           this.scrollIntoView({ behavior: "smooth" });
         } else {
+          alert(`Failed to save subscription on server. Please try again.${res.statusText} ${await res.text()}`);
           this.unsubscribe();
           throw new Error("Failed to save subscription");
         }
@@ -339,6 +340,7 @@
           localStorage.setItem("unsubscribed", "true");
           window.location.reload();
         } else {
+          alert(`Failed to remove subscription from server. Please try again.${res.statusText} ${await res.text()}`);
           throw new Error("Failed to remove subscription from server");
         }
       } catch (error) {

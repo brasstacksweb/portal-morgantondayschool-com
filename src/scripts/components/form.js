@@ -59,8 +59,8 @@ export default class Form extends HTMLElement {
 
                 form.remove();
                 successMessage.style.display = 'block';
-                el.parentElement.style.scrollMarginTop = 'var(--h-header)';
-                el.parentElement.scrollIntoView({ behavior: 'smooth' });
+                this.parentElement.style.scrollMarginTop = 'var(--h-header)';
+                this.parentElement.scrollIntoView({ behavior: 'smooth' });
             }
         };
     }

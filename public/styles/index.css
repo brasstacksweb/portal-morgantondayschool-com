@@ -502,14 +502,10 @@ details summary::-webkit-details-marker {
 .accordion-list > header > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .accordion-list > header > div ol {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: decimal;
 }
 .accordion-list > header > div ol > li {
@@ -528,8 +524,6 @@ details summary::-webkit-details-marker {
 .accordion-list > header > div ul {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: disc;
 }
 .accordion-list > header > div ul > li {
@@ -567,8 +561,6 @@ details summary::-webkit-details-marker {
 .accordion-list > header > div table td > li {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .accordion-list > header > div table td {
   color: var(--c-fg-md);
@@ -920,7 +912,7 @@ details summary::-webkit-details-marker {
   letter-spacing: clamp(-1.5 * 1px, calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), -0.7 * 1px);
   text-align: center;
 }
-.block-form > div > h1 + p {
+.block-form > div > p {
   font-family: system-ui;
   font-weight: 333;
   font-size: clamp(16 * 1px, calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), 18 * 1px);
@@ -933,8 +925,6 @@ details summary::-webkit-details-marker {
 .block-form--has-error > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   color: var(--c-red-dk);
 }
 
@@ -1273,14 +1263,10 @@ details summary::-webkit-details-marker {
 .card-list > header > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .card-list > header > div ol {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: decimal;
 }
 .card-list > header > div ol > li {
@@ -1299,8 +1285,6 @@ details summary::-webkit-details-marker {
 .card-list > header > div ul {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: disc;
 }
 .card-list > header > div ul > li {
@@ -1338,8 +1322,6 @@ details summary::-webkit-details-marker {
 .card-list > header > div table td > li {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .card-list > header > div table td {
   color: var(--c-fg-md);
@@ -2360,8 +2342,6 @@ details summary::-webkit-details-marker {
 .footer > address {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2440,8 +2420,6 @@ details summary::-webkit-details-marker {
 .form > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   color: var(--c-red-dk);
   margin-bottom: var(--s-sm);
 }
@@ -3698,14 +3676,10 @@ details summary::-webkit-details-marker {
 .intro > header > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .intro > header > div ol {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: decimal;
 }
 .intro > header > div ol > li {
@@ -3724,8 +3698,6 @@ details summary::-webkit-details-marker {
 .intro > header > div ul {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: disc;
 }
 .intro > header > div ul > li {
@@ -3763,8 +3735,6 @@ details summary::-webkit-details-marker {
 .intro > header > div table td > li {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .intro > header > div table td {
   color: var(--c-fg-md);
@@ -4204,7 +4174,7 @@ details summary::-webkit-details-marker {
   letter-spacing: clamp(-1.5 * 1px, calc((-1.5 - -0.7) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + -0.7 * 1px), -0.7 * 1px);
   text-align: center;
 }
-.subscriptions > div > h1 + p {
+.subscriptions > div > p {
   font-family: system-ui;
   font-weight: 333;
   font-size: clamp(16 * 1px, calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), 18 * 1px);
@@ -4238,9 +4208,14 @@ details summary::-webkit-details-marker {
 .subscriptions--has-error > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   color: var(--c-red-dk);
+}
+.subscriptions--has-success > div > p {
+  font-family: system-ui;
+  font-weight: 333;
+  font-size: clamp(20 * 1px, calc((28 - 20) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 20 * 1px), 28 * 1px);
+  line-height: 1.6em;
+  color: var(--c-indigo-dk);
 }
 
 .text-block {
@@ -4637,14 +4612,10 @@ details summary::-webkit-details-marker {
 .text-list > header > div > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .text-list > header > div ol {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: decimal;
 }
 .text-list > header > div ol > li {
@@ -4663,8 +4634,6 @@ details summary::-webkit-details-marker {
 .text-list > header > div ul {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   list-style-type: disc;
 }
 .text-list > header > div ul > li {
@@ -4702,8 +4671,6 @@ details summary::-webkit-details-marker {
 .text-list > header > div table td > li {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
 }
 .text-list > header > div table td {
   color: var(--c-fg-md);
@@ -4846,8 +4813,6 @@ details summary::-webkit-details-marker {
 .text-list > p {
   font-family: system-ui;
   font-weight: 333;
-  font-size: clamp(18 * 1px, calc((24 - 18) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 18 * 1px), 24 * 1px);
-  line-height: 1.6em;
   display: none;
   margin-top: var(--s-md);
 }

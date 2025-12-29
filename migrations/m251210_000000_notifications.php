@@ -86,7 +86,6 @@ class m251210_000000_notifications extends Migration
             'idx_user_push_subscriptions_userId',
             '{{%user_push_subscriptions}}',
             'userId',
-            true
         );
 
         // Read status tracking (for in-app badges)
@@ -176,6 +175,7 @@ class m251210_000000_notifications extends Migration
         $this->dropTableIfExists('{{%magic_link_tokens}}');
         $this->dropTableIfExists('{{%user_update_read_status}}');
         $this->dropTableIfExists('{{%user_class_subscriptions}}');
+        $this->dropTableIfExists('{{%user_push_subscriptions}}');
 
         return true;
     }
