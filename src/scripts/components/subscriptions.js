@@ -1,4 +1,36 @@
-import { arrayBufferToBase64Url, base64ToUint8Array } from '../utilities';
+import {
+    arrayBufferToBase64Url,
+    base64ToUint8Array,
+    isAndroid as checkAndroid,
+    isIOS as checkIOS,
+    isPushNotificationSupported,
+    requiresInstallForNotifications,
+} from '../utilities';
+
+const getUnsupportedMessage = () => 'Push notifications are not supported by your browser.';
+
+/* eslint-disable no-nested-ternary */
+const getDeniedMessage = (isAndroid, isIOS) => (isAndroid
+    ? 'Notifications are blocked. Tap the 🔒 icon in your address bar to enable them.'
+    : isIOS
+        ? 'Notifications are blocked. Go to Settings > Safari > Website Settings to enable them.'
+        : 'You have blocked notifications. Please enable them in your browser settings.');
+/* eslint-enable no-nested-ternary */
+
+const getDefaultMessage = isAndroid => (isAndroid
+    ? 'Tap below to enable push notifications and get updates about your classes.'
+    : 'Click below to enable notifications in your browser and subscribe to class updates.');
+
+const getUnsubscribeMessage = () => 'You have unsubscribed from notifications. Click below to subscribe again.';
+
+const getIOSInstallMessage = () => `
+To enable notifications on iOS Safari:
+1. Tap the Share button (⬆️)
+2. Scroll down and tap "Add to Home Screen"
+3. Open the app from your home Screen
+4. Return here to enable notifications`;
+
+const getErrorMessage = () => 'There was an error enabling notifications. Please try again later.';
 
 export default class Subscriptions extends HTMLElement {
     constructor() {
@@ -12,10 +44,21 @@ export default class Subscriptions extends HTMLElement {
         const body = this.querySelector('p');
         const [subscribeTrigger, unsubscribeTrigger] = this.querySelectorAll('button[type="button"]');
 
-        if (!('Notification' in window) || !('serviceWorker' in navigator) || !('PushManager' in window)) {
-            body.textContent = 'Push notifications are not supported by your browser.';
-            this.classList.add(loadedClass);
+        // Detect device capabilities once
+        const [isAndroid, isIOS] = [checkAndroid(), checkIOS()];
 
+        // Check basic push notification support
+        if (!isPushNotificationSupported()) {
+            body.textContent = getUnsupportedMessage();
+            this.classList.add(loadedClass);
+            return;
+        }
+
+        // Handle iOS Safari special case - requires "Add to Home Screen"
+        if (requiresInstallForNotifications()) {
+            body.innerHTML = getIOSInstallMessage().replace(/\n/g, '<br>');
+            subscribeTrigger.style.display = 'none';
+            this.classList.add(loadedClass);
             return;
         }
 
@@ -23,22 +66,21 @@ export default class Subscriptions extends HTMLElement {
 
         switch (permission) {
         case 'granted':
-            const unsubscribed = localStorage.getItem('unsubscribed');
-            if (unsubscribed === 'true') {
+            if (localStorage.getItem('unsubscribed') === 'true') {
                 this.classList.remove(activeClass);
-                body.textContent = 'You have unsubscribed from notifications. Click below to subscribe again.';
+                body.textContent = getUnsubscribeMessage();
                 break;
             }
             this.subscribe(subscribeForm, vapidPublicKey, activeClass);
             break;
         case 'denied':
             this.classList.remove(activeClass);
-            body.textContent = 'You have blocked notifications. Please enable them in your browser settings.';
+            body.textContent = getDeniedMessage(isAndroid, isIOS);
             subscribeTrigger.style.display = 'none';
             break;
         case 'default':
             this.classList.remove(activeClass);
-            body.textContent = 'Click below to enable notifications in your browser and subscribe to class updates.';
+            body.textContent = getDefaultMessage(isAndroid);
             break;
         default:
             this.classList.remove(activeClass);
@@ -52,6 +94,7 @@ export default class Subscriptions extends HTMLElement {
                 window.location.reload();
             } catch (error) {
                 console.error('Error requesting notification permission:', error);
+                body.textContent = getErrorMessage();
             }
         };
         unsubscribeTrigger.onclick = async () => {
@@ -97,7 +140,6 @@ export default class Subscriptions extends HTMLElement {
                 this.classList.add(activeClass);
                 this.scrollIntoView({ behavior: 'smooth' });
             } else {
-                alert(`Failed to save subscription on server. Please try again.${res.statusText} ${await res.text()}`);
                 this.unsubscribe();
 
                 throw new Error('Failed to save subscription');
@@ -134,7 +176,6 @@ export default class Subscriptions extends HTMLElement {
                 localStorage.setItem('unsubscribed', 'true');
                 window.location.reload();
             } else {
-                alert(`Failed to remove subscription from server. Please try again.${res.statusText} ${await res.text()}`);
                 throw new Error('Failed to remove subscription from server');
             }
         } catch (error) {

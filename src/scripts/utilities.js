@@ -60,6 +60,8 @@ export const base64ToUint8Array = base64String => {
     return outputArray;
 };
 
+export const isAndroid = () => /android/i.test(navigator.userAgent);
+
 export const isIOS = () => ([
     'iPad Simulator',
     'iPhone Simulator',
@@ -71,7 +73,23 @@ export const isIOS = () => ([
 
 export const isSafari = () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-export const isInStandaloneMode = () => navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
+export const isInStandaloneMode = () => (
+    navigator.standalone === true
+    || matchMedia('(display-mode: standalone)').matches
+);
+
+export const isPushNotificationSupported = () => (
+    'Notification' in window
+    && 'serviceWorker' in navigator
+    && 'PushManager' in window
+);
+
+// iOS Safari requires "Add to Home Screen" for push notifications
+export const requiresInstallForNotifications = () => (
+    isIOS()
+    && isSafari()
+    && !isInStandaloneMode()
+);
 
 export const loadScript = (src, cb) => {
     const script = document.createElement('script');
