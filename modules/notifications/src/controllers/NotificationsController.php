@@ -40,45 +40,4 @@ class NotificationsController extends Controller
         return $this->asSuccess('Notifications sent successfully to '.count($sent).' subscribers.');
     }
 
-    // public function actionUnreadCount(): Response
-    // {
-    //     $this->requireLogin();
-
-    //     $notifications = NotificationsModule::getInstance()->get('notifications');
-    //     $userId = \Craft::$app->getUser()->getId();
-    //     $count = $notifications->getUnreadCount($userId);
-
-    //     return $this->asJson(['count' => $count]);
-    // }
-
-    // public function actionMarkRead(): Response
-    // {
-    //     $this->requirePostRequest();
-    //     $this->requireLogin();
-
-    //     $request = \Craft::$app->getRequest();
-    //     $updateId = $request->getRequiredBodyParam('updateId');
-
-    //     if (!is_numeric($updateId)) {
-    //         return $this->asFailure('Invalid update ID.');
-    //     }
-
-    //     $notifications = NotificationsModule::getInstance()->get('notifications');
-    //     $userId = \Craft::$app->getUser()->getId();
-    //     $success = $notifications->markAsRead($userId, (int) $updateId);
-
-    //     return $this->asJson(['success' => $success]);
-    // }
-
-    // public function actionMarkAllRead(): Response
-    // {
-    //     $this->requirePostRequest();
-    //     $this->requireLogin();
-
-    //     $notifications = NotificationsModule::getInstance()->get('notifications');
-    //     $userId = \Craft::$app->getUser()->getId();
-    //     $success = $notifications->markAllAsRead($userId);
-
-    //     return $this->asJson(['success' => $success]);
-    // }
 }

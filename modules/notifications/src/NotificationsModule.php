@@ -43,10 +43,6 @@ class NotificationsModule extends Module
                 $event->rules['notifications/subscriptions/subscribe-push'] = 'notifications/subscriptions/subscribe-push';
                 $event->rules['notifications/subscriptions/unsubscribe-push'] = 'notifications/subscriptions/unsubscribe-push';
                 $event->rules['notifications/subscriptions/save'] = 'notifications/subscriptions/save';
-                // TODO...
-                // $event->rules['notifications/notifications/unread-count'] = 'notifications/notifications/unread-count';
-                // $event->rules['notifications/notifications/mark-read'] = 'notifications/notifications/mark-read';
-                // $event->rules['notifications/notifications/mark-all-read'] = 'notifications/notifications/mark-all-read';
             }
         );
 
