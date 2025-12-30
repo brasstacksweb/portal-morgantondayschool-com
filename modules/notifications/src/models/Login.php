@@ -7,21 +7,32 @@ use modules\components\models\Form as BaseForm;
 class Login extends BaseForm
 {
     public string $email = '';
+    public string $redirect = '';
     public string $submitText = 'Send Magic Link';
+
+    public function __construct(array $config = [])
+    {
+        if ($config['redirect'] ?? null) {
+            $this->redirect = $config['redirect'];
+        }
+
+        parent::__construct($config);
+    }
 
     public function rules(): array
     {
-        return [
+        return array_merge(parent::rules(), [
             ['email', 'required'],
             ['email', 'email'],
-            [['token'], 'validateRecaptcha'],
-        ];
+            [['redirect'], 'validateHash'],
+        ]);
     }
 
     public function attributeTypes(): array
     {
         return [
             'email' => 'email',
+            'redirect' => 'hidden',
             'token' => 'hidden',
         ];
     }

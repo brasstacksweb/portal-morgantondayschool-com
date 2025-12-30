@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         try {
             $token = $auth->generateToken($model->email);
-            $emailSent = $auth->sendMagicLinkEmail($model->email, $token);
+            $emailSent = $auth->sendMagicLinkEmail($model->email, $token, $model->redirect);
 
             if (!$emailSent) {
                 return $this->asFailure('Failed to send email.');
@@ -75,11 +75,18 @@ class AuthController extends Controller
         }
 
         $hasOnboarded = $user->getFieldValue('hasOnboarded');
+        $redirect = $request->getQueryParam('redirect', '/');
 
-        if (!$hasOnboarded) {
-            return $this->redirect('/subscriptions');
+        // Validate redirect URL for security (prevent open redirects)
+        $allowedPaths = ['/', '/subscriptions'];
+        if (!in_array($redirect, $allowedPaths, true) && !str_starts_with($redirect, '/')) {
+            $redirect = '/';
         }
 
-        return $this->redirect('/subscriptions');
+        if (!$hasOnboarded) {
+            return $this->redirect('/subscriptions'); // Always go to subscriptions for onboarding
+        }
+
+        return $this->redirect($redirect);
     }
 }

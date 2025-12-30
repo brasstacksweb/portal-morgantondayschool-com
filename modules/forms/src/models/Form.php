@@ -11,9 +11,9 @@ abstract class Form extends BaseForm
 
     public function rules(): array
     {
-        return [
+        return array_merge(parent::rules(), [
             [['handle', 'pageUrl'], 'validateHash'],
-        ];
+        ]);
     }
 
     public function attributeTypes(): array

@@ -1,5 +1,5 @@
 {% if not currentUser %}
-	{% redirect 'login' %}
+	{% redirect 'login?redirect=' ~ craft.app.request.url|url_encode %}
 {% endif %}
 
 {% set error = craft.app.getSession().getError() %}

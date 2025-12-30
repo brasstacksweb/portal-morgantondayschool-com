@@ -90,9 +90,9 @@ class Auth extends Component
         ]);
     }
 
-    public function sendMagicLinkEmail(string $email, string $token): bool
+    public function sendMagicLinkEmail(string $email, string $token, string $redirect = '/'): bool
     {
-        $magicLink = \Craft::$app->getRequest()->getHostInfo()."/notifications/auth/verify?token={$token}";
+        $magicLink = \Craft::$app->getRequest()->getHostInfo()."/notifications/auth/verify?token={$token}&redirect=".urlencode($redirect);
         $isNewUser = !\Craft::$app->getUsers()->getUserByUsernameOrEmail($email);
         $subject = $isNewUser ?
             'Welcome! Complete your registration for Titan Link' :

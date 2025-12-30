@@ -21,9 +21,9 @@ class Subscriptions extends BaseForm
 
     public function rules(): array
     {
-        return [
+        return array_merge(parent::rules(), [
             ['classes', 'each', 'rule' => ['integer']],
-        ];
+        ]);
     }
 
     public function attributeTypes(): array

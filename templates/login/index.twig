@@ -3,6 +3,7 @@
 {% endif %}
 
 {% set error = craft.app.getSession().getFlash('error') %}
+{% set redirect = craft.app.request.getQueryParam('redirect', '/') %}
 {% set heading = 'Sign In' %}
 {% set body = error ?? 'Enter your email address and we\'ll send you a magic link to sign in.' %}
 
@@ -16,7 +17,10 @@
 			{% include '_components/block-form' with {
 				heading: heading,
 				body: body,
-				form: create('modules\\notifications\\models\\Login'),
+				form: create({
+					class: 'modules\\notifications\\models\\Login',
+					redirect: redirect,
+				}),
 				hasError: error is not null,
 			} %}
 		</section>
