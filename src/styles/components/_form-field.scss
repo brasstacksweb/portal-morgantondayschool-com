@@ -85,10 +85,18 @@ $handle: "form-field";
 
 		> label {
 			@include font("body", "md");
-			display: block;
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			line-height: 1.4em;
 
 			&:not(:first-child) {
 				margin-top: var(--s-xs);
+			}
+
+			> input {
+				flex-shrink: 0;
+				margin-right: var(--s);
 			}
 		}
 	}

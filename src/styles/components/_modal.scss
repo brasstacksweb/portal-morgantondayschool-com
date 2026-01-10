@@ -27,7 +27,7 @@ $handle: "modal";
 			color: var(--c-white);
 
 			@include media("sm") {
-				right: vaR(--s-md);
+				right: var(--s-md);
 			}
 		}
 

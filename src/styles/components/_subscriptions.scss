@@ -6,14 +6,13 @@ $handle: "subscriptions";
 
 .#{$handle} {
 	@include pad(var(--s-sm));
-	@include space(var(--s-sm));
+	@include space(var(--s-md));
 	display: block;
 
 	@include media("sm") {
-		@include pad(var(--s-md));
+		@include pad(var(--s-lg));
 		@include space(var(--s-lg));
 	}
-
 
 	> div {
 		display: flex;
@@ -21,9 +20,13 @@ $handle: "subscriptions";
 		align-items: center;
 		max-width: var(--w-md);
 		margin: 0 auto;
-		padding: var(--s-md);
+		padding: var(--s-md) var(--s-sm) var(--s-sm);
 		background-color: var(--c-white);
 		border: 1px solid var(--c-black);
+
+		@include media("sm") {
+			padding: var(--s-md);
+		}
 
 		> h1 {
 			@include font("heading", "lg");
@@ -45,6 +48,7 @@ $handle: "subscriptions";
 
 		> div {
 			display: none;
+			width: 100%;
 			margin-top: var(--s-md);
 
 			> button {

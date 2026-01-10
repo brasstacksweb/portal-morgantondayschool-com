@@ -351,7 +351,6 @@ textarea:-ms-expand {
   display: inline-block;
   width: calc(1.5 * var(--s-xs));
   height: calc(1.5 * var(--s-xs));
-  margin: 0 3px 0 0;
   vertical-align: middle;
   border: 1px solid var(--c-black);
 }
@@ -883,13 +882,14 @@ details summary::-webkit-details-marker {
 .block-form {
   padding-left: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
   padding-right: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
-  padding-top: var(--s-sm);
-  padding-bottom: var(--s-sm);
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md);
+  display: block;
 }
 @media (min-width: 768px) {
   .block-form {
-    padding-left: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
-    padding-right: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-left: max(var(--s-lg), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-right: max(var(--s-lg), 0.5 * (100% - calc(var(--p-max) * 1px)));
     padding-top: var(--s-lg);
     padding-bottom: var(--s-lg);
   }
@@ -900,9 +900,14 @@ details summary::-webkit-details-marker {
   align-items: center;
   max-width: var(--w-md);
   margin: 0 auto;
-  padding: var(--s-md);
+  padding: var(--s-md) var(--s-sm);
   background-color: var(--c-white);
   border: 1px solid var(--c-black);
+}
+@media (min-width: 768px) {
+  .block-form > div {
+    padding: var(--s-md);
+  }
 }
 .block-form > div > h1 {
   font-family: system-ui;
@@ -2881,10 +2886,17 @@ details summary::-webkit-details-marker {
   font-weight: 333;
   font-size: clamp(16 * 1px, calc((18 - 16) / (var(--p-max) - var(--p-min)) * (100vw - var(--p-min) * 1px) + 16 * 1px), 18 * 1px);
   line-height: 1.6em;
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: 1.4em;
 }
 .form-field > fieldset > label:not(:first-child) {
   margin-top: var(--s-xs);
+}
+.form-field > fieldset > label > input {
+  flex-shrink: 0;
+  margin-right: var(--s);
 }
 .form-field > p {
   font-family: system-ui;
@@ -4128,7 +4140,7 @@ details summary::-webkit-details-marker {
 }
 @media (min-width: 768px) {
   .modal > dialog > button {
-    right: vaR(--s-md);
+    right: var(--s-md);
   }
 }
 .modal > dialog > section {
@@ -4144,14 +4156,14 @@ details summary::-webkit-details-marker {
 .subscriptions {
   padding-left: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
   padding-right: max(var(--s-sm), 0.5 * (100% - calc(var(--p-max) * 1px)));
-  padding-top: var(--s-sm);
-  padding-bottom: var(--s-sm);
+  padding-top: var(--s-md);
+  padding-bottom: var(--s-md);
   display: block;
 }
 @media (min-width: 768px) {
   .subscriptions {
-    padding-left: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
-    padding-right: max(var(--s-md), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-left: max(var(--s-lg), 0.5 * (100% - calc(var(--p-max) * 1px)));
+    padding-right: max(var(--s-lg), 0.5 * (100% - calc(var(--p-max) * 1px)));
     padding-top: var(--s-lg);
     padding-bottom: var(--s-lg);
   }
@@ -4162,9 +4174,14 @@ details summary::-webkit-details-marker {
   align-items: center;
   max-width: var(--w-md);
   margin: 0 auto;
-  padding: var(--s-md);
+  padding: var(--s-md) var(--s-sm) var(--s-sm);
   background-color: var(--c-white);
   border: 1px solid var(--c-black);
+}
+@media (min-width: 768px) {
+  .subscriptions > div {
+    padding: var(--s-md);
+  }
 }
 .subscriptions > div > h1 {
   font-family: system-ui;
@@ -4190,6 +4207,7 @@ details summary::-webkit-details-marker {
 }
 .subscriptions > div > div {
   display: none;
+  width: 100%;
   margin-top: var(--s-md);
 }
 .subscriptions > div > div > button {
