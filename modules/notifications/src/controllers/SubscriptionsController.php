@@ -65,13 +65,6 @@ class SubscriptionsController extends Controller
             return $this->asFailure('Failed to save class selections.');
         }
 
-        $user->setFieldValue('hasOnboarded', true);
-        $success = \Craft::$app->getElements()->saveElement($user);
-
-        if (!$success) {
-            return $this->asFailure('Failed to save class subscriptions.');
-        }
-
         \Craft::$app->getSession()->setSuccess('Your class subscriptions are saved.');
 
         return $this->asSuccess('Class selections saved successfully.');

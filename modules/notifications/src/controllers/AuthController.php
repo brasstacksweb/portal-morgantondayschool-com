@@ -74,17 +74,12 @@ class AuthController extends Controller
             return $this->redirect('/login');
         }
 
-        $hasOnboarded = $user->getFieldValue('hasOnboarded');
         $redirect = $request->getQueryParam('redirect', '/');
 
         // Validate redirect URL for security (prevent open redirects)
         $allowedPaths = ['/', '/subscriptions'];
         if (!in_array($redirect, $allowedPaths, true) && !str_starts_with($redirect, '/')) {
             $redirect = '/';
-        }
-
-        if (!$hasOnboarded) {
-            return $this->redirect('/subscriptions'); // Always go to subscriptions for onboarding
         }
 
         return $this->redirect($redirect);
