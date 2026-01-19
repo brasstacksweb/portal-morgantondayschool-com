@@ -3,10 +3,10 @@
 namespace modules\notifications\services;
 
 use craft\db\Query;
-use craft\elements\Entry;
 use craft\helpers\App;
 use Minishlink\WebPush\Subscription;
 use Minishlink\WebPush\WebPush;
+use modules\notifications\records\NotificationLog;
 use yii\base\Component;
 
 class Notifications extends Component
@@ -51,4 +51,30 @@ class Notifications extends Component
         return $results;
     }
 
+    public static function canSendNotification(int $userId, int $classEntryId, string $period = 'day', int $limit = 1): bool
+    {
+        $dateCondition = match ($period) {
+            'day' => 'DATE(dateCreated) = CURDATE()',
+            'week' => 'YEARWEEK(dateCreated, 1) = YEARWEEK(NOW(), 1)',
+            default => 'DATE(dateCreated) = CURDATE()'
+        };
+
+        $count = (new Query())
+            ->from('{{%notification_logs}}')
+            ->where(['userId' => $userId, 'classEntryId' => $classEntryId])
+            ->andWhere($dateCondition)
+            ->count();
+
+        return $count < $limit;
+    }
+
+    public static function logNotification(int $userId, int $classEntryId, int $recipientCount): bool
+    {
+        $log = new NotificationLog();
+        $log->userId = $userId;
+        $log->classEntryId = $classEntryId;
+        $log->recipientCount = $recipientCount;
+
+        return $log->save();
+    }
 }

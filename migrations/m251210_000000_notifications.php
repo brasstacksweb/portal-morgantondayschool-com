@@ -88,7 +88,6 @@ class m251210_000000_notifications extends Migration
             'userId',
         );
 
-
         // Magic link tokens for passwordless authentication
         $this->createTable('{{%magic_link_tokens}}', [
             'id' => $this->primaryKey(),
@@ -120,11 +119,54 @@ class m251210_000000_notifications extends Migration
             'expiresAt'
         );
 
+        // Notification logs for rate limiting (tracks when teachers send notifications)
+        $this->createTable('{{%notification_logs}}', [
+            'id' => $this->primaryKey(),
+            'userId' => $this->integer()->notNull(), // Teacher who sent the notification
+            'classEntryId' => $this->integer()->notNull(), // Class the notification was for
+            'recipientCount' => $this->integer()->notNull()->defaultValue(0), // Number of recipients
+            'dateCreated' => $this->dateTime()->notNull(), // When the notification was sent
+            'dateUpdated' => $this->dateTime()->notNull(),
+            'uid' => $this->uid(),
+        ]);
+
+        // Add foreign keys and indexes
+        $this->addForeignKey(
+            'fk_notification_logs_userId',
+            '{{%notification_logs}}',
+            'userId',
+            '{{%users}}',
+            'id',
+            'CASCADE'
+        );
+
+        $this->addForeignKey(
+            'fk_notification_logs_classEntryId',
+            '{{%notification_logs}}',
+            'classEntryId',
+            '{{%entries}}',
+            'id',
+            'CASCADE'
+        );
+
+        $this->createIndex(
+            'idx_notification_logs_user_class',
+            '{{%notification_logs}}',
+            ['userId', 'classEntryId']
+        );
+
+        $this->createIndex(
+            'idx_notification_logs_date_created',
+            '{{%notification_logs}}',
+            'dateCreated'
+        );
+
         return true;
     }
 
     public function safeDown(): bool
     {
+        $this->dropTableIfExists('{{%notification_logs}}');
         $this->dropTableIfExists('{{%magic_link_tokens}}');
         $this->dropTableIfExists('{{%user_class_subscriptions}}');
         $this->dropTableIfExists('{{%user_push_subscriptions}}');

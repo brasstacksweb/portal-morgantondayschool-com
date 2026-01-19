@@ -23,7 +23,11 @@ function handlePushNotification(button) {
 
 	// Make AJAX request to your custom action
 	Craft.sendActionRequest('POST', '{{ actionUrl }}', {
-		data: { entryId: entryId }
+		data: {
+			entryId: entryId,
+			rateLimitPeriod: 'day',
+			rateLimitCount: 1
+		}
 	})
 	.then(response => {
 		Craft.cp.displayNotice(response.data.message || 'Action completed successfully');

@@ -16,9 +16,18 @@ class NotificationsController extends Controller
 
         $request = \Craft::$app->getRequest();
         $entryId = $request->getRequiredBodyParam('entryId');
+        $period = $request->getRequiredBodyParam('rateLimitPeriod', 'day'); // 'day' or 'week'
+        $limit = (int) $request->getRequiredBodyParam('rateLimitCount', 1); // Default: 1 per day
+        $currentUser = \Craft::$app->getUser()->getIdentity();
+
         $class = Entry::findOne($entryId);
         $subscriptions = NotificationsModule::getInstance()->get('subscriptions');
         $notifications = NotificationsModule::getInstance()->get('notifications');
+
+        if (!$notifications->canSendNotification($currentUser->id, (int) $entryId, $period, $limit)) {
+            return $this->asFailure("Rate limit exceeded. You can only send {$limit} notification(s) per {$period} for this class.");
+        }
+
         $userIds = $subscriptions->getUserIdsForClass((int) $entryId);
         $pushSubscriptions = $subscriptions->getPushSubscriptionsForUsers($userIds);
 
@@ -37,7 +46,8 @@ class NotificationsController extends Controller
             return $this->asFailure('Some notifications failed to send.');
         }
 
+        $notifications->logNotification($currentUser->id, (int) $entryId, count($sent));
+
         return $this->asSuccess('Notifications sent successfully to '.count($sent).' subscribers.');
     }
-
 }
