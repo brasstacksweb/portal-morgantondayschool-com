@@ -50,6 +50,7 @@ export default class Subscriptions extends HTMLElement {
         // Check basic push notification support
         if (!isPushNotificationSupported()) {
             body.textContent = getUnsupportedMessage();
+            subscribeTrigger.style.display = 'none';
             this.classList.add(loadedClass);
             return;
         }
