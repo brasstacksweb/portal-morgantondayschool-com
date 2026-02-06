@@ -1,39 +1,134 @@
-<button type="button"
-		class="btn custom-action-btn"
-		data-entry-id="{{ entryId ?? '' }}"
-		onclick="handlePushNotification(this)">
+<button
+	type="button"
+	class="btn custom-action-btn"
+	popovertarget="notification-dialog">
 	{{ buttonLabel }}
 </button>
+<template id="notification-dialog-template">
+	<form method="dialog">
+		<label for="notification-message">
+			<strong>Custom Message (optional)</strong>
+			<small>(120 Characters)</small>
+		</label>
+		<textarea
+			id="notification-message"
+			name="message"
+			maxlength="120"
+			rows="3"
+			data-ignore-changes></textarea>
+		<nav>
+			<button
+				type="submit"
+				class="btn submit">
+				Send
+			</button>
+			<button
+				type="button"
+				class="btn"
+				popovertarget="notification-dialog"
+				popovertargetaction="hide">Cancel</button>
+		</nav>
+	</form>
+</template>
+
+{% css %}
+#notification-dialog {
+	width: 90%;
+	max-width: 444px;
+	padding: 20px;
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	> form {
+		display: flex;
+		flex-wrap: wrap;
+
+		> label {
+			display: block;
+			width: 100%;
+			margin-bottom: 8px;
+
+			small {
+				display: block;
+			}
+		}
+
+		> textarea {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		> nav {
+			display: flex;
+			gap: 8px;
+			justify-content: flex-end;
+			width: 100%;
+			margin-top: 15px;
+			text-align: right;
+		}
+	}
+}
+{% endcss %}
 
 {% js %}
-function handlePushNotification(button) {
-	const entryId = button.getAttribute('data-entry-id');
+function buildDialog(template) {
+	const dialog = document.createElement('dialog');
 
-	if (!entryId) {
-		Craft.cp.displayError('Entry must be saved first.');
+	dialog.setAttribute('id', 'notification-dialog');
+	dialog.setAttribute('popover', '');
+	dialog.innerHTML = template.innerHTML;
+	document.body.appendChild(dialog);
 
-		return;
-	}
-
-	if (!window.confirm('Are you sure you want to publish a notification? This will send a push notification to all subscribers.')) {
-		return;
-	}
-
-	button.disabled = true;
-
-	// Make AJAX request to your custom action
-	Craft.sendActionRequest('POST', '{{ actionUrl }}', {
-		data: {
-			entryId: entryId,
-			rateLimitPeriod: 'day',
-			rateLimitCount: 1
-		}
-	})
-	.then(response => {
-		Craft.cp.displayNotice(response.data.message || 'Action completed successfully');
-	})
-	.catch(error => {
-		Craft.cp.displayError(error.response?.data?.message || 'An error occurred');
-	})
+	return document.getElementById('notification-dialog');
 }
+
+(function() {
+	const template = document.getElementById('notification-dialog-template');
+	const dialog = buildDialog(template);
+	const form = dialog.querySelector('form')
+	const count = form.querySelector('label small');
+	const message = form.querySelector('textarea');
+
+	message.addEventListener('input', () => {
+		const remaining = 120 - message.value.length;
+
+		count.textContent = `${remaining} characters remaining`;
+	});
+	form.onsubmit = () => {
+		const button = form.querySelector('[type="submit"]');
+
+		if (!window.confirm('Are you sure you want to publish a notification? This will send a push notification to all subscribers.')) {
+			return;
+		}
+
+		button.disabled = true;
+
+		// Make AJAX request to your custom action
+		Craft.sendActionRequest('POST', '{{ actionUrl }}', {
+			data: {
+				entryId: {{ entryId|json_encode }},
+				rateLimitPeriod: 'day',
+				rateLimitCount: 1,
+				message: message.value.trim(),
+			}
+		})
+		.then(response => {
+			Craft.cp.displayNotice(response.data.message || 'Action completed successfully');
+		})
+		.catch(error => {
+			Craft.cp.displayError(error.response?.data?.message || 'An error occurred');
+		})
+		.finally(() => {
+			button.disabled = false;
+			dialog.hidePopover();
+		});
+	}
+})();
 {% endjs %}

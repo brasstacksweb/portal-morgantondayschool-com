@@ -18,6 +18,7 @@ class NotificationsController extends Controller
         $entryId = $request->getRequiredBodyParam('entryId');
         $period = $request->getRequiredBodyParam('rateLimitPeriod', 'day'); // 'day' or 'week'
         $limit = (int) $request->getRequiredBodyParam('rateLimitCount', 1); // Default: 1 per day
+        $message = $request->getBodyParam('message', 'Click to see what\'s new.');
         $currentUser = \Craft::$app->getUser()->getIdentity();
 
         $class = Entry::findOne($entryId);
@@ -37,7 +38,7 @@ class NotificationsController extends Controller
 
         $payload = [
             'title' => sprintf('New updates from %s', $class->title),
-            'body' => 'Click to see what\'s new.',
+            'body' => $message,
             'url' => $class->getUrl(),
         ];
         $sent = $notifications->sendPushNotifications($pushSubscriptions, $payload);

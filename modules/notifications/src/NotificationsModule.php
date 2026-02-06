@@ -67,7 +67,7 @@ class NotificationsModule extends Module
             Entry::class,
             Element::EVENT_DEFINE_ADDITIONAL_BUTTONS,
             function (DefineHtmlEvent $event) {
-                if ($event->sender->isDraft) {
+                if ($event->sender->isDraft || !$event->sender->id) {
                     return;
                 }
 
