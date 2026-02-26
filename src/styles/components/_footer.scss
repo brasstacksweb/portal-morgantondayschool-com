@@ -35,17 +35,16 @@ $handle: "footer";
 	}
 
 	> ul {
-		display: grid;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: var(--s-sm);
-		grid-template-columns: repeat(2, 1fr);
-		place-items: center;
 		width: 100%;
 		margin-bottom: var(--s-md);
 		padding: var(--s-sm);
 		background-color: var(--c-white);
 
 		@include media("sm") {
-			grid-template-columns: repeat(5, 1fr);
 			margin-bottom: var(--s-lg);
 		}
 
@@ -54,6 +53,12 @@ $handle: "footer";
 		}
 
 		> li {
+			width: calc(100% / 2 - var(--s-sm) * 1 / 2);
+
+			@include media("sm") {
+				width: calc(100% / 4 - var(--s-md) * 3 / 4);
+			}
+
 			> a {
 				display: block;
 				height: 100%;
