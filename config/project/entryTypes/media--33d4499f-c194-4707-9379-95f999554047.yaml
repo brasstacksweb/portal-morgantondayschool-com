@@ -10,10 +10,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: heading
-            includeInCards: false
             instructions: null
             label: Heading
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -26,10 +24,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: null
-            includeInCards: false
             instructions: null
             label: 'Media Item'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -42,10 +38,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 188ef9dd-6d05-4bc5-89da-6206d1873457 # Width
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
