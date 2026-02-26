@@ -1,3 +1,5 @@
+{% redirect siteUrl %}
+
 {% if not currentUser %}
 	{% redirect 'login?redirect=' ~ craft.app.request.url|url_encode %}
 {% endif %}

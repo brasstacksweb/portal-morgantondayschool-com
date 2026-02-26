@@ -20,6 +20,7 @@ class NotificationsModule extends Module
     {
         parent::init();
 
+        return true;
         \Craft::setAlias('@modules/notifications', $this->getBasePath());
 
         if (\Craft::$app->getRequest()->getIsConsoleRequest()) {
