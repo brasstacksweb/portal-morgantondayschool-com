@@ -16,7 +16,6 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -25,7 +24,6 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
-            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -45,13 +43,11 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            includeInCards: false
             instructions: null
             label: null
             name: null
             orientation: null
             placeholder: null
-            providesThumbs: false
             readonly: false
             requirable: true
             required: false
@@ -69,10 +65,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: caption
-            includeInCards: false
             instructions: null
             label: Caption
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -86,10 +80,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -103,10 +95,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 5967eb6a-20df-40e5-801a-48817808934a # Toggle
             handle: enlargable
-            includeInCards: false
             instructions: null
             label: Enlargable
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

@@ -14,7 +14,6 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -23,7 +22,6 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
-            providesThumbs: false
             readonly: false
             required: true
             size: null
@@ -40,10 +38,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 9d9dfbb2-88b3-4274-9762-69c856f6b518 # Preview Image
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -56,10 +52,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: previewText
-            includeInCards: false
             instructions: null
             label: 'Preview Text'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -72,10 +66,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: date
-            includeInCards: false
             instructions: null
             label: Date
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -88,10 +80,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 1908e08e-4715-4582-981a-ae20b88e9b7c # Months
             handle: featuredMonths
-            includeInCards: false
             instructions: 'Which months should this activity be displayed on the homepage'
             label: 'Featured Months'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -116,10 +106,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: januaryPriority
-            includeInCards: false
             instructions: null
             label: 'January Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -144,10 +132,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: februaryPriority
-            includeInCards: false
             instructions: null
             label: 'February Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -172,10 +158,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: marchPriority
-            includeInCards: false
             instructions: null
             label: 'March Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -200,10 +184,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: aprilPriority
-            includeInCards: false
             instructions: null
             label: 'April Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -228,10 +210,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: mayPriority
-            includeInCards: false
             instructions: null
             label: 'May Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -256,10 +236,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: junePriority
-            includeInCards: false
             instructions: null
             label: 'June Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -284,10 +262,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: julyPriority
-            includeInCards: false
             instructions: null
             label: 'July Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -312,10 +288,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: augustPriority
-            includeInCards: false
             instructions: null
             label: 'August Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -340,10 +314,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: septemberPriority
-            includeInCards: false
             instructions: null
             label: 'September Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -368,10 +340,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: octoberPriority
-            includeInCards: false
             instructions: null
             label: 'October Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -396,10 +366,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: novemberPriority
-            includeInCards: false
             instructions: null
             label: 'November Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -424,10 +392,8 @@ fieldLayouts:
               fieldContext: global
             fieldUid: 1dca4a2b-84d6-462d-a266-6b7405d61620 # Priority
             handle: decemberPriority
-            includeInCards: false
             instructions: null
             label: 'December Priority'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -446,10 +412,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: heading
-            includeInCards: false
             instructions: null
             label: Heading
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -462,10 +426,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: heroImage
-            includeInCards: false
             instructions: null
             label: 'Hero Image'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -478,10 +440,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: bf142fa8-b2dd-4970-a630-d5ad5cb11849 # CTAs
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -494,10 +454,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -510,10 +468,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: c949c1b6-9b7b-4bbf-b3de-5fff9dd54c0d # Activity Modules
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
