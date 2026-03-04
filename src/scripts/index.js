@@ -71,3 +71,11 @@ if (document.readyState === 'loading') {
 } else {
     handleDOMConentLoaded();
 }
+
+if ('serviceWorker' in navigator) {
+    caches.keys().then(cacheNames => {
+        cacheNames.forEach(cacheName => {
+            caches.delete(cacheName);
+        });
+    });
+}
