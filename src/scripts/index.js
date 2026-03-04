@@ -64,6 +64,17 @@ function handleDOMConentLoaded() {
             events.emit(actions.loadModal, { markup });
         };
     });
+
+    if ('serviceWorker' in navigator) {
+        console.log('Clearing old caches...');
+        caches.keys().then(cacheNames => {
+            console.log('Found caches:', cacheNames);
+            cacheNames.forEach(cacheName => {
+                console.log('Deleting cache:', cacheName);
+                caches.delete(cacheName);
+            });
+        });
+    }
 }
 
 if (document.readyState === 'loading') {
