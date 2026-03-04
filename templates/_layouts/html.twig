@@ -20,7 +20,7 @@
 {% set stylesFile = '/' ~ getenv('STYLES_FILE')
 	|replace('.css', '.' ~ (getenv('STYLES_CACHE_HASH') ?: 'empty') ~ '.css') %}
 {% set scriptsFile = '/' ~ getenv('SCRIPTS_FILE')
-	|replace('.css', '.' ~ (getenv('SCRIPTS_CACHE_HASH') ?: 'empty') ~ '.css') %}
+	|replace('.js', '.' ~ (getenv('SCRIPTS_CACHE_HASH') ?: 'empty') ~ '.js') %}
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
