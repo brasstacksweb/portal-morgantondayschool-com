@@ -7,9 +7,6 @@ import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
 import Subscriptions from './components/subscriptions';
 import TextList from './components/text-list';
-// Registration components
-// import NotificationBadge from './components/notification-badge';
-// import UpdatesList from './components/updates-list';
 
 function handleDOMConentLoaded() {
     // Register custom elements
