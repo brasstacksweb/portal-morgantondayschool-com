@@ -2,15 +2,15 @@
 
 namespace modules\site\controllers;
 
-use Craft;
 use craft\elements\Entry;
+use craft\helpers\App;
 use craft\web\Controller;
 use GuzzleHttp\Promise\Utils;
 use yii\web\Response;
 
 class SitemapController extends Controller
 {
-    protected array|int|bool $allowAnonymous = ['index'];
+    protected array|bool|int $allowAnonymous = ['index'];
 
     public function actionIndex(): Response
     {
@@ -27,10 +27,34 @@ class SitemapController extends Controller
             $url->addChild('priority', $entry->uri === '__home__' ? 0.75 : 0.5);
         }
 
-        Craft::$app->response->format = Response::FORMAT_RAW;
-        Craft::$app->response->headers->add('Content-Type', 'text/xml');
+        \Craft::$app->response->format = Response::FORMAT_RAW;
+        \Craft::$app->response->headers->add('Content-Type', 'text/xml');
 
         return $this->asRaw($xml->asXml());
+    }
+
+    public function actionManifest(): Response
+    {
+        return $this->asJson([
+            'name' => 'Morganton Day School Titan Link Parent Portal',
+            'short_name' => 'Titan Link',
+            'icons' => [
+                [
+                    'src' => '/android-chrome-192x192.png',
+                    'sizes' => '192x192',
+                    'type' => 'image/png',
+                ],
+                [
+                    'src' => '/android-chrome-512x512.png',
+                    'sizes' => '512x512',
+                    'type' => 'image/png',
+                ],
+            ],
+            'theme_color' => App::devMode() ? '#ffff00' : '#ffffff',
+            'background_color' => App::devMode() ? '#ffff00' : '#ffffff',
+            'display' => 'standalone',
+            'start_url' => '/',
+        ]);
     }
 
     /**
@@ -39,9 +63,9 @@ class SitemapController extends Controller
      */
     public function actionTest(): Response
     {
-        $sections = Craft::$app->getEntries()->getAllSections();
+        $sections = \Craft::$app->getEntries()->getAllSections();
         $query = Entry::find();
-        $client = Craft::createGuzzleClient();
+        $client = \Craft::createGuzzleClient();
 
         $entries = [];
         $reqs = [];
