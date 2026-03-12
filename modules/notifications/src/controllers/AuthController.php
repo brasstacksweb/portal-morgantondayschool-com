@@ -41,7 +41,7 @@ class AuthController extends Controller
     public function actionVerify(): Response
     {
         $request = \Craft::$app->getRequest();
-        $token = $request->getQueryParam('token');
+        $token = $request->getQueryParam('auth_token');
 
         if (!$token) {
             \Craft::$app->getSession()->setError('Invalid or missing token.');
