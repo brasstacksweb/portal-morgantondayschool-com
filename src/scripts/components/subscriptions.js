@@ -32,6 +32,20 @@ To enable notifications on iOS Safari:
 
 const getErrorMessage = () => 'There was an error enabling notifications. Please try again later.';
 
+const postSubscription = async (form, subscription) => {
+    const formData = new FormData(form);
+
+    formData.append('endpoint', subscription.endpoint);
+    formData.append('p256dhKey', arrayBufferToBase64Url(subscription.getKey('p256dh')));
+    formData.append('authKey', arrayBufferToBase64Url(subscription.getKey('auth')));
+
+    return fetch('/', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+    });
+};
+
 export default class Subscriptions extends HTMLElement {
     constructor() {
         super();
@@ -116,6 +130,12 @@ export default class Subscriptions extends HTMLElement {
 
             const existingSubscription = await registration.pushManager.getSubscription();
             if (existingSubscription) {
+                const res = await postSubscription(form, existingSubscription);
+
+                if (!res.ok) {
+                    throw new Error('Failed to save existing subscription');
+                }
+
                 this.classList.add(activeClass);
 
                 return;
@@ -125,17 +145,7 @@ export default class Subscriptions extends HTMLElement {
                 userVisibleOnly: true,
                 applicationServerKey: base64ToUint8Array(vapidPublicKey),
             });
-            const formData = new FormData(form);
-
-            formData.append('endpoint', subscription.endpoint);
-            formData.append('p256dhKey', arrayBufferToBase64Url(subscription.getKey('p256dh')));
-            formData.append('authKey', arrayBufferToBase64Url(subscription.getKey('auth')));
-
-            const res = await fetch('/', {
-                method: 'POST',
-                headers: { Accept: 'application/json' },
-                body: formData,
-            });
+            const res = await postSubscription(form, subscription);
 
             if (res.ok) {
                 this.classList.add(activeClass);
