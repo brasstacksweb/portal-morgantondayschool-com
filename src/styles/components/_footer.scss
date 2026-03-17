@@ -56,7 +56,11 @@ $handle: "footer";
 			width: calc(100% / 2 - var(--s-sm) * 1 / 2);
 
 			@include media("sm") {
-				width: calc(100% / 4 - var(--s-md) * 3 / 4);
+				width: calc(100% / 3 - var(--s-md) * 2 / 3);
+			}
+
+			@include media("lg") {
+				width: calc(100% / 5 - var(--s-md) * 4 / 5);
 			}
 
 			> a {
