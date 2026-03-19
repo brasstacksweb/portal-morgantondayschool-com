@@ -59,6 +59,7 @@ class NotificationsModule extends Module
             CraftVariable::EVENT_INIT,
             function (Event $event) {
                 $variable = $event->sender;
+                $variable->set('notifications', $this->notifications);
                 $variable->set('subscriptions', $this->subscriptions);
             }
         );

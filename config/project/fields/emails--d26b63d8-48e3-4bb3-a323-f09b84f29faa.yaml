@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: emails
+instructions: null
+name: Emails
+searchable: false
+settings:
+  addRowLabel: 'Add an email'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Email
+            -
+              - handle
+              - email
+            -
+              - width
+              - ''
+            -
+              - type
+              - email
+  defaults: null
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

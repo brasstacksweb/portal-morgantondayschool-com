@@ -1,6 +1,10 @@
 <button
 	type="button"
 	class="btn custom-action-btn"
+	{% if not craft.notifications.canSendNotification(currentUser.id, entryId) %}
+		disabled
+		title="You have reached your daily limit for sending notifications. Please try again later."
+	{% endif %}
 	popovertarget="notification-dialog">
 	{{ buttonLabel }}
 </button>
@@ -15,6 +19,7 @@
 			name="message"
 			maxlength="120"
 			rows="3"
+			placeholder="Click to see what's new"
 			data-ignore-changes></textarea>
 		<nav>
 			<button

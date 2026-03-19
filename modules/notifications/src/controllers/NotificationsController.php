@@ -18,7 +18,7 @@ class NotificationsController extends Controller
         $entryId = $request->getRequiredBodyParam('entryId');
         $period = $request->getRequiredBodyParam('rateLimitPeriod', 'day'); // 'day' or 'week'
         $limit = (int) $request->getRequiredBodyParam('rateLimitCount', 1); // Default: 1 per day
-        $message = $request->getBodyParam('message', 'Click to see what\'s new.');
+        $message = $request->getBodyParam('message', null);
         $currentUser = \Craft::$app->getUser()->getIdentity();
 
         $class = Entry::findOne($entryId);
@@ -31,24 +31,43 @@ class NotificationsController extends Controller
 
         $userIds = $subscriptions->getUserIdsForClass((int) $entryId);
         $pushSubscriptions = $subscriptions->getPushSubscriptionsForUsers($userIds);
+        $pushCount = count($pushSubscriptions);
+        $notificationEmails = array_filter(array_column($class->notificationEmails, 'email'));
+        $emailCount = count($notificationEmails);
 
-        if (count($pushSubscriptions) === 0) {
-            return $this->asFailure('No subscriptions found for class.');
+        if ($pushCount === 0 && $emailCount === 0) {
+            return $this->asFailure('No push subscriptions or email addresses found for class.');
         }
 
-        $payload = [
-            'title' => sprintf('New updates from %s', $class->title),
-            'body' => $message,
-            'url' => $class->getUrl(),
-        ];
-        $sent = $notifications->sendPushNotifications($pushSubscriptions, $payload);
+        $subject = sprintf('New updates from %s', $class->title);
 
-        if (count($sent) !== count($pushSubscriptions)) {
-            return $this->asFailure('Some notifications failed to send.');
+        $pushResults = [];
+        if ($pushCount > 0) {
+            $pushResults = $notifications->sendPushNotifications($pushSubscriptions, [
+                'title' => $subject,
+                'body' => $message ?? 'Click to see what\'s new.',
+                'url' => $class->getUrl(),
+            ]);
         }
 
-        $notifications->logNotification($currentUser->id, (int) $entryId, count($sent));
+        $emailResults = [];
+        if ($emailCount > 0) {
+            $emailResults = $notifications->sendEmailNotifications($notificationEmails, [
+                'subject' => $subject,
+                'message' => $message,
+                'classUrl' => $class->getUrl(),
+            ]);
+        }
 
-        return $this->asSuccess('Notifications sent successfully to '.count($sent).' subscribers.');
+        $pushSent = count(array_filter($pushResults, fn ($result) => $result['success']));
+        $emailSent = count(array_filter($emailResults, fn ($result) => $result['success']));
+
+        if ($pushSent === 0 && $emailSent === 0) {
+            return $this->asFailure('Failed to send notifications.');
+        }
+
+        $notifications->logNotification($currentUser->id, (int) $entryId, $pushSent, $emailSent);
+
+        return $this->asSuccess("Notifications sent to {$pushSent}/{$pushCount} push subscribers and {$emailSent}/{$emailCount} email recipients.");
     }
 }

@@ -124,7 +124,8 @@ class m251210_000000_notifications extends Migration
             'id' => $this->primaryKey(),
             'userId' => $this->integer()->notNull(), // Teacher who sent the notification
             'classEntryId' => $this->integer()->notNull(), // Class the notification was for
-            'recipientCount' => $this->integer()->notNull()->defaultValue(0), // Number of recipients
+            'pushCount' => $this->integer()->notNull()->defaultValue(0), // Number of recipients
+            'emailCount' => $this->integer()->notNull()->defaultValue(0), // Number of recipients
             'dateCreated' => $this->dateTime()->notNull(), // When the notification was sent
             'dateUpdated' => $this->dateTime()->notNull(),
             'uid' => $this->uid(),

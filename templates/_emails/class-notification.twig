@@ -1,0 +1,48 @@
+<div
+	style="
+		max-width: 600px;
+		margin: 0 auto;
+		color: #333;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+		line-height: 1.5;
+	">
+	<h2>{{ subject }}</h2>
+
+	{% if message %}
+		<div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+			<p style="margin: 0; font-style: italic;">"{{ message }}"</p>
+		</div>
+	{% endif %}
+
+	<p>Check out class updates on TitanLink. Click below to view the latest information.</p>
+
+	<div style="margin: 30px 0;">
+		<a href="{{ classUrl }}"
+			style="
+				background: #1A4D24;
+				color: white;
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 5px;
+				display: inline-block;
+				font-weight: bold;
+				margin-right: 10px;
+			">
+			View Class Page
+		</a>
+
+		<a href="{{ siteUrl() }}"
+			style="
+				background: #666;
+				color: white;
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 5px;
+				display: inline-block;
+				font-weight: bold;
+			">
+			View Portal Home
+		</a>
+	</div>
+</div>

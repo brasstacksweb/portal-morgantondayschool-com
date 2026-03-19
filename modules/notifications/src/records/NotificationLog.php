@@ -10,10 +10,11 @@ use craft\records\User;
  * Notification Log Record.
  *
  * @property int    $id
- * @property int    $userId - The teacher who sent the notification
+ * @property int    $userId       - The teacher who sent the notification
  * @property int    $classEntryId - The class the notification was sent for
- * @property int    $recipientCount - Number of recipients
- * @property string $dateCreated - When the notification was sent
+ * @property int    $pushCount    - Number of push recipients
+ * @property int    $emailCount   - Number of email recipients
+ * @property string $dateCreated  - When the notification was sent
  * @property string $dateUpdated
  * @property string $uid
  */
@@ -27,8 +28,8 @@ class NotificationLog extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['userId', 'classEntryId', 'recipientCount'], 'required'],
-            [['userId', 'classEntryId', 'recipientCount'], 'integer'],
+            [['userId', 'classEntryId', 'pushCount', 'emailCount'], 'required'],
+            [['userId', 'classEntryId', 'pushCount', 'emailCount'], 'integer'],
         ];
     }
 

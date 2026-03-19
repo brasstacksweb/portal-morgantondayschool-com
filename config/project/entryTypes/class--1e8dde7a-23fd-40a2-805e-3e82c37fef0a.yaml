@@ -1,3 +1,4 @@
+allowLineBreaksInTitles: false
 color: null
 description: null
 fieldLayouts:
@@ -47,6 +48,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: previewText
             instructions: null
@@ -70,6 +72,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15 # Color
             handle: null
             instructions: null
@@ -93,6 +96,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
             handle: heading
             instructions: null
@@ -108,6 +112,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
             handle: heroImage
             instructions: null
@@ -123,6 +128,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
             handle: null
             instructions: null
@@ -138,6 +144,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
             handle: resources
             instructions: null
@@ -153,6 +160,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 2efcdd43-3927-46bc-aab7-7d1576e97e29 # Announcements
             handle: null
             instructions: null
@@ -177,6 +185,7 @@ fieldLayouts:
                   value: third-grade
               elementType: craft\elements\Entry
               fieldContext: global
+            elementEditCondition: null
             fieldUid: 886f28e9-c88b-48e4-9f01-f841e4637ee9 # Cards
             handle: null
             instructions: null
@@ -192,6 +201,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 87c7eb6f-29f4-4836-8740-ee6965ccb886 # Posts
             handle: null
             instructions: null
@@ -207,6 +217,7 @@ fieldLayouts:
             dateAdded: '2024-09-24T13:22:50+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: f2609bcc-2cf8-4ae9-92f2-27cb50c45b11 # Post
             handle: featuredPost
             instructions: 'Select a post from your class to feature on the homepage.'
@@ -231,6 +242,7 @@ fieldLayouts:
                   value: third-grade
               elementType: craft\elements\Entry
               fieldContext: global
+            elementEditCondition: null
             fieldUid: 6271783c-fcdd-4d3b-89b1-246b1c93cc0d # Video
             handle: featuredVideo
             instructions: null
@@ -245,6 +257,29 @@ fieldLayouts:
         name: Content
         uid: 413ac764-83b7-4cae-b74a-78a257d50b79
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-19T15:52:14+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d26b63d8-48e3-4bb3-a323-f09b84f29faa # Emails
+            handle: notificationEmails
+            instructions: 'List of addresses to be notified for weekly class updates'
+            label: 'Notification Emails'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c617ff6b-9e17-44c7-a83e-69a6d1c02eb4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Notifications
+        uid: 1279fdc7-83d6-48a4-9a9c-f64d71cdddca
+        userCondition: null
+    thumbFieldKey: null
 handle: class
 hasTitleField: true
 icon: apple-whole
@@ -256,3 +291,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'
