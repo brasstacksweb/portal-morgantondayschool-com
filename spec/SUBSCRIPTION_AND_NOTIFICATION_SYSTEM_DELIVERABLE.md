@@ -11,7 +11,9 @@ The implementation consists of a custom Craft CMS module (`modules/notifications
 1. **Magic Link Authentication** - Passwordless login system for parents
 2. **Class Subscriptions** - Parents can subscribe to specific classes
 3. **Push Notifications** - Web push notifications for real-time updates
-4. **Admin Interface** - Teachers can send notifications directly from Craft CP
+4. **Email Notifications** - Email notifications sent to class email lists
+5. **Weekly Automated Reminders** - Cron-based system for weekly notification reminders
+6. **Admin Interface** - Teachers can send notifications directly from Craft CP
 
 ## Database Changes
 
@@ -22,7 +24,7 @@ The migration `m251210_000000_notifications.php` creates four new database table
 1. **`user_class_subscriptions`** - Tracks which classes each parent follows
 2. **`user_push_subscriptions`** - Stores web push subscription data for notifications
 3. **`magic_link_tokens`** - Manages passwordless authentication tokens
-4. **`notification_logs`** - Tracks when notifications are sent for rate limiting
+4. **`notification_logs`** - Tracks when notifications are sent for rate limiting (updated to track both push and email counts separately)
 
 ### Key Indexes
 - Unique constraints prevent duplicate subscriptions
@@ -46,10 +48,23 @@ The migration `m251210_000000_notifications.php` creates four new database table
 - **Server**: `modules/notifications/src/services/Notifications.php`
 - **Features**: Web Push API integration, service worker management
 
-### 4. Admin Notification Interface
+### 4. Email Notification System
+- **Location**: `modules/notifications/src/services/Notifications.php`
+- **Purpose**: Send email notifications to class email lists
+- **Template**: `templates/_emails/class-notification.twig`
+- **Features**: Custom teacher messages, automatic fallback content
+
+### 5. Weekly Automated Reminder System
+- **Location**: `modules/notifications/src/console/controllers/NotificationsController.php`
+- **Purpose**: Send automated reminders if no notifications since Friday 5 PM
+- **Trigger**: Cron job runs Sunday 7:30 PM ET
+- **Features**: Checks all classes, sends both push and email reminders
+
+### 6. Admin Notification Interface
 - **Location**: `templates/_admin/push-notification.twig`
 - **Purpose**: Allow teachers to send notifications from Craft CP
 - **Integration**: Automatically appears on class entry pages
+- **Features**: Rate limiting UI, custom message input, dual push/email sending
 
 ## File Changes Summary
 
@@ -61,7 +76,8 @@ The migration `m251210_000000_notifications.php` creates four new database table
 - **Records**: Active Record classes for database tables
 
 ### Frontend Changes
-- **Templates**: Login, subscriptions, and admin notification templates
+- **Templates**: Login, subscriptions, admin notification, and email notification templates
+- **Email Template**: `templates/_emails/class-notification.twig` for email notifications
 - **JavaScript**: Push notification subscription component
 - **Styles**: Subscription component styling
 - **Service Worker**: `public/sw.js` for push notification handling
@@ -72,7 +88,7 @@ The migration `m251210_000000_notifications.php` creates four new database table
 - `/notifications/subscriptions/subscribe-push` - Subscribe to push notifications
 - `/notifications/subscriptions/unsubscribe-push` - Unsubscribe from push notifications
 - `/notifications/subscriptions/save` - Save class subscriptions
-- `/notifications/notifications/send` - Send notification (admin)
+- `/notifications/notifications/send` - Send notification (admin) - now supports both push and email
 
 ## Testing Procedures
 
@@ -139,9 +155,43 @@ The migration `m251210_000000_notifications.php` creates four new database table
 **Test Case**: Custom Notification Messages
 1. Use admin notification interface
 2. Send custom message
-3. **Expected**: Custom message sent instead of default
+3. **Expected**: Custom message sent in both push and email notifications
 
-### 5. Security Testing
+**Test Case**: Dual Push/Email Sending
+1. Set up class with both push subscribers and email addresses
+2. Send notification from admin interface
+3. **Expected**: Both push and email notifications delivered successfully
+
+### 5. Email Notification Testing
+
+**Test Case**: Email Field Setup
+1. Add `notificationEmails` table field to class entries
+2. Add email addresses to field
+3. **Expected**: Email addresses saved and accessible
+
+**Test Case**: Manual Email Notifications
+1. Login as teacher and send notification with custom message
+2. **Expected**: Email sent with custom message and class links
+
+**Test Case**: Email Template Rendering
+1. Send notification with various message lengths
+2. **Expected**: Email template renders correctly with branding
+
+### 6. Weekly Automated Reminder Testing
+
+**Test Case**: Cron Command Execution
+1. Run `php craft notifications/notifications/send` manually
+2. **Expected**: Command processes all classes successfully
+
+**Test Case**: Notification Window Logic
+1. Test with notifications sent within Friday-Sunday window
+2. **Expected**: No automated reminders sent for those classes
+
+**Test Case**: Automated Reminder Content
+1. Allow command to send automated reminders
+2. **Expected**: Generic reminder message sent via both push and email
+
+### 7. Security Testing
 
 **Test Case**: Authentication Required
 1. Try accessing `/dashboard` without login
@@ -155,7 +205,7 @@ The migration `m251210_000000_notifications.php` creates four new database table
 1. Login as different users
 2. **Expected**: Each user only sees their own subscriptions
 
-### 6. Error Handling Testing
+### 8. Error Handling Testing
 
 **Test Case**: Invalid Tokens
 1. Use malformed magic link token
@@ -210,6 +260,13 @@ The migration `m251210_000000_notifications.php` creates four new database table
 - User groups configured for parents, teachers, admins
 - Proper field layouts for class entries
 - Email templates for magic links
+- **New Requirement**: `notificationEmails` table field added to class entries with `email` column
+
+### Cron Job Setup
+- **Required**: Weekly cron job for automated reminders
+- **Command**: `cd /srv/users/btw24pro/apps/mds24dev && php craft notifications/notifications/send`
+- **Schedule**: `30 19 * * 0` (Sunday 7:30 PM ET)
+- **Purpose**: Send automated reminders for classes without notifications since Friday 5 PM
 
 ## Future Enhancements
 
@@ -232,15 +289,20 @@ If rollback is needed:
 ## Support and Maintenance
 
 ### Regular Maintenance Tasks
-- Monitor notification delivery rates
+- Monitor notification delivery rates (both push and email)
 - Clean up expired magic link tokens
 - Review push subscription validity
 - Update VAPID keys as needed
+- Monitor cron job execution for weekly reminders
+- Review notification logs for rate limiting effectiveness
 
 ### Monitoring Points
 - Magic link delivery success rates
 - Push notification delivery rates
+- Email notification delivery rates
+- Weekly reminder cron job success
 - User subscription patterns
 - Database table growth
+- Notification rate limiting effectiveness
 
 This system provides a robust foundation for parent-school communication while maintaining security, performance, and user experience standards.
