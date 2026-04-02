@@ -10,7 +10,7 @@ use yii\web\Response;
 
 class SitemapController extends Controller
 {
-    protected array|bool|int $allowAnonymous = ['index'];
+    protected array|bool|int $allowAnonymous = ['index', 'manifest'];
 
     public function actionIndex(): Response
     {
