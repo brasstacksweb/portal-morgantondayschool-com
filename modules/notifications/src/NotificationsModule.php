@@ -84,6 +84,11 @@ class NotificationsModule extends Module
                     return;
                 }
 
+                // TODO: Remove admin block to launch
+                if (!$user->isAdmin) {
+                    return;
+                }
+
                 $event->html .= \Craft::$app->getView()->renderTemplate('_admin/push-notification', [
                     'entryId' => $event->sender->id,
                     'actionUrl' => 'notifications/notifications/send',
