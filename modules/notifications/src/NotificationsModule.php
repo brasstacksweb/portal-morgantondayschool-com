@@ -68,7 +68,19 @@ class NotificationsModule extends Module
             Entry::class,
             Element::EVENT_DEFINE_ADDITIONAL_BUTTONS,
             function (DefineHtmlEvent $event) {
-                if ($event->sender->isDraft || !$event->sender->id) {
+                $user = \Craft::$app->getUser();
+                $entry = $event->sender;
+                $authorIds = array_map(fn ($author) => $author->id, $entry->authors);
+
+                if ($entry->isDraft || !$entry->id) {
+                    return;
+                }
+
+                if ($entry->type->handle !== 'class') {
+                    return;
+                }
+
+                if (!$user->isAdmin && !in_array($user->id, $authorIds, true)) {
                     return;
                 }
 
