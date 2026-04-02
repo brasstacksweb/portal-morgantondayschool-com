@@ -45,7 +45,6 @@ return [
             'targets' => [
                 [
                     'enabled' => !App::env('CRAFT_DEV_MODE'),
-                    'enabled' => false,
                     'class' => EmailTarget::class,
                     'levels' => [LogLevel::ERROR],
                     'logVars' => ['_SERVER.REQUEST_URI'],
