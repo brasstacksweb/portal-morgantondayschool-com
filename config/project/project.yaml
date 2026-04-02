@@ -1,4 +1,4 @@
-dateModified: 1775146034
+dateModified: 1775147984
 elementSources:
   craft\elements\Category:
     -
@@ -240,6 +240,10 @@ plugins:
             5:
               - password
               - $BASIC_AUTH_PASSWORD
+            6:
+              - exceptedPaths
+              -
+                - /site.webmanifest
             8:
               - customFailureMessage
               - ''
