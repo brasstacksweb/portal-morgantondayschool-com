@@ -7,15 +7,40 @@ settings:
   availableTransforms: ''
   availableVolumes:
     - 3a74ea9c-9563-433e-8206-163caff6f1a2 # Documents
-  ckeConfig: 462b813e-6582-4566-946a-0979bf81f1ca # Simple
-  createButtonLabel: null
+  css: ".ck-content em.highlight {\r\n    background: rgba(255, 255, 0, 0.5);\r\n    font-style: normal;\r\n    font-weight: 600;\r\n}"
+  cssFile: null
   defaultTransform: null
   enableSourceEditingForNonAdmins: false
+  fullGraphqlData: false
+  headingLevels: false
+  js: null
+  jsFile: null
+  options:
+    link:
+      decorators:
+        isExternal:
+          attributes:
+            rel: 'noopener noreferrer'
+            target: _blank
+          label: 'Open in new tab'
+          mode: manual
+    style:
+      definitions:
+        -
+          classes:
+            - highlight
+          element: em
+          name: Highlight
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: false
+  toolbar:
+    - bold
+    - italic
+    - link
+    - style
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none

@@ -3,8 +3,8 @@
   "prefer-stable": true,
   "require": {
     "brasstacksweb/craft-basic-auth": "v2.0.7",
-    "craftcms/ckeditor": "4.11.1",
-    "craftcms/cms": "5.9.14",
+    "craftcms/ckeditor": "^5.4.0",
+    "craftcms/cms": "^5.9.18",
     "craftcms/postmark": "^3.1.0",
     "minishlink/web-push": "^10.0",
     "vlucas/phpdotenv": "^5.4.0"

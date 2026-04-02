@@ -6,15 +6,45 @@ searchable: false
 settings:
   availableTransforms: ''
   availableVolumes: '*'
-  ckeConfig: fda357e6-6234-4a8c-843e-7c973f47e463 # Simple Plus
-  createButtonLabel: null
+  css: ".ck-content em.highlight {\r\n    background: rgba(255, 255, 0, 0.5);\r\n    font-style: normal;\r\n    font-weight: 600;\r\n}"
+  cssFile: null
   defaultTransform: null
   enableSourceEditingForNonAdmins: false
+  fullGraphqlData: false
+  headingLevels: false
+  js: null
+  jsFile: null
+  options:
+    link:
+      decorators:
+        isExternal:
+          attributes:
+            rel: 'noopener noreferrer'
+            target: _blank
+          label: 'Open in new tab'
+          mode: manual
+    style:
+      definitions:
+        -
+          classes:
+            - highlight
+          element: em
+          name: Highlight
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: false
+  toolbar:
+    - bold
+    - italic
+    - underline
+    - link
+    - subscript
+    - superscript
+    - bulletedList
+    - numberedList
+    - style
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none
