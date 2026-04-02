@@ -22,6 +22,10 @@ class AuthController extends Controller
             return $this->asModelFailure($model, 'Invalid email address.');
         }
 
+        if (!$auth->canRequestToken($model->email)) {
+            return $this->asFailure('Too many requests. Please wait before requesting another link.');
+        }
+
         try {
             $token = $auth->generateToken($model->email);
             $emailSent = $auth->sendMagicLinkEmail($model->email, $token, $model->redirect);

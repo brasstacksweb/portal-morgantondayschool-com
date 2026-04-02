@@ -36,6 +36,18 @@ class Auth extends Component
         return $token;
     }
 
+    public function canRequestToken(string $email): bool
+    {
+        $since = (new \DateTime())->modify('-1 hour')->format('Y-m-d H:i:s');
+
+        $count = MagicLinkToken::find()
+            ->where(['email' => $email])
+            ->andWhere(['>=', 'dateCreated', $since])
+            ->count();
+
+        return $count < 3;
+    }
+
     public function validateToken(string $token): ?string
     {
         $record = MagicLinkToken::find()
