@@ -321,7 +321,12 @@ Renders an HTML email with:
 php craft notifications/notifications/send
 ```
 
-**Cron schedule:** `30 19 * * 0` (Sunday 7:30 PM ET)
+**Cron schedule:** Sunday 7:30 PM Eastern — the production server runs UTC, so `CRON_TZ=America/New_York` must be set in the crontab before the job entry:
+
+```
+CRON_TZ=America/New_York
+30 19 * * 0 cd /srv/users/mds24pro/apps/mds24pro && php craft notifications/notifications/send
+```
 
 ### Logic
 
