@@ -74,7 +74,7 @@ class NotificationsController extends Controller
     public function actionPreview(): Response
     {
         return $this->renderTemplate('_emails/class-notification', [
-            'subject' => 'Test Email Notification',
+            'subject' => 'New updates from Third Grade',
             'message' => 'Extra details about the update can go here.',
             'classUrl' => '',
         ]);
