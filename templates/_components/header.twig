@@ -55,12 +55,9 @@
 			{% for l in iconLinks %}
 				{{ l.render() }}
 			{% endfor %}
-			{# TODO: Remove admin block to launch #}
-			{% if currentUser and currentUser.admin %}
-				<a href="/subscriptions" title="Notifications" aria-label="Notifications">
-					{{ icons.bell() }}
-				</a>
-			{% endif %}
+			<a href="/subscriptions" title="Notifications" aria-label="Notifications">
+				{{ icons.bell() }}
+			</a>
 		</aside>
 	{% endif %}
 	{% if cta %}
