@@ -39,7 +39,7 @@ class NotificationsController extends Controller
             return $this->asFailure('No push subscriptions or email addresses found for class.');
         }
 
-        $subject = sprintf('New updates from %s', $class->title);
+        $subject = sprintf('New Updates from %s', $class->title);
 
         $pushResults = [];
         if ($pushCount > 0) {
@@ -74,7 +74,7 @@ class NotificationsController extends Controller
     public function actionPreview(): Response
     {
         return $this->renderTemplate('_emails/class-notification', [
-            'subject' => 'New updates from Third Grade',
+            'subject' => 'New Updates from Third Grade',
             'message' => 'Extra details about the update can go here.',
             'classUrl' => '/classes/third-grade',
         ]);
