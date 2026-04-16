@@ -70,4 +70,13 @@ class NotificationsController extends Controller
 
         return $this->asSuccess("Notifications sent to {$pushSent}/{$pushCount} push subscribers and {$emailSent}/{$emailCount} email recipients.");
     }
+
+    public function actionPreview(): Response
+    {
+        return $this->renderTemplate('_emails/class-notification', [
+            'subject' => 'Test Email Notification',
+            'message' => 'Extra details about the update can go here.',
+            'classUrl' => '',
+        ]);
+    }
 }
