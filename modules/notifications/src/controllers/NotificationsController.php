@@ -76,7 +76,7 @@ class NotificationsController extends Controller
         return $this->renderTemplate('_emails/class-notification', [
             'subject' => 'New updates from Third Grade',
             'message' => 'Extra details about the update can go here.',
-            'classUrl' => '',
+            'classUrl' => '/classes/third-grade',
         ]);
     }
 }
