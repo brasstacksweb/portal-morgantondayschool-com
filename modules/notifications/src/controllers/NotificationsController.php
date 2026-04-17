@@ -79,31 +79,4 @@ class NotificationsController extends Controller
             'classUrl' => '/classes/third-grade',
         ]);
     }
-
-    public function actionSendPushNotifications(): Response
-    {
-        // Get all class entries
-        $classes = Entry::find()
-            ->section('classes') // Adjust section handle as needed
-            ->status('live')
-            ->all();
-        $notifications = NotificationsModule::getInstance()->get('notifications');
-        $subscriptions = NotificationsModule::getInstance()->get('subscriptions');
-
-        foreach ($classes as $class) {
-            $userIds = $subscriptions->getUserIdsForClass($class->id);
-            $pushSubscriptions = $subscriptions->getPushSubscriptionsForUsers($userIds);
-            $pushCount = count($pushSubscriptions);
-
-            if ($pushCount > 0) {
-                $notifications->sendPushNotifications($pushSubscriptions, [
-                    'title' => sprintf('New updates from %s', $class->title),
-                    'body' => 'Click to see what\'s new.',
-                    'url' => $class->getUrl(),
-                ]);
-            }
-        }
-
-        return $this->asSuccess('Push notifications sent.');
-    }
 }

@@ -41,7 +41,6 @@ class NotificationsModule extends Module
                 $event->rules['notifications/auth/send-magic-link'] = 'notifications/auth/send-magic-link';
                 $event->rules['notifications/auth/verify'] = 'notifications/auth/verify';
                 $event->rules['notifications/preview'] = 'notifications/notifications/preview';
-                $event->rules['notifications/pushes/send'] = 'notifications/notifications/send-push-notifications';
                 $event->rules['notifications/subscriptions/subscribe-push'] = 'notifications/subscriptions/subscribe-push';
                 $event->rules['notifications/subscriptions/unsubscribe-push'] = 'notifications/subscriptions/unsubscribe-push';
                 $event->rules['notifications/subscriptions/save'] = 'notifications/subscriptions/save';
