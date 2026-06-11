@@ -29,9 +29,9 @@ class LoginCode extends BaseForm
 
     public function attributeTypes(): array
     {
-        return [
+        return array_merge(parent::attributeTypes(), [
             'code' => 'tel',
-        ];
+        ]);
     }
 
     public function attributeLabels(): array

@@ -39,6 +39,14 @@ $handle: "block-form";
 			margin-bottom: var(--s-md);
 			text-align: center;
 			text-wrap: balance;
+
+			strong {
+				@include bold;
+			}
+
+			a {
+				@include link;
+			}
 		}
 	}
 

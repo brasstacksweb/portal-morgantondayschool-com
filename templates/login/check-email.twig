@@ -15,8 +15,10 @@
 
 {% set heading = 'Enter Your Code' %}
 {% set body %}
-	We emailed a 6-digit code to <strong>{{ email }}</strong>. Enter it below to sign in.
-	The code expires in 15 minutes.
+	We emailed a 6-digit code to
+	<strong style="display:block">{{ email }}</strong>
+	This code expires in 15 minutes. Didn't get it? Check your spam folder or
+	<a href="{{ url('login', { redirect: redirect }) }}">request a new code</a>.
 {% endset %}
 
 {% extends '_layouts/html' %}
@@ -35,10 +37,6 @@
 				}),
 				hasError: error is not null,
 			} %}
-			<p>
-				Didn't get it? Check your spam folder, or
-				<a href="{{ url('login', { redirect: redirect }) }}">request a new code</a>.
-			</p>
 		</section>
 	</article>
 {% endblock %}
