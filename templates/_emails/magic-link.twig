@@ -10,28 +10,33 @@
 	<h2>{{ subject }}</h2>
 
 	{% if isNewUser %}
-		<p>Welcome! Click the button below to complete your registration.</p>
+		<p>Welcome! Enter this code in the app to complete your registration:</p>
 	{% else %}
-		<p>Click the button below to sign in to your account.</p>
+		<p>Enter this code in the app to sign in:</p>
 	{% endif %}
 
-	<div style="margin: 30px 0;">
-		<a href="{{ magicLink }}"
-			style="
-				background: #1A4D24;
-				color: white;
-				padding: 15px 30px;
-				text-decoration: none;
-				border-radius: 5px;
-				display: inline-block;
-				font-weight: bold;
-			">
-			{{ ctaText }}
-		</a>
+	<div
+		style="
+			margin: 24px 0;
+			padding: 16px 24px;
+			background: #f4f4f4;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 34px;
+			font-weight: bold;
+			letter-spacing: 8px;
+			font-family: 'Courier New', monospace;
+		">
+		{{ code }}
 	</div>
 
 	<p style="color: #666; font-size: 14px;">
-		This link expires in 15 minutes and can only be used once.
+		Or, if you're on a computer, you can
+		<a href="{{ magicLink }}" style="color: #1A4D24;">{{ ctaText|lower }} with one click</a>.
+	</p>
+
+	<p style="color: #666; font-size: 14px;">
+		This code and link expire in 15 minutes and can only be used once.
 		<br>
 		If you didn't request this, you can safely ignore this email.
 	</p>

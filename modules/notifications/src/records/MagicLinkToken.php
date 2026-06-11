@@ -10,6 +10,8 @@ use craft\db\ActiveRecord;
  * @property int         $id
  * @property string      $email
  * @property string      $token
+ * @property string      $code
+ * @property int         $attempts
  * @property string      $expiresAt
  * @property null|string $usedAt
  * @property string      $dateCreated
@@ -25,11 +27,13 @@ class MagicLinkToken extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['email', 'token', 'expiresAt'], 'required'],
+            [['email', 'token', 'code', 'expiresAt'], 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['token', 'string', 'length' => 64],
             ['token', 'unique'],
+            ['code', 'string', 'length' => 6],
+            ['attempts', 'integer'],
             [['expiresAt', 'usedAt'], 'datetime', 'format' => 'php:Y-m-d H:i:s'],
         ];
     }

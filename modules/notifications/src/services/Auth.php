@@ -10,6 +10,7 @@ use yii\base\Component;
 class Auth extends Component
 {
     private const TOKEN_EXPIRY_MINUTES = 15;
+    private const MAX_CODE_ATTEMPTS = 5;
 
     public static function newLogin($attrs): Login
     {
@@ -20,9 +21,10 @@ class Auth extends Component
         return $login;
     }
 
-    public function generateToken(string $email): string
+    public function generateToken(string $email): MagicLinkToken
     {
         $token = bin2hex(random_bytes(32));
+        $code = str_pad((string) random_int(0, 999999), 6, '0', STR_PAD_LEFT);
 
         $expiresAt = new \DateTime();
         $expiresAt->modify('+'.self::TOKEN_EXPIRY_MINUTES.' minutes');
@@ -30,10 +32,11 @@ class Auth extends Component
         $record = new MagicLinkToken();
         $record->email = $email;
         $record->token = $token;
+        $record->code = $code;
         $record->expiresAt = $expiresAt->format('Y-m-d H:i:s');
         $record->save();
 
-        return $token;
+        return $record;
     }
 
     public function canRequestToken(string $email): bool
@@ -84,6 +87,42 @@ class Auth extends Component
         }
     }
 
+    /**
+     * Verifies a manually entered login code against the most recent
+     * outstanding token for the given email. Returns the email on success,
+     * or null if the code is wrong, expired, used, or out of attempts.
+     */
+    public function verifyCode(string $email, string $code): ?string
+    {
+        $now = (new \DateTime())->format('Y-m-d H:i:s');
+
+        $record = MagicLinkToken::find()
+            ->where(['email' => $email, 'usedAt' => null])
+            ->andWhere(['>', 'expiresAt', $now])
+            ->orderBy(['dateCreated' => SORT_DESC])
+            ->one();
+
+        if (!$record) {
+            return null;
+        }
+
+        if ($record->attempts >= self::MAX_CODE_ATTEMPTS) {
+            return null;
+        }
+
+        if (!hash_equals($record->code, $code)) {
+            $record->attempts++;
+            $record->save(false);
+
+            return null;
+        }
+
+        $record->usedAt = $now;
+        $record->save(false);
+
+        return $record->email;
+    }
+
     public function cleanupExpiredTokens(): void
     {
         $now = new \DateTime();
@@ -102,18 +141,19 @@ class Auth extends Component
         ]);
     }
 
-    public function sendMagicLinkEmail(string $email, string $token, string $redirect = '/'): bool
+    public function sendLoginEmail(string $email, string $token, string $code, string $redirect = '/'): bool
     {
         $magicLink = \Craft::$app->getRequest()->getHostInfo()."/notifications/auth/verify?auth_token={$token}&redirect=".urlencode($redirect);
         $isNewUser = !\Craft::$app->getUsers()->getUserByUsernameOrEmail($email);
         $subject = $isNewUser ?
             'Welcome! Complete your registration for Titan Link' :
-            'Your login link for Titan Link';
+            'Your login code for Titan Link';
         $ctaText = $isNewUser ? 'Complete Registration' : 'Log In';
         $body = \Craft::$app->getView()->renderTemplate('_emails/magic-link', [
             'subject' => $subject,
             'isNewUser' => $isNewUser,
             'magicLink' => $magicLink,
+            'code' => $code,
             'ctaText' => $ctaText,
         ]);
 

@@ -38,8 +38,9 @@ class NotificationsModule extends Module
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['notifications/auth/send-magic-link'] = 'notifications/auth/send-magic-link';
+                $event->rules['notifications/auth/send-code'] = 'notifications/auth/send-code';
                 $event->rules['notifications/auth/verify'] = 'notifications/auth/verify';
+                $event->rules['notifications/auth/verify-code'] = 'notifications/auth/verify-code';
                 $event->rules['notifications/preview'] = 'notifications/notifications/preview';
                 $event->rules['notifications/subscriptions/subscribe-push'] = 'notifications/subscriptions/subscribe-push';
                 $event->rules['notifications/subscriptions/unsubscribe-push'] = 'notifications/subscriptions/unsubscribe-push';

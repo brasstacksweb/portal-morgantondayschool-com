@@ -114,8 +114,9 @@ modules/notifications/
 
 | Method | URL | Controller Action |
 |---|---|---|
-| `POST` | `notifications/auth/send-magic-link` | `AuthController::actionSendMagicLink` |
+| `POST` | `notifications/auth/send-code` | `AuthController::actionSendCode` |
 | `GET` | `notifications/auth/verify` | `AuthController::actionVerify` |
+| `POST` | `notifications/auth/verify-code` | `AuthController::actionVerifyCode` |
 | `POST` | `notifications/subscriptions/subscribe-push` | `SubscriptionsController::actionSubscribePush` |
 | `POST` | `notifications/subscriptions/unsubscribe-push` | `SubscriptionsController::actionUnsubscribePush` |
 | `POST` | `notifications/subscriptions/save` | `SubscriptionsController::actionSave` |
@@ -136,23 +137,40 @@ modules/notifications/
 
 ---
 
-## Authentication — Magic Link Flow
+## Authentication — One-Time Code Flow
 
-Parents log in via passwordless magic link. No passwords are stored.
+Parents log in passwordlessly. A single email carries **both** a 6-digit code
+and a magic link. The code is the primary path because iOS PWAs open emailed
+links in Safari rather than the installed app — typing the code keeps the whole
+flow inside the PWA. The link remains as a one-click convenience on desktop.
 
-### Send Magic Link (`POST notifications/auth/send-magic-link`)
+### Send Code (`POST notifications/auth/send-code`)
 
 1. Validates the submitted email address via `Login` model rules.
-2. Generates a 64-character hex token using `random_bytes(32)`.
-3. Stores token in `magic_link_tokens` with a 15-minute expiry.
-4. Sends an email via the `_emails/magic-link` template:
-   - New users: subject "Welcome! Complete your registration for Titan Link", CTA "Complete Registration"
-   - Existing users: subject "Your login link for Titan Link", CTA "Log In"
-5. Redirects to `/login/check-email` on success (does not reveal whether the account exists).
+2. Generates a 64-character hex token (`random_bytes(32)`) for the link and a
+   zero-padded 6-digit code (`random_int(0, 999999)`).
+3. Stores both in `magic_link_tokens` with a 15-minute expiry.
+4. Stores the email and sanitized redirect in the session (`notifications.loginEmail`,
+   `notifications.loginRedirect`) so the code-entry step never exposes the email in a URL.
+5. Sends an email via the `_emails/magic-link` template containing the code and the link:
+   - New users: subject "Welcome! Complete your registration for Titan Link"
+   - Existing users: subject "Your login code for Titan Link"
+6. Redirects to `/login/check-email` on success (does not reveal whether the account exists).
 
 Magic link URL format: `{hostInfo}/notifications/auth/verify?auth_token={token}&redirect={encodedPath}`
 
-### Verify Token (`GET notifications/auth/verify`)
+### Verify Code (`POST notifications/auth/verify-code`)
+
+1. Reads the pending email from the session (`notifications.loginEmail`); if absent, fails.
+2. Validates the submitted code via `LoginCode` model rules (exactly 6 digits).
+3. `Auth::verifyCode()` looks up the most recent unused, unexpired token for the email,
+   rejects it if it has hit the attempt cap, then compares the code with `hash_equals()`.
+   - On mismatch: increments `attempts` and fails.
+   - On match: marks the token used (`usedAt`).
+4. Gets or creates the Craft user, logs them in, clears the session keys, and returns success.
+   The frontend then redirects to the stored redirect path.
+
+### Verify Token / Link (`GET notifications/auth/verify`)
 
 1. Reads `auth_token` from the query string.
 2. Looks up the token — validates it is not expired and not already used.
@@ -163,11 +181,14 @@ Magic link URL format: `{hostInfo}/notifications/auth/verify?auth_token={token}&
 5. Creates a Craft session via `Craft::$app->getUser()->login($user)`.
 6. Redirects to the `redirect` query param, restricted to `/` or `/subscriptions` (any other value falls back to `/`).
 
-### Token Security
+### Token & Code Security
 
-- Tokens are cryptographically random (`random_bytes(32)`).
-- 15-minute expiry enforced server-side.
+- Tokens are cryptographically random (`random_bytes(32)`); codes use `random_int()`.
+- 15-minute expiry enforced server-side for both.
 - Single-use — `usedAt` is set on first use; subsequent uses are rejected.
+- Code entry is scoped to the session email, compared in constant time
+  (`hash_equals`), and capped at 5 attempts per token to prevent brute forcing.
+- Code requests are rate-limited to 3 per hour per email (`canRequestToken`).
 - The `cleanupExpiredTokens()` method in `Auth` service handles cleanup of expired tokens and used tokens older than 24 hours.
 
 ---

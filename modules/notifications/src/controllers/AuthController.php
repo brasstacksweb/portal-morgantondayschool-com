@@ -3,14 +3,18 @@
 namespace modules\notifications\controllers;
 
 use craft\web\Controller;
+use modules\notifications\models\LoginCode;
 use modules\notifications\NotificationsModule;
 use yii\web\Response;
 
 class AuthController extends Controller
 {
-    protected array|bool|int $allowAnonymous = ['send-magic-link', 'verify'];
+    public const SESSION_EMAIL_KEY = 'notifications.loginEmail';
+    public const SESSION_REDIRECT_KEY = 'notifications.loginRedirect';
 
-    public function actionSendMagicLink(): ?Response
+    protected array|bool|int $allowAnonymous = ['send-code', 'verify', 'verify-code'];
+
+    public function actionSendCode(): ?Response
     {
         $this->requirePostRequest();
 
@@ -23,23 +27,77 @@ class AuthController extends Controller
         }
 
         if (!$auth->canRequestToken($model->email)) {
-            return $this->asFailure('Too many requests. Please wait before requesting another link.');
+            return $this->asFailure('Too many requests. Please wait before requesting another code.');
         }
 
         try {
-            $token = $auth->generateToken($model->email);
-            $emailSent = $auth->sendMagicLinkEmail($model->email, $token, $model->redirect);
+            $record = $auth->generateToken($model->email);
+            $emailSent = $auth->sendLoginEmail($model->email, $record->token, $record->code, $model->redirect);
 
             if (!$emailSent) {
                 return $this->asFailure('Failed to send email.');
             }
 
-            return $this->asSuccess('Magic link sent successfully.');
+            // Hold the email in the session so the code-entry step never needs
+            // to expose it in a URL or hidden field.
+            $session = \Craft::$app->getSession();
+            $session->set(self::SESSION_EMAIL_KEY, $model->email);
+            $session->set(self::SESSION_REDIRECT_KEY, $this->sanitizeRedirect($model->redirect));
+
+            return $this->asSuccess('Login code sent successfully.');
         } catch (\Exception $e) {
-            \Craft::error("Error sending magic link to {$model->email}: ".$e->getMessage(), __METHOD__);
+            \Craft::error("Error sending login code to {$model->email}: ".$e->getMessage(), __METHOD__);
 
             return $this->asFailure('An error occurred while processing your request.');
         }
+    }
+
+    public function actionVerifyCode(): ?Response
+    {
+        $this->requirePostRequest();
+
+        $auth = NotificationsModule::getInstance()->get('auth');
+        $session = \Craft::$app->getSession();
+        $email = $session->get(self::SESSION_EMAIL_KEY);
+
+        if (!$email) {
+            return $this->asFailure('Your session expired. Please request a new code.');
+        }
+
+        $model = new LoginCode();
+        $model->setAttributes(\Craft::$app->getRequest()->getBodyParams());
+
+        if (!$model->validate()) {
+            return $this->asModelFailure($model, 'Please enter the 6-digit code.');
+        }
+
+        if (!$auth->verifyCode($email, $model->code)) {
+            return $this->asFailure('That code is invalid or expired. Please check the code or request a new one.');
+        }
+
+        $user = $auth->getOrCreateUser($email);
+
+        if (!$user) {
+            return $this->asFailure('Failed to create user account.');
+        }
+
+        if (!\Craft::$app->getUser()->login($user)) {
+            return $this->asFailure('Failed to log in.');
+        }
+
+        $session->remove(self::SESSION_EMAIL_KEY);
+        $session->remove(self::SESSION_REDIRECT_KEY);
+
+        return $this->asSuccess('Logged in successfully.');
+    }
+
+    private function sanitizeRedirect(string $redirect): string
+    {
+        if ($redirect === '' || !str_starts_with($redirect, '/')) {
+            return '/';
+        }
+
+        return $redirect;
     }
 
     public function actionVerify(): Response

@@ -5,7 +5,7 @@
 {% set error = craft.app.getSession().getFlash('error') %}
 {% set redirect = craft.app.request.getQueryParam('redirect', '/') %}
 {% set heading = 'Sign In' %}
-{% set body = error ?? 'Enter your email address and we\'ll send you a magic link to sign in.' %}
+{% set body = error ?? 'Enter your email address and we\'ll send you a 6-digit code to sign in.' %}
 
 {% extends '_layouts/html' %}
 

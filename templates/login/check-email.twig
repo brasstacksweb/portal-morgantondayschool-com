@@ -1,19 +1,44 @@
+{% if not craft.app.getUser().getIsGuest() %}
+	{% redirect siteUrl %}
+{% endif %}
+
+{% set session = craft.app.getSession() %}
+{% set email = session.get('notifications.loginEmail') %}
+
+{# Without a pending login email there's nothing to verify — start over. #}
+{% if not email %}
+	{% redirect 'login' %}
+{% endif %}
+
+{% set redirect = session.get('notifications.loginRedirect') ?: '/' %}
+{% set error = session.getFlash('error') %}
+
+{% set heading = 'Enter Your Code' %}
+{% set body %}
+	We emailed a 6-digit code to <strong>{{ email }}</strong>. Enter it below to sign in.
+	The code expires in 15 minutes.
+{% endset %}
+
 {% extends '_layouts/html' %}
 
-{% set heading = 'Check Your Email' %}
-{% set body %}
-	<p>We've sent you a magic link. Click the link in the email to sign in.</p>
-	<p>The link will expire in 15 minutes.</p>
-{% endset %}
+{% set loadForm = true %}
 
 {% block content %}
 	<article>
-		<header>
-			{% include '_components/hero' with {
+		<section>
+			{% include '_components/block-form' with {
 				heading: heading,
 				body: body,
-				type: 'narrow',
+				form: create({
+					class: 'modules\\notifications\\models\\LoginCode',
+					redirect: redirect,
+				}),
+				hasError: error is not null,
 			} %}
-		</header>
+			<p>
+				Didn't get it? Check your spam folder, or
+				<a href="{{ url('login', { redirect: redirect }) }}">request a new code</a>.
+			</p>
+		</section>
 	</article>
 {% endblock %}

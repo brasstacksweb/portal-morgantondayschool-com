@@ -15,11 +15,13 @@ Click the notification bell icon in the top-right corner of any TitanLink page.
 
 ![TitanLink homepage showing the sign-in icon in the navigation bar](assets/1_menu-desktop.png)
 
-Enter your email address on the Sign In page and click **Send Magic Link**. You will receive an email with a link to log in — no password required.
+Enter your email address on the Sign In page and click **Email Me a Code**. You will receive an email with a 6-digit code — no password required.
 
-![Sign In page with email field and Send Magic Link button](assets/2_login.png)
+![Sign In page with email field and Email Me a Code button](assets/2_login.png)
 
-Check your inbox and click the link in the email. The link expires in 15 minutes. Once clicked, you will be signed in automatically and redirected to the Subscriptions page.
+Check your inbox and enter the 6-digit code from the email into the **Enter Your Code** screen, then click **Verify Code**. The code expires in 15 minutes. Once verified, you will be signed in automatically and redirected to the Subscriptions page.
+
+> **On a computer?** The same email also includes a one-click login link you can use instead of typing the code. On an iPhone or iPad app, use the code — tapping the link opens the browser instead of the app.
 
 ---
 
