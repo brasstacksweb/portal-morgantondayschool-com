@@ -1,9 +1,11 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - cbf5afdd-99f1-4d21-a978-952e00f4212b # Subject Update
+  -
+    uid: cbf5afdd-99f1-4d21-a978-952e00f4212b # Subject Update
 handle: subjectUpdates
 maxAuthors: 1
+minAuthors: 1
 name: 'Subject Updates'
 propagationMethod: all
 siteSettings:
