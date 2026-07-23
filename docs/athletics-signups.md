@@ -356,8 +356,11 @@ fields.
 - `guardianEmail` is prefilled from `currentUser.email` when the form is
   constructed in the template.
 - `getActionPath()` → `'athletics/signups/save'`
-- `getRedirectPath()` → `''`, so `tl-form` shows the inline success block rather
-  than navigating.
+- `getRedirectPath()` → the sport page URL (set via a `redirect` config at render
+  time, server-side, so it is not user-controlled). On a 200, `tl-form` navigates
+  there; the controller sets a success flash and the page reload shows it, with
+  the user's team accordion auto-expanded so the new registration is visible.
+  (400 validation errors are still handled inline over AJAX — no reload.)
 
 **Implementation note on the coaching checkbox.** `_components/form-field.twig`
 renders `checkbox` as an option group posting `name[]`, so a single boolean
@@ -462,8 +465,9 @@ page-level padding or styling** — every component self-pads via `@include pad`
 
 `team-list` owns the padding/max-width, the flash notice, and the empty state,
 then loops `entry.activeTeams`, rendering each as a `team` accordion. Accordions
-start **collapsed when there is more than one team**; a lone team stays open
-(nothing to compare it against).
+start **collapsed when there is more than one team**; a lone team stays open, and
+**any team where the current user has signups is expanded** (so a just-submitted
+registration is visible after the success redirect).
 
 Each team is a full-width `<details>` accordion modeled on `_components/accordion-list`'s
 markup and chevron behavior, but without that component's split header — the

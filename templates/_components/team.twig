@@ -21,6 +21,10 @@
 {% set mySignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
 {% set coaches = team.coaches.all() %}
 
+{# Expand when told to (single team) or when the user has signups here, so a
+   just-submitted registration is visible after the success redirect. #}
+{% set expanded = open or mySignups|length > 0 %}
+
 {% set stateLabels = {
 	pending: 'Upcoming',
 	forming: 'Forming',
@@ -46,7 +50,7 @@
 {# Markup #}
 {% import '_icons' as icons %}
 
-<details class="{{ handle }} {{ handle }}--{{ state }}" id="team-{{ team.id }}" {% if open %}open{% endif %}>
+<details class="{{ handle }} {{ handle }}--{{ state }}" id="team-{{ team.id }}" {% if expanded %}open{% endif %}>
 	<summary class="{{ handle }}__summary">
 		<span class="{{ handle }}__heading">
 			<h2 class="{{ handle }}__title">{{ team.ageGroup }}</h2>
@@ -109,8 +113,8 @@
 						class: 'modules\\athletics\\models\\Signup',
 						teamEntryId: team.id,
 						guardianEmail: currentUser.email,
+						redirect: craft.app.request.absoluteUrl,
 					}),
-					successMessage: '<p>Thanks! Your registration has been received.</p>',
 				} only %}
 			{% endset %}
 

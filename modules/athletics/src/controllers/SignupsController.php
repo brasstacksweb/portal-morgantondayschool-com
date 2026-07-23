@@ -72,6 +72,9 @@ class SignupsController extends Controller
             return $this->asFailure('We could not save your registration. Please try again.');
         }
 
+        // tl-form redirects to the sport page on success; the flash shows there.
+        Craft::$app->getSession()->setSuccess('Your registration has been received.');
+
         return $this->asSuccess('Registration received.');
     }
 

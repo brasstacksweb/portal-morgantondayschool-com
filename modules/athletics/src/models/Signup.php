@@ -22,6 +22,7 @@ class Signup extends BaseForm
     public string $status = Signups::STATUS_INTERESTED;
     public array $interestedInCoaching = [];
     public string $teamEntryId = '';
+    public string $redirect = '';
     public string $submitText = 'Submit Registration';
 
     public function __construct(array $config = [])
@@ -31,6 +32,13 @@ class Signup extends BaseForm
         if (isset($config['teamEntryId'])) {
             $this->teamEntryId = (string) $config['teamEntryId'];
             unset($config['teamEntryId']);
+        }
+
+        // Where tl-form navigates on success. Set server-side at render time
+        // (the sport page), so it is not user-controlled input.
+        if (isset($config['redirect'])) {
+            $this->redirect = (string) $config['redirect'];
+            unset($config['redirect']);
         }
 
         parent::__construct($config);
@@ -113,6 +121,6 @@ class Signup extends BaseForm
 
     public function getRedirectPath(): string
     {
-        return '';
+        return $this->redirect;
     }
 }
