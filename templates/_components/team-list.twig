@@ -1,5 +1,7 @@
 {##
  # Team list — full-width accordion of a sport's teams
+ # Owns the loop and the <details>/<summary> shell; each team accordion's body
+ # content is the team component.
  # @param {Entry[]} teams
  # @param {string}  flashError
  # @param {string}  flashSuccess
@@ -12,8 +14,17 @@
 
 {# Variables #}
 {% set handle = 'team-list' %}
+{% set stateLabels = {
+	pending: 'Upcoming',
+	forming: 'Forming',
+	confirmed: 'Open',
+	over_target: 'Full',
+	closed: 'Closed',
+} %}
 
 {# Markup #}
+{% import '_icons' as icons %}
+
 <div class="{{ handle }}">
 	{% if flashError or flashSuccess %}
 		<p class="{{ handle }}__flash {{ handle }}__flash--{{ flashError ? 'error' : 'success' }}">
@@ -26,12 +37,41 @@
 	{% else %}
 		<div class="{{ handle }}__items">
 			{% for team in teams %}
-				{# Collapse by default when there is more than one team; a lone
-				   team stays open since there is nothing to compare it against. #}
-				{% include '_components/team' with {
-					team: team,
-					open: teams|length == 1,
-				} only %}
+				{% set state = craft.signups.getTeamState(team) %}
+				{% set committed = craft.signups.getCommittedCount(team.id) %}
+				{% set mySignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
+				{% set coaches = team.coaches.all() %}
+
+				{# Collapse by default when there is more than one team; expand a
+				   lone team, or any team where the user already has signups (so a
+				   just-submitted registration is visible after the redirect). #}
+				{% set expanded = teams|length == 1 or mySignups|length > 0 %}
+
+				<details class="team team--{{ state }}" id="team-{{ team.id }}" {% if expanded %}open{% endif %}>
+					<summary class="team__summary">
+						<span class="team__heading">
+							<h2 class="team__title">{{ team.ageGroup }}</h2>
+							<span class="team__meta">
+								{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
+								{% if coaches|length %}
+									· Coach{{ coaches|length > 1 ? 'es' }}: {{ coaches|map(c => c.title)|join(', ') }}
+								{% endif %}
+							</span>
+						</span>
+						<span class="team__summary-status">
+							<span class="team__badge team__badge--{{ state }}">{{ stateLabels[state] }}</span>
+							<span class="team__count">{{ committed }} committed</span>
+						</span>
+						<i class="team__chevron">{{ icons.chevron('down') }}</i>
+					</summary>
+
+					{% include '_components/team' with {
+						team: team,
+						state: state,
+						committed: committed,
+						mySignups: mySignups,
+					} only %}
+				</details>
 			{% endfor %}
 		</div>
 	{% endif %}

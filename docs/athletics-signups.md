@@ -451,8 +451,8 @@ intent explicit instead.
 
 ```
 templates/athletics/_entry.twig              # sport page (bare semantic markup only)
-templates/_components/team-list.twig         # self-padding accordion wrapper + flash/empty
-templates/_components/team.twig              # full-width accordion item: state + panel + roster + form
+templates/_components/team-list.twig         # loop + accordion <details>/<summary> shell + flash/empty
+templates/_components/team.twig              # accordion body content: state + panel + roster + form
 templates/_components/signup-panel.twig      # the parent's own registrations
 templates/_components/roster.twig            # roster table for one team
 ```
@@ -463,17 +463,23 @@ templates/_components/roster.twig            # roster table for one team
 detail page) and a `<section>` (the `team-list` component). It carries **no
 page-level padding or styling** — every component self-pads via `@include pad`.
 
-`team-list` owns the padding/max-width, the flash notice, and the empty state,
-then loops `entry.activeTeams`, rendering each as a `team` accordion. Accordions
-start **collapsed when there is more than one team**; a lone team stays open, and
-**any team where the current user has signups is expanded** (so a just-submitted
-registration is visible after the success redirect).
+Following the `accordion-list` convention, **`team-list` owns the accordion
+shell** — the loop, the `<details>`/`<summary>` markup, and the summary content
+(age-group heading, season/coach meta, state badge, committed count, chevron) —
+while **`team` is just the body content** of each panel (state message, notes,
+roster, panel, signup form). This splits the loop/shell concern from the
+per-team content, mirroring how the other list components separate looping from
+their item children. `team` also runs standalone via `??` defaults; when included
+from `team-list` the shared values (state, committed count, the user's signups)
+are passed in so they are computed once.
 
-Each team is a full-width `<details>` accordion modeled on `_components/accordion-list`'s
-markup and chevron behavior, but without that component's split header — the
-summary carries the age-group heading, season/coach meta, a state badge, and the
-committed count; the body holds the state message, notes, roster, panel, and
-signup form.
+`team-list` also owns the padding/max-width, the flash notice, and the empty
+state. Accordions start **collapsed when there is more than one team**; a lone
+team stays open, and **any team where the current user has signups is expanded**
+(so a just-submitted registration is visible after the success redirect).
+
+The accordion is modeled on `_components/accordion-list`'s markup and chevron
+behavior, but full width — without that component's split header.
 
 ### Homepage listing
 
