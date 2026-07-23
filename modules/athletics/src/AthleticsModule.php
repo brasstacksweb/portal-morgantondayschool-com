@@ -25,7 +25,8 @@ class AthleticsModule extends Module
             CraftVariable::class,
             CraftVariable::EVENT_INIT,
             function (Event $event) {
-                $event->sender->set('athletics', $this->signups);
+                $variable = $event->sender;
+                $variable->set('signups', $this->signups);
             }
         );
     }

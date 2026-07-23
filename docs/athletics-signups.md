@@ -323,7 +323,8 @@ and CP hooks:
 - `setComponents(['signups' => Signups::class])`
 - Site URL rules for `athletics/signups/save`, `athletics/signups/commit`, and
   `athletics/signups/withdraw`
-- `CraftVariable` registration → `craft.athletics.*` available in templates
+- `CraftVariable` registration → `craft.signups.*` available in templates
+  (variable name matches the component name, per the notifications module)
 
 ### `models/Signup.php` — extends `modules\forms\models\Form`
 
@@ -533,12 +534,12 @@ noted below.
   → `composer dump-autoload`
 - `config/app.php:33`: add `athletics` to `$modules` and the bootstrap list
 - `AthleticsModule.php`: `init()` sets the alias, `controllerNamespace`, and the
-  `craft.athletics` variable via `setComponents(['signups' => Signups::class])`
+  `craft.signups` variable via `setComponents(['signups' => Signups::class])`
 - `services/Signups.php`: created here as an empty `Component` subclass; methods
   arrive in Commit 6
 
 No URL rules yet — nothing to route to. **Verify:** `php craft` runs, the site
-loads, and `craft.athletics` resolves in a template.
+loads, and `craft.signups` resolves in a template.
 
 ### Commit 2 — Signups table
 
