@@ -21,6 +21,7 @@
  */
 
 use craft\helpers\App;
+use modules\athletics\AthleticsModule;
 use modules\components\ComponentsModule;
 use modules\forms\FormsModule;
 use modules\notifications\NotificationsModule;
@@ -30,6 +31,7 @@ use yii\log\EmailTarget;
 use yii\web\HttpException;
 
 $modules = [
+    'athletics' => AthleticsModule::class,
     'components-module' => ComponentsModule::class,
     'forms-module' => FormsModule::class,
     'notifications' => NotificationsModule::class,
