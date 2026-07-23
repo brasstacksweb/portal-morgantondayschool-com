@@ -1,0 +1,48 @@
+{##
+ # Roster component — committed players for one team
+ # @param {array} roster           rows from Signups::getRoster
+ # @param {bool}  canViewContact   whether contact columns are present
+ #}
+
+{# Params #}
+{% set roster = roster ?? [] %}
+{% set canViewContact = canViewContact ?? false %}
+
+{# Variables #}
+{% set handle = 'roster' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<h3 class="{{ handle }}__heading">Roster <span class="{{ handle }}__count">({{ roster|length }})</span></h3>
+
+	{% if roster is empty %}
+		<p class="{{ handle }}__empty">No players yet — be the first to sign up.</p>
+	{% else %}
+		<div class="{{ handle }}__scroll">
+			<table class="{{ handle }}__table">
+				<thead>
+					<tr>
+						<th>Player</th>
+						{% if canViewContact %}
+							<th>Guardian Email</th>
+							<th>Guardian Phone</th>
+							<th>Coaching?</th>
+						{% endif %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for row in roster %}
+						<tr>
+							<td>{{ row.name }}</td>
+							{% if canViewContact %}
+								<td>{{ row.guardianEmail }}</td>
+								<td>{{ row.guardianPhone }}</td>
+								<td>{{ row.interestedInCoaching ? 'Yes' : '—' }}</td>
+							{% endif %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	{% endif %}
+</div>

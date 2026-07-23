@@ -1,0 +1,109 @@
+{##
+ # Team component — signup, roster, and panel for one team
+ # @param {Entry} team
+ #}
+
+{# Params #}
+{% set team = team ?? null %}
+
+{# Variables #}
+{% set handle = 'team' %}
+{% set state = craft.signups.getTeamState(team) %}
+{% set isOpen = craft.signups.isRegistrationOpen(team) %}
+{% set committed = craft.signups.getCommittedCount(team.id) %}
+{% set interested = craft.signups.getInterestedCount(team.id) %}
+{% set minimum = team.minimumPlayers %}
+{% set remaining = craft.signups.getRemainingCapacity(team) %}
+{% set canViewContact = craft.signups.canViewContact(currentUser) %}
+{% set roster = craft.signups.getRoster(team.id, canViewContact) %}
+{% set mySignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
+{% set coaches = team.coaches.all() %}
+
+{% set stateMessage %}
+	{% if state == 'pending' %}
+		Registration opens {{ team.registrationOpens|date('F j, Y') }}.
+	{% elseif state == 'forming' %}
+		{{ committed }} of {{ minimum }} committed to field a team — {{ minimum - committed }} more to go.
+	{% elseif state == 'confirmed' %}
+		Team confirmed · {{ remaining }} spot{{ remaining == 1 ? '' : 's' }} left.
+	{% elseif state == 'over_target' %}
+		Target met — additional signups may form a second team.
+	{% elseif state == 'closed' %}
+		Registration is closed.
+	{% endif %}
+{% endset %}
+
+{# Markup #}
+<section class="{{ handle }} {{ handle }}--{{ state }}" id="team-{{ team.id }}">
+	<header class="{{ handle }}__header">
+		<h2 class="{{ handle }}__title">{{ team.ageGroup }}</h2>
+		<p class="{{ handle }}__meta">
+			{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
+			{% if coaches|length %}
+				· Coach{{ coaches|length > 1 ? 'es' }}: {{ coaches|map(c => c.title)|join(', ') }}
+			{% endif %}
+		</p>
+	</header>
+
+	<div class="{{ handle }}__status {{ handle }}__status--{{ state }}">
+		<p class="{{ handle }}__state-message">{{ stateMessage }}</p>
+		<p class="{{ handle }}__counts">
+			<strong>{{ committed }}</strong> committed{% if interested %} · {{ interested }} interested{% endif %}
+		</p>
+	</div>
+
+	{% if team.eligibilityNotes or team.practiceInfo %}
+		<div class="{{ handle }}__info">
+			{% if team.eligibilityNotes %}
+				<div class="{{ handle }}__note">
+					<h4>Eligibility</h4>
+					{{ team.eligibilityNotes }}
+				</div>
+			{% endif %}
+			{% if team.practiceInfo %}
+				<div class="{{ handle }}__note">
+					<h4>Practice</h4>
+					{{ team.practiceInfo }}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+
+	{% include '_components/roster' with {
+		roster: roster,
+		canViewContact: canViewContact,
+	} only %}
+
+	{% if mySignups|length %}
+		{% include '_components/signup-panel' with {
+			signups: mySignups,
+			team: team,
+			canCommit: isOpen,
+		} only %}
+	{% endif %}
+
+	{% if isOpen %}
+		{% set form %}
+			{% include '_components/form' with {
+				form: create({
+					class: 'modules\\athletics\\models\\Signup',
+					teamEntryId: team.id,
+					guardianEmail: currentUser.email,
+				}),
+				successMessage: '<p>Thanks! Your registration has been received.</p>',
+			} only %}
+		{% endset %}
+
+		<div class="{{ handle }}__signup">
+			{% if mySignups|length %}
+				<details class="{{ handle }}__another">
+					<summary>Register another child</summary>
+					{{ form }}
+				</details>
+			{% else %}
+				<h3 class="{{ handle }}__signup-heading">Register</h3>
+				{{ form }}
+			{% endif %}
+		</div>
+	{% endif %}
+</section>

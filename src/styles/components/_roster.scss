@@ -1,0 +1,45 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "roster";
+
+.#{$handle} {
+	margin-top: var(--s-md);
+
+	&__heading {
+		@include font("heading", "md");
+	}
+
+	&__count {
+		@include font("body", "sm");
+	}
+
+	&__empty {
+		@include font("body", "sm");
+		margin-top: var(--s-xs);
+	}
+
+	&__scroll {
+		margin-top: var(--s-sm);
+		overflow-x: auto;
+	}
+
+	&__table {
+		width: 100%;
+		border-collapse: collapse;
+		@include font("body", "sm");
+
+		th,
+		td {
+			padding: var(--s-xs) var(--s-sm);
+			border-bottom: 1px solid var(--c-black);
+			text-align: left;
+			white-space: nowrap;
+		}
+
+		th {
+			@include font("heading", "sm");
+		}
+	}
+}

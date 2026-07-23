@@ -1,0 +1,50 @@
+{##
+ # Signup panel — the current user's registrations for one team
+ # @param {SignupRecord[]} signups
+ # @param {Entry}          team
+ # @param {bool}           canCommit   whether commit is allowed (registration open)
+ #}
+
+{# Params #}
+{% set signups = signups ?? [] %}
+{% set team = team ?? null %}
+{% set canCommit = canCommit ?? false %}
+
+{# Variables #}
+{% set handle = 'signup-panel' %}
+{% set redirectPath = craft.app.request.pathInfo ~ '#team-' ~ team.id %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<h3 class="{{ handle }}__heading">Your registrations</h3>
+	<ul class="{{ handle }}__list">
+		{% for s in signups %}
+			<li class="{{ handle }}__item">
+				<span class="{{ handle }}__name">{{ s.participantFirstName }} {{ s.participantLastName }}</span>
+				<span class="{{ handle }}__badge {{ handle }}__badge--{{ s.status }}">{{ s.status|capitalize }}</span>
+				<span class="{{ handle }}__actions">
+					{% if s.status == 'interested' and canCommit %}
+						<form method="post" class="{{ handle }}__action">
+							{{ csrfInput() }}
+							{{ actionInput('athletics/signups/commit') }}
+							{{ redirectInput(redirectPath) }}
+							{{ hiddenInput('signupId', s.id) }}
+							<button type="submit">
+								{% include '_components/cta' with { title: 'Commit', type: 'secondary', size: 'sm' } only %}
+							</button>
+						</form>
+					{% endif %}
+					<form method="post" class="{{ handle }}__action" onsubmit="return confirm('Withdraw this registration?');">
+						{{ csrfInput() }}
+						{{ actionInput('athletics/signups/withdraw') }}
+						{{ redirectInput(redirectPath) }}
+						{{ hiddenInput('signupId', s.id) }}
+						<button type="submit">
+							{% include '_components/cta' with { title: 'Withdraw', type: 'tertiary', size: 'sm' } only %}
+						</button>
+					</form>
+				</span>
+			</li>
+		{% endfor %}
+	</ul>
+</div>

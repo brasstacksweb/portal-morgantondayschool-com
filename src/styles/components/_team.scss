@@ -1,0 +1,150 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+/* Athletics sport page wrapper */
+.athletics {
+	@include pad(var(--s-sm));
+	@include space(var(--s-md));
+	display: block;
+
+	@include media("sm") {
+		@include pad(var(--s-lg));
+	}
+
+	&__header {
+		max-width: var(--w-lg);
+		margin: 0 auto var(--s-md);
+		text-align: center;
+
+		> h1 {
+			@include font("heading", "xl");
+		}
+	}
+
+	&__overview {
+		@include font("body", "md");
+		margin-top: var(--s-sm);
+	}
+
+	&__flash {
+		@include font("body", "md");
+		max-width: var(--w-md);
+		margin: 0 auto var(--s-md);
+		padding: var(--s-sm);
+		border: 1px solid var(--c-black);
+		text-align: center;
+
+		&--error {
+			color: var(--c-red-dk);
+		}
+
+		&--success {
+			color: var(--c-indigo-dk);
+		}
+	}
+
+	&__empty {
+		@include font("body", "md");
+		text-align: center;
+	}
+
+	&__teams {
+		display: flex;
+		flex-direction: column;
+		gap: var(--s-md);
+		max-width: var(--w-lg);
+		margin: 0 auto;
+	}
+}
+
+$handle: "team";
+
+.#{$handle} {
+	display: block;
+	padding: var(--s-md) var(--s-sm);
+	background-color: var(--c-white);
+	border: 1px solid var(--c-black);
+
+	@include media("sm") {
+		padding: var(--s-md);
+	}
+
+	&__title {
+		@include font("heading", "lg");
+	}
+
+	&__meta {
+		@include font("body", "sm");
+		margin-top: var(--s-xs);
+	}
+
+	&__status {
+		margin-top: var(--s-sm);
+		padding: var(--s-sm);
+		border: 1px solid var(--c-black);
+
+		&--forming {
+			background-color: var(--c-yellow-lt);
+		}
+
+		&--confirmed,
+		&--over_target {
+			background-color: var(--c-green-lt);
+		}
+
+		&--pending,
+		&--closed {
+			background-color: var(--c-fg-lt);
+		}
+	}
+
+	&__state-message {
+		@include font("body", "md");
+	}
+
+	&__counts {
+		@include font("body", "sm");
+		margin-top: var(--s-xs);
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--s-sm);
+		margin-top: var(--s-sm);
+
+		@include media("sm") {
+			flex-direction: row;
+
+			> * {
+				flex: 1;
+			}
+		}
+
+		h4 {
+			@include font("heading", "sm");
+		}
+	}
+
+	&__note {
+		@include font("body", "sm");
+	}
+
+	&__signup {
+		margin-top: var(--s-md);
+	}
+
+	&__signup-heading {
+		@include font("heading", "md");
+		margin-bottom: var(--s-sm);
+	}
+
+	&__another {
+		> summary {
+			@include font("body", "md");
+			cursor: pointer;
+			padding: var(--s-xs) 0;
+		}
+	}
+}

@@ -102,7 +102,7 @@ class SignupsController extends Controller
         if (!$ok) {
             $session->setError('We could not update that registration.');
         } else {
-            $session->setNotice($action === 'commit'
+            $session->setSuccess($action === 'commit'
                 ? 'Registration confirmed.'
                 : 'Registration withdrawn.');
         }

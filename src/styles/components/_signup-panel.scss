@@ -1,0 +1,60 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "signup-panel";
+
+.#{$handle} {
+	margin-top: var(--s-md);
+
+	&__heading {
+		@include font("heading", "md");
+	}
+
+	&__list {
+		list-style: none;
+		margin-top: var(--s-sm);
+		padding: 0;
+	}
+
+	&__item {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--s-sm);
+		padding: var(--s-xs) 0;
+		border-bottom: 1px solid var(--c-black);
+	}
+
+	&__name {
+		@include font("body", "md");
+		flex: 1 1 auto;
+	}
+
+	&__badge {
+		@include font("body", "sm");
+		padding: 0 var(--s-xs);
+		border: 1px solid var(--c-black);
+
+		&--interested {
+			background-color: var(--c-yellow-lt);
+		}
+
+		&--committed {
+			background-color: var(--c-green-lt);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		gap: var(--s-sm);
+	}
+
+	&__action {
+		display: inline;
+
+		> button {
+			cursor: pointer;
+		}
+	}
+}
