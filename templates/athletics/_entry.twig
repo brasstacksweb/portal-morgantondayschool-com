@@ -24,7 +24,7 @@
 {% set loadForm = true %}
 
 {% block content %}
-	<article class="athletics">
+	<article>
 		<header>
 			{% include '_components/hero' with {
 				heading: entry.heading ?? entry.title,
@@ -34,23 +34,12 @@
 			} only %}
 		</header>
 
-		{% if flashError or flashSuccess %}
-			<p class="athletics__flash athletics__flash--{{ flashError ? 'error' : 'success' }}">
-				{{ flashError ?? flashSuccess }}
-			</p>
-		{% endif %}
-
-		{% if teams is empty %}
-			<p class="athletics__empty">No teams are open for signup yet. Please check back soon.</p>
-		{% else %}
-			<div class="athletics__teams">
-				{% for team in teams %}
-					{% include '_components/team' with {
-						team: team,
-						open: loop.first,
-					} only %}
-				{% endfor %}
-			</div>
-		{% endif %}
+		<section>
+			{% include '_components/team-list' with {
+				teams: teams,
+				flashError: flashError,
+				flashSuccess: flashSuccess,
+			} only %}
+		</section>
 	</article>
 {% endblock %}

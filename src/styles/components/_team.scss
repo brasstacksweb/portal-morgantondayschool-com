@@ -2,54 +2,13 @@
 @use "../base/media" as *;
 @use "../base/typography" as *;
 
-/* Athletics sport page wrapper */
-.athletics {
-	@include pad(var(--s-sm));
-	@include space(var(--s-md));
-	display: block;
-
-	@include media("sm") {
-		@include pad(var(--s-md), var(--w-xl));
-	}
-
-	&__flash {
-		@include font("body", "md");
-		max-width: var(--w-xl);
-		margin: 0 auto var(--s-md);
-		padding: var(--s-sm);
-		border: 1px solid var(--c-black);
-		text-align: center;
-
-		&--error {
-			color: var(--c-red-dk);
-		}
-
-		&--success {
-			color: var(--c-indigo-dk);
-		}
-	}
-
-	&__empty {
-		@include font("body", "md");
-		text-align: center;
-	}
-
-	&__teams {
-		max-width: var(--w-xl);
-		margin: 0 auto;
-	}
-}
-
 $handle: "team";
 
-/* Full-width accordion (no split header, cf. accordion-list) */
+/* Full-width accordion item (no split header, cf. accordion-list). Padding and
+   max-width are owned by the team-list component, not here. */
 .#{$handle} {
 	width: 100%;
 	border-bottom: 1px solid var(--c-br-dk);
-
-	&:first-child {
-		border-top: 1px solid var(--c-br-dk);
-	}
 
 	&__summary {
 		display: flex;

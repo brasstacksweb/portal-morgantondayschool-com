@@ -1,0 +1,36 @@
+{##
+ # Team list — full-width accordion of a sport's teams
+ # @param {Entry[]} teams
+ # @param {string}  flashError
+ # @param {string}  flashSuccess
+ #}
+
+{# Params #}
+{% set teams = teams ?? [] %}
+{% set flashError = flashError ?? null %}
+{% set flashSuccess = flashSuccess ?? null %}
+
+{# Variables #}
+{% set handle = 'team-list' %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	{% if flashError or flashSuccess %}
+		<p class="{{ handle }}__flash {{ handle }}__flash--{{ flashError ? 'error' : 'success' }}">
+			{{ flashError ?? flashSuccess }}
+		</p>
+	{% endif %}
+
+	{% if teams is empty %}
+		<p class="{{ handle }}__empty">No teams are open for signup yet. Please check back soon.</p>
+	{% else %}
+		<div class="{{ handle }}__items">
+			{% for team in teams %}
+				{% include '_components/team' with {
+					team: team,
+					open: loop.first,
+				} only %}
+			{% endfor %}
+		</div>
+	{% endif %}
+</div>

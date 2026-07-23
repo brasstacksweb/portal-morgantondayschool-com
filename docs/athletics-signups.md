@@ -447,17 +447,22 @@ intent explicit instead.
 ## 4. Templates
 
 ```
-templates/athletics/_entry.twig              # sport page
-templates/_components/team.twig              # full-width accordion: state + panel + roster + form
+templates/athletics/_entry.twig              # sport page (bare semantic markup only)
+templates/_components/team-list.twig         # self-padding accordion wrapper + flash/empty
+templates/_components/team.twig              # full-width accordion item: state + panel + roster + form
 templates/_components/signup-panel.twig      # the parent's own registrations
 templates/_components/roster.twig            # roster table for one team
 ```
 
-`athletics/_entry.twig` gates on login the same way
-`templates/subscriptions.twig:1-3` does. Its header reuses the shared
-`_components/hero` (heading + image + overview) — the same treatment as the class
-detail page — then it loops `entry.activeTeams`, rendering each as a team
-accordion (first one `open`).
+`athletics/_entry.twig` is bare semantic markup, matching the `index.twig` /
+`classes/_entry.twig` convention: a classless `<article>` wrapping a `<header>`
+(the shared `_components/hero` — heading + image + overview, same as the class
+detail page) and a `<section>` (the `team-list` component). It carries **no
+page-level padding or styling** — every component self-pads via `@include pad`.
+
+`team-list` owns the padding/max-width, the flash notice, and the empty state,
+then loops `entry.activeTeams`, rendering each as a `team` accordion (first
+`open`).
 
 Each team is a full-width `<details>` accordion modeled on `_components/accordion-list`'s
 markup and chevron behavior, but without that component's split header — the
@@ -538,8 +543,10 @@ The sport template also sets `metaNoIndex = true`, as
 
 ## 5. Styles and scripts
 
-- `src/styles/components/_roster.scss`, `_team.scss`, and `_signup-panel.scss`,
-  with matching `@use` lines added to `src/styles/index.scss`
+- `src/styles/components/_team-list.scss`, `_team.scss`, `_roster.scss`, and
+  `_signup-panel.scss`, with matching `@use` lines added to
+  `src/styles/index.scss`. `_team-list` owns the page padding/max-width; the entry
+  template itself carries no styling.
 - **JavaScript: none.** The signup form reuses `tl-form`; the panel actions are
   plain POST forms.
 
