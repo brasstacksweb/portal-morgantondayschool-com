@@ -20,7 +20,7 @@
 {% set userSignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
 {% set expanded = expand or userSignups|length > 0 %}
 {% set canViewContact = craft.signups.canViewContact(currentUser) %}
-{% set roster = craft.signups.getRoster(team.id, canViewContact) %}
+{% set roster = craft.signups.getRoster(team.id) %}
 
 {% set stateLabels = {
 	'pending': 'Upcoming',
@@ -114,12 +114,7 @@
 						aria-label="Close">{{ icons.x() }}</button>
 					<h3>Register — {{ team.ageGroup }}</h3>
 					{% include '_components/form' with {
-						form: create({
-							class: 'modules\\athletics\\models\\Signup',
-							teamEntryId: team.id,
-							guardianEmail: currentUser.email,
-							redirect: craft.app.request.absoluteUrl ~ '#notice',
-						}),
+						form: craft.signups.newSignupForm(team),
 					} only %}
 				</dialog>
 			{% endif %}

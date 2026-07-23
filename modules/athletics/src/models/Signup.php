@@ -25,25 +25,6 @@ class Signup extends BaseForm
     public string $redirect = '';
     public string $submitText = 'Submit Registration';
 
-    public function __construct(array $config = [])
-    {
-        // teamEntryId arrives as an int at render time (team.id) and a hashed
-        // string on submit; normalize to string either way, like Login::redirect.
-        if (isset($config['teamEntryId'])) {
-            $this->teamEntryId = (string) $config['teamEntryId'];
-            unset($config['teamEntryId']);
-        }
-
-        // Where tl-form navigates on success. Set server-side at render time
-        // (the sport page), so it is not user-controlled input.
-        if (isset($config['redirect'])) {
-            $this->redirect = (string) $config['redirect'];
-            unset($config['redirect']);
-        }
-
-        parent::__construct($config);
-    }
-
     public function rules(): array
     {
         return array_merge(parent::rules(), [

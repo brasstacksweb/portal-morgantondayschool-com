@@ -28,13 +28,29 @@ class Signups extends Component
     public const STATE_CLOSED = 'closed';
 
     /**
-     * Factory for the signup form model, mirroring Auth::newLogin /
-     * Subscriptions::newSubscriptions.
+     * Factory for the signup form model from submitted data (POST), mirroring
+     * Auth::newLogin / Subscriptions::newSubscriptions.
      */
     public static function newSignup(array $attrs = []): SignupModel
     {
         $signup = new SignupModel();
         $signup->setAttributes($attrs);
+
+        return $signup;
+    }
+
+    /**
+     * A blank signup form prefilled for rendering on a team's sport page: the
+     * team relation (as a string, for the hashed hidden input), the current
+     * user's email, and the success redirect. Keeping the type coercion here
+     * lets the model stay a plain attribute bag with no constructor.
+     */
+    public static function newSignupForm(Entry $team): SignupModel
+    {
+        $signup = new SignupModel();
+        $signup->teamEntryId = (string) $team->id;
+        $signup->guardianEmail = \Craft::$app->getUser()->getIdentity()?->email ?? '';
+        $signup->redirect = \Craft::$app->getRequest()->getAbsoluteUrl() . '#notice';
 
         return $signup;
     }
