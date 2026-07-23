@@ -448,13 +448,22 @@ intent explicit instead.
 
 ```
 templates/athletics/_entry.twig              # sport page
-templates/_components/team.twig              # state banner + panel + roster + form
+templates/_components/team.twig              # full-width accordion: state + panel + roster + form
 templates/_components/signup-panel.twig      # the parent's own registrations
 templates/_components/roster.twig            # roster table for one team
 ```
 
 `athletics/_entry.twig` gates on login the same way
-`templates/subscriptions.twig:1-3` does, then loops `entry.activeTeams`.
+`templates/subscriptions.twig:1-3` does. Its header reuses the shared
+`_components/hero` (heading + image + overview) — the same treatment as the class
+detail page — then it loops `entry.activeTeams`, rendering each as a team
+accordion (first one `open`).
+
+Each team is a full-width `<details>` accordion modeled on `_components/accordion-list`'s
+markup and chevron behavior, but without that component's split header — the
+summary carries the age-group heading, season/coach meta, a state badge, and the
+committed count; the body holds the state message, notes, roster, panel, and
+signup form.
 
 ### The signup panel
 

@@ -9,12 +9,14 @@
 {% endif %}
 
 {# Variables #}
+{% set heroImage = entry.heroImage.one() %}
 {% set teams = entry.activeTeams.with(['sport', 'coaches']).all() %}
 {% set flashError = craft.app.getSession().getError() %}
 {% set flashSuccess = craft.app.getSession().getSuccess() %}
 
 {# Meta #}
 {% set metaTitle = entry.heading ?? entry.title %}
+{% set metaDescription = entry.overview|striptags[:160] %}
 {% set metaNoIndex = true %}
 
 {% extends '_layouts/html' %}
@@ -23,11 +25,13 @@
 
 {% block content %}
 	<article class="athletics">
-		<header class="athletics__header">
-			<h1>{{ entry.heading ?? entry.title }}</h1>
-			{% if entry.overview %}
-				<div class="athletics__overview">{{ entry.overview }}</div>
-			{% endif %}
+		<header>
+			{% include '_components/hero' with {
+				heading: entry.heading ?? entry.title,
+				body: entry.overview,
+				image: heroImage,
+				backgroundColor: entry.color.value,
+			} only %}
 		</header>
 
 		{% if flashError or flashSuccess %}
@@ -41,7 +45,10 @@
 		{% else %}
 			<div class="athletics__teams">
 				{% for team in teams %}
-					{% include '_components/team' with { team: team } only %}
+					{% include '_components/team' with {
+						team: team,
+						open: loop.first,
+					} only %}
 				{% endfor %}
 			</div>
 		{% endif %}

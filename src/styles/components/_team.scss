@@ -9,27 +9,12 @@
 	display: block;
 
 	@include media("sm") {
-		@include pad(var(--s-lg));
-	}
-
-	&__header {
-		max-width: var(--w-lg);
-		margin: 0 auto var(--s-md);
-		text-align: center;
-
-		> h1 {
-			@include font("heading", "xl");
-		}
-	}
-
-	&__overview {
-		@include font("body", "md");
-		margin-top: var(--s-sm);
+		@include pad(var(--s-md), var(--w-xl));
 	}
 
 	&__flash {
 		@include font("body", "md");
-		max-width: var(--w-md);
+		max-width: var(--w-xl);
 		margin: 0 auto var(--s-md);
 		padding: var(--s-sm);
 		border: 1px solid var(--c-black);
@@ -50,28 +35,40 @@
 	}
 
 	&__teams {
-		display: flex;
-		flex-direction: column;
-		gap: var(--s-md);
-		max-width: var(--w-lg);
+		max-width: var(--w-xl);
 		margin: 0 auto;
 	}
 }
 
 $handle: "team";
 
+/* Full-width accordion (no split header, cf. accordion-list) */
 .#{$handle} {
-	display: block;
-	padding: var(--s-md) var(--s-sm);
-	background-color: var(--c-white);
-	border: 1px solid var(--c-black);
+	width: 100%;
+	border-bottom: 1px solid var(--c-br-dk);
 
-	@include media("sm") {
-		padding: var(--s-md);
+	&:first-child {
+		border-top: 1px solid var(--c-br-dk);
+	}
+
+	&__summary {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--s-sm);
+		padding: var(--s-sm) 0;
+		cursor: pointer;
+	}
+
+	&__heading {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
 	}
 
 	&__title {
-		@include font("heading", "lg");
+		@include font("heading", "md");
 	}
 
 	&__meta {
@@ -79,8 +76,59 @@ $handle: "team";
 		margin-top: var(--s-xs);
 	}
 
+	&__summary-status {
+		display: flex;
+		align-items: center;
+		gap: var(--s-sm);
+	}
+
+	&__badge {
+		@include font("body", "sm");
+		padding: 0 var(--s-xs);
+		border: 1px solid var(--c-black);
+		white-space: nowrap;
+
+		&--forming {
+			background-color: var(--c-yellow-lt);
+		}
+
+		&--confirmed {
+			background-color: var(--c-green-lt);
+		}
+
+		&--over_target {
+			background-color: var(--c-orange-lt);
+		}
+
+		&--pending,
+		&--closed {
+			background-color: var(--c-fg-lt);
+		}
+	}
+
+	&__count {
+		@include font("body", "sm");
+		white-space: nowrap;
+	}
+
+	&__chevron {
+		flex-shrink: 0;
+		width: var(--s-icon-lg);
+		height: var(--s-icon-lg);
+	}
+
+	&[open] &__chevron {
+		transform: rotate(180deg);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		padding-bottom: var(--s-md);
+	}
+
 	&__status {
-		margin-top: var(--s-sm);
 		padding: var(--s-sm);
 		border: 1px solid var(--c-black);
 
@@ -112,7 +160,7 @@ $handle: "team";
 		display: flex;
 		flex-direction: column;
 		gap: var(--s-sm);
-		margin-top: var(--s-sm);
+		margin-top: var(--s-md);
 
 		@include media("sm") {
 			flex-direction: row;
@@ -128,7 +176,7 @@ $handle: "team";
 	}
 
 	&__note {
-		@include font("body", "sm");
+		@include richText("sm");
 	}
 
 	&__signup {
