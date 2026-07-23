@@ -39,22 +39,6 @@ class Signups extends Component
         return $signup;
     }
 
-    /**
-     * A blank signup form prefilled for rendering on a team's sport page: the
-     * team relation (as a string, for the hashed hidden input), the current
-     * user's email, and the success redirect. Keeping the type coercion here
-     * lets the model stay a plain attribute bag with no constructor.
-     */
-    public static function newSignupForm(Entry $team): SignupModel
-    {
-        $signup = new SignupModel();
-        $signup->teamEntryId = (string) $team->id;
-        $signup->guardianEmail = \Craft::$app->getUser()->getIdentity()?->email ?? '';
-        $signup->redirect = \Craft::$app->getRequest()->getAbsoluteUrl() . '#notice';
-
-        return $signup;
-    }
-
     // --- Writes -------------------------------------------------------------
 
     /**
@@ -213,6 +197,32 @@ class Signups extends Component
         ];
     }
 
+    // --- Authorization ------------------------------------------------------
+
+    /**
+     * Whether $user may see guardian contact columns on a roster: Craft admins,
+     * or members of the athleticsStaff group.
+     */
+    public function canViewContact(?User $user): bool
+    {
+        return $user !== null && ($user->admin || $user->isInGroup('athleticsStaff'));
+    }
+
+    // --- Helpers ------------------------------------------------------------
+
+    /**
+     * Deterministic duplicate key: normalized first|last|dob, hashed. The caller
+     * passes dob as a `Y-m-d` string.
+     */
+    public static function participantKey(string $first, string $last, string $dob): string
+    {
+        $normalized = strtolower(trim($first)).'|'
+            .strtolower(trim($last)).'|'
+            .trim($dob);
+
+        return hash('sha256', $normalized);
+    }
+
     /**
      * The team's STATE_* value for a known committed count. Committed rows are
      * what fields a team (spec §4).
@@ -258,31 +268,5 @@ class Signups extends Component
         }
 
         return (int) $capacity - $committed;
-    }
-
-    // --- Authorization ------------------------------------------------------
-
-    /**
-     * Whether $user may see guardian contact columns on a roster: Craft admins,
-     * or members of the athleticsStaff group.
-     */
-    public function canViewContact(?User $user): bool
-    {
-        return $user !== null && ($user->admin || $user->isInGroup('athleticsStaff'));
-    }
-
-    // --- Helpers ------------------------------------------------------------
-
-    /**
-     * Deterministic duplicate key: normalized first|last|dob, hashed. The caller
-     * passes dob as a `Y-m-d` string.
-     */
-    public static function participantKey(string $first, string $last, string $dob): string
-    {
-        $normalized = strtolower(trim($first)).'|'
-            .strtolower(trim($last)).'|'
-            .trim($dob);
-
-        return hash('sha256', $normalized);
     }
 }

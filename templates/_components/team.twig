@@ -114,7 +114,11 @@
 						aria-label="Close">{{ icons.x() }}</button>
 					<h3>Register — {{ team.ageGroup }}</h3>
 					{% include '_components/form' with {
-						form: craft.signups.newSignupForm(team),
+						form: craft.signups.newSignup({
+							teamEntryId: team.id,
+							guardianEmail: currentUser.email,
+							redirect: craft.app.request.getAbsoluteUrl() ~ '#notice',
+						}),
 					} only %}
 				</dialog>
 			{% endif %}

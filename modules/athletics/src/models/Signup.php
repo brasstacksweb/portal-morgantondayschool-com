@@ -25,6 +25,23 @@ class Signup extends BaseForm
     public string $redirect = '';
     public string $submitText = 'Submit Registration';
 
+    public function scenarios(): array
+    {
+        return [
+            self::SCENARIO_DEFAULT => [
+                'participantFirstName',
+                'participantLastName',
+                'dateOfBirth',
+                'guardianEmail',
+                'guardianPhone',
+                'status',
+                'interestedInCoaching',
+                'teamEntryId',
+                'redirect',
+            ],
+        ];
+    }
+
     public function rules(): array
     {
         return array_merge(parent::rules(), [
@@ -56,6 +73,7 @@ class Signup extends BaseForm
             'status' => 'radio',
             'interestedInCoaching' => 'checkbox',
             'teamEntryId' => 'hidden',
+            'redirect' => 'hidden',
         ]);
     }
 
