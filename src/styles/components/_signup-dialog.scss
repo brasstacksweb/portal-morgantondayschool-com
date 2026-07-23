@@ -12,7 +12,13 @@
 	}
 
 	> dialog {
-		width: min(var(--w-md), calc(100vw - 2 * var(--s-sm)));
+		// Re-centre: the global `dialog { margin: 0 }` reset (base/elements.scss)
+		// kills the UA modal centering, so restore it explicitly.
+		position: fixed;
+		inset: 0;
+		margin: auto;
+		width: min(var(--w-lg), calc(100vw - 2 * var(--s-md)));
+		height: fit-content;
 		max-height: calc(100vh - 2 * var(--s-lg));
 		padding: var(--s-md);
 		border: 1px solid var(--c-black);
