@@ -137,20 +137,6 @@ class Signups extends Component
         ], $records);
     }
 
-    public function getCommittedCount(int $teamEntryId): int
-    {
-        return (int) SignupRecord::find()
-            ->where(['teamEntryId' => $teamEntryId, 'status' => self::STATUS_COMMITTED])
-            ->count();
-    }
-
-    public function getInterestedCount(int $teamEntryId): int
-    {
-        return (int) SignupRecord::find()
-            ->where(['teamEntryId' => $teamEntryId, 'status' => self::STATUS_INTERESTED])
-            ->count();
-    }
-
     /**
      * Whether a participant is already registered for a team. Backs the form's
      * duplicate check so the parent gets a clean field error before the insert.
@@ -183,25 +169,39 @@ class Signups extends Component
     }
 
     /**
-     * Spots left against the soft target. Null when capacity is unset; may be
-     * negative once signups exceed the target.
+     * All the per-team figures the sport page needs, from a single grouped
+     * count query: the committed/interested counts plus the derived state,
+     * remaining capacity, and whether registration is open.
+     *
+     * @return array{committed:int,interested:int,state:string,remaining:?int,isOpen:bool}
      */
-    public function getRemainingCapacity(Entry $team): ?int
+    public function getTeamStats(Entry $team): array
     {
-        $capacity = $team->capacity;
+        $rows = SignupRecord::find()
+            ->select(['status', 'total' => 'COUNT(*)'])
+            ->where(['teamEntryId' => (int) $team->id])
+            ->groupBy('status')
+            ->asArray()
+            ->all();
 
-        if ($capacity === null || $capacity === '') {
-            return null;
-        }
+        $counts = array_column($rows, 'total', 'status');
+        $committed = (int) ($counts[self::STATUS_COMMITTED] ?? 0);
+        $interested = (int) ($counts[self::STATUS_INTERESTED] ?? 0);
 
-        return (int) $capacity - $this->getCommittedCount((int) $team->id);
+        return [
+            'committed' => $committed,
+            'interested' => $interested,
+            'state' => $this->deriveState($team, $committed),
+            'remaining' => $this->deriveRemaining($team, $committed),
+            'isOpen' => $this->isRegistrationOpen($team),
+        ];
     }
 
     /**
-     * One of the STATE_* constants. Counts committed rows only — that is what
-     * fields a team (spec §4).
+     * The team's STATE_* value for a known committed count. Committed rows are
+     * what fields a team (spec §4).
      */
-    public function getTeamState(Entry $team): string
+    private function deriveState(Entry $team, int $committed): string
     {
         $opens = $team->registrationOpens;
         $closes = $team->registrationCloses;
@@ -215,7 +215,6 @@ class Signups extends Component
             return self::STATE_CLOSED;
         }
 
-        $committed = $this->getCommittedCount((int) $team->id);
         $minimum = $team->minimumPlayers;
         $capacity = $team->capacity;
 
@@ -228,6 +227,21 @@ class Signups extends Component
         }
 
         return self::STATE_CONFIRMED;
+    }
+
+    /**
+     * Spots left against the soft target for a known committed count. Null when
+     * capacity is unset; may be negative once signups exceed the target.
+     */
+    private function deriveRemaining(Entry $team, int $committed): ?int
+    {
+        $capacity = $team->capacity;
+
+        if ($capacity === null || $capacity === '') {
+            return null;
+        }
+
+        return (int) $capacity - $committed;
     }
 
     // --- Authorization ------------------------------------------------------

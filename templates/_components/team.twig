@@ -10,14 +10,15 @@
 {# Variables #}
 {% set handle = 'team' %}
 
-{% set state = craft.signups.getTeamState(team) %}
-{% set committed = craft.signups.getCommittedCount(team.id) %}
+{% set stats = craft.signups.getTeamStats(team) %}
+{% set state = stats.state %}
+{% set committed = stats.committed %}
+{% set interested = stats.interested %}
+{% set remaining = stats.remaining %}
+{% set isOpen = stats.isOpen %}
+{% set minimum = team.minimumPlayers %}
 {% set userSignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
 {% set expanded = expand or userSignups|length > 0 %}
-{% set isOpen = craft.signups.isRegistrationOpen(team) %}
-{% set interested = craft.signups.getInterestedCount(team.id) %}
-{% set minimum = team.minimumPlayers %}
-{% set remaining = craft.signups.getRemainingCapacity(team) %}
 {% set canViewContact = craft.signups.canViewContact(currentUser) %}
 {% set roster = craft.signups.getRoster(team.id, canViewContact) %}
 
