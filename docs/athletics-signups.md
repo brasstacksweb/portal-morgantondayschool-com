@@ -362,25 +362,39 @@ markup used by every form on the site.
 
 ### `services/Signups.php`
 
+As built (commit 6). The service deals in records and primitives, so it stays
+decoupled from the HTTP/form layer — the controller reads validated attributes off
+the form model and hands them in.
+
 ```php
-newSignup(array $attrs): Signup                  // static factory, mirrors Forms::newForm
-register(Signup $model, int $userId): bool       // plain insert; catches the unique violation
-commit(int $signupId, int $userId): bool         // interested → committed
-withdraw(int $signupId, int $userId): bool       // deletes the row
-getSignupsForUserAndTeam(int $userId, int $teamEntryId): array   // feeds the signup panel
-getRoster(int $teamEntryId, bool $includeContact = false): array
+// writes
+register(int $userId, int $teamEntryId, array $data): ?SignupRecord  // plain insert; catches the unique-index race
+commit(int $signupId, int $userId): bool                            // interested → committed, ownership-checked
+withdraw(int $signupId, int $userId): bool                          // deletes the row, ownership-checked
+// reads
+getSignupsForUserAndTeam(int $userId, int $teamEntryId): array      // records; feeds the signup panel
+getRoster(int $teamEntryId, bool $includeContact = false): array    // committed rows, contact gated in-service
 getCommittedCount(int $teamEntryId): int
 getInterestedCount(int $teamEntryId): int
-getTeamState(Entry $team): string                // see the state table in §4
+participantExists(int $teamEntryId, string $participantKey): bool   // backs the form duplicate check
+// team state
 isRegistrationOpen(Entry $team): bool
-getRemainingCapacity(Entry $team): ?int          // null when capacity is unset; may be negative
+getRemainingCapacity(Entry $team): ?int                            // null when capacity unset; may be negative
+getTeamState(Entry $team): string                                 // a STATE_* constant; see §4
+// authorization
+canViewContact(?User $user): bool
+// helper
+static participantKey(string $first, string $last, string $dob): string
 ```
 
-**Authorization is an ownership check, not a hashed ID.** Both `commit()` and
-`withdraw()` take a raw signup ID and verify `signup.userId === currentUser.id`
-(or the user is an admin) before acting. That is the real control, and it is
-stronger than hashing because it survives someone replaying their own earlier
-hash.
+Status and state values are exposed as `STATUS_*` / `STATE_*` constants on the
+service so the model, controller, and templates share one vocabulary.
+
+**Authorization is an ownership check, not a hashed ID.** `commit()` and
+`withdraw()` load the row and verify `signup.userId === $userId` before acting —
+the real control, stronger than hashing because it survives someone replaying
+their own earlier hash. v1 keeps this strict (no admin override in the service);
+admins manage signups through the CP / database.
 
 **`getRoster()`'s `$includeContact` flag must be authorized in the service**, not
 just in Twig. It re-checks eligibility itself via a small helper:
@@ -402,11 +416,14 @@ rule is ever tightened.
 Follows `modules/notifications/src/controllers/SubscriptionsController.php`:
 `requirePostRequest()` and `requireLogin()` in every action, no `$allowAnonymous`.
 
-- **`actionSave()`** resolves the team entry from the validated `teamEntryId` and
-  hands the model to the service. Validation failures return
-  `asModelFailure($model)`, which produces the `{ message, errors }` shape that
+- **`actionSave()`** validates the form model, then hands the current user id,
+  the validated `teamEntryId`, and the participant attributes to
+  `Signups::register()`. Validation failures return `asModelFailure($model)`,
+  which produces the `{ message, errors }` shape that
   `src/scripts/components/form.js:38` already parses and maps onto field-level
-  errors.
+  errors. The model's `validateNotDuplicate` calls
+  `Signups::participantExists()` so a repeat is a clean field error before the
+  insert; the unique index is the race backstop.
 - **`actionCommit()` / `actionWithdraw()`** take a signup ID, delegate the
   ownership check to the service, set a flash message, and redirect back to the
   sport page.
