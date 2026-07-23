@@ -3,6 +3,7 @@ import { actions, events } from './events';
 import Form from './components/form';
 import FormField from './components/form-field';
 import Carousel from './components/carousel';
+import Dialog from './components/dialog';
 import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
 import Subscriptions from './components/subscriptions';
@@ -11,6 +12,7 @@ import TextList from './components/text-list';
 function handleDOMConentLoaded() {
     // Register custom elements
     customElements.define('tl-carousel', Carousel);
+    customElements.define('tl-dialog', Dialog);
     customElements.define('tl-form', Form);
     customElements.define('tl-form-field', FormField);
     customElements.define('tl-install-banner', InstallBanner);

@@ -580,9 +580,16 @@ The sport template also sets `metaNoIndex = true`, as
   attributes (`p[role="status"]`, `mark[data-status="committed"]`) rather than
   element classes, so the markup's semantics stay intentional and hard to change
   by accident.
-- **JavaScript: none.** The signup form reuses `tl-form`; the panel actions are
-  plain POST forms. On success the form/actions redirect to `#notice` — the flash
-  message's anchor — so the confirmation scrolls into view.
+- **JavaScript: minimal.** The signup form reuses `tl-form`; the panel actions
+  are plain POST forms. The one addition is a small generic `tl-dialog` custom
+  element (`src/scripts/components/dialog.js`) — a trigger button opens a native
+  `<dialog>` (close button / Escape / backdrop click to dismiss). The signup form
+  lives inside that dialog behind a "Register" / "Register another child" button,
+  so it no longer takes up space in the team body. The form stays server-rendered
+  inside the dialog, keeping its CSRF / hashed / reCAPTCHA wiring intact. On
+  success the form/actions redirect to `#notice` — the flash message's anchor —
+  so the confirmation scrolls into view (and the page reload dismisses the
+  dialog); a 400 renders validation errors inside the open dialog.
 
 ### Independent cleanup — `form-field.js` (done)
 

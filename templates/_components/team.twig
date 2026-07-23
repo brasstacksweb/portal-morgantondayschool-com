@@ -21,6 +21,8 @@
 {% set canViewContact = craft.signups.canViewContact(currentUser) %}
 {% set roster = craft.signups.getRoster(team.id, canViewContact) %}
 
+{% import '_icons' as icons %}
+
 {% set stateMessage %}
 	{% if state == 'pending' %}
 		Registration opens {{ team.registrationOpens|date('F j, Y') }}.
@@ -69,27 +71,25 @@
 	{% endif %}
 
 	{% if isOpen %}
-		{% set form %}
-			{% include '_components/form' with {
-				form: create({
-					class: 'modules\\athletics\\models\\Signup',
-					teamEntryId: team.id,
-					guardianEmail: currentUser.email,
-					redirect: craft.app.request.absoluteUrl ~ '#notice',
-				}),
-			} only %}
-		{% endset %}
-
-		{% if mySignups|length %}
-			<details>
-				<summary>Register another child</summary>
-				{{ form }}
-			</details>
-		{% else %}
-			<section>
-				<h3>Register</h3>
-				{{ form }}
-			</section>
-		{% endif %}
+		<tl-dialog class="signup-dialog">
+			<button type="button">
+				{% include '_components/cta' with {
+					title: mySignups|length ? 'Register another child' : 'Register',
+					type: 'primary',
+				} only %}
+			</button>
+			<dialog>
+				<button type="button" aria-label="Close">{{ icons.x() }}</button>
+				<h3>Register — {{ team.ageGroup }}</h3>
+				{% include '_components/form' with {
+					form: create({
+						class: 'modules\\athletics\\models\\Signup',
+						teamEntryId: team.id,
+						guardianEmail: currentUser.email,
+						redirect: craft.app.request.absoluteUrl ~ '#notice',
+					}),
+				} only %}
+			</dialog>
+		</tl-dialog>
 	{% endif %}
 </div>

@@ -1,0 +1,45 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+.signup-dialog {
+	display: block;
+	margin-top: var(--s-md);
+
+	// Trigger button.
+	> button {
+		cursor: pointer;
+	}
+
+	> dialog {
+		width: min(var(--w-md), calc(100vw - 2 * var(--s-sm)));
+		max-height: calc(100vh - 2 * var(--s-lg));
+		padding: var(--s-md);
+		border: 1px solid var(--c-black);
+		background-color: var(--c-white);
+		overflow-y: auto;
+
+		&::backdrop {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		&[open] {
+			display: flex;
+			flex-direction: column;
+		}
+
+		// Close button.
+		> button {
+			align-self: flex-end;
+			width: var(--s-icon-lg);
+			height: var(--s-icon-lg);
+			cursor: pointer;
+			color: var(--c-black);
+		}
+
+		> h3 {
+			@include font("heading", "md");
+			margin-bottom: var(--s-sm);
+		}
+	}
+}
