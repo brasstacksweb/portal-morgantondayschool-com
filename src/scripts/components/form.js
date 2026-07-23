@@ -52,8 +52,16 @@ export default class Form extends HTMLElement {
             case 200:
             default:
                 if (redirectPath) {
+                    // A redirect to the current page (e.g. a '#notice' hash) is
+                    // a same-document navigation — href only scrolls, so force a
+                    // reload to reflect the new server state. A different page
+                    // navigates (and reloads) on its own.
+                    const target = new URL(redirectPath, window.location.href);
+                    const samePage = target.pathname === window.location.pathname
+                        && target.search === window.location.search;
+
                     window.location.href = redirectPath;
-                    window.location.reload();
+                    if (samePage) window.location.reload();
 
                     return;
                 }
