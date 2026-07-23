@@ -103,7 +103,7 @@ $handle: "team";
 					margin-top: var(--s-xs);
 
 					> strong {
-						font-weight: bold;
+						@include bold;
 					}
 				}
 			}

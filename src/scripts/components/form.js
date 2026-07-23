@@ -53,6 +53,7 @@ export default class Form extends HTMLElement {
             default:
                 if (redirectPath) {
                     window.location.href = redirectPath;
+                    window.location.reload();
 
                     return;
                 }

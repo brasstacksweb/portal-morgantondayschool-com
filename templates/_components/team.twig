@@ -69,7 +69,10 @@
 		<div>
 			<p role="status">
 				{{ stateMessage }}
-				<small><strong>{{ committed }} committed</strong>{% if interested %} · {{ interested }} interested{% endif %}</small>
+				<small>
+					<strong>{{ committed }} committed</strong>
+					{% if interested %} · {{ interested }} interested{% endif %}
+				</small>
 			</p>
 
 			{% if team.eligibilityNotes is not empty %}
@@ -90,12 +93,10 @@
 
 			{% if userSignups is not empty %}
 				<h3>Your registrations</h3>
-				{% if userSignups is not empty %}
-					{% include '_components/signup-panel' with {
-						signups: userSignups,
-						canCommit: isOpen,
-					} only %}
-				{% endif %}
+				{% include '_components/signup-panel' with {
+					signups: userSignups,
+					canCommit: isOpen,
+				} only %}
 			{% endif %}
 
 			{% if isOpen %}
