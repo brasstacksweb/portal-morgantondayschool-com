@@ -196,7 +196,7 @@ showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: '{sport} - {ageGroup} ({season} {startYear})'
+titleFormat: '{sport.one().title} - {ageGroup} ({season.label} {startYear})'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 uiLabelFormat: '{title}'
