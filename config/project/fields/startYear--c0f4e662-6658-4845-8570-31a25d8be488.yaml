@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: startYear
+instructions: null
+name: 'Start Year'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: 2036
+  min: 2026
+  prefix: null
+  previewCurrency: null
+  previewFormat: none
+  size: null
+  step: 1
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

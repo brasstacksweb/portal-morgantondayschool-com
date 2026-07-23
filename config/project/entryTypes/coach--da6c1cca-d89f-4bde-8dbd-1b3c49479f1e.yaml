@@ -1,0 +1,106 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  52a6a2f0-b2dc-4335-8029-d2a7e8dbd722:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-07-23T13:03:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: coachName
+            instructions: null
+            label: 'Coach Name'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1da73f14-04f3-44ee-a5a2-fecff15b0629
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2026-07-23T13:03:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9cc9c786-c956-4ab2-9b91-495b9ad21736
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2026-07-23T13:03:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: bio
+            instructions: null
+            label: Bio
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ac6476f-5980-46c0-8374-bfd50548e71e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T13:03:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 125e1411-9d3a-43ab-867e-890ce9eb7da7 # Email
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f861053-a839-4e50-93c9-ec381e779710
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:03:54+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5c5f6ce4-6182-41ef-aa26-eecbddeb59b4 # Phone Number
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5433670d-acf5-40cc-9b89-9567cfd7a54a
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: d825973e-7165-4db9-aa57-188b77edbde2
+        userCondition: null
+    thumbFieldKey: null
+handle: coach
+hasTitleField: false
+icon: whistle
+name: Coach
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{coachName}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

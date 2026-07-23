@@ -1,0 +1,38 @@
+description: null
+handle: athleticsStaff
+name: 'Athletics Staff'
+permissions:
+  - accesscp
+  - 'changeauthorforpeerentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'changeauthorforpeerentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'changeauthorforpeerentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'createentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'createentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'createentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'deleteentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'deleteentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'deleteentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'deletepeerentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'deletepeerentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'deletepeerentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'deletepeerentrydrafts:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'deletepeerentrydrafts:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'deletepeerentrydrafts:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'saveentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'saveentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'saveentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'savepeerentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'savepeerentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'savepeerentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'savepeerentrydrafts:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'savepeerentrydrafts:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'savepeerentrydrafts:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'viewentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'viewentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'viewentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'viewpeerentries:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'viewpeerentries:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'viewpeerentries:7a530a32-b029-419c-ad08-1b180e470736' # Sports
+  - 'viewpeerentrydrafts:3d1a7754-76e3-4779-a4ee-ff935b63e123' # Teams
+  - 'viewpeerentrydrafts:658d8481-cff5-4eb1-afe9-1a1288ea9b54' # Coaches
+  - 'viewpeerentrydrafts:7a530a32-b029-419c-ad08-1b180e470736' # Sports

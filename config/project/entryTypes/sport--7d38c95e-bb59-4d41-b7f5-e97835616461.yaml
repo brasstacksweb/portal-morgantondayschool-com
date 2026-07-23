@@ -1,0 +1,172 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  9479c566-2779-497b-beb8-7356ede2d1dc:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-07-23T12:49:35+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bdba1bc5-ae91-4339-8353-1a3abda712fc
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: previewImage
+            instructions: null
+            label: 'Preview Image'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24c7c7b5-d53a-4715-b0be-4c470cf79168
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5c402428-24ea-45a0-8fc4-78d37b90d457
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15 # Color
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 58b688d7-f1ee-497b-9a9a-e26db57e6ef9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Overview
+        uid: c2d2ec3f-a73a-45db-b871-8787894b91e7
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: heading
+            instructions: null
+            label: Heading
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 21a4bac3-9f66-4b73-bcdf-0498bccf3ce0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e665c259-b527-4c5a-a7a3-e3ffb6498f27 # Image
+            handle: heroImage
+            instructions: null
+            label: 'Hero Image'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84407cfb-6a7c-4aa2-b12c-e41a654ea7c5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T12:53:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 61dd7cfc-3321-400c-991b-14b0c8b4ba0e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T13:05:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: de510b37-b8c1-4d16-8336-f2b2c9d69431 # Teams
+            handle: activeTeams
+            instructions: null
+            label: 'Active Teams'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3df8bd88-bedc-411f-92b7-fb511068d106
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 31fc8307-aafb-46e4-97ac-937a13943586
+        userCondition: null
+    thumbFieldKey: null
+handle: sport
+hasTitleField: true
+icon: basketball
+name: Sport
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

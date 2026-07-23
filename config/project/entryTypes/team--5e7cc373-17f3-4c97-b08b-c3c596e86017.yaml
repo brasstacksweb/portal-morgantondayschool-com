@@ -1,0 +1,202 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  32c4a512-32f8-4ae6-9837-1844befea1e0:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5f933b3a-6018-42d8-ad9f-7f8b11cac8d8 # Sport
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0fbadd1-55e8-4b63-a949-d9bc9ebd205a
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2026-07-23T13:04:46+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e1b52c88-d3c4-4f19-80f6-adf1d2dea13e # Coaches
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c9d25a44-acf5-44f1-a0b3-d84d77b4848d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5 # Text
+            handle: ageGroup
+            instructions: null
+            label: 'Age Group'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0f73e4da-bd6e-4a3f-ab7c-c68464354344
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2312ee9e-01df-4a8d-8352-2ea570470b56 # Season
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 120062a8-613c-4ab0-8eb5-6aa9f8e852e2
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c0f4e662-6658-4845-8570-31a25d8be488 # Start Year
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 436ba6de-3e98-4cac-a98a-48a0196fd255
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5aaadbfa-25d8-468d-b386-e4971158389e # Positive Integer
+            handle: capacity
+            instructions: null
+            label: Capacity
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f1af207-19a9-4cbc-94fa-b6509f28dd24
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 5aaadbfa-25d8-468d-b386-e4971158389e # Positive Integer
+            handle: minimumPlayers
+            instructions: null
+            label: 'Minimum Players'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2934c2c4-6ade-47ce-92f4-09a45ab268d2
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c # Datetime
+            handle: registrationOpens
+            instructions: null
+            label: 'Registration Opens'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f5b4b07a-ce2b-4482-ae0f-1e155ae9a5ae
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 17ca4dbc-4eb7-46aa-a6e1-8840b78efb7c # Datetime
+            handle: registrationCloses
+            instructions: null
+            label: 'Registration Closes'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4daa556c-4678-4bcf-a49a-25f35106dfc9
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b65b30fd-2906-4a3c-a08e-76954a4942ed # Overview
+            handle: eligibilityNotes
+            instructions: null
+            label: 'Eligibility Notes'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e64edc14-fd46-4567-8732-8132de05433e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-07-23T13:01:39+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 21845b92-9016-4975-ad69-346de1c7a9a8 # Details
+            handle: practiceInfo
+            instructions: null
+            label: 'Practice Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 83e93570-97fe-4823-9c3e-845fd098882a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 18454a4a-772b-4470-a241-1ca9579ba790
+        userCondition: null
+    thumbFieldKey: null
+handle: team
+hasTitleField: false
+icon: people-group
+name: Team
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{sport} - {ageGroup} ({season} {startYear})'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
