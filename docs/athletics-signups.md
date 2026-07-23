@@ -326,10 +326,17 @@ and CP hooks:
 - `CraftVariable` registration → `craft.signups.*` available in templates
   (variable name matches the component name, per the notifications module)
 
-### `models/Signup.php` — extends `modules\forms\models\Form`
+### `models/Signup.php` — extends `modules\components\models\Form`
 
-Inherits `validateHash`, `validateRecaptcha`, and the
-`attributeTypes/Sizes/Options/Labels` accessors.
+Extends the base `Form` (not `forms\models\Form`), matching the notifications
+`Subscriptions` / `Login` models: it needs `validateHash`, `validateRecaptcha`,
+and the `attributeTypes/Sizes/Options/Labels` accessors, but none of the
+`saveLocal` / `send*` abstract methods the forms base would require.
+
+**The model validates shape only.** Business rules — team exists / is open / not a
+duplicate — live in the controller, matching how `AuthController` checks
+`canRequestToken` rather than baking it into the `Login` model. This keeps the
+model decoupled from the service and the `entries` table.
 
 Fields: `participantFirstName`, `participantLastName`, `dateOfBirth`,
 `guardianEmail`, `guardianPhone`, `status`, `interestedInCoaching`,
@@ -339,14 +346,15 @@ fields.
 - `teamEntryId` is declared `'hidden'` and validated with **`validateHash`**.
   This matters: it determines which roster a submission lands in and it is
   visible in page source, so it must be tamper-proof. It is the **only** entry ID
-  the form posts.
+  the form posts. A `__construct` casts it to string (it arrives as an int at
+  render time, a hashed string on submit), mirroring `Login::redirect`.
 - `status` renders as a `radio` with exactly two options, `interested` and
-  `committed`, and is validated against that list.
+  `committed`, validated against `Signups::STATUS_*`.
+- `interestedInCoaching` is declared `public array` with a single checkbox option
+  — `_components/form-field.twig` posts checkboxes as `name[]`, so a `bool`
+  property would fail assignment. The controller casts it with `!empty()`.
 - `guardianEmail` is prefilled from `currentUser.email` when the form is
   constructed in the template.
-- Custom validators delegating to the service: `validateRegistrationOpen`,
-  `validateNotDuplicate`, `validateTeamExists` (re-checks server-side that the
-  referenced entry is enabled and is of type `team`).
 - `getActionPath()` → `'athletics/signups/save'`
 - `getRedirectPath()` → `''`, so `tl-form` shows the inline success block rather
   than navigating.
@@ -416,14 +424,15 @@ rule is ever tightened.
 Follows `modules/notifications/src/controllers/SubscriptionsController.php`:
 `requirePostRequest()` and `requireLogin()` in every action, no `$allowAnonymous`.
 
-- **`actionSave()`** validates the form model, then hands the current user id,
-  the validated `teamEntryId`, and the participant attributes to
-  `Signups::register()`. Validation failures return `asModelFailure($model)`,
-  which produces the `{ message, errors }` shape that
-  `src/scripts/components/form.js:38` already parses and maps onto field-level
-  errors. The model's `validateNotDuplicate` calls
-  `Signups::participantExists()` so a repeat is a clean field error before the
-  insert; the unique index is the race backstop.
+- **`actionSave()`** validates the form model (shape), then runs the business
+  rules in order: loads the team via `section('teams')->id()->one()` (default
+  status filter rejects disabled or non-team ids), checks
+  `isRegistrationOpen()`, and checks `participantExists()` — a repeat becomes a
+  clean field error on `participantFirstName` before the insert. Only then does it
+  call `Signups::register()`; a null return (lost unique-index race) is a generic
+  failure. Model-shape failures return `asModelFailure($model)`, producing the
+  `{ message, errors }` shape `src/scripts/components/form.js:38` maps onto
+  fields.
 - **`actionCommit()` / `actionWithdraw()`** take a signup ID, delegate the
   ownership check to the service, set a flash message, and redirect back to the
   sport page.

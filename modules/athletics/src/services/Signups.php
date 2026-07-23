@@ -5,6 +5,7 @@ namespace modules\athletics\services;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\helpers\DateTimeHelper;
+use modules\athletics\models\Signup as SignupModel;
 use modules\athletics\records\Signup as SignupRecord;
 use yii\base\Component;
 use yii\db\IntegrityException;
@@ -26,6 +27,18 @@ class Signups extends Component
     public const STATE_CONFIRMED = 'confirmed';
     public const STATE_OVER_TARGET = 'over_target';
     public const STATE_CLOSED = 'closed';
+
+    /**
+     * Factory for the signup form model, mirroring Auth::newLogin /
+     * Subscriptions::newSubscriptions.
+     */
+    public static function newSignup(array $attrs = []): SignupModel
+    {
+        $signup = new SignupModel();
+        $signup->setAttributes($attrs);
+
+        return $signup;
+    }
 
     // --- Writes -------------------------------------------------------------
 
