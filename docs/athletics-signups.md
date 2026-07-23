@@ -584,17 +584,17 @@ The sport template also sets `metaNoIndex = true`, as
   plain POST forms. On success the form/actions redirect to `#notice` — the flash
   message's anchor — so the confirmation scrolls into view.
 
-### Independent cleanup — `form-field.js`
+### Independent cleanup — `form-field.js` (done)
 
-`src/scripts/components/form-field.js:17` declares `constructor(el)`, but custom
-element constructors receive no arguments, so `el` is `undefined` and
-`toggleVisibility(el, …)` throws. The conditional-field feature it implements has
-never been exercised — no form model currently overrides `attributeConditionals()`
-— so the bug is latent.
+`src/scripts/components/form-field.js` declared `constructor(el)`, but custom
+element constructors receive no arguments, so `el` was `undefined` and
+`toggleVisibility(el, …)` would throw. The conditional-field feature it implements
+had never been exercised — no form model overrides `attributeConditionals()` — so
+the bug was latent.
 
-This plan does not use conditional fields, so **this is not a prerequisite**. It
-is worth the one-line fix (`el` → `this`) on its own merits before anyone else
-reaches for the feature.
+Fixed by dropping the `el` parameter and passing `this` (the element instance)
+to `toggleVisibility`. Unrelated to the athletics feature, which uses no
+conditional fields; landed as its own commit so the fix is isolated.
 
 ---
 

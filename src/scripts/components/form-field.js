@@ -14,7 +14,7 @@ const toggleVisibility = (el, name, visible) => {
 };
 
 export default class FormField extends HTMLElement {
-    constructor(el) {
+    constructor() {
         super();
 
         const {
@@ -41,11 +41,11 @@ export default class FormField extends HTMLElement {
 
             targets.forEach(target => {
                 target.addEventListener('change', e => {
-                    toggleVisibility(el, name, e.currentTarget.value === conditionalValue);
+                    toggleVisibility(this, name, e.currentTarget.value === conditionalValue);
                 });
             });
 
-            toggleVisibility(el, name, formData.get(conditionalName) === conditionalValue);
+            toggleVisibility(this, name, formData.get(conditionalName) === conditionalValue);
         }
     }
 }
