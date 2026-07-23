@@ -8,7 +8,6 @@ use craft\helpers\DateTimeHelper;
 use modules\athletics\models\Signup as SignupModel;
 use modules\athletics\records\Signup as SignupRecord;
 use yii\base\Component;
-use yii\db\IntegrityException;
 
 /**
  * Athletics signups service.
@@ -46,10 +45,8 @@ class Signups extends Component
      * Build and insert a registration. No transaction: capacity is a soft
      * display target, so the unique (teamEntryId, participantKey) index is the
      * only guard the write path needs. The catch handles the duplicate race.
-     *
-     * @param array $data validated participant fields
      */
-    public function register(int $userId, int $teamEntryId, array $data): ?SignupRecord
+    public function register(int $userId, int $teamEntryId, array $data): bool
     {
         $record = new SignupRecord();
         $record->userId = $userId;
@@ -69,12 +66,7 @@ class Signups extends Component
             $data['dateOfBirth'],
         );
 
-        try {
-            return $record->save() ? $record : null;
-        } catch (IntegrityException) {
-            // Lost the race on the unique index — treat as a duplicate.
-            return null;
-        }
+        return $record->save();
     }
 
     /**
@@ -141,7 +133,7 @@ class Signups extends Component
         return array_map(function (SignupRecord $r) use ($includeContact) {
             $row = [
                 'id' => (int) $r->id,
-                'name' => trim($r->participantFirstName . ' ' . $r->participantLastName),
+                'name' => trim($r->participantFirstName.' '.$r->participantLastName),
             ];
 
             if ($includeContact) {
@@ -266,9 +258,9 @@ class Signups extends Component
      */
     public static function participantKey(string $first, string $last, string $dob): string
     {
-        $normalized = strtolower(trim($first)) . '|'
-            . strtolower(trim($last)) . '|'
-            . trim($dob);
+        $normalized = strtolower(trim($first)).'|'
+            .strtolower(trim($last)).'|'
+            .trim($dob);
 
         return hash('sha256', $normalized);
     }

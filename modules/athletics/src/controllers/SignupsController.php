@@ -2,7 +2,6 @@
 
 namespace modules\athletics\controllers;
 
-use Craft;
 use craft\elements\Entry;
 use craft\web\Controller;
 use craft\web\Response;
@@ -57,7 +56,7 @@ class SignupsController extends Controller
             return $this->asModelFailure($model, 'This child is already registered for this team.');
         }
 
-        $record = $signups->register((int) Craft::$app->getUser()->getId(), $teamId, [
+        $saved = $signups->register((int) \Craft::$app->getUser()->getId(), $teamId, [
             'participantFirstName' => $model->participantFirstName,
             'participantLastName' => $model->participantLastName,
             'dateOfBirth' => $model->dateOfBirth,
@@ -67,13 +66,13 @@ class SignupsController extends Controller
             'status' => $model->status,
         ]);
 
-        if (!$record) {
+        if (!$saved) {
             // Most likely a lost race on the unique index — a concurrent duplicate.
             return $this->asFailure('We could not save your registration. Please try again.');
         }
 
         // tl-form redirects to the sport page on success; the flash shows there.
-        Craft::$app->getSession()->setSuccess('Your registration has been received.');
+        \Craft::$app->getSession()->setSuccess('Your registration has been received.');
 
         return $this->asSuccess('Registration received.');
     }
@@ -94,9 +93,9 @@ class SignupsController extends Controller
         $this->requireLogin();
 
         $signupId = (int) $this->request->getRequiredBodyParam('signupId');
-        $userId = (int) Craft::$app->getUser()->getId();
+        $userId = (int) \Craft::$app->getUser()->getId();
         $signups = AthleticsModule::getInstance()->signups;
-        $session = Craft::$app->getSession();
+        $session = \Craft::$app->getSession();
 
         $ok = $action === 'commit'
             ? $signups->commit($signupId, $userId)
