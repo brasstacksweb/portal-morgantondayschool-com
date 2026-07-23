@@ -1,47 +1,49 @@
 {##
- # Signup panel — the current user's registrations for one team
+ # Signup Panel component
  # @param {SignupRecord[]} signups
- # @param {Entry}          team
- # @param {bool}           canCommit   whether commit is allowed (registration open)
+ # @param {bool} canCommit   whether commit is allowed (registration open)
  #}
 
 {# Params #}
 {% set signups = signups ?? [] %}
-{% set team = team ?? null %}
 {% set canCommit = canCommit ?? false %}
 
 {# Variables #}
 {% set handle = 'signup-panel' %}
+
 {% set redirectPath = craft.app.request.pathInfo ~ '#notice' %}
 
 {# Markup #}
 <div class="{{ handle }}">
-	<h3>Your registrations</h3>
 	<ul>
 		{% for s in signups %}
 			<li>
-				<span>{{ s.participantFirstName }} {{ s.participantLastName }}</span>
-				<mark data-status="{{ s.status }}">{{ s.status|capitalize }}</mark>
-				{% if s.status == 'interested' and canCommit %}
-					<form method="post">
+				<h4>
+					<span>{{ s.participantFirstName }} {{ s.participantLastName }}</span>
+					<mark data-status="{{ s.status }}">{{ s.status|capitalize }}</mark>
+				</h4>
+				<nav>
+					{% if s.status == 'interested' and canCommit %}
+						<form method="post">
+							{{ csrfInput() }}
+							{{ actionInput('athletics/signups/commit') }}
+							{{ redirectInput(redirectPath) }}
+							{{ hiddenInput('signupId', s.id) }}
+							<button type="submit">
+								{% include '_components/cta' with { title: 'Commit', type: 'secondary', size: 'sm' } only %}
+							</button>
+						</form>
+					{% endif %}
+					<form method="post" onsubmit="return confirm('Withdraw this registration?');">
 						{{ csrfInput() }}
-						{{ actionInput('athletics/signups/commit') }}
+						{{ actionInput('athletics/signups/withdraw') }}
 						{{ redirectInput(redirectPath) }}
 						{{ hiddenInput('signupId', s.id) }}
 						<button type="submit">
-							{% include '_components/cta' with { title: 'Commit', type: 'secondary', size: 'sm' } only %}
+							{% include '_components/cta' with { title: 'Withdraw', type: 'tertiary', size: 'sm' } only %}
 						</button>
 					</form>
-				{% endif %}
-				<form method="post" onsubmit="return confirm('Withdraw this registration?');">
-					{{ csrfInput() }}
-					{{ actionInput('athletics/signups/withdraw') }}
-					{{ redirectInput(redirectPath) }}
-					{{ hiddenInput('signupId', s.id) }}
-					<button type="submit">
-						{% include '_components/cta' with { title: 'Withdraw', type: 'tertiary', size: 'sm' } only %}
-					</button>
-				</form>
+				</nav>
 			</li>
 		{% endfor %}
 	</ul>

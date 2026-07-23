@@ -1,17 +1,9 @@
 @use "../base/layout" as *;
 @use "../base/typography" as *;
 
-.roster {
-	margin-top: var(--s-md);
+$handle: "roster";
 
-	> h3 {
-		@include font("heading", "md");
-
-		> small {
-			@include font("body", "sm");
-		}
-	}
-
+.#{$handle} {
 	> p {
 		@include font("body", "sm");
 		margin-top: var(--s-xs);
@@ -19,13 +11,13 @@
 
 	// Scroll container for the table on narrow screens.
 	> div {
-		margin-top: var(--s-sm);
+		margin-top: var(--s-xs);
 		overflow-x: auto;
 
 		> table {
+			@include font("body", "sm");
 			width: 100%;
 			border-collapse: collapse;
-			@include font("body", "sm");
 
 			th,
 			td {
@@ -36,7 +28,7 @@
 			}
 
 			th {
-				@include font("heading", "sm");
+				@include font("heading", "xs");
 			}
 		}
 	}

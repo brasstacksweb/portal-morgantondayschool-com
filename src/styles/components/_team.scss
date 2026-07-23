@@ -2,111 +2,158 @@
 @use "../base/media" as *;
 @use "../base/typography" as *;
 
-/* Full-width accordion item (no split header, cf. accordion-list). The
-   <details>/<summary> shell is emitted by team-list; the body div by team. */
-.team {
-	border-bottom: 1px solid var(--c-br-dk);
+$handle: "team";
 
-	> summary {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-		gap: var(--s-sm);
-		padding: var(--s-sm) 0;
-		cursor: pointer;
-
-		> hgroup {
-			flex: 1 1 auto;
-
-			> h2 {
-				@include font("heading", "md");
-			}
-
-			> p {
-				@include font("body", "sm");
-				margin-top: var(--s-xs);
-			}
-		}
-
-		// Status: state badge + committed count.
-		> p {
-			display: flex;
-			align-items: center;
-			gap: var(--s-sm);
-
-			> mark {
-				@include font("body", "sm");
-				padding: 0 var(--s-xs);
-				border: 1px solid var(--c-black);
-				background-color: var(--c-fg-lt);
-				white-space: nowrap;
-			}
-
-			> small {
-				@include font("body", "sm");
-				white-space: nowrap;
-			}
-		}
-
-		> i {
-			flex-shrink: 0;
-			width: var(--s-icon-lg);
-			height: var(--s-icon-lg);
-		}
-	}
-
-	&[open] > summary > i {
-		transform: rotate(180deg);
-	}
-
-	// Body.
-	> div {
-		padding-bottom: var(--s-md);
-
-		// State message box.
-		> p {
-			@include font("body", "md");
-			padding: var(--s-sm);
-			border: 1px solid var(--c-black);
-			background-color: var(--c-fg-lt);
-
-			> small {
-				@include font("body", "sm");
-				display: block;
-				margin-top: var(--s-xs);
-			}
-		}
-
-		// Eligibility / practice.
-		> section {
-			@include richText("sm");
-			margin-top: var(--s-md);
-
-			> h3 {
-				@include font("heading", "sm");
-			}
-		}
-	}
-
-	// State colours, keyed off the root modifier — applied to both the summary
-	// badge and the body's state message box.
-	&--forming {
+.#{$handle} {
+	&--pending > details {
 		> summary > p > mark,
-		> div > p {
+		> div > p[role="status"] {
+			background-color: var(--c-blue-lt);
+		}
+	}
+
+	&--forming > details {
+		> summary > p > mark,
+		> div > p[role="status"] {
 			background-color: var(--c-yellow-lt);
 		}
 	}
 
-	&--confirmed,
-	&--over_target {
+	&--confirmed > details {
 		> summary > p > mark,
-		> div > p {
+		> div > p[role="status"] {
 			background-color: var(--c-green-lt);
 		}
 	}
 
-	&--over_target > summary > p > mark {
-		background-color: var(--c-orange-lt);
+	&--over-target > details {
+		> summary > p > mark,
+		> div > p[role="status"] {
+			background-color: var(--c-orange-lt);
+		}
+	}
+
+	> details {
+		> summary {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			gap: var(--s-sm);
+			padding: var(--s-sm) 0;
+			cursor: pointer;
+
+			> hgroup {
+				flex: 1 1 auto;
+
+				> h2 {
+					@include font("heading", "md");
+				}
+
+				> p {
+					@include font("body", "sm");
+					margin-top: var(--s-xs);
+				}
+			}
+
+			// Status: state badge + committed count.
+			> p {
+				display: flex;
+				align-items: center;
+				gap: var(--s-sm);
+
+				> mark {
+					@include font("body", "sm");
+					padding: 0 var(--s-xs);
+					border: 1px solid var(--c-black);
+					white-space: nowrap;
+				}
+
+				> small {
+					@include font("body", "sm");
+					white-space: nowrap;
+				}
+			}
+
+			> i {
+				flex-shrink: 0;
+				width: var(--s-icon-lg);
+				height: var(--s-icon-lg);
+			}
+		}
+
+		&[open] > summary > i {
+			transform: rotate(180deg);
+		}
+
+		// Body.
+		> div {
+			padding: var(--s-sm);
+			border-top: 1px solid var(--c-black);
+			background-color: var(--c-bg-md);
+
+			> p[role="status"] {
+				@include font("body", "md");
+				padding: var(--s-sm);
+				border: 1px solid var(--c-black);
+
+				> small {
+					@include font("body", "sm");
+					display: block;
+					margin-top: var(--s-xs);
+
+					> strong {
+						font-weight: bold;
+					}
+				}
+			}
+
+			> h3 {
+				@include font("heading", "sm");
+				margin-top: var(--s-sm);
+			}
+
+			> div[role="details"] {
+				@include richText("sm");
+				margin-top: var(--s-xs);
+			}
+
+			> button {
+				margin-top: var(--s-sm);
+			}
+
+			> dialog {
+				overflow: auto;
+				flex-direction: column;
+				width: calc(100vw - (2 * var(--s-sm)));
+				max-width: var(--w-lg);
+				max-height: 90vh;
+				margin-inline: auto;
+				padding: var(--s-sm);
+				background-color: var(--c-bg-lt);
+				border: 1px solid var(--c-black);
+
+				&:popover-open {
+					@include centerer;
+					position: fixed;
+					display: flex;
+				}
+
+				&::backdrop {
+					background-color: rgba(0, 0, 0, 0.5);
+				}
+
+				> button {
+					@include absolute(var(--s-xs), var(--s-xs));
+					width: var(--s-icon-lg);
+					height: var(--s-icon-lg);
+				}
+
+				> h3 {
+					@include font("heading", "sm");
+					margin-bottom: var(--s-sm);
+				}
+			}
+		}
 	}
 }

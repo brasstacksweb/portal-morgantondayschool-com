@@ -2,7 +2,9 @@
 @use "../base/media" as *;
 @use "../base/typography" as *;
 
-.team-list {
+$handle: "team-list";
+
+.#{$handle} {
 	@include pad(var(--s-sm));
 	@include space(var(--s-md));
 	display: block;
@@ -20,14 +22,13 @@
 		border: 1px solid var(--c-black);
 		text-align: center;
 		scroll-margin-top: calc(var(--h-header) + var(--s-md));
-	}
 
-	> p[role="alert"] {
-		color: var(--c-red-dk);
-	}
-
-	> p[role="status"] {
-		color: var(--c-indigo-dk);
+		&[role="alert"] {
+			color: var(--c-red-dk);
+		}
+		&[role="status"] {
+			color: var(--c-indigo-dk);
+		}
 	}
 
 	// Empty state (no role).
@@ -37,9 +38,10 @@
 	}
 
 	> ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
 		border-top: 1px solid var(--c-br-dk);
+
+		> li {
+			border-bottom: 1px solid var(--c-br-dk);
+		}
 	}
 }

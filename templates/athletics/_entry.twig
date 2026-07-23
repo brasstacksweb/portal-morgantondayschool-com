@@ -1,16 +1,13 @@
 {##
- # Sport entry — athletics signups
- # @param {Entry} entry  the sport
+ # Sport entry
+ # @param {Entry} entry
  #}
 
-{# Gate: authenticated users only #}
 {% if not currentUser %}
 	{% redirect 'login?redirect=' ~ craft.app.request.url|url_encode %}
 {% endif %}
 
-{# Variables #}
-{% set heroImage = entry.heroImage.one() %}
-{% set teams = entry.activeTeams.with(['sport', 'coaches']).all() %}
+{# Controller #}
 {% set flashError = craft.app.getSession().getError() %}
 {% set flashSuccess = craft.app.getSession().getSuccess() %}
 
@@ -19,9 +16,9 @@
 {% set metaDescription = entry.overview|striptags[:160] %}
 {% set metaNoIndex = true %}
 
-{% extends '_layouts/html' %}
-
 {% set loadForm = true %}
+
+{% extends '_layouts/html' %}
 
 {% block content %}
 	<article>
@@ -29,14 +26,14 @@
 			{% include '_components/hero' with {
 				heading: entry.heading ?? entry.title,
 				body: entry.overview,
-				image: heroImage,
+				image: entry.heroImage.one(),
 				backgroundColor: entry.color.value,
 			} only %}
 		</header>
 
 		<section>
 			{% include '_components/team-list' with {
-				teams: teams,
+				teams: entry.activeTeams.with(['sport', 'coaches']).all(),
 				flashError: flashError,
 				flashSuccess: flashSuccess,
 			} only %}

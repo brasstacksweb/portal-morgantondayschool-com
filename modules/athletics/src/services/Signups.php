@@ -24,7 +24,7 @@ class Signups extends Component
     public const STATE_PENDING = 'pending';
     public const STATE_FORMING = 'forming';
     public const STATE_CONFIRMED = 'confirmed';
-    public const STATE_OVER_TARGET = 'over_target';
+    public const STATE_OVER_TARGET = 'over-target';
     public const STATE_CLOSED = 'closed';
 
     /**
@@ -119,31 +119,22 @@ class Signups extends Component
     }
 
     /**
-     * The committed roster for a team. Contact columns are included only when
-     * $includeContact is true — the gate is enforced here, not in the template.
-     * Pass canViewContact(currentUser) as the flag.
+     * The committed roster for a team.
      */
-    public function getRoster(int $teamEntryId, bool $includeContact = false): array
+    public function getRoster(int $teamEntryId): array
     {
         $records = SignupRecord::find()
             ->where(['teamEntryId' => $teamEntryId, 'status' => self::STATUS_COMMITTED])
             ->orderBy(['dateCreated' => SORT_ASC])
             ->all();
 
-        return array_map(function (SignupRecord $r) use ($includeContact) {
-            $row = [
-                'id' => (int) $r->id,
-                'name' => trim($r->participantFirstName.' '.$r->participantLastName),
-            ];
-
-            if ($includeContact) {
-                $row['guardianEmail'] = $r->guardianEmail;
-                $row['guardianPhone'] = $r->guardianPhone;
-                $row['interestedInCoaching'] = (bool) $r->interestedInCoaching;
-            }
-
-            return $row;
-        }, $records);
+        return array_map(fn (SignupRecord $r) => [
+            'id' => (int) $r->id,
+            'name' => trim($r->participantFirstName.' '.$r->participantLastName),
+            'guardianEmail' => $r->guardianEmail,
+            'guardianPhone' => $r->guardianPhone,
+            'interestedInCoaching' => (bool) $r->interestedInCoaching,
+        ], $records);
     }
 
     public function getCommittedCount(int $teamEntryId): int

@@ -1,15 +1,11 @@
 @use "../base/layout" as *;
 @use "../base/typography" as *;
 
-.signup-panel {
-	margin-top: var(--s-md);
+$handle: "signup-panel";
 
-	> h3 {
-		@include font("heading", "md");
-	}
-
+.#{$handle} {
 	> ul {
-		margin-top: var(--s-sm);
+		margin-top: var(--s-xs);
 		padding: 0;
 		list-style: none;
 
@@ -17,31 +13,35 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
+			justify-content: space-between;
 			gap: var(--s-sm);
 			padding: var(--s-xs) 0;
 			border-bottom: 1px solid var(--c-black);
 
-			> span {
-				@include font("body", "md");
-				flex: 1 1 auto;
-			}
-
-			> mark {
-				@include font("body", "sm");
-				padding: 0 var(--s-xs);
-				border: 1px solid var(--c-black);
-
-				&[data-status="interested"] {
-					background-color: var(--c-yellow-lt);
+			> h4 {
+				> span {
+					@include font("body", "md");
+					margin-right: var(--s-xs);
 				}
 
-				&[data-status="committed"] {
-					background-color: var(--c-green-lt);
+				> mark {
+					@include font("body", "sm");
+					padding: 0 var(--s-xs);
+					border: 1px solid var(--c-black);
+
+					&[data-status="interested"] {
+						background-color: var(--c-yellow-lt);
+					}
+
+					&[data-status="committed"] {
+						background-color: var(--c-green-lt);
+					}
 				}
 			}
 
-			> form > button {
-				cursor: pointer;
+			> nav {
+				display: flex;
+				gap: var(--s-xs);
 			}
 		}
 	}

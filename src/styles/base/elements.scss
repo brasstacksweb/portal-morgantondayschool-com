@@ -45,6 +45,7 @@ $page-max: 1600;
 	--c-violet-lt: #F0E3FF;
 	--c-violet-dk: #BEADFA;
 	--c-bg-lt: #FBFBFB;
+	--c-bg-md: #EEEEEE;
 	--c-bg-dk: #303030;
 	--c-fg-lt: #F4F4F4;
 	--c-fg-md: #666;
@@ -207,6 +208,10 @@ textarea {
 
 [type="radio"] {
 	border-radius: 50%;
+
+	&:checked:after {
+		border-radius: 50%;
+	}
 }
 
 [type="file"],

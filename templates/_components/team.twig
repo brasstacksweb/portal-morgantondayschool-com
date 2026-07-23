@@ -1,19 +1,19 @@
 {##
- # Team — the body content of a team accordion (the <details>/<summary> shell is
- # owned by team-list). Renders standalone too via the ?? defaults.
- # @param {Entry}          team
- # @param {string}         state       precomputed team state (optional)
- # @param {int}            committed   precomputed committed count (optional)
- # @param {SignupRecord[]} mySignups   the user's signups for this team (optional)
+ # Team component
+ # @param {Entry} team
+ # @param {bool} expand
  #}
 
 {# Params #}
 {% set team = team ?? null %}
-{% set state = state ?? craft.signups.getTeamState(team) %}
-{% set committed = committed ?? craft.signups.getCommittedCount(team.id) %}
-{% set mySignups = mySignups ?? craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
 
 {# Variables #}
+{% set handle = 'team' %}
+
+{% set state = craft.signups.getTeamState(team) %}
+{% set committed = craft.signups.getCommittedCount(team.id) %}
+{% set userSignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
+{% set expanded = expand or userSignups|length > 0 %}
 {% set isOpen = craft.signups.isRegistrationOpen(team) %}
 {% set interested = craft.signups.getInterestedCount(team.id) %}
 {% set minimum = team.minimumPlayers %}
@@ -21,75 +21,106 @@
 {% set canViewContact = craft.signups.canViewContact(currentUser) %}
 {% set roster = craft.signups.getRoster(team.id, canViewContact) %}
 
-{% import '_icons' as icons %}
+{% set stateLabels = {
+	'pending': 'Upcoming',
+	'forming': 'Forming',
+	'confirmed': 'Open',
+	'over-target': 'Full',
+	'closed': 'Closed',
+} %}
 
 {% set stateMessage %}
-	{% if state == 'pending' %}
+	{% switch state %}
+	{% case 'pending' %}
 		Registration opens {{ team.registrationOpens|date('F j, Y') }}.
-	{% elseif state == 'forming' %}
+	{% case 'forming' %}
 		{{ committed }} of {{ minimum }} committed to field a team — {{ minimum - committed }} more to go.
-	{% elseif state == 'confirmed' %}
+	{% case 'confirmed' %}
 		Team confirmed · {{ remaining }} spot{{ remaining == 1 ? '' : 's' }} left.
-	{% elseif state == 'over_target' %}
+	{% case 'over-target' %}
 		Target met — additional signups may form a second team.
-	{% elseif state == 'closed' %}
+	{% case 'closed' %}
 		Registration is closed.
-	{% endif %}
+	{% endswitch %}
 {% endset %}
 
-{# Markup — the disclosure body #}
-<div>
-	<p>
-		{{ stateMessage }}
-		<small><strong>{{ committed }}</strong> committed{% if interested %} · {{ interested }} interested{% endif %}</small>
-	</p>
+{# Markup #}
 
-	{% if team.eligibilityNotes %}
-		<section>
-			<h3>Eligibility</h3>
-			{{ team.eligibilityNotes }}
-		</section>
-	{% endif %}
-	{% if team.practiceInfo %}
-		<section>
-			<h3>Practice</h3>
-			{{ team.practiceInfo }}
-		</section>
-	{% endif %}
+{% import '_icons' as icons %}
 
-	{% include '_components/roster' with {
-		roster: roster,
-		canViewContact: canViewContact,
-	} only %}
+<div class="{{ handle }} {{ handle }}--{{ state }}">
+	<details {% if expanded %}open{% endif %}>
+		<summary>
+			<hgroup>
+				<h2>{{ team.ageGroup }}</h2>
+				<p>
+					{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
+					{% if team.coaches|length %}
+						· Coach{{ team.coaches|length > 1 ? 'es' }}: {{ team.coaches|map(c => c.title)|join(', ') }}
+					{% endif %}
+				</p>
+			</hgroup>
+			<p>
+				<mark>{{ stateLabels[state] }}</mark>
+				<small>{{ committed }} committed</small>
+			</p>
+			<i>{{ icons.chevron('down') }}</i>
+		</summary>
+		<div>
+			<p role="status">
+				{{ stateMessage }}
+				<small><strong>{{ committed }} committed</strong>{% if interested %} · {{ interested }} interested{% endif %}</small>
+			</p>
 
-	{% if mySignups|length %}
-		{% include '_components/signup-panel' with {
-			signups: mySignups,
-			team: team,
-			canCommit: isOpen,
-		} only %}
-	{% endif %}
+			{% if team.eligibilityNotes is not empty %}
+				<h3>Eligibility</h3>
+				<div role="details">{{ team.eligibilityNotes }}</div>
+			{% endif %}
 
-	{% if isOpen %}
-		<tl-dialog class="signup-dialog">
-			<button type="button">
-				{% include '_components/cta' with {
-					title: mySignups|length ? 'Register another child' : 'Register',
-					type: 'primary',
-				} only %}
-			</button>
-			<dialog>
-				<button type="button" aria-label="Close">{{ icons.x() }}</button>
-				<h3>Register — {{ team.ageGroup }}</h3>
-				{% include '_components/form' with {
-					form: create({
-						class: 'modules\\athletics\\models\\Signup',
-						teamEntryId: team.id,
-						guardianEmail: currentUser.email,
-						redirect: craft.app.request.absoluteUrl ~ '#notice',
-					}),
-				} only %}
-			</dialog>
-		</tl-dialog>
-	{% endif %}
+			{% if team.practiceInfo is not empty %}
+				<h3>Practice</h3>
+				<div role="details">{{ team.practiceInfo }}</div>
+			{% endif %}
+
+			<h3>Roster</h3>
+			{% include '_components/roster' with {
+				roster: roster,
+				canViewContact: canViewContact,
+			} only %}
+
+			{% if userSignups is not empty %}
+				<h3>Your registrations</h3>
+				{% if userSignups is not empty %}
+					{% include '_components/signup-panel' with {
+						signups: userSignups,
+						canCommit: isOpen,
+					} only %}
+				{% endif %}
+			{% endif %}
+
+			{% if isOpen %}
+				<button type="button" popovertarget="signup-dialog-{{ team.id }}">
+					{% include '_components/cta' with {
+						title: userSignups|length ? 'Register another child' : 'Register',
+					} only %}
+				</button>
+				<dialog id="signup-dialog-{{ team.id }}" popover>
+					<button
+						type="button"
+						popovertarget="signup-dialog-{{ team.id }}"
+						popovertargetaction="hide"
+						aria-label="Close">{{ icons.x() }}</button>
+					<h3>Register — {{ team.ageGroup }}</h3>
+					{% include '_components/form' with {
+						form: create({
+							class: 'modules\\athletics\\models\\Signup',
+							teamEntryId: team.id,
+							guardianEmail: currentUser.email,
+							redirect: craft.app.request.absoluteUrl ~ '#notice',
+						}),
+					} only %}
+				</dialog>
+			{% endif %}
+		</div>
+	</details>
 </div>

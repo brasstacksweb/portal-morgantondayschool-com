@@ -1,10 +1,8 @@
 {##
- # Team list — full-width accordion of a sport's teams
- # Owns the loop and the <details>/<summary> shell; each team accordion's body
- # content is the team component.
+ # Team List component
  # @param {Entry[]} teams
- # @param {string}  flashError
- # @param {string}  flashSuccess
+ # @param {string} flashError
+ # @param {string} flashSuccess
  #}
 
 {# Params #}
@@ -14,17 +12,8 @@
 
 {# Variables #}
 {% set handle = 'team-list' %}
-{% set stateLabels = {
-	pending: 'Upcoming',
-	forming: 'Forming',
-	confirmed: 'Open',
-	over_target: 'Full',
-	closed: 'Closed',
-} %}
 
 {# Markup #}
-{% import '_icons' as icons %}
-
 <div class="{{ handle }}">
 	{% if flashError %}
 		<p role="alert" id="notice">{{ flashError }}</p>
@@ -37,41 +26,11 @@
 	{% else %}
 		<ul>
 			{% for team in teams %}
-				{% set state = craft.signups.getTeamState(team) %}
-				{% set committed = craft.signups.getCommittedCount(team.id) %}
-				{% set mySignups = craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
-				{% set coaches = team.coaches.all() %}
-
-				{# Collapse by default when there is more than one team; expand a
-				   lone team, or any team where the user already has signups. #}
-				{% set expanded = teams|length == 1 or mySignups|length > 0 %}
-
-				<li>
-					<details class="team team--{{ state }}" id="team-{{ team.id }}" {% if expanded %}open{% endif %}>
-						<summary>
-							<hgroup>
-								<h2>{{ team.ageGroup }}</h2>
-								<p>
-									{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
-									{% if coaches|length %}
-										· Coach{{ coaches|length > 1 ? 'es' }}: {{ coaches|map(c => c.title)|join(', ') }}
-									{% endif %}
-								</p>
-							</hgroup>
-							<p>
-								<mark>{{ stateLabels[state] }}</mark>
-								<small>{{ committed }} committed</small>
-							</p>
-							<i>{{ icons.chevron('down') }}</i>
-						</summary>
-
-						{% include '_components/team' with {
-							team: team,
-							state: state,
-							committed: committed,
-							mySignups: mySignups,
-						} only %}
-					</details>
+				<li id="team-{{ team.id }}">
+					{% include '_components/team' with {
+						team: team,
+						expand: teams|length == 1,
+					} only %}
 				</li>
 			{% endfor %}
 		</ul>
