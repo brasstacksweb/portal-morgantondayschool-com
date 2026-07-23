@@ -461,14 +461,30 @@ detail page) and a `<section>` (the `team-list` component). It carries **no
 page-level padding or styling** — every component self-pads via `@include pad`.
 
 `team-list` owns the padding/max-width, the flash notice, and the empty state,
-then loops `entry.activeTeams`, rendering each as a `team` accordion (first
-`open`).
+then loops `entry.activeTeams`, rendering each as a `team` accordion. Accordions
+start **collapsed when there is more than one team**; a lone team stays open
+(nothing to compare it against).
 
 Each team is a full-width `<details>` accordion modeled on `_components/accordion-list`'s
 markup and chevron behavior, but without that component's split header — the
 summary carries the age-group heading, season/coach meta, a state badge, and the
 committed count; the body holds the state message, notes, roster, panel, and
 signup form.
+
+### Homepage listing
+
+The homepage (`index.twig`) lists the current athletics offerings below the class
+listing, replicating the `activities` convention: a `_components/card-list` of
+sport cards. `_partials/entry/sport.twig` renders a sport as a `_components/card`
+(preview image, sport name, a `pageCta` "Sign Up" link to the sport page) —
+mirroring `_partials/entry/activity.twig`, which is what makes `sport.render()`
+resolve (Craft renders elements via `_partials/entry/<entryTypeHandle>`).
+
+The query lists sports that have at least one active team whose registration
+window has not closed (`registrationCloses >= now`) — i.e. the upcoming-season
+offerings you can still sign up for. The section heading is currently hardcoded
+`'Athletics'`; wire it to a homepage field (e.g. `athleticsHeading`) if the other
+section headings' editability is wanted here too.
 
 ### The signup panel
 

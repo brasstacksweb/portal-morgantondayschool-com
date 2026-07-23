@@ -26,9 +26,11 @@
 	{% else %}
 		<div class="{{ handle }}__items">
 			{% for team in teams %}
+				{# Collapse by default when there is more than one team; a lone
+				   team stays open since there is nothing to compare it against. #}
 				{% include '_components/team' with {
 					team: team,
-					open: loop.first,
+					open: teams|length == 1,
 				} only %}
 			{% endfor %}
 		</div>

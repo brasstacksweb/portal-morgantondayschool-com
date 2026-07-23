@@ -30,6 +30,16 @@
 
 {% set featuredPosts = classes|map(c => c.featuredPost[0] ?? null)|filter|values %}
 
+{# Sports with at least one active team still accepting signups (registration
+   window not yet closed) — the upcoming-season offerings. #}
+{% set upcomingSports = craft.entries.section('sports')
+	.with(['previewImage'])
+	.all()
+	|filter(sport => sport.activeTeams
+		.registrationCloses('>= ' ~ now|atom)
+		.exists()
+	) %}
+
 {% extends '_layouts/html' %}
 
 {% set metaTitle = 'Morganton Day School Titan Link Parent Portal' %}
@@ -109,6 +119,17 @@
 					})),
 				} only %}
 			</section>
+
+			{% if upcomingSports is not empty %}
+				<section id="athletics">
+					{% include '_components/card-list' with {
+						heading: 'Athletics',
+						cards: upcomingSports,
+						gridSize: '2',
+						backgroundColor: 'green',
+					} only %}
+				</section>
+			{% endif %}
 
 			<section>
 				{% include '_components/carousel' with {

@@ -1,0 +1,14 @@
+{% set eagerLoad = eagerLoad ?? false %}
+
+{% include '_components/card' with {
+	image: entry.previewImage[0] ?? null,
+	heading: entry.heading ?? entry.title,
+	cta: create({
+		class: 'craft\\elements\\Entry',
+		typeId: craft.app.entries.getEntryTypeByHandle('pageCta').id,
+		fieldId: 6,
+		title: 'Sign Up',
+		page: [entry.id],
+	}),
+	eagerLoad: eagerLoad,
+} only %}
