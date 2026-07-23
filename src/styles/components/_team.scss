@@ -2,15 +2,12 @@
 @use "../base/media" as *;
 @use "../base/typography" as *;
 
-$handle: "team";
-
-/* Full-width accordion item (no split header, cf. accordion-list). Padding and
-   max-width are owned by the team-list component, not here. */
-.#{$handle} {
-	width: 100%;
+/* Full-width accordion item (no split header, cf. accordion-list). The
+   <details>/<summary> shell is emitted by team-list; the body div by team. */
+.team {
 	border-bottom: 1px solid var(--c-br-dk);
 
-	&__summary {
+	> summary {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -18,140 +15,98 @@ $handle: "team";
 		gap: var(--s-sm);
 		padding: var(--s-sm) 0;
 		cursor: pointer;
-	}
 
-	&__heading {
-		display: flex;
-		flex-direction: column;
-		flex: 1 1 auto;
-	}
+		> hgroup {
+			flex: 1 1 auto;
 
-	&__title {
-		@include font("heading", "md");
-	}
+			> h2 {
+				@include font("heading", "md");
+			}
 
-	&__meta {
-		@include font("body", "sm");
-		margin-top: var(--s-xs);
-	}
-
-	&__summary-status {
-		display: flex;
-		align-items: center;
-		gap: var(--s-sm);
-	}
-
-	&__badge {
-		@include font("body", "sm");
-		padding: 0 var(--s-xs);
-		border: 1px solid var(--c-black);
-		white-space: nowrap;
-
-		&--forming {
-			background-color: var(--c-yellow-lt);
-		}
-
-		&--confirmed {
-			background-color: var(--c-green-lt);
-		}
-
-		&--over_target {
-			background-color: var(--c-orange-lt);
-		}
-
-		&--pending,
-		&--closed {
-			background-color: var(--c-fg-lt);
-		}
-	}
-
-	&__count {
-		@include font("body", "sm");
-		white-space: nowrap;
-	}
-
-	&__chevron {
-		flex-shrink: 0;
-		width: var(--s-icon-lg);
-		height: var(--s-icon-lg);
-	}
-
-	&[open] &__chevron {
-		transform: rotate(180deg);
-	}
-
-	&__body {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		padding-bottom: var(--s-md);
-	}
-
-	&__status {
-		padding: var(--s-sm);
-		border: 1px solid var(--c-black);
-
-		&--forming {
-			background-color: var(--c-yellow-lt);
-		}
-
-		&--confirmed,
-		&--over_target {
-			background-color: var(--c-green-lt);
-		}
-
-		&--pending,
-		&--closed {
-			background-color: var(--c-fg-lt);
-		}
-	}
-
-	&__state-message {
-		@include font("body", "md");
-	}
-
-	&__counts {
-		@include font("body", "sm");
-		margin-top: var(--s-xs);
-	}
-
-	&__info {
-		display: flex;
-		flex-direction: column;
-		gap: var(--s-sm);
-		margin-top: var(--s-md);
-
-		@include media("sm") {
-			flex-direction: row;
-
-			> * {
-				flex: 1;
+			> p {
+				@include font("body", "sm");
+				margin-top: var(--s-xs);
 			}
 		}
 
-		h4 {
-			@include font("heading", "sm");
+		// Status: state badge + committed count.
+		> p {
+			display: flex;
+			align-items: center;
+			gap: var(--s-sm);
+
+			> mark {
+				@include font("body", "sm");
+				padding: 0 var(--s-xs);
+				border: 1px solid var(--c-black);
+				background-color: var(--c-fg-lt);
+				white-space: nowrap;
+			}
+
+			> small {
+				@include font("body", "sm");
+				white-space: nowrap;
+			}
+		}
+
+		> i {
+			flex-shrink: 0;
+			width: var(--s-icon-lg);
+			height: var(--s-icon-lg);
 		}
 	}
 
-	&__note {
-		@include richText("sm");
+	&[open] > summary > i {
+		transform: rotate(180deg);
 	}
 
-	&__signup {
-		margin-top: var(--s-md);
-	}
+	// Body.
+	> div {
+		padding-bottom: var(--s-md);
 
-	&__signup-heading {
-		@include font("heading", "md");
-		margin-bottom: var(--s-sm);
-	}
-
-	&__another {
-		> summary {
+		// State message box.
+		> p {
 			@include font("body", "md");
-			cursor: pointer;
-			padding: var(--s-xs) 0;
+			padding: var(--s-sm);
+			border: 1px solid var(--c-black);
+			background-color: var(--c-fg-lt);
+
+			> small {
+				@include font("body", "sm");
+				display: block;
+				margin-top: var(--s-xs);
+			}
 		}
+
+		// Eligibility / practice.
+		> section {
+			@include richText("sm");
+			margin-top: var(--s-md);
+
+			> h3 {
+				@include font("heading", "sm");
+			}
+		}
+	}
+
+	// State colours, keyed off the root modifier — applied to both the summary
+	// badge and the body's state message box.
+	&--forming {
+		> summary > p > mark,
+		> div > p {
+			background-color: var(--c-yellow-lt);
+		}
+	}
+
+	&--confirmed,
+	&--over_target {
+		> summary > p > mark,
+		> div > p {
+			background-color: var(--c-green-lt);
+		}
+	}
+
+	&--over_target > summary > p > mark {
+		background-color: var(--c-orange-lt);
 	}
 }

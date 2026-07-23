@@ -573,8 +573,16 @@ The sport template also sets `metaNoIndex = true`, as
   `_signup-panel.scss`, with matching `@use` lines added to
   `src/styles/index.scss`. `_team-list` owns the page padding/max-width; the entry
   template itself carries no styling.
+- **Selectors follow the codebase convention** (cf. `hero`, `card`,
+  `accordion-list`): each component root carries its handle class, and everything
+  inside is **semantic tags targeted by nested selectors** — no `__element`
+  classes. State variation keys off root modifiers (`.team--forming`) or semantic
+  attributes (`p[role="status"]`, `mark[data-status="committed"]`) rather than
+  element classes, so the markup's semantics stay intentional and hard to change
+  by accident.
 - **JavaScript: none.** The signup form reuses `tl-form`; the panel actions are
-  plain POST forms.
+  plain POST forms. On success the form/actions redirect to `#notice` — the flash
+  message's anchor — so the confirmation scrolls into view.
 
 ### Independent cleanup — `form-field.js`
 

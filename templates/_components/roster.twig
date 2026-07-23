@@ -13,13 +13,13 @@
 
 {# Markup #}
 <div class="{{ handle }}">
-	<h3 class="{{ handle }}__heading">Roster <span class="{{ handle }}__count">({{ roster|length }})</span></h3>
+	<h3>Roster <small>({{ roster|length }})</small></h3>
 
 	{% if roster is empty %}
-		<p class="{{ handle }}__empty">No players yet — be the first to sign up.</p>
+		<p>No players yet — be the first to sign up.</p>
 	{% else %}
-		<div class="{{ handle }}__scroll">
-			<table class="{{ handle }}__table">
+		<div>
+			<table>
 				<thead>
 					<tr>
 						<th>Player</th>

@@ -26,16 +26,16 @@
 {% import '_icons' as icons %}
 
 <div class="{{ handle }}">
-	{% if flashError or flashSuccess %}
-		<p class="{{ handle }}__flash {{ handle }}__flash--{{ flashError ? 'error' : 'success' }}">
-			{{ flashError ?? flashSuccess }}
-		</p>
+	{% if flashError %}
+		<p role="alert" id="notice">{{ flashError }}</p>
+	{% elseif flashSuccess %}
+		<p role="status" id="notice">{{ flashSuccess }}</p>
 	{% endif %}
 
 	{% if teams is empty %}
-		<p class="{{ handle }}__empty">No teams are open for signup yet. Please check back soon.</p>
+		<p>No teams are open for signup yet. Please check back soon.</p>
 	{% else %}
-		<div class="{{ handle }}__items">
+		<ul>
 			{% for team in teams %}
 				{% set state = craft.signups.getTeamState(team) %}
 				{% set committed = craft.signups.getCommittedCount(team.id) %}
@@ -43,36 +43,37 @@
 				{% set coaches = team.coaches.all() %}
 
 				{# Collapse by default when there is more than one team; expand a
-				   lone team, or any team where the user already has signups (so a
-				   just-submitted registration is visible after the redirect). #}
+				   lone team, or any team where the user already has signups. #}
 				{% set expanded = teams|length == 1 or mySignups|length > 0 %}
 
-				<details class="team team--{{ state }}" id="team-{{ team.id }}" {% if expanded %}open{% endif %}>
-					<summary class="team__summary">
-						<span class="team__heading">
-							<h2 class="team__title">{{ team.ageGroup }}</h2>
-							<span class="team__meta">
-								{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
-								{% if coaches|length %}
-									· Coach{{ coaches|length > 1 ? 'es' }}: {{ coaches|map(c => c.title)|join(', ') }}
-								{% endif %}
-							</span>
-						</span>
-						<span class="team__summary-status">
-							<span class="team__badge team__badge--{{ state }}">{{ stateLabels[state] }}</span>
-							<span class="team__count">{{ committed }} committed</span>
-						</span>
-						<i class="team__chevron">{{ icons.chevron('down') }}</i>
-					</summary>
+				<li>
+					<details class="team team--{{ state }}" id="team-{{ team.id }}" {% if expanded %}open{% endif %}>
+						<summary>
+							<hgroup>
+								<h2>{{ team.ageGroup }}</h2>
+								<p>
+									{{ team.season.label }} {{ team.startYear }}–{{ (team.startYear + 1) % 100 }}
+									{% if coaches|length %}
+										· Coach{{ coaches|length > 1 ? 'es' }}: {{ coaches|map(c => c.title)|join(', ') }}
+									{% endif %}
+								</p>
+							</hgroup>
+							<p>
+								<mark>{{ stateLabels[state] }}</mark>
+								<small>{{ committed }} committed</small>
+							</p>
+							<i>{{ icons.chevron('down') }}</i>
+						</summary>
 
-					{% include '_components/team' with {
-						team: team,
-						state: state,
-						committed: committed,
-						mySignups: mySignups,
-					} only %}
-				</details>
+						{% include '_components/team' with {
+							team: team,
+							state: state,
+							committed: committed,
+							mySignups: mySignups,
+						} only %}
+					</details>
+				</li>
 			{% endfor %}
-		</div>
+		</ul>
 	{% endif %}
 </div>

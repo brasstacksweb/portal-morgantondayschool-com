@@ -1,60 +1,48 @@
 @use "../base/layout" as *;
-@use "../base/media" as *;
 @use "../base/typography" as *;
 
-$handle: "signup-panel";
-
-.#{$handle} {
+.signup-panel {
 	margin-top: var(--s-md);
 
-	&__heading {
+	> h3 {
 		@include font("heading", "md");
 	}
 
-	&__list {
-		list-style: none;
+	> ul {
 		margin-top: var(--s-sm);
 		padding: 0;
-	}
+		list-style: none;
 
-	&__item {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--s-sm);
-		padding: var(--s-xs) 0;
-		border-bottom: 1px solid var(--c-black);
-	}
+		> li {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--s-sm);
+			padding: var(--s-xs) 0;
+			border-bottom: 1px solid var(--c-black);
 
-	&__name {
-		@include font("body", "md");
-		flex: 1 1 auto;
-	}
+			> span {
+				@include font("body", "md");
+				flex: 1 1 auto;
+			}
 
-	&__badge {
-		@include font("body", "sm");
-		padding: 0 var(--s-xs);
-		border: 1px solid var(--c-black);
+			> mark {
+				@include font("body", "sm");
+				padding: 0 var(--s-xs);
+				border: 1px solid var(--c-black);
 
-		&--interested {
-			background-color: var(--c-yellow-lt);
-		}
+				&[data-status="interested"] {
+					background-color: var(--c-yellow-lt);
+				}
 
-		&--committed {
-			background-color: var(--c-green-lt);
-		}
-	}
+				&[data-status="committed"] {
+					background-color: var(--c-green-lt);
+				}
+			}
 
-	&__actions {
-		display: flex;
-		gap: var(--s-sm);
-	}
-
-	&__action {
-		display: inline;
-
-		> button {
-			cursor: pointer;
+			> form > button {
+				cursor: pointer;
+			}
 		}
 	}
 }

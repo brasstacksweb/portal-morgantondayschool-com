@@ -14,7 +14,6 @@
 {% set mySignups = mySignups ?? craft.signups.getSignupsForUserAndTeam(currentUser.id, team.id) %}
 
 {# Variables #}
-{% set handle = 'team' %}
 {% set isOpen = craft.signups.isRegistrationOpen(team) %}
 {% set interested = craft.signups.getInterestedCount(team.id) %}
 {% set minimum = team.minimumPlayers %}
@@ -36,30 +35,24 @@
 	{% endif %}
 {% endset %}
 
-{# Markup #}
-<div class="{{ handle }}__body">
-	<div class="{{ handle }}__status {{ handle }}__status--{{ state }}">
-		<p class="{{ handle }}__state-message">{{ stateMessage }}</p>
-		<p class="{{ handle }}__counts">
-			<strong>{{ committed }}</strong> committed{% if interested %} · {{ interested }} interested{% endif %}
-		</p>
-	</div>
+{# Markup — the disclosure body #}
+<div>
+	<p>
+		{{ stateMessage }}
+		<small><strong>{{ committed }}</strong> committed{% if interested %} · {{ interested }} interested{% endif %}</small>
+	</p>
 
-	{% if team.eligibilityNotes or team.practiceInfo %}
-		<div class="{{ handle }}__info">
-			{% if team.eligibilityNotes %}
-				<div class="{{ handle }}__note">
-					<h4>Eligibility</h4>
-					{{ team.eligibilityNotes }}
-				</div>
-			{% endif %}
-			{% if team.practiceInfo %}
-				<div class="{{ handle }}__note">
-					<h4>Practice</h4>
-					{{ team.practiceInfo }}
-				</div>
-			{% endif %}
-		</div>
+	{% if team.eligibilityNotes %}
+		<section>
+			<h3>Eligibility</h3>
+			{{ team.eligibilityNotes }}
+		</section>
+	{% endif %}
+	{% if team.practiceInfo %}
+		<section>
+			<h3>Practice</h3>
+			{{ team.practiceInfo }}
+		</section>
 	{% endif %}
 
 	{% include '_components/roster' with {
@@ -82,21 +75,21 @@
 					class: 'modules\\athletics\\models\\Signup',
 					teamEntryId: team.id,
 					guardianEmail: currentUser.email,
-					redirect: craft.app.request.absoluteUrl,
+					redirect: craft.app.request.absoluteUrl ~ '#notice',
 				}),
 			} only %}
 		{% endset %}
 
-		<div class="{{ handle }}__signup">
-			{% if mySignups|length %}
-				<details class="{{ handle }}__another">
-					<summary>Register another child</summary>
-					{{ form }}
-				</details>
-			{% else %}
-				<h3 class="{{ handle }}__signup-heading">Register</h3>
+		{% if mySignups|length %}
+			<details>
+				<summary>Register another child</summary>
 				{{ form }}
-			{% endif %}
-		</div>
+			</details>
+		{% else %}
+			<section>
+				<h3>Register</h3>
+				{{ form }}
+			</section>
+		{% endif %}
 	{% endif %}
 </div>

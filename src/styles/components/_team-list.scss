@@ -2,9 +2,7 @@
 @use "../base/media" as *;
 @use "../base/typography" as *;
 
-$handle: "team-list";
-
-.#{$handle} {
+.team-list {
 	@include pad(var(--s-sm));
 	@include space(var(--s-md));
 	display: block;
@@ -14,28 +12,34 @@ $handle: "team-list";
 		@include space(var(--s-lg));
 	}
 
-	&__flash {
+	// Flash notice — role carries the intent and doubles as the #notice anchor.
+	> p[role] {
 		@include font("body", "md");
 		margin-bottom: var(--s-md);
 		padding: var(--s-sm);
 		border: 1px solid var(--c-black);
 		text-align: center;
-
-		&--error {
-			color: var(--c-red-dk);
-		}
-
-		&--success {
-			color: var(--c-indigo-dk);
-		}
+		scroll-margin-top: calc(var(--h-header) + var(--s-md));
 	}
 
-	&__empty {
+	> p[role="alert"] {
+		color: var(--c-red-dk);
+	}
+
+	> p[role="status"] {
+		color: var(--c-indigo-dk);
+	}
+
+	// Empty state (no role).
+	> p:not([role]) {
 		@include font("body", "md");
 		text-align: center;
 	}
 
-	&__items {
+	> ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
 		border-top: 1px solid var(--c-br-dk);
 	}
 }
