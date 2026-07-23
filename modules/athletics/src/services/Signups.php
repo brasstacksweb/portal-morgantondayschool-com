@@ -43,8 +43,9 @@ class Signups extends Component
 
     /**
      * Build and insert a registration. No transaction: capacity is a soft
-     * display target, so the unique (teamEntryId, participantKey) index is the
-     * only guard the write path needs. The catch handles the duplicate race.
+     * display target, so the unique (teamEntryId, participantKey) rule/index is
+     * the only guard the write path needs — a duplicate makes save() return
+     * false rather than throwing.
      */
     public function register(int $userId, int $teamEntryId, array $data): bool
     {

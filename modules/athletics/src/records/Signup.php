@@ -3,8 +3,6 @@
 namespace modules\athletics\records;
 
 use craft\db\ActiveRecord;
-use craft\records\Entry;
-use craft\records\User;
 
 /**
  * Athletics Signup record.
@@ -57,15 +55,5 @@ class Signup extends ActiveRecord
                 'message' => 'This participant is already registered for this team.',
             ],
         ];
-    }
-
-    public function getUser()
-    {
-        return $this->hasOne(User::class, ['id' => 'userId']);
-    }
-
-    public function getTeamEntry()
-    {
-        return $this->hasOne(Entry::class, ['id' => 'teamEntryId']);
     }
 }
