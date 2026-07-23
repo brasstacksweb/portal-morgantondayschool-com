@@ -30,15 +30,17 @@
 
 {% set featuredPosts = classes|map(c => c.featuredPost[0] ?? null)|filter|values %}
 
-{# Sports with at least one active team still accepting signups (registration
-   window not yet closed) — the upcoming-season offerings. #}
+{# Sports related to at least one team still accepting signups (registration
+   window not yet closed) — the upcoming-season offerings. relatedTo uses the
+   global field handle 'teams' (the 'activeTeams' layout handle won't resolve
+   here), which does the filtering in one query instead of a per-sport subquery. #}
 {% set upcomingSports = craft.entries.section('sports')
 	.with(['previewImage'])
-	.all()
-	|filter(sport => sport.activeTeams
-		.registrationCloses('>= ' ~ now|atom)
-		.exists()
-	) %}
+	.relatedTo({
+		targetElement: craft.entries.section('teams').registrationCloses('>= ' ~ now|atom),
+		field: 'teams',
+	})
+	.all() %}
 
 {% extends '_layouts/html' %}
 
