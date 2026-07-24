@@ -88,9 +88,13 @@ $handle: "team";
 
 		// Body.
 		> div {
-			padding: var(--s-sm);
+			padding: var(--s-md) var(--s-sm);
 			border-top: 1px solid var(--c-black);
 			background-color: var(--c-bg-md);
+
+			@include media("md") {
+				padding: var(--s-md);
+			}
 
 			> p[role="status"] {
 				@include font("body", "md");
@@ -133,6 +137,10 @@ $handle: "team";
 				background-color: var(--c-bg-lt);
 				border: 1px solid var(--c-black);
 
+				@include media("md") {
+					padding: var(--s-md);
+				}
+
 				&:popover-open {
 					@include centerer;
 					position: fixed;
@@ -144,7 +152,7 @@ $handle: "team";
 				}
 
 				> button {
-					@include absolute(var(--s-xs), var(--s-xs));
+					@include absolute(var(--s-sm), var(--s-sm));
 					width: var(--s-icon-lg);
 					height: var(--s-icon-lg);
 				}
