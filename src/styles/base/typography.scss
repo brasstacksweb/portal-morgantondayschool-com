@@ -78,7 +78,7 @@
 		@if ($size == "xl") {
 			font-size: range(20, 28);
 			line-height: 1.6em;
-		} @else if ($size == "lx") {
+		} @else if ($size == "lg") {
 			font-size: range(18, 24);
 			line-height: 1.6em;
 		} @else if ($size == "md") {

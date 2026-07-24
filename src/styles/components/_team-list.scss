@@ -16,7 +16,7 @@ $handle: "team-list";
 
 	// Flash notice — role carries the intent and doubles as the #notice anchor.
 	> p[role] {
-		@include font("body", "md");
+		@include font("body", "xl");
 		margin-bottom: var(--s-md);
 		padding: var(--s-sm);
 		border: 1px solid var(--c-black);
@@ -25,9 +25,11 @@ $handle: "team-list";
 
 		&[role="alert"] {
 			color: var(--c-red-dk);
+			border-color: var(--c-red-dk);
 		}
 		&[role="status"] {
 			color: var(--c-indigo-dk);
+			border-color: var(--c-indigo-dk);
 		}
 	}
 
