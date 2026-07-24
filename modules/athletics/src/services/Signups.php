@@ -58,9 +58,7 @@ class Signups extends Component
         $record->guardianEmail = $data['guardianEmail'];
         $record->guardianPhone = $data['guardianPhone'];
         $record->interestedInCoaching = !empty($data['interestedInCoaching']);
-        $record->status = ($data['status'] ?? self::STATUS_INTERESTED) === self::STATUS_COMMITTED
-            ? self::STATUS_COMMITTED
-            : self::STATUS_INTERESTED;
+        $record->status = $data['status'] ?? self::STATUS_INTERESTED;
         $record->participantKey = self::participantKey(
             $data['participantFirstName'],
             $data['participantLastName'],
@@ -242,14 +240,14 @@ class Signups extends Component
             return self::STATE_CLOSED;
         }
 
-        $minimum = $team->minimumPlayers;
-        $capacity = $team->capacity;
+        $minimum = $this->numberOrNull($team->minimumPlayers);
+        $capacity = $this->numberOrNull($team->capacity);
 
-        if ($minimum !== null && $minimum !== '' && $committed < (int) $minimum) {
+        if ($minimum !== null && $committed < $minimum) {
             return self::STATE_FORMING;
         }
 
-        if ($capacity !== null && $capacity !== '' && $committed >= (int) $capacity) {
+        if ($capacity !== null && $committed >= $capacity) {
             return self::STATE_OVER_TARGET;
         }
 
@@ -262,12 +260,16 @@ class Signups extends Component
      */
     private function deriveRemaining(Entry $team, int $committed): ?int
     {
-        $capacity = $team->capacity;
+        $capacity = $this->numberOrNull($team->capacity);
 
-        if ($capacity === null || $capacity === '') {
-            return null;
-        }
+        return $capacity === null ? null : $capacity - $committed;
+    }
 
-        return (int) $capacity - $committed;
+    /**
+     * A Number field's value as an int, or null when the field is left empty.
+     */
+    private function numberOrNull(mixed $value): ?int
+    {
+        return ($value === null || $value === '') ? null : (int) $value;
     }
 }
