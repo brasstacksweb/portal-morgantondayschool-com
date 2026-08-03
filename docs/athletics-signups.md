@@ -27,7 +27,8 @@ registrations.
 | Coaches | **Entries, not Craft users.** Contact records reusable across teams and seasons, with an additive upgrade path to User elements later. |
 | Age group | **Plain text label on the team**, not an abstraction. See "Why age group is not an element type". |
 | Admin visibility | The **same roster** every parent sees, with contact columns revealed to the `athleticsStaff` user group. No separate admin surface. |
-| Deferred to coach follow-up | Medical details, emergency contacts, shirt size. Collected by the coach once a roster is confirmed, not at signup. |
+| Deferred to coach follow-up | Medical details and emergency contacts. Collected by the coach once a roster is confirmed, not at signup. |
+| Shirt size | Collected at signup, **optional**. See "Shirt size, and why it is optional". |
 | Out of scope for v1 | Waitlists. Notifications of any kind. CSV export. Data pruning. Payments. Duplicate-team prevention. Reusable child profiles. Machine-checked age eligibility. |
 
 ---
@@ -252,6 +253,7 @@ New migration: `migrations/m260723_000000_athletics.php`
   participantFirstName   string notNull
   participantLastName    string notNull
   dateOfBirth            date notNull
+  shirtSize              string(8) null    -- optional; null means "not collected"
   guardianEmail          string notNull    -- prefilled from the account, stored as a snapshot
   guardianPhone          string notNull
   interestedInCoaching   boolean notNull default false
@@ -294,6 +296,45 @@ That is an accepted tradeoff — the only real use is pulling a volunteer contac
 list, which dedupes by `userId`.
 
 **Do not read the raw column count as "number of volunteers."**
+
+### Shirt size, and why it is optional
+
+**Added after v1, reversing the original decision.** Shirt size was first cut
+along with medical details and emergency contacts, on the argument that extra
+asks suppress exactly the soft "interested" signups the status field exists to
+capture. That argument is about *required* asks. Collecting the size at signup
+saves the coach a round trip through every family, and making the field
+**optional** keeps the low-friction path intact — a parent who is only
+deciding can skip it and still register, and the coach collects the stragglers
+exactly as before.
+
+Three consequences of "optional" that the implementation depends on:
+
+- The column is **nullable with no backfill.** `null` means "not collected",
+  which is a real and different answer from any size. Rows predating the
+  migration are indistinguishable from a parent who skipped the question, and
+  both are correct.
+- The `<select>` leads with a **blank "Select a size (optional)" entry.** A
+  browser preselects the first option, so without it a parent who never touched
+  the dropdown would silently submit the first real size.
+- The empty string is **normalized to `null` on write** (`Signups::register()`),
+  so "not collected" has one representation in the table rather than two.
+
+The size list is a `Signups::SHIRT_SIZES` constant (value => label), joining
+`STATUS_*` / `STATE_*` as shared vocabulary: the form model builds its options
+from it and both the form model and the record derive their range rule from
+`array_keys()` of it. Changing the offered sizes is a one-line deploy, not a CMS
+edit — a per-team CMS dropdown was considered and rejected as more moving parts
+than a school-wide list warrants.
+
+**Shirt size is deliberately not part of `participantKey`.** Including it would
+let the same child be registered twice under two sizes, defeating the unique
+index.
+
+On the roster it is a **staff-and-admin column**, sitting inside the existing
+`canViewContact()` gate alongside guardian email and phone. It is not contact
+information, but it is still a detail about someone else's child, and the coach
+is the only party who needs it.
 
 ---
 
@@ -339,8 +380,8 @@ duplicate — live in the controller, matching how `AuthController` checks
 model decoupled from the service and the `entries` table.
 
 Fields: `participantFirstName`, `participantLastName`, `dateOfBirth`,
-`guardianEmail`, `guardianPhone`, `status`, `interestedInCoaching`,
-`teamEntryId`. Seven visible inputs, uniform for both statuses — no conditional
+`shirtSize`, `guardianEmail`, `guardianPhone`, `status`, `interestedInCoaching`,
+`teamEntryId`. Eight visible inputs, uniform for both statuses — no conditional
 fields.
 
 - `teamEntryId` is declared `'hidden'` and validated with **`validateHash`**.
@@ -350,6 +391,11 @@ fields.
   render time, a hashed string on submit), mirroring `Login::redirect`.
 - `status` renders as a `radio` with exactly two options, `interested` and
   `committed`, validated against `Signups::STATUS_*`.
+- `shirtSize` renders as a `select` — the **first** model in the codebase to use
+  that `attributeTypes()` value, which is what surfaced the stale `</label>`
+  closing tag in `form-field.twig`'s select case (fixed alongside it). It is the
+  one optional field on the form; see §2 for why, and for the leading blank
+  option. It pairs with `dateOfBirth` as `'half'` so the two share a row.
 - `interestedInCoaching` is declared `public array` with a single checkbox option
   — `_components/form-field.twig` posts checkboxes as `name[]`, so a `bool`
   property would fail assignment. The controller casts it with `!empty()`.
@@ -552,9 +598,17 @@ since people drop out after registration ends. **Commit is disabled once
 ### Privacy and admin visibility
 
 The roster renders **participant name only** to any authenticated user.
-`guardianEmail`, `guardianPhone`, and the `interestedInCoaching` flag are appended
-as extra columns **only for `athleticsStaff` members and Craft admins**,
-authorized in the service as described in §3.
+`guardianEmail`, `guardianPhone`, `shirtSize`, and the `interestedInCoaching`
+flag are appended as extra columns **only for `athleticsStaff` members and Craft
+admins**, via `Signups::canViewContact()`.
+
+**As built, that gate lives in `roster.twig`, not in the service.** §3 argues it
+belongs in `getRoster()` — and it does — but the shipped `getRoster()` takes no
+`$includeContact` flag and returns every column to every caller. Nothing else
+calls it today, so the rendered output is correct; the exposure is that a future
+second caller inherits no protection. Closing this means adding the flag to
+`getRoster()` and nulling the gated columns there, which would cover `shirtSize`
+for free. Recorded here so the gap is not mistaken for the design.
 
 This is the entirety of the admin visibility story in v1 — the athletic director
 signs in through the same magic-link flow parents use, so one page serves both
@@ -714,12 +768,21 @@ Ordered roughly by how likely they are to be wanted.
   cover looking someone up, but not a bulk mail-merge. Either a button on the sport page
   or the `Element::EVENT_DEFINE_ADDITIONAL_BUTTONS` hook on the team entry —
   `NotificationsModule.php:70` already demonstrates that pattern in this codebase.
-- **Coach follow-up details.** Medical notes, emergency contacts, and shirt size
-  were deliberately cut from signup — asking for them from a parent who only
-  ticked "interested" suppresses exactly the soft signups the status is meant to
+- **Coach follow-up details.** Medical notes and emergency contacts were
+  deliberately cut from signup — asking for them from a parent who only ticked
+  "interested" suppresses exactly the soft signups the status is meant to
   capture. When a roster is confirmed, the coach collects them. If that should
   later live in the portal, it is a separate authenticated flow against an
-  existing signup row, not additional fields on this form.
+  existing signup row, not additional fields on this form. (Shirt size was
+  originally in this group and has since moved onto the form as an *optional*
+  field — see §2. Optionality is what makes it exempt from the argument above;
+  medical notes and emergency contacts would not be useful half-collected.)
+- **Editing a submitted shirt size.** The signup panel is action-only (Commit /
+  Withdraw) by design, so a parent who picks the wrong size — or skips it and
+  wants to answer later — currently has to withdraw and re-register. A small
+  edit action against an owned signup row would fix it.
+- **Enforcing the contact gate in `getRoster()`.** See "Privacy and admin
+  visibility" — the gate is in the template, not the service, contrary to §3.
 - **Notifications.** Signup confirmations, and a weekly digest to the athletic
   director covering committed and interested counts against minimum and capacity
   with at-risk teams flagged. The infrastructure exists — a production crontab

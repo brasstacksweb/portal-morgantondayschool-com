@@ -28,6 +28,22 @@ class Signups extends Component
     public const STATE_CLOSED = 'closed';
 
     /**
+     * Shirt sizes offered at signup, value => label. Keyed by value so
+     * array_keys() gives the validation range and the form model can build its
+     * option pairs from the same source. The field is optional, so '' is also a
+     * valid submission — it is stored as null.
+     */
+    public const SHIRT_SIZES = [
+        'YS' => 'Youth S',
+        'YM' => 'Youth M',
+        'YL' => 'Youth L',
+        'AS' => 'Adult S',
+        'AM' => 'Adult M',
+        'AL' => 'Adult L',
+        'AXL' => 'Adult XL',
+    ];
+
+    /**
      * Factory for the signup form model from submitted data (POST), mirroring
      * Auth::newLogin / Subscriptions::newSubscriptions.
      */
@@ -55,6 +71,8 @@ class Signups extends Component
         $record->participantFirstName = $data['participantFirstName'];
         $record->participantLastName = $data['participantLastName'];
         $record->dateOfBirth = $data['dateOfBirth'];
+        // Optional: store "not collected" as null rather than an empty string.
+        $record->shirtSize = ($data['shirtSize'] ?? '') !== '' ? $data['shirtSize'] : null;
         $record->guardianEmail = $data['guardianEmail'];
         $record->guardianPhone = $data['guardianPhone'];
         $record->interestedInCoaching = !empty($data['interestedInCoaching']);
@@ -132,6 +150,7 @@ class Signups extends Component
             'name' => trim($r->participantFirstName.' '.$r->participantLastName),
             'guardianEmail' => $r->guardianEmail,
             'guardianPhone' => $r->guardianPhone,
+            'shirtSize' => $r->shirtSize,
             'interestedInCoaching' => (bool) $r->interestedInCoaching,
         ], $records);
     }

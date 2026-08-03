@@ -17,6 +17,7 @@ class Signup extends BaseForm
     public string $participantFirstName = '';
     public string $participantLastName = '';
     public string $dateOfBirth = '';
+    public string $shirtSize = '';
     public string $guardianEmail = '';
     public string $guardianPhone = '';
     public string $status = Signups::STATUS_INTERESTED;
@@ -32,6 +33,7 @@ class Signup extends BaseForm
                 'participantFirstName',
                 'participantLastName',
                 'dateOfBirth',
+                'shirtSize',
                 'guardianEmail',
                 'guardianPhone',
                 'status',
@@ -58,6 +60,9 @@ class Signup extends BaseForm
             ],
             ['guardianEmail', 'email'],
             ['dateOfBirth', 'date', 'format' => 'php:Y-m-d', 'message' => 'Enter a valid date of birth.'],
+            // Optional — deliberately absent from the required list above, so a
+            // parent who is only "interested" is not blocked by it.
+            ['shirtSize', 'in', 'range' => array_keys(Signups::SHIRT_SIZES)],
             ['status', 'in', 'range' => [Signups::STATUS_INTERESTED, Signups::STATUS_COMMITTED]],
             ['interestedInCoaching', 'each', 'rule' => ['string']],
             [['teamEntryId'], 'validateHash'],
@@ -68,6 +73,7 @@ class Signup extends BaseForm
     {
         return array_merge(parent::attributeTypes(), [
             'dateOfBirth' => 'date',
+            'shirtSize' => 'select',
             'guardianEmail' => 'email',
             'guardianPhone' => 'tel',
             'status' => 'radio',
@@ -83,6 +89,7 @@ class Signup extends BaseForm
             'participantFirstName' => "Child's First Name",
             'participantLastName' => "Child's Last Name",
             'dateOfBirth' => 'Date of Birth',
+            'shirtSize' => 'Shirt Size',
             'guardianEmail' => 'Parent/Guardian Email',
             'guardianPhone' => 'Parent/Guardian Phone',
             'status' => 'Where are you at?',
@@ -95,6 +102,9 @@ class Signup extends BaseForm
         return [
             'participantFirstName' => 'half',
             'participantLastName' => 'half',
+            // Paired so the two sit on one row; a lone 'half' leaves a gap.
+            'dateOfBirth' => 'half',
+            'shirtSize' => 'half',
             'guardianEmail' => 'half',
             'guardianPhone' => 'half',
         ];
@@ -103,6 +113,17 @@ class Signup extends BaseForm
     public function attributeOptions(): array
     {
         return [
+            // The leading blank keeps an optional <select> from silently
+            // preselecting the first real size. It is deliberately not part of
+            // the validation range, which comes from the constant directly.
+            'shirtSize' => array_merge(
+                [['label' => 'Select a size (optional)', 'value' => '']],
+                array_map(
+                    fn (string $value, string $label) => ['label' => $label, 'value' => $value],
+                    array_keys(Signups::SHIRT_SIZES),
+                    Signups::SHIRT_SIZES,
+                ),
+            ),
             'status' => [
                 ['label' => 'Interested — still deciding', 'value' => Signups::STATUS_INTERESTED],
                 ['label' => 'Definitely playing', 'value' => Signups::STATUS_COMMITTED],

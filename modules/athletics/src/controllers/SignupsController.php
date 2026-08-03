@@ -60,6 +60,7 @@ class SignupsController extends Controller
             'participantFirstName' => $model->participantFirstName,
             'participantLastName' => $model->participantLastName,
             'dateOfBirth' => $model->dateOfBirth,
+            'shirtSize' => $model->shirtSize,
             'guardianEmail' => $model->guardianEmail,
             'guardianPhone' => $model->guardianPhone,
             'interestedInCoaching' => !empty($model->interestedInCoaching),

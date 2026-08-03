@@ -24,6 +24,7 @@
 						{% if canViewContact %}
 							<th>Guardian Email</th>
 							<th>Guardian Phone</th>
+							<th>Shirt Size</th>
 							<th>Coaching?</th>
 						{% endif %}
 					</tr>
@@ -35,6 +36,7 @@
 							{% if canViewContact %}
 								<td>{{ row.guardianEmail }}</td>
 								<td>{{ row.guardianPhone }}</td>
+								<td>{{ row.shirtSize ?: '—' }}</td>
 								<td>{{ row.interestedInCoaching ? 'Yes' : '—' }}</td>
 							{% endif %}
 						</tr>
