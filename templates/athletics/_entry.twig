@@ -33,7 +33,7 @@
 
 		<section>
 			{% include '_components/team-list' with {
-				teams: entry.activeTeams.with(['coaches']).all(),
+				teams: entry.activeTeams.with(['coaches', 'sport.consentForm']).all(),
 				flashError: flashError,
 				flashSuccess: flashSuccess,
 			} only %}

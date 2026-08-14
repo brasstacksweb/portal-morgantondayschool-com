@@ -21,6 +21,7 @@
 {% set expanded = expand or userSignups|length > 0 %}
 {% set canViewContact = craft.signups.canViewContact(currentUser) %}
 {% set roster = craft.signups.getRoster(team.id) %}
+{% set consentForm = team.sport[0].consentForm[0] ?? null %}
 
 {% set stateLabels = {
 	'pending': 'Upcoming',
@@ -106,26 +107,36 @@
 			{% endif %}
 
 			{% if isOpen %}
-				<button type="button" popovertarget="signup-dialog-{{ team.id }}">
-					{% include '_components/cta' with {
-						title: userSignups|length ? 'Register another child' : 'Register',
-					} only %}
-				</button>
-				<dialog id="signup-dialog-{{ team.id }}" popover>
-					<button
-						type="button"
-						popovertarget="signup-dialog-{{ team.id }}"
-						popovertargetaction="hide"
-						aria-label="Close">{{ icons.x() }}</button>
-					<h3>Register — {{ team.ageGroup }}</h3>
-					{% include '_components/form' with {
-						form: craft.signups.newSignup({
-							teamEntryId: team.id,
-							guardianEmail: currentUser.email,
-							redirect: craft.app.request.getAbsoluteUrl() ~ '#notice',
-						}),
-					} only %}
-				</dialog>
+				<nav>
+					<button type="button" popovertarget="signup-dialog-{{ team.id }}">
+						{% include '_components/cta' with {
+							title: userSignups|length ? 'Register another child' : 'Register',
+						} only %}
+					</button>
+					<dialog id="signup-dialog-{{ team.id }}" popover>
+						<button
+							type="button"
+							popovertarget="signup-dialog-{{ team.id }}"
+							popovertargetaction="hide"
+							aria-label="Close">{{ icons.x() }}</button>
+						<h3>Register — {{ team.ageGroup }}</h3>
+						{% include '_components/form' with {
+							form: craft.signups.newSignup({
+								teamEntryId: team.id,
+								guardianEmail: currentUser.email,
+								redirect: craft.app.request.getAbsoluteUrl() ~ '#notice',
+							}),
+						} only %}
+					</dialog>
+					{% if consentForm %}
+						<a href="{{ consentForm.url }}" target="_blank" rel="noopener noreferrer">
+							{% include '_components/cta' with {
+								title: consentForm.ctaLabel ?? 'Print and Sign Consent Form',
+								'type': 'tertiary',
+							} only %}
+						</a>
+					{% endif %}
+				</nav>
 			{% endif %}
 		</div>
 	</details>

@@ -104,7 +104,7 @@
 				{% include '_components/card-list' with {
 					heading: entry.activitiesHeading,
 					body: entry.activitiesBody,
-					cards: activities,
+					cards: upcomingSports|merge(activities),
 					gridSize: '2',
 					backgroundColor: 'violet',
 					eagerLoad: true,
@@ -119,17 +119,6 @@
 					})),
 				} only %}
 			</section>
-
-			{% if upcomingSports is not empty %}
-				<section id="athletics">
-					{% include '_components/card-list' with {
-						heading: 'Athletics',
-						cards: upcomingSports,
-						gridSize: '2',
-						backgroundColor: 'green',
-					} only %}
-				</section>
-			{% endif %}
 
 			<section>
 				{% include '_components/carousel' with {
