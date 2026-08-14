@@ -124,6 +124,7 @@ $handle: "team";
 
 			> nav {
 				display: flex;
+				flex-wrap: wrap;
 				align-items: center;
 				gap: var(--s-xs);
 				margin-top: var(--s-sm);
