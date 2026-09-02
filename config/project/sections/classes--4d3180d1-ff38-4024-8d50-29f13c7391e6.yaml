@@ -4,7 +4,7 @@ entryTypes:
   -
     uid: 1e8dde7a-23fd-40a2-805e-3e82c37fef0a # Class
 handle: classes
-maxAuthors: 2
+maxAuthors: null
 minAuthors: 1
 name: Classes
 previewTargets:
