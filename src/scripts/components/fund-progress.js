@@ -5,6 +5,34 @@ import { actions, events } from '../events';
 // Query params Stripe hands back on the return from Checkout.
 const PARAMS = ['donation', 'session_id'];
 
+/**
+ * Fire confetti over the open modal. The modal is a <dialog> opened with
+ * showModal(), which puts it in the browser's top layer — nothing outside it can
+ * paint above it, whatever its z-index. So the confetti gets its own canvas
+ * inside the dialog, which shares the top layer, and removes it when done.
+ */
+const celebrate = async () => {
+    const dialog = document.querySelector('tl-modal dialog[open]');
+
+    if (!dialog) return;
+
+    const canvas = document.createElement('canvas');
+
+    canvas.setAttribute('aria-hidden', 'true');
+    dialog.append(canvas);
+
+    const fire = confetti.create(canvas, { resize: true, disableForReducedMotion: true });
+
+    await fire({
+        particleCount: 140,
+        spread: 75,
+        origin: { y: 0.4 },
+    });
+
+    fire.reset();
+    canvas.remove();
+};
+
 export default class FundProgress extends HTMLElement {
     constructor() {
         super();
@@ -38,13 +66,9 @@ export default class FundProgress extends HTMLElement {
                 return;
             }
 
+            // loadModal opens the dialog synchronously, so it is open here.
             events.emit(actions.loadModal, { markup });
-            confetti({
-                particleCount: 140,
-                spread: 75,
-                origin: { y: 0.4 },
-                disableForReducedMotion: true,
-            });
+            celebrate();
 
             await load();
         };
