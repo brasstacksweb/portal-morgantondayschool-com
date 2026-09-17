@@ -3,6 +3,7 @@
 namespace modules\titanfund\services;
 
 use craft\elements\Entry;
+use modules\titanfund\models\Donation as DonationModel;
 use modules\titanfund\records\Donation as DonationRecord;
 use yii\base\Component;
 use yii\caching\TagDependency;
@@ -51,6 +52,18 @@ class Donations extends Component
     private const CACHE_KEY_PREFIX = 'titanfund:progress:';
     private const CACHE_DURATION = 60;
 
+    /**
+     * Factory for the donation form model from submitted data (POST), mirroring
+     * Signups::newSignup / Auth::newLogin.
+     */
+    public static function newDonation(array $attrs = []): DonationModel
+    {
+        $donation = new DonationModel();
+        $donation->setAttributes($attrs);
+
+        return $donation;
+    }
+
     // --- Campaign -----------------------------------------------------------
 
     /**
@@ -79,6 +92,19 @@ class Donations extends Component
         }
 
         return $campaigns[0] ?? null;
+    }
+
+    /**
+     * A campaign by id, whatever its status. A gift belongs to the campaign it
+     * was started for, even if that campaign has since expired.
+     */
+    public function getCampaignById(int $id): ?Entry
+    {
+        return Entry::find()
+            ->section('titanFund')
+            ->id($id)
+            ->status(null)
+            ->one();
     }
 
     // --- Reads --------------------------------------------------------------
@@ -147,10 +173,17 @@ class Donations extends Component
 
         try {
             $saved = $record->save();
-        } catch (IntegrityException) {
-            // The unique validator lost the race to the index itself. Same
-            // meaning: the other caller got there first.
-            return true;
+        } catch (IntegrityException $e) {
+            // Usually the unique validator lost the race to the index itself,
+            // which means the other caller got there first. Check rather than
+            // assume, so a foreign key failure is not mistaken for success.
+            if (DonationRecord::find()->where(['stripePaymentIntentId' => $record->stripePaymentIntentId])->exists()) {
+                return true;
+            }
+
+            \Craft::error('Could not record Titan Fund donation: '.$e->getMessage(), __METHOD__);
+
+            return false;
         }
 
         if (!$saved) {
@@ -169,6 +202,46 @@ class Donations extends Component
         $this->invalidateProgress($record->campaignEntryId);
 
         return true;
+    }
+
+    /**
+     * The campaign a Checkout Session was started for, or null when the session
+     * was not started by this site. The Stripe account may be shared with other
+     * school vendors, so a session without our metadata is theirs, not a gift.
+     */
+    public function getCampaignForSession(array $session): ?Entry
+    {
+        $campaignEntryId = (int) ($session['metadata']['campaignEntryId'] ?? 0);
+
+        return $campaignEntryId ? $this->getCampaignById($campaignEntryId) : null;
+    }
+
+    /**
+     * Record a gift from a paid Checkout Session, as normalized by
+     * services\Checkout::normalizeSession(). Shared by the return-from-checkout
+     * confirmation and the webhook, so both write identical rows.
+     */
+    public function recordCheckout(Entry $campaign, array $session): bool
+    {
+        $email = $session['email'];
+
+        if (!$email) {
+            // Checkout always collects an email, so this means something odd.
+            // Fall back to the payment intent so the gift still counts as one
+            // household rather than merging with every other unknown donor.
+            \Craft::warning('A Stripe session had no customer email; using the payment intent as the family key.', __METHOD__);
+        }
+
+        return $this->record([
+            'campaignEntryId' => $campaign->id,
+            'userId' => $session['metadata']['userId'] ?? null,
+            'familyKey' => self::familyKey($email ?: $session['paymentIntentId']),
+            'amountCents' => $session['amountCents'],
+            'currency' => $session['currency'],
+            'coveredFee' => ($session['metadata']['coveredFee'] ?? '0') === '1',
+            'stripePaymentIntentId' => $session['paymentIntentId'],
+            'stripeCheckoutSessionId' => $session['sessionId'],
+        ]);
     }
 
     /**

@@ -7,6 +7,7 @@
     "craftcms/cms": "^5.11.1",
     "craftcms/postmark": "^3.1.0",
     "minishlink/web-push": "^10.0",
+    "stripe/stripe-php": "^21.3",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

@@ -5,6 +5,7 @@ namespace modules\titanfund;
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
+use modules\titanfund\services\Checkout;
 use modules\titanfund\services\Donations;
 use yii\base\Event;
 use yii\base\Module;
@@ -20,6 +21,7 @@ class TitanFundModule extends Module
         $this->controllerNamespace = 'modules\titanfund\controllers';
 
         $this->setComponents([
+            'checkout' => Checkout::class,
             'donations' => Donations::class,
         ]);
 
@@ -41,6 +43,7 @@ class TitanFundModule extends Module
             CraftVariable::EVENT_INIT,
             function (Event $event) {
                 $variable = $event->sender;
+                $variable->set('checkout', $this->checkout);
                 $variable->set('donations', $this->donations);
             }
         );

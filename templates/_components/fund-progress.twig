@@ -8,8 +8,11 @@
 
 {# Variables #}
 {% set handle = 'fund-progress' %}
+{% set canGive = craft.checkout.isConfigured() %}
 
 {# Markup #}
+{% import '_icons' as icons %}
+
 <tl-fund-progress class="{{ handle }}">
 	<header>
 		<h2>{{ campaign.heading }}</h2>
@@ -18,4 +21,26 @@
 		{% endif %}
 	</header>
 	<div data-progress></div>
+	{# Hidden until Stripe is configured, so the banner degrades to offline
+	   progress rather than offering a button that cannot work. #}
+	{% if canGive %}
+		<nav>
+			<button type="button" popovertarget="donate-dialog">
+				{% include '_components/cta' with {
+					title: 'Give Now',
+				} only %}
+			</button>
+			<dialog id="donate-dialog" popover>
+				<button
+					type="button"
+					popovertarget="donate-dialog"
+					popovertargetaction="hide"
+					aria-label="Close">{{ icons.x() }}</button>
+				<h3>Give to the {{ campaign.heading }}</h3>
+				{% include '_components/donate-form' with {
+					campaign: campaign,
+				} only %}
+			</dialog>
+		</nav>
+	{% endif %}
 </tl-fund-progress>

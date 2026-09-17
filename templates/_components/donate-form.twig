@@ -1,0 +1,79 @@
+{##
+ # Donate Form component
+ #
+ # Posts straight to Stripe Checkout, so there is no client-side payment code and
+ # no card field on this site. Kept separate from fund-progress so the button and
+ # dialog can be lifted onto other pages later without touching the banner.
+ #
+ # @param {Entry} campaign
+ #}
+
+{# Params #}
+{% set campaign = campaign ?? null %}
+
+{# Variables #}
+{% set handle = 'donate-form' %}
+{% set presets = campaign.giftPresets ?? [] %}
+{% set redirectPath = craft.app.request.pathInfo %}
+
+{# Markup #}
+<form class="{{ handle }}" method="post">
+	{#
+		Deliberately not csrfInput(): this markup is inside the homepage's
+		{% cache %} block, and a cached token belongs to whoever warmed the
+		cache. tl-fund-progress fills it from the uncached progress endpoint and
+		enables the submit button, mirroring how tl-form ships disabled and is
+		enabled by JavaScript.
+	#}
+	<input type="hidden" name="{{ craft.app.config.general.csrfTokenName }}" value="" data-csrf>
+	{{ actionInput('titan-fund/donations/checkout') }}
+	{{ redirectInput(redirectPath) }}
+
+	<fieldset>
+		<legend>Choose an amount</legend>
+		{% for p in presets %}
+			{% set amount = p.amount ?? 0 %}
+			{% if amount > 0 %}
+				<label>
+					<input
+						type="radio"
+						name="amount"
+						value="{{ (amount * 100)|round }}"
+						{{ loop.first ? 'checked' }}>
+					<span>{{ amount|currency('USD', stripZeros = true) }}</span>
+				</label>
+			{% endif %}
+		{% endfor %}
+	</fieldset>
+
+	<label for="donate-custom-amount">Or enter another amount</label>
+	<input
+		type="number"
+		id="donate-custom-amount"
+		name="customAmount"
+		min="1"
+		step="1"
+		inputmode="numeric"
+		placeholder="Other amount">
+
+	<label>
+		<input type="checkbox" name="coverFee" value="1">
+		<span>
+			Add the processing fee to my gift so the school receives the full amount.
+		</span>
+	</label>
+
+	<p>
+		<small>
+			You will finish your gift on Stripe’s secure checkout page, which
+			emails your receipt.
+		</small>
+	</p>
+
+	<button type="submit" disabled>
+		{% include '_components/cta' with {
+			title: 'Continue to payment',
+			type: 'primary',
+		} only %}
+	</button>
+</form>
