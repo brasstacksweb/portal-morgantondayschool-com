@@ -2,9 +2,6 @@ import confetti from 'canvas-confetti';
 
 import { actions, events } from '../events';
 
-const PROGRESS_ENDPOINT = '/json/fund-progress';
-const CONFIRM_ENDPOINT = '/titan-fund/confirm';
-
 // Query params Stripe hands back on the return from Checkout.
 const PARAMS = ['donation', 'session_id'];
 
@@ -12,10 +9,8 @@ export default class FundProgress extends HTMLElement {
     constructor() {
         super();
 
-        const bar = this.querySelector('div[data-progress]');
-
         const load = async () => {
-            const res = await fetch(PROGRESS_ENDPOINT, {
+            const res = await fetch('/json/fund-progress', {
                 headers: { Accept: 'application/json' },
             });
 
@@ -25,13 +20,11 @@ export default class FundProgress extends HTMLElement {
 
             const { markup = '' } = await res.json();
 
-            // Replacing the markup outright is what replays the bar's fill
-            // animation, so a refreshed total visibly climbs from zero.
-            bar.innerHTML = markup;
+            this.querySelector('div[data-progress]').innerHTML = markup;
         };
 
         const confirmDonation = async sessionId => {
-            const res = await fetch(`${CONFIRM_ENDPOINT}?session_id=${encodeURIComponent(sessionId)}`, {
+            const res = await fetch(`/titan-fund/confirm?session_id=${encodeURIComponent(sessionId)}`, {
                 headers: { Accept: 'application/json' },
             });
 
@@ -53,8 +46,6 @@ export default class FundProgress extends HTMLElement {
                 disableForReducedMotion: true,
             });
 
-            // Re-read the totals so the donor's own gift is in the bar behind
-            // the confetti.
             await load();
         };
 
