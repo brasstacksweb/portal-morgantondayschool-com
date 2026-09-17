@@ -28,7 +28,7 @@ export default class Form extends HTMLElement {
                 headers: { Accept: 'application/json' },
                 body,
             });
-            const { message = '', errors = {} } = await res.json();
+            const { message = '', errors = {}, redirect = '' } = await res.json();
 
             // Reset all errrors to empty
             errorMessage.textContent = '';
@@ -50,17 +50,22 @@ export default class Form extends HTMLElement {
 
                 break;
             case 200:
-            default:
-                if (redirectPath) {
+            default: {
+                // A redirect chosen by the server (e.g. an off-site payment page)
+                // wins over the one the template declared.
+                const destination = redirect || redirectPath;
+
+                if (destination) {
                     // A redirect to the current page (e.g. a '#notice' hash) is
                     // a same-document navigation — href only scrolls, so force a
                     // reload to reflect the new server state. A different page
                     // navigates (and reloads) on its own.
-                    const target = new URL(redirectPath, window.location.href);
-                    const samePage = target.pathname === window.location.pathname
+                    const target = new URL(destination, window.location.href);
+                    const samePage = target.origin === window.location.origin
+                        && target.pathname === window.location.pathname
                         && target.search === window.location.search;
 
-                    window.location.href = redirectPath;
+                    window.location.href = destination;
                     if (samePage) window.location.reload();
 
                     return;
@@ -70,6 +75,7 @@ export default class Form extends HTMLElement {
                 successMessage.style.display = 'block';
                 this.parentElement.style.scrollMarginTop = 'var(--h-header)';
                 this.parentElement.scrollIntoView({ behavior: 'smooth' });
+            }
             }
         };
     }

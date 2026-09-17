@@ -1,0 +1,64 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "fund-progress-bar";
+
+@keyframes progress-bar {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: var(--progress);
+	}
+}
+
+.#{$handle} {
+	> h3 {
+		@include font("body", "sm");
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: var(--s);
+
+		> strong {
+			@include font("heading", "xs");
+		}
+	}
+
+	> div[role="progressbar"] {
+		overflow: hidden;
+		width: 100%;
+		height: var(--s-xs);
+		margin-top: var(--s);
+		background-color: var(--c-bg-md);
+		border-radius: var(--s-br-sm);
+
+		> span {
+			display: block;
+			width: var(--progress);
+			height: 100%;
+			background-color: var(--c-green-dk);
+			border-radius: var(--s-br-sm);
+			animation: progress-bar 1s ease-in-out forwards;
+
+			@media (prefers-reduced-motion: reduce) {
+				animation: none;
+				width: var(--progress);
+			}
+		}
+	}
+
+	> p {
+		@include font("body", "sm");
+		margin-top: var(--s);
+
+		> small {
+			color: var(--c-fg-md);
+		}
+	}
+
+	&--goal-met > div[role="progressbar"] > span {
+		background-color: var(--c-indigo-dk);
+	}
+}

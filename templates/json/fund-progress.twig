@@ -1,0 +1,23 @@
+{##
+ # Titan Fund progress json
+ #
+ # Lets the banner re-read the totals without a page load, which is what makes
+ # the bar move under the confetti after a donation.
+ #}
+
+{# Controller #}
+{% set campaign = craft.donations.getCampaign() %}
+{% set progress = campaign ? craft.donations.getProgress(campaign) : null %}
+
+{% set markup %}
+	{% if progress %}
+		{% include '_components/fund-progress-bar' with { progress: progress } only %}
+	{% endif %}
+{% endset %}
+
+{# Res #}
+{% header 'Content-Type: application/json' %}
+
+{{ {
+	markup: markup|trim,
+}|json_encode|raw }}

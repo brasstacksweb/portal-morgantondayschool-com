@@ -1,0 +1,33 @@
+{##
+ # Donation thank-you
+ #
+ # Rendered by DonationsController::actionConfirm() and injected into the global
+ # tl-modal, so it carries its own surface — that modal is otherwise styled as an
+ # image lightbox.
+ #
+ # @param {int} amountCents
+ # @param {string} heading — the campaign name
+ #}
+
+{# Params #}
+{% set amountCents = amountCents ?? 0 %}
+{% set heading = heading ?? 'Titan Fund' %}
+
+{# Variables #}
+{% set handle = 'donate-thanks' %}
+{% set amount = amountCents / 100 %}
+
+{# Markup #}
+<div class="{{ handle }}">
+	<h2>Thank you!</h2>
+	<p>
+		Your gift of <strong>{{ amount|currency('USD', stripZeros = true) }}</strong>
+		to the {{ heading }} is complete.
+	</p>
+	<p>
+		<small>
+			Stripe has emailed your receipt. Thank you for supporting our
+			teachers and students.
+		</small>
+	</p>
+</div>

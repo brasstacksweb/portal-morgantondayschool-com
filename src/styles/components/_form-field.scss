@@ -101,6 +101,52 @@ $handle: "form-field";
 		}
 	}
 
+	/* A radio group as a wrapping row of pills. The radio itself is visually
+	   hidden but stays in the tab order, so the group keeps native keyboard and
+	   screen reader behavior; focus is drawn on the pill instead. */
+	&--type-radio-pills > fieldset {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--s-xs);
+
+		> label {
+			position: relative;
+			align-items: center;
+			padding: var(--s) var(--s-sm);
+			background-color: var(--c-white);
+			border: 1px solid var(--c-br-lt);
+			border-radius: var(--s-br-sm);
+			cursor: pointer;
+			transition: border-color var(--a-sm), box-shadow var(--a-sm);
+
+			&:not(:first-child) {
+				margin-top: 0;
+			}
+
+			> input {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				margin: 0;
+				opacity: 0;
+			}
+
+			&:has(:checked) {
+				border-color: var(--c-indigo-dk);
+				box-shadow: inset 0 0 0 1px var(--c-indigo-dk);
+			}
+
+			&:has(:focus-visible) {
+				outline: 2px solid var(--c-green-dk);
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	&--type-radio-pills.has-error > fieldset > label {
+		border-color: var(--c-red-dk);
+	}
+
 	> p {
 		@include font("body", -1);
 		position: relative;

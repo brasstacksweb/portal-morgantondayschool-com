@@ -45,6 +45,8 @@
 {% set metaTitle = 'Morganton Day School Titan Link Parent Portal' %}
 {% set metaDescription = entry.heroBody %}
 {% set metaNoIndex = true %}
+{# reCAPTCHA for the Titan Fund donate form, which only renders once Stripe is set up #}
+{% set loadForm = craft.checkout.isConfigured() %}
 
 {% css %}
 	.home-banner {
@@ -75,6 +77,20 @@
 			{% if entry.banner is not empty %}
 				<div class="home-banner">{{ entry.banner }}</div>
 			{% endif %}
+
+			{#
+				The live Titan Fund campaign, or null when none is running. Queried
+				inside the cache block on purpose: Craft only caps a cache's lifetime
+				at an entry's expiryDate when the entry is fetched while the cache is
+				collecting, so fetched above it the banner would outlive its campaign.
+			#}
+			{% set campaign = craft.donations.getCampaign() %}
+			{% if campaign %}
+				{% include '_components/fund-progress' with {
+					campaign: campaign,
+				} only %}
+			{% endif %}
+
 			<header>
 				{% include '_components/hero' with {
 					heading: entry.heroHeading,

@@ -1,0 +1,46 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "fund-progress";
+
+.#{$handle} {
+	@include pad(var(--s-sm));
+	@include space(var(--s-sm));
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-sm);
+	background-color: var(--c-white);
+	border-bottom: 1px solid var(--c-br-lt);
+
+	@include media("sm") {
+		@include pad(var(--s-md), var(--w-xl));
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--s-md);
+	}
+
+	> header {
+		> h2 {
+			@include font("heading", "xs");
+		}
+
+		> div {
+			@include richText("sm");
+			margin-top: var(--s);
+		}
+	}
+
+	> div {
+		flex-shrink: 0;
+
+		@include media("sm") {
+			width: 40%;
+		}
+	}
+
+	> nav {
+		flex-shrink: 0;
+	}
+}
