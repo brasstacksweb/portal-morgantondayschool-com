@@ -1,0 +1,32 @@
+columnSuffix: null
+handle: giftPresets
+instructions: null
+name: 'Gift Presets'
+searchable: false
+settings:
+  addRowLabel: 'Add an amount'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Amount
+            -
+              - handle
+              - amount
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+  defaults: null
+  maxRows: null
+  minRows: 1
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

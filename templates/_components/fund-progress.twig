@@ -1,0 +1,21 @@
+{##
+ # Fund Progress component
+ # @param {Entry} campaign
+ #}
+
+{# Params #}
+{% set campaign = campaign ?? null %}
+
+{# Variables #}
+{% set handle = 'fund-progress' %}
+
+{# Markup #}
+<tl-fund-progress class="{{ handle }}">
+	<header>
+		<h2>{{ campaign.heading }}</h2>
+		{% if campaign.overview is not empty %}
+			<div>{{ campaign.overview }}</div>
+		{% endif %}
+	</header>
+	<div data-progress></div>
+</tl-fund-progress>
