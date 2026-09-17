@@ -1,6 +1,6 @@
 # Titan Fund — Implementation Plan
 
-**Status:** Draft — awaiting approval
+**Status:** Implemented through commit 8 — pending live Stripe keys (see Open questions)
 **Date:** 2026-09-17
 
 Adds a Titan Fund giving module to the portal: a progress banner on the homepage
@@ -36,7 +36,7 @@ recorded by the site from Stripe. The banner sums both.
 | Logged-in parents | `userId` is attached to the gift when a parent is signed in. Donating does **not** require a login. |
 | Receipts | **Stripe's receipt email only.** No Postmark send. Revisit if the school needs specific acknowledgement language. |
 | Anti-abuse | **No reCAPTCHA.** Stripe Radar covers it; the endpoint only creates a Checkout Session. |
-| Progress data delivery | **Client fetch** from `/json/titan-fund-progress`, so the cached homepage stays cached. |
+| Progress data delivery | **Client fetch** from `/json/fund-progress`, so the cached homepage stays cached. The same fetch delivers the donate form's CSRF token. |
 | Admin reporting | **Stripe dashboard.** No CP donor list, no CSV export. |
 | New dependencies | `stripe/stripe-php` (Composer) and `canvas-confetti` (npm — the project's first runtime JS dependency). |
 | Out of scope for v1 | Recurring gifts, pledges, tribute/honoree fields, donor CP screens, CSV export, matching gifts, multi-campaign support, donation history for parents, net/fee reporting. |
@@ -150,33 +150,38 @@ Two reasons:
 This also keeps the homepage free of the reCAPTCHA script — `loadForm` stays
 `false` on `index.twig`.
 
-### Why the banner shell sits outside `{% cache %}`
+### Why the banner stays inside `{% cache %}`
 
-The donate form contains `csrfInput()`, and a cached CSRF token is a stale CSRF
-token. So the `fund-progress` include goes **outside** the homepage's
-`{% cache if not devMode %}` block. That is one extra entry query per homepage
-view, which is cheap.
+The banner — including the donate dialog — renders inside the homepage's
+`{% cache if not devMode %}` block, so the homepage stays fully cached. Two
+things that cannot be cached are delivered by the uncached `/json/fund-progress`
+fetch instead:
 
-That also removes the original reason to fetch the numbers on page load. Once the
-banner is outside the cache, a server-rendered bar is strictly better: no empty
-state, no layout shift, and correct figures with JavaScript disabled. So the bar
-renders server-side at its true value, and the JSON endpoint exists for the one
-case that genuinely needs it — re-reading the total after a donation is
-confirmed, without a page load, so the donor sees their own gift move the bar
-under the confetti.
+- **The figures.** The endpoint returns the server-rendered
+  `fund-progress-bar` markup, so currency formatting stays in Twig and the first
+  render and every refresh are identical. Replacing the markup replays the bar's
+  fill animation, which is what makes the donor's own gift visibly move the bar
+  under the confetti.
+- **The CSRF token.** A token rendered into a cached page belongs to whoever
+  warmed the cache. `donate-form.twig` ships an empty token input and a
+  **disabled** submit button; `tl-fund-progress` fills the token from the fetch
+  and enables the button — the same way `tl-form` ships disabled. A cross-origin
+  read of the endpoint is opaque, so this is the same exposure as Craft's own
+  `users/session-info` action.
 
-The agreed outcome is unchanged: the homepage stays cached, and the figures are
-never stale.
+Consequences worth knowing:
 
-Because the bar is server-rendered, the CSS width transition only fires when the
-bar is updated in place. The refresh therefore mutates the existing bar's
-`--progress` custom property and label text rather than replacing the markup,
-which is what lets the fill animate.
-
-The announcement banner (`.home-banner`) moves outside the cache block along with
-it — the Titan Fund banner stacks underneath it, and the two have to live in the
-same uncached region. Side effect worth knowing: an urgent announcement now
-appears immediately instead of waiting for the homepage cache to clear.
+- **Errors travel by query string, not flash.** A flash message rendered inside
+  the cache would be cached and shown to the wrong person, so a failed checkout
+  redirects to `?donation=error&reason=amount|closed|unavailable` and the script
+  shows the message in the global modal.
+- **The campaign is queried inside the cache block.** Craft only caps a template
+  cache's lifetime at an entry's `expiryDate` when the entry is fetched while the
+  cache is collecting. Queried above the block, the banner would outlive its
+  campaign.
+- **Whether the donate button renders is cached too** (`craft.checkout.isConfigured()`).
+  Clear caches after adding `STRIPE_SECRET_KEY` to an environment.
+- The existing red `.home-banner` stays where it was, inside the cache.
 
 ---
 
@@ -416,45 +421,56 @@ following the reCAPTCHA/VAPID precedent.
 
 ### `models/Donation.php`
 
-Extends `modules\components\models\Form`. Attributes: `campaignId` (hashed
-hidden), `amount` (preset radio value, cents), `customAmount` (dollars),
-`coverFee`.
+Extends `modules\components\models\Form`. Attributes: `amount` (preset radio
+value, cents), `customAmount` (dollars), `coverFee`, and the hashed `redirect`.
+There is **no campaign id on the form** — the campaign is always the live entry,
+resolved server-side, never trusted from the post.
 
-```php
-public function rules(): array
-{
-    // Deliberately NOT array_merge(parent::rules(), ...): the base rule set
-    // requires a reCAPTCHA token, and this form has none by design (Stripe
-    // Radar covers abuse, and requiring it would load reCAPTCHA on the homepage).
-    return [
-        [['campaignId'], 'validateHash'],
-        [['amount', 'customAmount'], 'integer'],
-        [['coverFee'], 'boolean'],
-        [['amount'], 'validateAmount'],
-    ];
-}
-```
-
-`validateAmount()` resolves the effective amount — `customAmount` wins when
-greater than zero — and enforces **technical** guards only, not policy: at least
-$1 (Stripe rejects charges under $0.50) and at most $999,999.
+`rules()` deliberately does not merge the parent's (reCAPTCHA; see above).
+`validateAmount()` runs with `skipOnEmpty => false` — otherwise Yii skips it when
+the donor typed an "other amount" and left `amount` empty — and resolves the
+effective amount (`customAmount` wins when greater than zero). It enforces
+**technical** guards only: at least $1 (`Donations::MIN_CENTS`; Stripe rejects
+charges under $0.50) and at most $999,999 (`MAX_CENTS`).
 
 `getActionPath()` returns `titan-fund/donations/checkout`.
+
+### Recording a Checkout Session
+
+Both recording paths go through the same two `Donations` methods, which take the
+plain array from `Checkout::normalizeSession()`, so `Donations` still never
+touches the SDK:
+
+- `getCampaignForSession(array $session): ?Entry` — the campaign named in the
+  session's own `metadata.campaignEntryId`, looked up in the `titanFund` section
+  regardless of status. **Null means this site did not start the session.** The
+  school's Stripe account may be shared with other vendors, so a paid session
+  without our metadata is not counted.
+- `recordCheckout(Entry $campaign, array $session): bool` — builds the row
+  (family key from the email, falling back to the payment intent id) and calls
+  the idempotent `record()`.
+
+A gift is attributed to the campaign it was **started** for, not the one live
+when it is confirmed, so a gift made during a year-end rollover lands correctly.
+
+`record()` treats a unique-index violation as success only after confirming the
+row exists, so a foreign key failure is not mistaken for "already recorded."
 
 ### `controllers/DonationsController.php`
 
 `$allowAnonymous = ['checkout', 'confirm']` — giving does not require a login.
 
 **`actionCheckout()`** — `requirePostRequest()`, validate the model, resolve the
-campaign (must be the live one), gross up if `coverFee`, create the Session, and
-`$this->redirect($url)`. On validation failure: flash the error and
-`redirectToPostedUrl()` back to the homepage. No JSON; this is a plain form post.
+live campaign, gross up if `coverFee`, create the Session, and redirect to
+Stripe. Any failure redirects back with `?donation=error&reason=...`. No JSON;
+this is a plain form post.
 
-**`actionConfirm()`** — GET with `session_id`, returns JSON. Retrieves the
-session, requires `payment_status === 'paid'`, calls `Donations::record()`
-(idempotent), and responds with the rendered thank-you markup and the amount
-label. A missing or unpaid session returns a 404-ish failure so the front end
-simply does not celebrate.
+**`actionConfirm()`** — GET with `session_id`, JSON only. Retrieves the session,
+requires it to be paid **and** started by this site, records it, and returns the
+rendered `donate-thanks` markup. If the insert itself fails, the donor is still
+thanked (their card was charged) and the error is logged for the webhook or a
+manual fix. Anything else returns a failure, and the front end simply does not
+celebrate.
 
 ### `controllers/WebhooksController.php`
 
@@ -463,17 +479,22 @@ public $enableCsrfValidation = false;   // Stripe cannot send a CSRF token
 protected array|int|bool $allowAnonymous = true;
 ```
 
-`actionStripe()` reads `getRawBody()`, verifies the signature, and handles
-`checkout.session.completed` (record) and `charge.refunded` (mark refunded).
-Returns 200 for anything handled or ignored, 400 only on a bad signature, so
-Stripe does not retry on our own logic errors. Unknown event types are logged and
-ignored.
+`actionStripe()` reads `getRawBody()`, verifies the signature, and handles:
 
-**This path must be excluded from `brasstacksweb/craft-basic-auth`.** The plugin
-challenges by env + request condition, so `titan-fund/webhook` needs an
-exclusion in its CP settings for any environment where basic auth is on —
-including this dev environment. Without it Stripe gets a 401 and retries for
-days.
+| Event | Action |
+|---|---|
+| `checkout.session.completed` | Record, if paid and ours. |
+| `checkout.session.async_payment_succeeded` | Same. Only fires for delayed payment methods (bank debits), where the session completes unpaid. Cards arrive paid on `completed`. |
+| `charge.refunded` | On a **full** refund (`charge.refunded === true`), mark the gift `refunded` so it leaves the totals. Partial refunds are logged and leave the gift counted in full — there are no partial amounts in v1. |
+
+Returns 400 only when the signature cannot be verified (including a missing
+`STRIPE_WEBHOOK_SECRET`). Everything else — ignored event types, sessions from
+other integrations, unknown refunds, failed inserts — gets a 200, so Stripe
+retries delivery problems rather than our own logic errors.
+
+**This path is excluded from `brasstacksweb/craft-basic-auth`** via the plugin's
+`exceptedPaths` (`/titan-fund/webhook`, alongside `/site.webmanifest`), committed
+in project config. Without it Stripe gets a 401 and retries for days.
 
 ---
 
@@ -481,81 +502,61 @@ days.
 
 ### New
 
-**`templates/_components/fund-progress.twig`** — the banner. White background per
-the design note, stacking below the red `.home-banner`. Renders the static shell
-from CMS copy and leaves the numbers to the fetch:
+**`templates/_components/fund-progress.twig`** — the banner. White background,
+stacking below the red `.home-banner`. Renders the campaign heading and overview,
+an empty `[data-progress]` slot the fetch fills, and — only when
+`craft.checkout.isConfigured()` — the donate button and dialog:
 
 ```twig
-<tl-fund-progress class="{{ handle }}" data-endpoint="/json/titan-fund-progress">
-	<div data-progress>
-		{# Filled by the fetch. Reserves height to avoid layout shift. #}
-	</div>
-	<nav>
-		<button type="button" popovertarget="donate-dialog">
-			{% include '_components/cta' with { title: ctaLabel } only %}
-		</button>
-		<dialog id="donate-dialog" popover>
-			...
-			{% include '_components/donate-form' with { campaign: campaign } only %}
-		</dialog>
-	</nav>
+<tl-fund-progress class="fund-progress">
+	<header>...</header>
+	<div data-progress></div>
+	{% if canGive %}
+		<nav>
+			<button type="button" popovertarget="donate-dialog">…Give Now…</button>
+			<dialog id="donate-dialog" popover>
+				<button popovertarget="donate-dialog" popovertargetaction="hide">…</button>
+				{% include '_components/donate-form' with { campaign: campaign } only %}
+			</dialog>
+		</nav>
+	{% endif %}
 </tl-fund-progress>
 ```
 
-The `<dialog popover>` + `popovertarget` pattern is the one athletics uses for
-its signup dialog (`_components/team.twig`), so no new JS is involved in opening
-it.
+Without a secret key the banner degrades to a progress bar driven by offline
+gifts rather than offering a button that cannot work. The `<dialog popover>` +
+`popovertarget` pattern is the one athletics uses (`_components/team.twig`), so
+opening it needs no JavaScript.
 
 **`templates/_components/donate-form.twig`** — presets as radios, an always-
-visible "other amount" number input, the cover-the-fee checkbox, `csrfInput()`,
-`actionInput('titan-fund/donations/checkout')`, `redirectInput()`, and the hashed
-`campaignId`. Kept separate from `fund-progress` precisely so the button +
-dialog pair can be lifted onto other pages later without touching the banner.
-
-The "other amount" input is always visible rather than revealed by a JS toggle,
-which keeps the form zero-JS and avoids a hidden-field state machine.
+visible "other amount" number input, the cover-the-fee checkbox, an empty CSRF
+input (`data-csrf`, filled by script), `actionInput()`, `redirectInput()`, and a
+submit button that ships `disabled`. Kept separate from `fund-progress` so the
+button + dialog can be lifted onto other pages later.
 
 **`templates/_components/fund-progress-bar.twig`** — the figures, the bar, and the
-meta line. Included by both the banner and the JSON endpoint so the first render
-and every refresh are byte-identical.
+meta line ("12% of goal · 40 of 300 families (13%)"). Rendered only by the JSON
+endpoint.
 
-**`templates/json/titan-fund-progress.twig`** — mirrors
-`templates/json/reminder-list.twig`: server-renders the bar markup (so currency
-formatting stays in Twig) and returns it with the numbers.
+**`templates/_components/donate-thanks.twig`** — the thank-you, rendered by
+`actionConfirm()` and injected into the global `tl-modal`. It carries its own
+surface, since that modal is otherwise styled as an image lightbox.
 
-```twig
-{% header 'Content-Type: application/json' %}
-{{ { markup: markup|spaceless, barPercent: p.barPercent, state: p.state }|json_encode|raw }}
-```
-
-Reached by Craft's template routing at `/json/titan-fund-progress`, same as the
-reminder list. Not cached.
+**`templates/json/fund-progress.twig`** — mirrors
+`templates/json/reminder-list.twig`. Returns `{ markup, csrfToken }`. Reached by
+Craft's template routing at `/json/fund-progress`. Not cached.
 
 ### Edited
 
-**`templates/index.twig`** — include the banner immediately after the existing
-`.home-banner` div and **outside** the `{% cache %}` block (CSRF, above):
-
-```twig
-{% set campaign = craft.donations.getCampaign() %}
-...
-{% if campaign %}
-	{% include '_components/fund-progress' with { campaign: campaign } only %}
-{% endif %}
-{% cache if not devMode %}
-	... existing article ...
-{% endcache %}
-```
-
-The existing red `.home-banner` and its inline `{% css %}` block are left alone
-— promoting it to a real component is a separate cleanup, not this feature's
-business.
+**`templates/index.twig`** — queries the campaign and includes the banner
+immediately after `.home-banner`, both **inside** the `{% cache %}` block (see
+Why the banner stays inside `{% cache %}`).
 
 ### Over-goal presentation
 
-`state: 'goal-met'` adds `fund-progress--goal-met`, which switches the label to
-"Goal met — 118% of our $50,000 goal" and keeps the bar full. The donate CTA does
-not change, since the point is that giving stays open.
+`state: 'goal-met'` adds `fund-progress-bar--goal-met`, which recolors the full
+bar. The label keeps the uncapped percentage ("118% of goal"), and the donate CTA
+does not change, since giving stays open.
 
 ---
 
@@ -575,24 +576,23 @@ not change, since the point is that giving stays open.
 
 ### Scripts
 
-**`src/scripts/components/fund-progress.js`** — a `tl-fund-progress` custom
-element, registered in `index.js` alongside the others. Three jobs:
+**`src/scripts/components/fund-progress.js`** — the `tl-fund-progress` custom
+element, registered in `index.js`. Its jobs:
 
-1. On connect, fetch the endpoint, inject the markup, then `requestAnimationFrame`
-   → add `is-loaded` so the bar animates from zero.
-2. If `?donation=success&session_id=...` is present, `GET titan-fund/confirm`,
-   and on success emit the existing `actions.loadModal` event with the returned
-   thank-you markup (reusing the global `tl-modal`), fire the confetti, and
-   re-fetch the progress so the bar ticks up with the donor's own gift included.
-3. Strip the query string with `history.replaceState()` so a refresh does not
-   re-celebrate. `?donation=canceled` is stripped silently.
+1. On connect, fetch `/json/fund-progress`, inject the bar markup (the CSS
+   keyframe animates the fill), fill the donate form's CSRF token, and enable the
+   submit button.
+2. On `?donation=success&session_id=...`, GET `/titan-fund/confirm`; on success
+   emit `actions.loadModal` with the thank-you markup, fire the confetti, and
+   re-fetch the progress so the bar replays up to the new total.
+3. On `?donation=error&reason=...`, show the matching message in the modal.
+4. Strip the query params with `history.replaceState()` so a refresh neither
+   re-celebrates nor re-warns. `?donation=canceled` is stripped silently.
 
-Confetti uses `canvas-confetti`, skipped entirely when
-`matchMedia('(prefers-reduced-motion: reduce)').matches`.
+Confetti uses `canvas-confetti` with `disableForReducedMotion: true`; the bar's
+fill animation is likewise off under `prefers-reduced-motion`.
 
-No changes to `events.js` are needed — `loadModal`, `openModal`, and the scroll
-lock actions already exist. Adding a `confetti` action to the bus would be
-indirection for a single caller.
+No changes to `events.js` were needed.
 
 ### Dependencies
 
@@ -646,8 +646,8 @@ with offline gifts only.
 ### Commit 5 — Banner, progress endpoint, styles
 
 `_components/fund-progress.twig`, `_components/fund-progress-bar.twig`,
-`json/titan-fund-progress.twig`, `_fund-progress.scss`, and the `index.twig`
-include. No JavaScript and no donate button yet — the bar is server-rendered, and
+`json/fund-progress.twig`, `_fund-progress.scss`, and the `index.twig`
+include, plus the small `tl-fund-progress` script that fills the bar. No donate button yet —
 a button whose dialog does not exist would just be a dead control. **At this
 point the school can see a working progress bar driven entirely by CMS-entered
 gifts** — a reasonable place to pause if Stripe access takes a while.
@@ -670,9 +670,13 @@ return → modal + confetti → bar animates to the new total.
 ### Commit 8 — Webhook
 
 `controllers/WebhooksController.php`, the URL rule, and the basic-auth
-exclusion. Tested locally with `stripe listen --forward-to
-https://<dev-host>/titan-fund/webhook`. Proven idempotent by letting both the
-webhook and the confirmation record the same gift.
+exclusion. Verified on dev with locally signed events (no Stripe API needed):
+duplicate and concurrent `completed`/`async_payment_succeeded` deliveries write
+one row; unpaid sessions, sessions without our metadata, and sessions naming a
+non-campaign entry are ignored; a partial refund changes nothing and a full
+refund drops the gift from the total; a bad signature gets a 400. Re-test
+against real deliveries with `stripe listen --forward-to
+https://<dev-host>/titan-fund/webhook` once a real test key is in place.
 
 ---
 
@@ -686,33 +690,38 @@ webhook and the confirmation record the same gift.
    donor closes the tab.
 3. Project config applies the new section, fields, entry type, and group on
    `php craft up`, since production has `allowAdminChanges=false`.
-4. Create the live Stripe webhook endpoint for `checkout.session.completed` and
-   `charge.refunded`, and copy its signing secret into `.env`.
-5. Confirm basic auth (if enabled in production) excludes
-   `titan-fund/webhook`. The plugin exposes this as `exceptedPaths` in its
-   settings (it already lists `/site.webmanifest`), so the exclusion is a
-   project-config change, not code.
-6. Enable **successful payment receipts** in the Stripe dashboard — that is the
+4. Create the live Stripe webhook endpoint at `https://<host>/titan-fund/webhook`
+   for `checkout.session.completed`, `checkout.session.async_payment_succeeded`,
+   and `charge.refunded`, and copy its signing secret into `.env`.
+5. **Clear caches** (`php craft clear-caches/all`) after adding the keys — the
+   homepage's cached banner otherwise keeps hiding the donate button.
+6. Basic auth already excepts `/titan-fund/webhook` in project config. If a
+   production condition is added later, it needs the same exception.
+7. Enable **successful payment receipts** in the Stripe dashboard — that is the
    only receipt the donor gets. Note that Stripe does not email receipts for
    test-mode payments to real addresses.
-7. Have staff create the campaign entry and set `postDate`/`expiryDate`.
+8. Have staff create the campaign entry and set `postDate`/`expiryDate`.
 
 ---
 
 ## Open questions
 
-These do not block commits 1–5.
+Only the first blocks anything (end-to-end testing).
 
-1. **Stripe account access**, and whether the account is already in use by
+1. **A real Stripe test key.** The `STRIPE_SECRET_KEY` in the dev `.env` is a
+   placeholder that Stripe rejects, so checkout currently lands on the "could not
+   reach our payment processor" error. End-to-end testing of commits 6–7 (card
+   `4242 4242 4242 4242` → return → confetti) is blocked on it.
+2. **Stripe account access**, and whether the account is already in use by
    another vendor (statement descriptor and branding are account-wide).
-2. **Actual Stripe rate** for the fee gross-up. `FEE_PERCENT`/`FEE_FIXED_CENTS`
+3. **Actual Stripe rate** for the fee gross-up. `FEE_PERCENT`/`FEE_FIXED_CENTS`
    are coded to standard US card pricing; nonprofit rates are often lower, and
    an over-estimate means donors slightly overpay the fee.
-3. **Preset amounts** for the first year (the plan seeds 25 / 50 / 100 / 250, and
+4. **Preset amounts** for the first year (the plan seeds 25 / 50 / 100 / 250, and
    staff can change them).
-4. **Who maintains `familyCount`**, and whether "families" means enrolled
+5. **Who maintains `familyCount`**, and whether "families" means enrolled
    households (so participation is comparable year over year).
-5. **Receipt language.** If the school needs 501(c)(3) / "no goods or services"
+6. **Receipt language.** If the school needs 501(c)(3) / "no goods or services"
    wording, Stripe's receipt cannot carry it and we add a Postmark
    acknowledgement — additive, using the existing `templates/_emails/` pattern.
 

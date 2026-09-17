@@ -1,4 +1,4 @@
-dateModified: 1789653999
+dateModified: 1789657475
 elementSources:
   craft\elements\Category:
     -
@@ -339,6 +339,7 @@ plugins:
               - exceptedPaths
               -
                 - /site.webmanifest
+                - /titan-fund/webhook
             8:
               - customFailureMessage
               - ''
