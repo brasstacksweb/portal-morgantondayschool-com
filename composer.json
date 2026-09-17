@@ -21,7 +21,8 @@
       "modules\\components\\": "modules/components/src/",
       "modules\\forms\\": "modules/forms/src/",
       "modules\\notifications\\": "modules/notifications/src/",
-      "modules\\site\\": "modules/site/src/"
+      "modules\\site\\": "modules/site/src/",
+      "modules\\titanfund\\": "modules/titanfund/src/"
     }
   },
   "config": {

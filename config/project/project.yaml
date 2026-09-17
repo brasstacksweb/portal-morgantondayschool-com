@@ -1,4 +1,4 @@
-dateModified: 1788376163
+dateModified: 1789653999
 elementSources:
   craft\elements\Category:
     -
@@ -152,6 +152,15 @@ elementSources:
         - postDate
         - expiryDate
       type: native
+    -
+      heading: Campaigns
+      key: 'heading:2b2b9787-c828-4410-92a5-394489d2f254'
+      page: Entries
+      type: heading
+    -
+      key: 'section:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+      page: Entries
+      type: native
 email:
   fromEmail: trevor@brasstacksweb.com
   fromName: 'Morganton Day School'
@@ -198,6 +207,8 @@ meta:
     2d6cc29e-95ec-4121-a242-f74b9a1053a6: Activities # Activities
     2efcdd43-3927-46bc-aab7-7d1576e97e29: Announcements # Announcements
     3a74ea9c-9563-433e-8206-163caff6f1a2: Documents # Documents
+    3b1e1390-4bb1-4f36-9161-b1ab231ec15c: 'Titan Fund Staff' # Titan Fund Staff
+    3b776678-7902-4582-8349-d9ad41bc3285: 'Offline Gifts' # Offline Gifts
     3d1a7754-76e3-4779-a4ee-ff935b63e123: Teams # Teams
     3e79df50-3d4b-4294-875c-158e7a029523: Header # Header
     4d3180d1-ff38-4024-8d50-29f13c7391e6: Classes # Classes
@@ -245,6 +256,7 @@ meta:
     5482c96e-84ee-4297-9e2b-8ac82e183ec2: Videos # Videos
     5967eb6a-20df-40e5-801a-48817808934a: Toggle # Toggle
     7459fa4e-33c3-4be0-8868-4011ce1be81e: Reminder # Reminder
+    7751fad7-b05d-4464-876c-e477e80daf93: 'Titan Fund' # Titan Fund
     9090beeb-6ec5-46f0-a70b-0bbfa6e9c218: 'Link Group' # Link Group
     11968e67-6af8-4ab2-9e6a-c69edff58da3: 'Athletics Staff' # Athletics Staff
     21845b92-9016-4975-ad69-346de1c7a9a8: Details # Details
@@ -257,6 +269,8 @@ meta:
     a3a6b444-805d-4d61-b0b0-4bc547497655: Gallery # Gallery
     a4fa5523-8cdd-400d-8f0e-50b8bd7c2802: 'Reference URL' # Reference URL
     a9f36339-edb8-49a5-889e-3545779d1794: Activity # Activity
+    ac7c177f-dba3-40b3-8ac3-182aa928a372: 'Titan Fund Campaign' # Titan Fund Campaign
+    ad3328ab-430b-44df-8937-51ade2dc348e: 'Gift Presets' # Gift Presets
     ae3e4e31-15a0-4883-9c22-01637617e803: 'Card List' # Card List
     b65b30fd-2906-4a3c-a08e-76954a4942ed: Overview # Overview
     b30722f5-7310-4beb-97b6-8ee18535bd41: 'Download CTA' # Download CTA

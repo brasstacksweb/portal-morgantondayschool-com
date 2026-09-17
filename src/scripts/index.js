@@ -2,6 +2,7 @@ import { actions, events } from './events';
 
 import Form from './components/form';
 import FormField from './components/form-field';
+import FundProgress from './components/fund-progress';
 import Carousel from './components/carousel';
 import InstallBanner from './components/install-banner';
 import Modal from './components/modal';
@@ -13,6 +14,7 @@ function handleDOMConentLoaded() {
     customElements.define('tl-carousel', Carousel);
     customElements.define('tl-form', Form);
     customElements.define('tl-form-field', FormField);
+    customElements.define('tl-fund-progress', FundProgress);
     customElements.define('tl-install-banner', InstallBanner);
     customElements.define('tl-modal', Modal);
     customElements.define('tl-subscriptions', Subscriptions);
