@@ -1,0 +1,46 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "form-dialog";
+
+.#{$handle} {
+	overflow: auto;
+	flex-direction: column;
+	width: calc(100vw - (2 * var(--s-sm)));
+	max-width: var(--w-lg);
+	max-height: 90vh;
+	margin-inline: auto;
+	padding: var(--s-sm);
+	background-color: var(--c-bg-lt);
+	border: 1px solid var(--c-black);
+
+	@include media("md") {
+		padding: var(--s-md);
+	}
+
+	&--md {
+		max-width: var(--w-md);
+	}
+
+	&:popover-open {
+		@include centerer;
+		position: fixed;
+		display: flex;
+	}
+
+	&::backdrop {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	> button {
+		@include absolute(var(--s-sm), var(--s-sm));
+		width: var(--s-icon-lg);
+		height: var(--s-icon-lg);
+	}
+
+	> h3 {
+		@include font("heading", "sm");
+		margin-bottom: var(--s-sm);
+	}
+}

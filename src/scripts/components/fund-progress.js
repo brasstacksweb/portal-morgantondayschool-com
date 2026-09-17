@@ -5,24 +5,14 @@ import { actions, events } from '../events';
 const PROGRESS_ENDPOINT = '/json/fund-progress';
 const CONFIRM_ENDPOINT = '/titan-fund/confirm';
 
-// Query params Stripe and the checkout controller hand back.
-const PARAMS = ['donation', 'session_id', 'reason'];
-
-const ERROR_MESSAGES = {
-    amount: 'Please choose or enter a donation amount of at least $1.',
-    closed: 'The Titan Fund is not accepting online gifts right now.',
-    unavailable: 'We could not reach our payment processor. Please try again in a moment.',
-};
-
-const getErrorMessage = reason => ERROR_MESSAGES[reason] || ERROR_MESSAGES.unavailable;
+// Query params Stripe hands back on the return from Checkout.
+const PARAMS = ['donation', 'session_id'];
 
 export default class FundProgress extends HTMLElement {
     constructor() {
         super();
 
         const bar = this.querySelector('div[data-progress]');
-        const csrf = this.querySelector('input[data-csrf]');
-        const submit = this.querySelector('button[type="submit"]');
 
         const load = async () => {
             const res = await fetch(PROGRESS_ENDPOINT, {
@@ -33,22 +23,11 @@ export default class FundProgress extends HTMLElement {
                 return;
             }
 
-            const { markup = '', csrfToken = '' } = await res.json();
+            const { markup = '' } = await res.json();
 
             // Replacing the markup outright is what replays the bar's fill
             // animation, so a refreshed total visibly climbs from zero.
             bar.innerHTML = markup;
-
-            // The donate form is rendered inside the homepage cache, so it ships
-            // with an empty token and a disabled submit. Both are filled in here,
-            // the same way tl-form enables its own button.
-            if (csrf && csrfToken) {
-                csrf.value = csrfToken;
-
-                if (submit) {
-                    submit.removeAttribute('disabled');
-                }
-            }
         };
 
         const confirmDonation = async sessionId => {
@@ -89,13 +68,7 @@ export default class FundProgress extends HTMLElement {
             confirmDonation(sessionId);
         }
 
-        if (status === 'error') {
-            events.emit(actions.loadModal, {
-                markup: `<div class="donate-thanks"><h2>Sorry</h2><p>${getErrorMessage(params.get('reason'))}</p></div>`,
-            });
-        }
-
-        // Drop the params so a refresh neither re-celebrates nor re-warns.
+        // Drop the params so a refresh does not re-celebrate.
         // 'canceled' needs no message — the donor chose it.
         if (status) {
             const url = new URL(window.location.href);

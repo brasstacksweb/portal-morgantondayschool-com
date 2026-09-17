@@ -27,7 +27,7 @@ recorded by the site from Stripe. The banner sums both.
 | Pledges | **Not modeled.** Every recorded gift is a paid gift. |
 | Over goal | **Shown and celebrated.** The bar caps visually at 100% with a `goal-met` state; the percentage keeps climbing and the donate CTA stays prominent. |
 | Campaign end | **No thank-you state.** The entry expires and the banner stops rendering. |
-| Placement | **Homepage only**, stacked under the existing red `.home-banner`, on a white background. Built as two components so the button + dialog can be lifted onto other pages later. |
+| Placement | **Homepage only**, stacked under the existing red `.home-banner`, on a white background. The donate button + dialog is the shared `form-dialog` component, so it can be lifted onto other pages later. |
 | Payment flow | **Stripe Checkout (hosted).** Plain POST form → server creates a Session → redirect to Stripe. **No Stripe.js, no publishable key, no card fields on this site.** |
 | Amounts | CMS-editable presets **plus** an "other amount" field. No policy minimum or maximum (technical guards only). |
 | Cover the fee | **Yes**, an opt-in checkbox that grosses the charge up. |
@@ -35,8 +35,8 @@ recorded by the site from Stripe. The banner sums both.
 | Donor fields | **Family name and email, collected by Stripe Checkout** — not by a form on this site. |
 | Logged-in parents | `userId` is attached to the gift when a parent is signed in. Donating does **not** require a login. |
 | Receipts | **Stripe's receipt email only.** No Postmark send. Revisit if the school needs specific acknowledgement language. |
-| Anti-abuse | **No reCAPTCHA.** Stripe Radar covers it; the endpoint only creates a Checkout Session. |
-| Progress data delivery | **Client fetch** from `/json/fund-progress`, so the cached homepage stays cached. The same fetch delivers the donate form's CSRF token. |
+| Anti-abuse | **reCAPTCHA, like every form on the site**, plus Stripe Radar on the payment itself. |
+| Progress data delivery | **Client fetch** from `/json/fund-progress`, so the cached homepage stays cached. |
 | Admin reporting | **Stripe dashboard.** No CP donor list, no CSV export. |
 | New dependencies | `stripe/stripe-php` (Composer) and `canvas-confetti` (npm — the project's first runtime JS dependency). |
 | Out of scope for v1 | Recurring gifts, pledges, tribute/honoree fields, donor CP screens, CSV export, matching gifts, multi-campaign support, donation history for parents, net/fee reporting. |
@@ -125,56 +125,54 @@ offline, or a family already counted online).
 Checkout is a redirect, so this site never loads Stripe.js, never renders a card
 field, and needs **no publishable key** — only a secret key and a webhook
 secret. It also brings Apple/Google Pay, receipt emails, and Stripe's own
-validation and localization. The donation dialog reduces to a plain POST form
-with radio buttons, so it needs **no JavaScript at all** (same shape as the
-athletics signup panel's plain POST forms).
+validation and localization. The donation dialog is an ordinary site form (an
+amount and a checkbox) whose success response is a redirect to Stripe.
 
 The confetti moment survives the redirect: Stripe returns the donor to
 `/?donation=success&session_id=...`, and the front end confirms that session and
 celebrates.
 
-### Why the donate form does not reuse `_components/form.twig`
+### One form pattern for the whole site
 
-Two reasons:
+The donate form is not bespoke. Like the athletics signup, it is a
+`modules\components\models\Form` subclass rendered by `_components/form.twig`
+inside `_components/form-dialog.twig`, submitted by `tl-form`. Everything that
+differs about donations is expressed through the model's overrides:
 
-1. **The preset UX does not fit the generic field renderer.** Radio buttons for
-   preset amounts plus an "other amount" number input is bespoke markup, not a
-   list of `attributeTypes()`.
-2. **`modules\components\models\Form::rules()` carries the reCAPTCHA rule.**
-   Athletics does `array_merge(parent::rules(), ...)`, which is what pulls
-   reCAPTCHA into every existing form. Since we deliberately skip reCAPTCHA
-   here, `models\Donation` still **extends** the base Form (for `validateHash()`
-   and the action/redirect path contract) but **overrides `rules()` without
-   merging the parent's**, with a comment saying so.
+| Need | How the shared pattern handles it |
+|---|---|
+| Preset amounts as pills | `attributeTypes()` → `'radio-pills'`, a radio group styled as a row of pills. Available to any form. |
+| Presets come from the CMS | `attributeOptions()` builds them from `$presets`, which `Donations::newDonation($attrs, $campaign)` fills from the entry (never from the post). |
+| "Other amount" only when chosen | `attributeConditionals()` shows `customAmount` when `amount` is `other`; `tl-form-field` already does this. |
+| Cover the fee | A single-option `'checkbox'`, like signup's `interestedInCoaching`. |
+| Redirect to an off-site payment page | The controller returns `asSuccess(..., redirect: $stripeUrl)`. `tl-form` follows a server-supplied `redirect` before the template's `data-redirect-path`. |
+| Field errors | `asModelFailure()`, shown inline per field like every other form. |
 
-This also keeps the homepage free of the reCAPTCHA script — `loadForm` stays
-`false` on `index.twig`.
+Site-wide rules the donate form now follows:
+
+- **Forms require JavaScript.** `form.twig` renders the submit button `disabled`
+  and `tl-form` enables it; submission is always ajax.
+- **Every form runs reCAPTCHA.** The base model's rule applies to all forms, so
+  the homepage sets `loadForm` (when Stripe is configured). Each model's
+  scenario must list `token` — Yii only validates active attributes, and
+  athletics `Signup` had been silently skipping reCAPTCHA until it was added.
+- **CSRF is async.** `form.twig` uses `csrfInput({ async: true })`: Craft renders
+  a placeholder and fills a fresh token from `users/session-info` on load, and
+  its `{% cache %}` tag replays that script. Any form can live inside a cached
+  block.
 
 ### Why the banner stays inside `{% cache %}`
 
 The banner — including the donate dialog — renders inside the homepage's
-`{% cache if not devMode %}` block, so the homepage stays fully cached. Two
-things that cannot be cached are delivered by the uncached `/json/fund-progress`
-fetch instead:
-
-- **The figures.** The endpoint returns the server-rendered
-  `fund-progress-bar` markup, so currency formatting stays in Twig and the first
-  render and every refresh are identical. Replacing the markup replays the bar's
-  fill animation, which is what makes the donor's own gift visibly move the bar
-  under the confetti.
-- **The CSRF token.** A token rendered into a cached page belongs to whoever
-  warmed the cache. `donate-form.twig` ships an empty token input and a
-  **disabled** submit button; `tl-fund-progress` fills the token from the fetch
-  and enables the button — the same way `tl-form` ships disabled. A cross-origin
-  read of the endpoint is opaque, so this is the same exposure as Craft's own
-  `users/session-info` action.
+`{% cache if not devMode %}` block, so the homepage stays fully cached. The
+figures cannot be cached, so they come from the uncached `/json/fund-progress`
+fetch: server-rendered `fund-progress-bar` markup, so currency formatting stays
+in Twig. Replacing the markup replays the bar's fill animation, which is what
+makes the donor's own gift visibly move the bar under the confetti. The CSRF
+token is handled by the async `csrfInput` (above).
 
 Consequences worth knowing:
 
-- **Errors travel by query string, not flash.** A flash message rendered inside
-  the cache would be cached and shown to the wrong person, so a failed checkout
-  redirects to `?donation=error&reason=amount|closed|unavailable` and the script
-  shows the message in the global modal.
 - **The campaign is queried inside the cache block.** Craft only caps a template
   cache's lifetime at an entry's `expiryDate` when the entry is fetched while the
   cache is collecting. Queried above the block, the banner would outlive its
@@ -421,17 +419,19 @@ following the reCAPTCHA/VAPID precedent.
 
 ### `models/Donation.php`
 
-Extends `modules\components\models\Form`. Attributes: `amount` (preset radio
-value, cents), `customAmount` (dollars), `coverFee`, and the hashed `redirect`.
+Extends `modules\components\models\Form` and merges the parent's rules
+(reCAPTCHA) like every other form. Attributes: `token`, `amount` (a preset in
+cents, or `other`), `customAmount` (dollars, used when `amount` is `other`),
+`coverFee` (checkbox array), and the hashed hidden `returnPath`. `presets` is a
+plain property, not in the scenario, so it cannot be posted.
+
 There is **no campaign id on the form** — the campaign is always the live entry,
 resolved server-side, never trusted from the post.
 
-`rules()` deliberately does not merge the parent's (reCAPTCHA; see above).
-`validateAmount()` runs with `skipOnEmpty => false` — otherwise Yii skips it when
-the donor typed an "other amount" and left `amount` empty — and resolves the
-effective amount (`customAmount` wins when greater than zero). It enforces
-**technical** guards only: at least $1 (`Donations::MIN_CENTS`; Stripe rejects
-charges under $0.50) and at most $999,999 (`MAX_CENTS`).
+`validateAmount()` resolves the effective amount and puts any error on the field
+the donor actually used. It enforces **technical** guards only: at least $1
+(`Donations::MIN_CENTS`; Stripe rejects charges under $0.50) and at most
+$999,999 (`MAX_CENTS`).
 
 `getActionPath()` returns `titan-fund/donations/checkout`.
 
@@ -460,10 +460,11 @@ row exists, so a foreign key failure is not mistaken for "already recorded."
 
 `$allowAnonymous = ['checkout', 'confirm']` — giving does not require a login.
 
-**`actionCheckout()`** — `requirePostRequest()`, validate the model, resolve the
-live campaign, gross up if `coverFee`, create the Session, and redirect to
-Stripe. Any failure redirects back with `?donation=error&reason=...`. No JSON;
-this is a plain form post.
+**`actionCheckout()`** — POST, JSON only (answers `tl-form`). Validates the model
+(`asModelFailure` on errors), resolves the live campaign, grosses up if
+`coverFee`, creates the Session, and returns `asSuccess()` with the Checkout URL
+as `redirect`. A closed campaign, missing key, or Stripe error returns
+`asFailure()` with a message `tl-form` shows above the form.
 
 **`actionConfirm()`** — GET with `session_id`, JSON only. Retrieves the session,
 requires it to be paid **and** started by this site, records it, and returns the
@@ -505,7 +506,7 @@ in project config. Without it Stripe gets a 401 and retries for days.
 **`templates/_components/fund-progress.twig`** — the banner. White background,
 stacking below the red `.home-banner`. Renders the campaign heading and overview,
 an empty `[data-progress]` slot the fetch fills, and — only when
-`craft.checkout.isConfigured()` — the donate button and dialog:
+`craft.checkout.isConfigured()` — the shared form dialog:
 
 ```twig
 <tl-fund-progress class="fund-progress">
@@ -513,26 +514,27 @@ an empty `[data-progress]` slot the fetch fills, and — only when
 	<div data-progress></div>
 	{% if canGive %}
 		<nav>
-			<button type="button" popovertarget="donate-dialog">…Give Now…</button>
-			<dialog id="donate-dialog" popover>
-				<button popovertarget="donate-dialog" popovertargetaction="hide">…</button>
-				{% include '_components/donate-form' with { campaign: campaign } only %}
-			</dialog>
+			{% include '_components/form-dialog' with {
+				id: 'donate-dialog',
+				triggerLabel: 'Give Now',
+				heading: 'Give to the ' ~ campaign.heading,
+				size: 'md',
+				form: craft.donations.newDonation({
+					returnPath: craft.app.request.pathInfo,
+				}, campaign),
+			} only %}
 		</nav>
 	{% endif %}
 </tl-fund-progress>
 ```
 
 Without a secret key the banner degrades to a progress bar driven by offline
-gifts rather than offering a button that cannot work. The `<dialog popover>` +
-`popovertarget` pattern is the one athletics uses (`_components/team.twig`), so
-opening it needs no JavaScript.
+gifts rather than offering a button that cannot work.
 
-**`templates/_components/donate-form.twig`** — presets as radios, an always-
-visible "other amount" number input, the cover-the-fee checkbox, an empty CSRF
-input (`data-csrf`, filled by script), `actionInput()`, `redirectInput()`, and a
-submit button that ships `disabled`. Kept separate from `fund-progress` so the
-button + dialog can be lifted onto other pages later.
+**`templates/_components/form-dialog.twig`** (shared) — a trigger button plus a
+`<dialog popover>` holding `_components/form`. Opening and closing are native
+popover behavior. Used by both the donate dialog and the athletics signup
+(`_components/team.twig`), replacing two copies of the same markup and CSS.
 
 **`templates/_components/fund-progress-bar.twig`** — the figures, the bar, and the
 meta line ("12% of goal · 40 of 300 families (13%)"). Rendered only by the JSON
@@ -543,14 +545,19 @@ endpoint.
 surface, since that modal is otherwise styled as an image lightbox.
 
 **`templates/json/fund-progress.twig`** — mirrors
-`templates/json/reminder-list.twig`. Returns `{ markup, csrfToken }`. Reached by
+`templates/json/reminder-list.twig`. Returns `{ markup }`. Reached by
 Craft's template routing at `/json/fund-progress`. Not cached.
 
 ### Edited
 
 **`templates/index.twig`** — queries the campaign and includes the banner
 immediately after `.home-banner`, both **inside** the `{% cache %}` block (see
-Why the banner stays inside `{% cache %}`).
+Why the banner stays inside `{% cache %}`), and sets `loadForm` for reCAPTCHA
+when Stripe is configured.
+
+**Shared form templates** — `form.twig` uses `csrfInput({ async: true })` and a
+disabled submit; `form-field.twig` gains the `radio-pills` type and wraps option
+labels in a `<span>`.
 
 ### Over-goal presentation
 
@@ -569,25 +576,26 @@ does not change, since giving stays open.
   (`--c-bg-md`), `--s-br-sm` radius, `font()` mixin for labels, `media()` for the
   narrow layout. Bar width comes from an inline `--progress` custom property and
   transitions on `.is-loaded`.
-- `src/styles/components/_donate-form.scss` — preset radios as a wrapping row of
-  pill buttons, the other-amount field, and the fee checkbox.
-- Both registered alphabetically in `src/styles/index.scss` (after
-  `components/details` and `components/form-field` respectively).
+- `src/styles/components/_form-field.scss` — the shared `--type-radio-pills`
+  styles: a wrapping row of pills with the radio visually hidden but focusable.
+- `src/styles/components/_form-dialog.scss` — the shared popover dialog, moved
+  out of `_team.scss` and `_fund-progress.scss`. `--md` narrows it.
 
 ### Scripts
 
 **`src/scripts/components/fund-progress.js`** — the `tl-fund-progress` custom
 element, registered in `index.js`. Its jobs:
 
-1. On connect, fetch `/json/fund-progress`, inject the bar markup (the CSS
-   keyframe animates the fill), fill the donate form's CSRF token, and enable the
-   submit button.
+1. On connect, fetch `/json/fund-progress` and inject the bar markup (the CSS
+   keyframe animates the fill).
 2. On `?donation=success&session_id=...`, GET `/titan-fund/confirm`; on success
    emit `actions.loadModal` with the thank-you markup, fire the confetti, and
    re-fetch the progress so the bar replays up to the new total.
-3. On `?donation=error&reason=...`, show the matching message in the modal.
-4. Strip the query params with `history.replaceState()` so a refresh neither
-   re-celebrates nor re-warns. `?donation=canceled` is stripped silently.
+3. Strip the query params with `history.replaceState()` so a refresh does not
+   re-celebrate. `?donation=canceled` is stripped silently.
+
+The donate form itself is plain `tl-form`, which now follows a server-supplied
+`redirect` — that is how it reaches Stripe.
 
 Confetti uses `canvas-confetti` with `disableForReducedMotion: true`; the bar's
 fill animation is likewise off under `prefers-reduced-motion`.
@@ -657,7 +665,7 @@ gifts** — a reasonable place to pause if Stripe access takes a while.
 `stripe/stripe-php`, `services/Checkout.php`, `models/Donation.php`,
 `controllers/DonationsController.php` (`checkout` only), the donate button and
 dialog added to `_components/fund-progress.twig`,
-`_components/donate-form.twig`, `_donate-form.scss`, env vars. Test with Stripe
+the donation form model on the shared form pattern, env vars. Test with Stripe
 test keys and card `4242 4242 4242 4242`.
 
 ### Commit 7 — Confirmation and confetti

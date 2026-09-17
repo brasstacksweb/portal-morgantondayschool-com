@@ -60,12 +60,14 @@
 				</select>
 				{{ icons.chevron('down') }}
 			</div>
-		{% case 'radio' or 'checkbox' %}
+		{% case 'radio' or 'radio-pills' or 'checkbox' %}
+			{# radio-pills is a radio group styled as a row of pill buttons #}
+			{% set inputType = type == 'radio-pills' ? 'radio' : type %}
 			<fieldset>
 				{% for o in form.getAttributeOptions(name) %}
 					<label for="{{ id }}-{{ o.value }}">
 						<input
-							type="{{ type }}"
+							type="{{ inputType }}"
 							id="{{ id }}-{{ o.value }}"
 							name="{{ name  ~ (type == 'checkbox' ? '[]' )}}"
 							value="{{ o.value }}"
@@ -78,7 +80,7 @@
 								required
 							{% endif %}
 							/>
-						{{ o.label }}
+						<span>{{ o.label }}</span>
 					</label>
 				{% endfor %}
 			</fieldset>

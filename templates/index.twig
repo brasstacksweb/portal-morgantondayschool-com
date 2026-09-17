@@ -45,6 +45,8 @@
 {% set metaTitle = 'Morganton Day School Titan Link Parent Portal' %}
 {% set metaDescription = entry.heroBody %}
 {% set metaNoIndex = true %}
+{# reCAPTCHA for the Titan Fund donate form, which only renders once Stripe is set up #}
+{% set loadForm = craft.checkout.isConfigured() %}
 
 {% css %}
 	.home-banner {

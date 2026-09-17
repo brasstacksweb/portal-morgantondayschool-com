@@ -30,6 +30,9 @@ class Signup extends BaseForm
     {
         return [
             self::SCENARIO_DEFAULT => [
+                // Without it the parent's reCAPTCHA rule is silently skipped:
+                // Yii only validates attributes active in the scenario.
+                'token',
                 'participantFirstName',
                 'participantLastName',
                 'dateOfBirth',

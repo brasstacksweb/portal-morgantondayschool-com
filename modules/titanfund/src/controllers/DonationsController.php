@@ -12,37 +12,26 @@ use modules\titanfund\TitanFundModule;
  * Starts a donation and confirms it on the way back.
  *
  * Giving never requires a login, so both actions are anonymous. actionCheckout
- * is a plain POST that answers with a redirect to Stripe — the same shape as the
- * athletics signup panel, and the reason the donate form needs no JavaScript.
- *
- * Errors are reported through a query string rather than a flash message: the
- * banner lives inside the homepage's {% cache %} block, so a flash rendered
- * there would be cached and shown to the wrong person.
+ * answers the shared ajax tl-form like every other form: field errors come back
+ * through asModelFailure, and success carries the Stripe Checkout URL as the
+ * redirect, which tl-form follows.
  */
 class DonationsController extends Controller
 {
     protected array|bool|int $allowAnonymous = ['checkout', 'confirm'];
 
-    public function actionCheckout(): Response
+    public function actionCheckout(): ?Response
     {
         $this->requirePostRequest();
+        $this->requireAcceptsJson();
 
         $donations = TitanFundModule::getInstance()->donations;
         $checkout = TitanFundModule::getInstance()->checkout;
 
         $model = Donations::newDonation($this->request->getBodyParams());
-        // Validate first: validateHash unhashes the redirect in place, and the
-        // failure path needs somewhere to send the donor back to.
-        $valid = $model->validate();
-        $returnPath = $model->getRedirectPath() ?: '/';
 
-        if (!$valid) {
-            \Craft::warning(
-                'Rejected a Titan Fund donation: '.json_encode($model->getErrors()),
-                __METHOD__
-            );
-
-            return $this->failure($returnPath, 'amount');
+        if (!$model->validate()) {
+            return $this->asModelFailure($model, 'Please fix the highlighted fields.');
         }
 
         $campaign = $donations->getCampaign();
@@ -50,15 +39,17 @@ class DonationsController extends Controller
         if (!$campaign) {
             \Craft::warning('A donation was posted with no live Titan Fund campaign.', __METHOD__);
 
-            return $this->failure($returnPath, 'closed');
+            return $this->asFailure('The Titan Fund is not accepting online gifts right now.');
         }
 
         if (!$checkout->isConfigured()) {
             \Craft::error('A donation was posted but STRIPE_SECRET_KEY is not set.', __METHOD__);
 
-            return $this->failure($returnPath, 'unavailable');
+            return $this->asFailure('Online giving is not available right now.');
         }
 
+        // validateHash unhashed returnPath in place.
+        $returnPath = $model->returnPath;
         $netCents = $model->getAmountCents();
         $coversFee = $model->coversFee();
 
@@ -72,10 +63,10 @@ class DonationsController extends Controller
         );
 
         if (!$url) {
-            return $this->failure($returnPath, 'unavailable');
+            return $this->asFailure('We could not reach our payment processor. Please try again in a moment.');
         }
 
-        return $this->redirect($url);
+        return $this->asSuccess('Continuing to secure checkout.', [], $url);
     }
 
     /**
@@ -140,13 +131,5 @@ class DonationsController extends Controller
         $url = UrlHelper::siteUrl($returnPath, ['donation' => 'success']);
 
         return $url.(str_contains($url, '?') ? '&' : '?').'session_id={CHECKOUT_SESSION_ID}';
-    }
-
-    private function failure(string $returnPath, string $reason): Response
-    {
-        return $this->redirect(UrlHelper::siteUrl($returnPath, [
-            'donation' => 'error',
-            'reason' => $reason,
-        ]));
     }
 }

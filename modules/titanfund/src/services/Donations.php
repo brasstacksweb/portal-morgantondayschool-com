@@ -53,15 +53,38 @@ class Donations extends Component
     private const CACHE_DURATION = 60;
 
     /**
-     * Factory for the donation form model from submitted data (POST), mirroring
-     * Signups::newSignup / Auth::newLogin.
+     * Factory for the donation form model, mirroring Signups::newSignup /
+     * Auth::newLogin. The campaign supplies the preset amounts when rendering;
+     * a submission needs none, since amounts are bounds-checked, not matched.
      */
-    public static function newDonation(array $attrs = []): DonationModel
+    public static function newDonation(array $attrs = [], ?Entry $campaign = null): DonationModel
     {
         $donation = new DonationModel();
         $donation->setAttributes($attrs);
 
+        if ($campaign) {
+            $donation->presets = self::presetAmounts($campaign);
+
+            // Preselect the first preset, so a donor can give in one click.
+            if ($donation->amount === '' && $donation->presets) {
+                $donation->amount = (string) ($donation->presets[0] * 100);
+            }
+        }
+
         return $donation;
+    }
+
+    /**
+     * The campaign's preset gift amounts in whole dollars, skipping blank rows.
+     *
+     * @return int[]
+     */
+    public static function presetAmounts(Entry $campaign): array
+    {
+        return array_values(array_filter(array_map(
+            fn (array $row) => (int) ($row['amount'] ?? 0),
+            $campaign->giftPresets ?? [],
+        ), fn (int $dollars) => $dollars > 0));
     }
 
     // --- Campaign -----------------------------------------------------------

@@ -18,13 +18,6 @@
 {# Res #}
 {% header 'Content-Type: application/json' %}
 
-{#
-	The CSRF token rides along because the donate form is rendered inside the
-	homepage cache and cannot carry one of its own. This template is never
-	cached, and a cross-origin read of it is opaque, so it is the same exposure
-	as Craft's own users/session-info action.
-#}
 {{ {
 	markup: markup|trim,
-	csrfToken: craft.app.request.csrfToken,
 }|json_encode|raw }}
