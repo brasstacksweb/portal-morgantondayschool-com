@@ -280,9 +280,16 @@ AddType application/x-shockwave-flash       swf
 </IfModule>
 
 # ----------------------------------------------------------------------
+# Block multipart/form-data requests RCE Stopgap
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP:Content-Type} multipart/form-data [NC]
+    RewriteRule ^ - [F,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
 # Default Craft .htaccess
 # ----------------------------------------------------------------------
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
