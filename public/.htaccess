@@ -236,6 +236,7 @@ AddType application/x-shockwave-flash       swf
 <IfModule mod_rewrite.c>
     # Custom 301 Redirects
     RewriteRule ^classes/eigth-grade /classes/eighth-grade [R=301,QSA,L]
+    RewriteRule ^classes/kindergaten /classes/kindergarten [R=301,QSA,L]
 </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -279,9 +280,16 @@ AddType application/x-shockwave-flash       swf
 </IfModule>
 
 # ----------------------------------------------------------------------
+# Block multipart/form-data requests RCE Stopgap
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP:Content-Type} multipart/form-data [NC]
+    RewriteRule ^ - [F,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
 # Default Craft .htaccess
 # ----------------------------------------------------------------------
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
