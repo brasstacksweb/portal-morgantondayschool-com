@@ -19,5 +19,8 @@
 		"sass": "^1.96.0",
 		"stylelint": "^16.26.1",
 		"stylelint-order": "^6.0.4"
+	},
+	"dependencies": {
+		"canvas-confetti": "^1.9.4"
 	}
 }

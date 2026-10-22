@@ -31,6 +31,16 @@ $handle: "modal";
 			}
 		}
 
+		/* Confetti canvas added by tl-fund-progress. Covers the viewport above
+		   the modal content without catching clicks meant for it. */
+		> canvas {
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+		}
+
 		> section {
 			display: flex;
 			justify-content: center;

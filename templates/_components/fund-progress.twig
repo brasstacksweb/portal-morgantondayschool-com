@@ -1,0 +1,37 @@
+{##
+ # Fund Progress component
+ # @param {Entry} campaign
+ #}
+
+{# Params #}
+{% set campaign = campaign ?? null %}
+
+{# Variables #}
+{% set handle = 'fund-progress' %}
+{% set canGive = craft.checkout.isConfigured() %}
+
+{# Markup #}
+<tl-fund-progress class="{{ handle }}">
+	<header>
+		<h2>{{ campaign.heading }}</h2>
+		{% if campaign.overview is not empty %}
+			<div>{{ campaign.overview }}</div>
+		{% endif %}
+	</header>
+	<div data-progress></div>
+	{# Hidden until Stripe is configured, so the banner degrades to offline
+	   progress rather than offering a button that cannot work. #}
+	{% if canGive %}
+		<nav>
+			{% include '_components/form-dialog' with {
+				id: 'donate-dialog',
+				triggerLabel: 'Give Now',
+				heading: 'Give to the ' ~ campaign.heading,
+				size: 'md',
+				form: craft.donations.newDonation({
+					returnPath: craft.app.request.pathInfo,
+				}, campaign),
+			} only %}
+		</nav>
+	{% endif %}
+</tl-fund-progress>

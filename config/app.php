@@ -26,6 +26,7 @@ use modules\components\ComponentsModule;
 use modules\forms\FormsModule;
 use modules\notifications\NotificationsModule;
 use modules\site\SiteModule;
+use modules\titanfund\TitanFundModule;
 use Psr\Log\LogLevel;
 use yii\log\EmailTarget;
 use yii\web\HttpException;
@@ -36,6 +37,7 @@ $modules = [
     'forms-module' => FormsModule::class,
     'notifications' => NotificationsModule::class,
     'site-module' => SiteModule::class,
+    'titan-fund' => TitanFundModule::class,
 ];
 
 return [

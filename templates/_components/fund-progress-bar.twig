@@ -1,0 +1,37 @@
+{##
+ # Fund Progress Bar component
+ # @param {object} progress
+ #}
+
+{# Params #}
+{% set progress = progress ?? null %}
+
+{# Variables #}
+{% set handle = 'fund-progress-bar' %}
+{% set raised = (progress.raisedCents / 100)|round %}
+{% set goal = (progress.goalCents / 100)|round %}
+
+{% set meta = progress.percent ~ '% of goal' %}
+{% if progress.participation is not null %}
+	{% set meta = meta
+		~ ' · ' ~ progress.familiesGiven ~ ' of ' ~ progress.familyCount ~ ' families'
+		~ ' (' ~ progress.participation ~ '%)' %}
+{% endif %}
+
+{# Markup #}
+<div class="{{ handle }} {{ handle }}--{{ progress.state }}">
+	<h3>
+		<strong>{{ raised|currency('USD', stripZeros = true) }}</strong>
+		<span>raised of {{ goal|currency('USD', stripZeros = true) }} goal</span>
+	</h3>
+	<div
+		role="progressbar"
+		aria-valuemin="0"
+		aria-valuemax="100"
+		aria-valuenow="{{ progress.barPercent }}"
+		aria-valuetext="{{ progress.percent }}% of goal"
+		style="--progress: {{ progress.barPercent }}%">
+		<span></span>
+	</div>
+	<p><small>{{ meta }}</small></p>
+</div>

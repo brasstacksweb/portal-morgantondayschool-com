@@ -1,0 +1,42 @@
+{##
+ # Form Dialog component
+ #
+ # A trigger button and the popover dialog holding a form. Opening and closing
+ # are native popover behavior, so no script is involved beyond tl-form itself.
+ #
+ # @param {string} id — unique per page
+ # @param {string} triggerLabel
+ # @param {string} heading
+ # @param {modules\components\models\Form} form
+ # @param {string} size — 'lg' (default) or 'md'
+ #}
+
+{# Params #}
+{% set id = id ?? '' %}
+{% set triggerLabel = triggerLabel ?? '' %}
+{% set heading = heading ?? '' %}
+{% set form = form ?? null %}
+{% set size = size ?? 'lg' %}
+
+{# Variables #}
+{% set handle = 'form-dialog' %}
+
+{# Markup #}
+{% import '_icons' as icons %}
+
+<button type="button" popovertarget="{{ id }}">
+	{% include '_components/cta' with {
+		title: triggerLabel,
+	} only %}
+</button>
+<dialog id="{{ id }}" class="{{ handle }} {{ handle }}--{{ size }}" popover>
+	<button
+		type="button"
+		popovertarget="{{ id }}"
+		popovertargetaction="hide"
+		aria-label="Close">{{ icons.x() }}</button>
+	<h3>{{ heading }}</h3>
+	{% include '_components/form' with {
+		form: form,
+	} only %}
+</dialog>

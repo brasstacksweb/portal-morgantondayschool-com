@@ -22,7 +22,12 @@
 	data-redirect-path="{{ redirectPath }}">
 	<p></p>
 	<form method="post" {% if devMode %}novalidate{% endif %}>
-		{{ csrfInput() }}
+		{#
+			Async so the form can live inside a {% cache %} block: Craft renders a
+			placeholder and fills a fresh token from users/session-info on load. A
+			cached token would belong to whoever warmed the cache.
+		#}
+		{{ csrfInput({ async: true }) }}
 		{{ actionInput(form.getActionPath()) }}
 		{% if redirectPath is not empty %}
 			{{ redirectInput(form.getRedirectPath()) }}
@@ -42,7 +47,8 @@
 			{% endif %}
 		{% endfor %}
 
-		<button type="submit">
+		{# Forms require JavaScript (reCAPTCHA, ajax submit); tl-form enables this. #}
+		<button type="submit" disabled>
 			{% include '_components/cta' with {
 				title: form.submitText,
 				type: 'primary',

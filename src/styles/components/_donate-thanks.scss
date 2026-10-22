@@ -1,0 +1,32 @@
+@use "../base/layout" as *;
+@use "../base/media" as *;
+@use "../base/typography" as *;
+
+$handle: "donate-thanks";
+
+.#{$handle} {
+	width: calc(100vw - (2 * var(--s-sm)));
+	max-width: var(--w-md);
+	padding: var(--s-md) var(--s-sm);
+	background-color: var(--c-white);
+	text-align: center;
+
+	@include media("sm") {
+		padding: var(--s-lg) var(--s-md);
+	}
+
+	> h2 {
+		@include font("heading", "sm");
+	}
+
+	> p {
+		@include font("body", "md");
+		margin-top: var(--s-sm);
+		text-wrap: balance;
+
+		> small {
+			@include font("body", "xs");
+			color: var(--c-fg-md);
+		}
+	}
+}

@@ -1,0 +1,80 @@
+columnSuffix: null
+handle: offlineGifts
+instructions: null
+name: 'Offline Gifts'
+searchable: false
+settings:
+  addRowLabel: 'Add a gift'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Date
+            -
+              - handle
+              - date
+            -
+              - width
+              - 20%
+            -
+              - type
+              - date
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Amount
+            -
+              - handle
+              - amount
+            -
+              - width
+              - 15%
+            -
+              - type
+              - number
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - Description
+            -
+              - handle
+              - description
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Repeat gift'
+            -
+              - handle
+              - repeatGift
+            -
+              - width
+              - 15%
+            -
+              - type
+              - lightswitch
+  defaults: null
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

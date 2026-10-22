@@ -1,0 +1,16 @@
+description: null
+handle: titanFundStaff
+name: 'Titan Fund Staff'
+permissions:
+  - accesscp
+  - 'changeauthorforpeerentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'createentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'deleteentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'deletepeerentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'deletepeerentrydrafts:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'saveentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'savepeerentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'savepeerentrydrafts:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'viewentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'viewpeerentries:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  - 'viewpeerentrydrafts:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
