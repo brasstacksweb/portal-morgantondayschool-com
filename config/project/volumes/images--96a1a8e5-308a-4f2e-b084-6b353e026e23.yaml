@@ -110,6 +110,7 @@ fieldLayouts:
 fs: images
 handle: images
 name: Images
+propagationMethod: custom
 sortOrder: 1
 subpath: general
 titleTranslationKeyFormat: null

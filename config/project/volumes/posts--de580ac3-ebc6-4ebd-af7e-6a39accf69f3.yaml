@@ -68,6 +68,7 @@ fieldLayouts:
 fs: images
 handle: posts
 name: Posts
+propagationMethod: custom
 sortOrder: 2
 subpath: posts
 titleTranslationKeyFormat: null

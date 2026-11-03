@@ -58,6 +58,7 @@ fieldLayouts:
 fs: documents
 handle: documents
 name: Documents
+propagationMethod: custom
 sortOrder: 5
 subpath: ''
 titleTranslationKeyFormat: null

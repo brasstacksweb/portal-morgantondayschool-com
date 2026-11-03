@@ -40,6 +40,7 @@ fieldLayouts:
 fs: images
 handle: userPhotos
 name: 'User Photos'
+propagationMethod: custom
 sortOrder: 3
 subpath: user-photots
 titleTranslationKeyFormat: null
