@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: campaign
+instructions: null
+name: Campaign
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: 'Add a campaign'
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: false
+  showUnpermittedSections: false
+  sources:
+    - 'section:7751fad7-b05d-4464-876c-e477e80daf93' # Titan Fund
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list-inline
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

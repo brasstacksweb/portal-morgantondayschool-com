@@ -1,0 +1,71 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  3f241c35-eb6a-4a9b-83bd-1bd500dc7c60:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-11-03T21:11:10+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 986ca60a-99cb-4d15-895e-450c7ccbe74a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2026-11-03T21:14:06+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: e589a646-33ba-4c84-b9ee-a7804a96701d # Campaign
+            handle: null
+            instructions: null
+            label: null
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 34e01a87-68d3-4848-b55f-888c9b71b43a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 352d9aa7-2539-451a-a46d-7ac1bf6b2a82
+        userCondition: null
+    thumbFieldKey: null
+handle: campaignCta
+hasTitleField: true
+icon: hand-holding-circle-dollar
+name: 'Campaign CTA'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

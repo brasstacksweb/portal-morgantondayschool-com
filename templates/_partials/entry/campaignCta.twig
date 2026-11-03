@@ -1,0 +1,15 @@
+{% set size = size ?? 'md' %}
+
+{% set campaign = entry.campaign[0] ?? null %}
+
+<tl-fund-progress>
+	{% include '_components/form-dialog' with {
+		id: 'donate-dialog-' ~ campaign.id,
+		triggerLabel: entry.title,
+		heading: 'Give to the ' ~ campaign.heading,
+		size: size,
+		form: craft.donations.newDonation({
+			returnPath: craft.app.request.pathInfo,
+		}, campaign),
+	} only %}
+</tl-fund-progress>

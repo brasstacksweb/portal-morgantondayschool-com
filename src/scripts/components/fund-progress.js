@@ -38,6 +38,12 @@ export default class FundProgress extends HTMLElement {
         super();
 
         const load = async () => {
+            const progress = this.querySelector('div[data-progress]');
+
+            if (!progress) {
+                return;
+            }
+
             const res = await fetch('/json/fund-progress', {
                 headers: { Accept: 'application/json' },
             });
@@ -48,7 +54,7 @@ export default class FundProgress extends HTMLElement {
 
             const { markup = '' } = await res.json();
 
-            this.querySelector('div[data-progress]').innerHTML = markup;
+            progress.innerHTML = markup;
         };
 
         const confirmDonation = async sessionId => {

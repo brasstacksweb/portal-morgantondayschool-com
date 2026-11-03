@@ -1,4 +1,4 @@
-dateModified: 1789657475
+dateModified: 1793740672
 elementSources:
   craft\elements\Category:
     -
@@ -241,6 +241,7 @@ meta:
     223f2732-4610-4c45-82d2-bad80619614a: 'Icon Link' # Icon Link
     507c2c35-81fa-4361-90d7-f7514bbb4434: Activity # Activity
     613dcfc9-5442-4f47-8d88-b634483e0d47: 'Subject Updates' # Subject Updates
+    619e1b27-0934-47ba-a47d-294bb8a059b1: 'Campaign CTA' # Campaign CTA
     658d8481-cff5-4eb1-afe9-1a1288ea9b54: Coaches # Coaches
     666a2d7b-63a0-4256-acdd-fd5c0af0714f: Subjects # Subjects
     690c5d17-922a-451f-8b80-5090f22a5a47: Avatar # Avatar
@@ -298,6 +299,7 @@ meta:
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
     e1b52c88-d3c4-4f19-80f6-adf1d2dea13e: Coaches # Coaches
     e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
+    e589a646-33ba-4c84-b9ee-a7804a96701d: Campaign # Campaign
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: Image # Image
     e3999e4e-a947-4d65-8944-1f558463fe8f: 'Social Links' # Social Links
     e5038e81-a8e1-4d28-a69e-4057923a0c2b: Card # Card

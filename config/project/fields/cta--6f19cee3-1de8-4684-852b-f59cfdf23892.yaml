@@ -32,6 +32,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 619e1b27-0934-47ba-a47d-294bb8a059b1 # Campaign CTA
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: 1
   minEntries: null

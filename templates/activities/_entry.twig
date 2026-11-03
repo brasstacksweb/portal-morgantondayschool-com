@@ -22,6 +22,8 @@
 {% set metaTitle = entry.heading ?? entry.title ?? '' %}
 {% set metaDescription = entry.overview|striptags[:160] %}
 {% set metaNoIndex = true %}
+{# reCAPTCHA for the Titan Fund donate form, which only renders once Stripe is set up #}
+{% set loadForm = craft.checkout.isConfigured() %}
 
 {% extends '_layouts/html' %}
 
