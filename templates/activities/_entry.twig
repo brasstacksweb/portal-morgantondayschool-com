@@ -30,6 +30,22 @@
 {% block content %}
 	{% cache if not devMode %}
 		<article>
+			{#
+				Opt-in per entry (showTitanFundTicker), same component and gating as
+				the homepage. craft.donations.getCampaign() is queried inside this
+				cache block, not above it, so the cache's own lifetime is capped at
+				the campaign's expiryDate the same way the homepage's is — queried
+				above the block, this would outlive its campaign.
+			#}
+			{% if entry.showTitanFundTicker %}
+				{% set campaign = craft.donations.getCampaign() %}
+				{% if campaign %}
+					{% include '_components/fund-progress' with {
+						campaign: campaign,
+					} only %}
+				{% endif %}
+			{% endif %}
+
 			<header>
 				{% include '_components/hero' with {
 					image: heroImage,

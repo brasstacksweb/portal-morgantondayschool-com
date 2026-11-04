@@ -5,6 +5,14 @@ import { actions, events } from '../events';
 // Query params Stripe hands back on the return from Checkout.
 const PARAMS = ['donation', 'session_id'];
 
+// A page can now have more than one tl-fund-progress — the homepage/activity
+// ticker and any number of Campaign CTAs. All of them watch the same return-
+// from-Checkout query params, but only one should act on them: module-level
+// state (shared by every instance on the page, reset on each fresh page load)
+// lets the first one claim it so confirmDonation and the confetti fire once,
+// not once per instance.
+let handledReturn = false;
+
 /**
  * Fire confetti over the open modal. The modal is a <dialog> opened with
  * showModal(), which puts it in the browser's top layer — nothing outside it can
@@ -83,15 +91,25 @@ export default class FundProgress extends HTMLElement {
         const status = params.get('donation');
         const sessionId = params.get('session_id');
 
+        // Claimed synchronously, before anything async starts, so whichever
+        // instance's constructor runs first on this page (DOM order) is the
+        // one that handles the return — every later instance sees it already
+        // claimed and does neither the confirm nor the param cleanup below.
+        const handlingReturn = Boolean(status) && !handledReturn;
+
+        if (handlingReturn) {
+            handledReturn = true;
+        }
+
         load();
 
-        if (status === 'success' && sessionId) {
+        if (handlingReturn && status === 'success' && sessionId) {
             confirmDonation(sessionId);
         }
 
         // Drop the params so a refresh does not re-celebrate.
         // 'canceled' needs no message — the donor chose it.
-        if (status) {
+        if (handlingReturn) {
             const url = new URL(window.location.href);
 
             PARAMS.forEach(p => { url.searchParams.delete(p); });
