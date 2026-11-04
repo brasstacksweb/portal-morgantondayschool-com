@@ -1,4 +1,4 @@
-dateModified: 1793741996
+dateModified: 1793794802
 elementSources:
   craft\elements\Category:
     -
@@ -299,7 +299,6 @@ meta:
     e0a5b0bf-73f0-4e8e-822e-b4ea0bda99d5: Text # Text
     e1b52c88-d3c4-4f19-80f6-adf1d2dea13e: Coaches # Coaches
     e36cf20a-eb0d-4de9-8a98-9f74d2ad0e15: Color # Color
-    e589a646-33ba-4c84-b9ee-a7804a96701d: Campaign # Campaign
     e665c259-b527-4c5a-a7a3-e3ffb6498f27: Image # Image
     e3999e4e-a947-4d65-8944-1f558463fe8f: 'Social Links' # Social Links
     e5038e81-a8e1-4d28-a69e-4057923a0c2b: Card # Card

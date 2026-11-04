@@ -1,15 +1,43 @@
+{##
+ # Campaign CTA
+ #
+ # A donate button usable in any `cta`/`ctas` field sitewide. Opens the same
+ # dialog + Stripe Checkout flow as the homepage banner's "Give Now" button.
+ #
+ # Deliberately resolves the live campaign itself (craft.donations.getCampaign())
+ # rather than through a relation field on this entry: a relation would have to
+ # be re-pointed at the new campaign entry every year by hand, or it would keep
+ # showing last year's heading and presets after rollover — the campaign entry's
+ # postDate/expiryDate is supposed to be the only thing that needs to change.
+ #
+ # @param {string} type — CTA type <primary*, secondary, tertiary>, as passed by
+ #   whatever list this CTA is rendered in (e.g. hero.twig's loop.first check)
+ # @param {string} size — 'md' (default) or 'lg'
+ # @param {bool} invert
+ #}
+
+{# Params #}
+{% set type = type ?? 'primary' %}
 {% set size = size ?? 'md' %}
+{% set invert = invert ?? false %}
 
-{% set campaign = entry.campaign[0] ?? null %}
+{# Variables #}
+{% set campaign = craft.donations.getCampaign() %}
+{% set canGive = campaign and craft.checkout.isConfigured() %}
 
-<tl-fund-progress>
-	{% include '_components/form-dialog' with {
-		id: 'donate-dialog-' ~ campaign.id,
-		triggerLabel: entry.title,
-		heading: 'Give to the ' ~ campaign.heading,
-		size: size,
-		form: craft.donations.newDonation({
-			returnPath: craft.app.request.pathInfo,
-		}, campaign),
-	} only %}
-</tl-fund-progress>
+{# Markup #}
+{% if canGive %}
+	<tl-fund-progress>
+		{% include '_components/form-dialog' with {
+			id: 'donate-dialog-' ~ entry.id,
+			triggerLabel: entry.title,
+			heading: 'Give to the ' ~ campaign.heading,
+			type: type,
+			size: size,
+			invert: invert,
+			form: craft.donations.newDonation({
+				returnPath: craft.app.request.pathInfo,
+			}, campaign),
+		} only %}
+	</tl-fund-progress>
+{% endif %}

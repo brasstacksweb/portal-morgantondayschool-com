@@ -8,7 +8,9 @@
  # @param {string} triggerLabel
  # @param {string} heading
  # @param {modules\components\models\Form} form
+ # @param {string} type — the trigger button's CTA type <primary*, secondary, tertiary>
  # @param {string} size — 'lg' (default) or 'md'
+ # @param {bool} invert
  #}
 
 {# Params #}
@@ -16,7 +18,9 @@
 {% set triggerLabel = triggerLabel ?? '' %}
 {% set heading = heading ?? '' %}
 {% set form = form ?? null %}
+{% set type = type ?? 'primary' %}
 {% set size = size ?? 'lg' %}
+{% set invert = invert ?? false %}
 
 {# Variables #}
 {% set handle = 'form-dialog' %}
@@ -27,6 +31,8 @@
 <button type="button" popovertarget="{{ id }}">
 	{% include '_components/cta' with {
 		title: triggerLabel,
+		type: type,
+		invert: invert,
 	} only %}
 </button>
 <dialog id="{{ id }}" class="{{ handle }} {{ handle }}--{{ size }}" popover>
